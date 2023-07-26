@@ -527,21 +527,35 @@ def tuto_grow_explain(cla):
                         if imgs_ is not None:
                             print("sute_wear_5")
                             click_pos_2(940, 50, cla)
-            # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\raven_p_title.PNG"
-            # img_array = np.fromfile(full_path, np.uint8)
-            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            # imgs_ = imgs_set_(10, 10, 100, 100, cla, img, 0.7)
-            # if imgs_ is not None:
-            #     for i in range(10):
-            #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\raven_p_title.PNG"
-            #         img_array = np.fromfile(full_path, np.uint8)
-            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            #         imgs_ = imgs_set_(10, 10, 100, 100, cla, img, 0.7)
-            #         if imgs_ is not None:
-            #             print("raven_p_title")
-            #             click_pos_2(940, 50, cla)
-            #             time.sleep(0.2)
-                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\sute_wear_6.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(700, 750, 870, 810, cla, img, 0.7)
+                        if imgs_ is not None:
+                            print("sute_wear_6")
+                            click_pos_2(885, 835, cla)
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\sute_wear_7.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(420, 920, 630, 980, cla, img, 0.7)
+                        if imgs_ is not None:
+                            print("sute_wear_7")
+                            click_pos_2(430, 1005, cla)
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\raven_p_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 100, 100, cla, img, 0.7)
+            if imgs_ is not None:
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\raven_p_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 100, 100, cla, img, 0.7)
+                    if imgs_ is not None:
+                        print("raven_p_title")
+                        click_pos_2(940, 50, cla)
+                        time.sleep(0.2)
+
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\sute_wear_7.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -587,13 +601,7 @@ def tuto_grow_explain(cla):
                     else:
                         break
                     time.sleep(0.1)
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\sute_wear_6.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(700, 750, 870, 810, cla, img, 0.7)
-            if imgs_ is not None:
-                print("sute_wear_6")
-                click_pos_2(885, 835, cla)
+
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\raven_p_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
