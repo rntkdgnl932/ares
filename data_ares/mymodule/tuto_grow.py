@@ -595,6 +595,13 @@ def tuto_grow_explain(cla):
                 print("sute_wear_6")
                 click_pos_2(885, 835, cla)
 
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\raven_p_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 100, 100, cla, img, 0.7)
+            if imgs_ is not None:
+                click_pos_2(940, 50, cla)
+
 
         if v_.now_chabter == "chap_1_3":
             # 가디언의 위대한 여정이 시작되었어요
