@@ -2901,111 +2901,109 @@ class game_Playing(QThread):
 
             while self.isCheck is True:
 
-                if v_.now_cla == 'none':
-                    print("게임시작 대기!")
-                else:
-                    print("아레스 실행 모드(ver " + version + ")")
-                    print("ares cla", v_.now_cla)
-                    print("now_arduino", v_.now_arduino)
-                    result_game = game_start()
-                    if result_game == True and v_.now_cla != "none":
-                        # 이전 게임 모드 불러와서 실행
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\touching.PNG"
+                
+                print("아레스 실행 모드(ver " + version + ")")
+                print("ares cla", v_.now_cla)
+                print("now_arduino", v_.now_arduino)
+                result_game = game_start()
+                if result_game == True and v_.now_cla != "none":
+                    # 이전 게임 모드 불러와서 실행
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\touching.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("touching_mode 5초", imgs_)
+                        time.sleep(5)
+                    else:
+                        print("touching 없")
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
+                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("touching_mode 5초", imgs_)
-                            time.sleep(5)
-                        else:
-                            print("touching 없")
 
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_start_ready.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_start_ready.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("매크로를 내려야 실행됨...10초")
-                                    for i in range(10):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_start_ready.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
-                                        if imgs_ is not None and imgs_ != False:
-                                            if i > 8:
-                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_title_2.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                # 아레스는 1클라 고정
-                                                imgs_ = imgs_set_(0, 50, 960, 1030, "one", img, 0.7)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
-                                                break
-
-                                        else:
-                                            break
-                                        time.sleep(1)
-
-                                else:
-
-                                    # 18 이벤트창부터 끄자
-                                    _stop_please(v_.now_cla)
-
-                                    result_schedule = myQuest_play_check(v_.now_cla, "check")
-                                    print("result_schedule", result_schedule)
-                                    character_id = result_schedule[0][1]
-                                    result_schedule_ = result_schedule[0][2]
-
-                                    # 캐릭 번ㅅ번호 다르다면 체인지
-                                    # character_change(v_.now_cla, character_id)
-
-                                    # 스케쥴 시작
-                                    if result_schedule_ == "각종템받기":
-                                        get_item_start(v_.now_cla)
-                                        myQuest_play_add(v_.now_cla, result_schedule_)
-                                        time.sleep(0.2)
-
-                                    if result_schedule_ == "튜토육성":
-                                        tuto_grow_start(v_.now_cla, result_schedule_)
-
-                                    if result_schedule_ == "메인퀘스트":
-                                        main_grow_start(v_.now_cla, result_schedule_)
-
-                                    # if '_' in result_schedule_:
-                                    #     jadong_spl_ = result_schedule_.split("_")
-                                    #     if jadong_spl_[0] == "사냥":
-                                    #         jadong_start(v_.now_cla, result_schedule_)
-                                    #     elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
-                                    #         dungeon_start(v_.now_cla, result_schedule_)
-                            else:
-                                print("아레스 꺼져있는지 10초간 다시 검사하기")
-                                is_ares = False
-
+                                print("매크로를 내려야 실행됨...10초")
                                 for i in range(10):
-                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_start_ready.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        is_ares = True
+                                        if i > 8:
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_title_2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            # 아레스는 1클라 고정
+                                            imgs_ = imgs_set_(0, 50, 960, 1030, "one", img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
+                                            break
+
+                                    else:
                                         break
-                                if is_ares == False:
-                                    why = "아레스 꺼진게 확실하다"
-                                    print(why)
-                                    line_to_me(v_.now_cla, why)
+                                    time.sleep(1)
 
-                                    dir_path = "C:\\my_games\\load\\ares"
-                                    file_path = dir_path + "\\start.txt"
+                            else:
 
-                                    with open(file_path, "w", encoding='utf-8-sig') as file:
-                                        data = 'no'
-                                        file.write(str(data))
+                                # 18 이벤트창부터 끄자
+                                _stop_please(v_.now_cla)
+
+                                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                                print("result_schedule", result_schedule)
+                                character_id = result_schedule[0][1]
+                                result_schedule_ = result_schedule[0][2]
+
+                                # 캐릭 번ㅅ번호 다르다면 체인지
+                                # character_change(v_.now_cla, character_id)
+
+                                # 스케쥴 시작
+                                if result_schedule_ == "각종템받기":
+                                    get_item_start(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
+                                    time.sleep(0.2)
+
+                                if result_schedule_ == "튜토육성":
+                                    tuto_grow_start(v_.now_cla, result_schedule_)
+
+                                if result_schedule_ == "메인퀘스트":
+                                    main_grow_start(v_.now_cla, result_schedule_)
+
+                                # if '_' in result_schedule_:
+                                #     jadong_spl_ = result_schedule_.split("_")
+                                #     if jadong_spl_[0] == "사냥":
+                                #         jadong_start(v_.now_cla, result_schedule_)
+                                #     elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+                                #         dungeon_start(v_.now_cla, result_schedule_)
+                        else:
+                            print("아레스 꺼져있는지 10초간 다시 검사하기")
+                            is_ares = False
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    is_ares = True
+                                    break
+                            if is_ares == False:
+                                why = "아레스 꺼진게 확실하다"
+                                print(why)
+                                line_to_me(v_.now_cla, why)
+
+                                dir_path = "C:\\my_games\\load\\ares"
+                                file_path = dir_path + "\\start.txt"
+
+                                with open(file_path, "w", encoding='utf-8-sig') as file:
+                                    data = 'no'
+                                    file.write(str(data))
 
 
                 time.sleep(5)
