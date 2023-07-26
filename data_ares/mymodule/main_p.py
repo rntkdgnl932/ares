@@ -46,8 +46,12 @@ from schedule import myQuest_play_check, myQuest_play_add
 from character import character_select,character_change
 from daily_get_item import get_items
 from tuto_grow import tuto_grow_start
+from main_grow import main_grow_start
 from jadong import jadong_start
 from dungeon import dungeon_start
+from get_items import get_item_start
+
+from stop_event18 import _stop_please
 
 from test_ import go_test
 
@@ -172,6 +176,7 @@ class ThirdTab(QWidget):
                 # 파일 읽기
                 with open(file_path2, "r", encoding='utf-8-sig') as file:
                     line2 = file.read()
+                    v_.now_arduino = line2
                     print('line2', line2)
             else:
                 print('line2 파일 없당')
@@ -259,6 +264,8 @@ class ThirdTab(QWidget):
             file.write("on")
         data = "on"
         self.mouse_arduino.setText("       현재 아두이노 활성화 상태 : " + data + "\n\n")
+        v_.now_arduino = data
+
 
 
     def button_arduino_off(self):
@@ -268,6 +275,7 @@ class ThirdTab(QWidget):
             file.write("off")
         data = "off"
         self.mouse_arduino.setText("       현재 아두이노 활성화 상태 : " + data + "\n\n")
+        v_.now_arduino = data
 
 
 class SecondTab(QWidget):
@@ -2932,7 +2940,7 @@ class game_Playing(QThread):
                 else:
                     print("아레스 실행 모드(ver " + version + ")")
                     print("ares cla", v_.now_cla)
-
+                    print("now_arduino", v_.now_arduino)
                     result_game = game_start()
                     if result_game == True and v_.now_cla != "none":
                         # 이전 게임 모드 불러와서 실행
@@ -2969,7 +2977,7 @@ class game_Playing(QThread):
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                 # 아레스는 4클라 고정
-                                                imgs_ = imgs_set_(0, 50, 960, 1030, "three", img, 0.7)
+                                                imgs_ = imgs_set_(0, 50, 960, 1030, "four", img, 0.7)
                                                 if imgs_ is not None and imgs_ != False:
                                                     click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
                                                 break
@@ -2980,29 +2988,35 @@ class game_Playing(QThread):
 
                                 else:
 
+                                    # 18 이벤트창부터 끄자
+                                    _stop_please(v_.now_cla)
+
                                     result_schedule = myQuest_play_check(v_.now_cla, "check")
                                     print("result_schedule", result_schedule)
                                     character_id = result_schedule[0][1]
                                     result_schedule_ = result_schedule[0][2]
 
                                     # 캐릭 번ㅅ번호 다르다면 체인지
-                                    character_change(v_.now_cla, character_id)
+                                    # character_change(v_.now_cla, character_id)
 
                                     # 스케쥴 시작
                                     if result_schedule_ == "각종템받기":
-                                        get_items(v_.now_cla)
+                                        get_item_start(v_.now_cla)
                                         myQuest_play_add(v_.now_cla, result_schedule_)
                                         time.sleep(0.2)
 
                                     if result_schedule_ == "튜토육성":
-                                        tuto_grow_start(v_.now_cla)
+                                        tuto_grow_start(v_.now_cla, result_schedule_)
 
-                                    if '_' in result_schedule_:
-                                        jadong_spl_ = result_schedule_.split("_")
-                                        if jadong_spl_[0] == "사냥":
-                                            jadong_start(v_.now_cla, result_schedule_)
-                                        elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
-                                            dungeon_start(v_.now_cla, result_schedule_)
+                                    if result_schedule_ == "메인퀘스트":
+                                        main_grow_start(v_.now_cla, result_schedule_)
+
+                                    # if '_' in result_schedule_:
+                                    #     jadong_spl_ = result_schedule_.split("_")
+                                    #     if jadong_spl_[0] == "사냥":
+                                    #         jadong_start(v_.now_cla, result_schedule_)
+                                    #     elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+                                    #         dungeon_start(v_.now_cla, result_schedule_)
                             else:
                                 print("아레스 꺼져있는지 10초간 다시 검사하기")
                                 is_ares = False

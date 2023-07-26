@@ -1,0 +1,5 @@
+before_book_box
+gardiun_gold_box_1
+fight_help_box_1
+talgut_box
+color_box_1

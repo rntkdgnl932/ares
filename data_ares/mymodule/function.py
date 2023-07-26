@@ -961,7 +961,47 @@ def text_check_get_4(posX1, posY1, posX2, posY2, color, cla):
         print(e)
         return 0
 
+def how_many_pic(posX1, posY1, posX2, posY2, address, cla):
+    try:
+        from PIL import ImageGrab
+        from functools import partial
+        import cv2
+        import pytesseract
+        import numpy as np
+        from PIL import Image
+        import pyautogui
 
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+
+        coordinate = 0
+        if cla == 'one':
+            coordinate = 0
+        if cla == 'two':
+            coordinate = 960
+        if cla == 'three':
+            coordinate = 960 + 960
+        if cla == 'four':
+            coordinate = 960 + 960 + 960
+
+        full_path = address  # '완료' 그림 갯수 파악
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        many = 0
+        before = 0
+        after = 0
+        print("hihihihihi", coordinate)
+        for list in pyautogui.locateAllOnScreen(img, region=(posX1 + coordinate, posY1, posX2 - posX1, posY2 - posY1), confidence=0.75):
+            # print("list", list)
+            after = list.top
+            if before != after:
+                before = after
+                many += 1
+
+        ##
+        return many
+    except Exception as e:
+        print(e)
+        return 0
 
 
 
