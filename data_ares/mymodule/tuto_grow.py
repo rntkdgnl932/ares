@@ -351,7 +351,7 @@ def tuto_grow_explain(cla):
     from action_ares import out_check, bag_open
 
     try:
-
+        all_pass = True
         if v_.now_chabter == "chap_1_1":
 
             # 행성지도 알아볼까요?
@@ -676,7 +676,7 @@ def tuto_grow_explain(cla):
             if imgs_ is not None:
                 click_pos_2(935, 50, cla)
 
-        if v_.now_chabter == "chap_1_5":
+        if v_.now_chabter == "chap_1_5" or all_pass == True:
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\gardiun_travel\\gt_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

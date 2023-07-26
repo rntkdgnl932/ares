@@ -2901,7 +2901,7 @@ class game_Playing(QThread):
 
             while self.isCheck is True:
 
-                
+
                 print("아레스 실행 모드(ver " + version + ")")
                 print("ares cla", v_.now_cla)
                 print("now_arduino", v_.now_arduino)
