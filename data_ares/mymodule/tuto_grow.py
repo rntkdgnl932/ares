@@ -405,7 +405,7 @@ def tuto_grow_explain(cla):
                     else:
                         break
                     time.sleep(1)
-        if v_.now_chabter == "chap_1_2":
+        if v_.now_chabter == "chap_1_2" or all_pass == True:
             # ㄷㅏ양한 슈트 중 원하는 항목을 보급받을수있엉..
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\sute_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
