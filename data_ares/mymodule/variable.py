@@ -13,7 +13,7 @@ onMaul = "none"
 now_cla = 'none'
 
 # 현재실행중인 퀘스트(챕터)
-now_chabter = 'chap_2_1'
+now_chabter = 'none'
 
 # 아두이노 관련
 now_arduino = "none"

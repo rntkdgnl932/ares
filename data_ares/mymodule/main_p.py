@@ -1137,7 +1137,9 @@ class FirstTab(QWidget):
             print("game_Playing(self): ares_stop")
             dir_path = "C:\\my_games\\load\\ares"
             file_path = dir_path + "\\start.txt"
-            file_path2 = dir_path + "\\cla.txt"
+            # cla.txt
+            cla_data = str(v_.now_cla) + "cla"
+            file_path2 = dir_path + "\\" + cla_data + ".txt"
             with open(file_path, "w", encoding='utf-8-sig') as file:
                 data = 'no'
                 file.write(str(data))
@@ -2771,22 +2773,6 @@ class game_Playing_Ready(QThread):
 
             # self.m_ = Monitoring_one()
             # self.m_.start()
-            dir_path = "C:\\my_games\\load\\ares"
-            file_path2 = dir_path + "\\cla.txt"
-            isstart2 = False
-            while isstart2 is False:
-                if os.path.isdir(dir_path) == True:
-                    if os.path.isfile(file_path2) == True:
-                        with open(file_path2, "r", encoding='utf-8-sig') as file:
-                            v_.now_cla = file.read()
-
-                            isstart2 = True
-                    else:
-                        with open(file_path2, "w", encoding='utf-8-sig') as file:
-                            data = 'none'
-                            file.write(str(data))
-                else:
-                    os.makedirs(dir_path)
 
             self.x_ = game_Playing()
             self.x_.start()
@@ -2803,18 +2789,12 @@ class game_Playing_onecla(QThread):
         try:
             dir_path = "C:\\my_games\\load\\ares"
             file_path = dir_path + "\\start.txt"
-            file_path2 = dir_path + "\\cla.txt"
 
             with open(file_path, "w", encoding='utf-8-sig') as file:
                 data = 'yes'
                 file.write(str(data))
 
-            with open(file_path2, "w", encoding='utf-8-sig') as file:
-                data = 'one'
-                v_.now_cla = 'one'
-                file.write(str(data))
-
-            # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
+            v_.now_cla = 'one' # <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
 
             self.m_ = Monitoring_one()
             self.m_.start()
@@ -2835,18 +2815,13 @@ class game_Playing_twocla(QThread):
         try:
             dir_path = "C:\\my_games\\load\\ares"
             file_path = dir_path + "\\start.txt"
-            file_path2 = dir_path + "\\cla.txt"
 
             with open(file_path, "w", encoding='utf-8-sig') as file:
                 data = 'yes'
                 file.write(str(data))
 
-            with open(file_path2, "w", encoding='utf-8-sig') as file:
-                data = 'two'
-                v_.now_cla = 'two'
-                file.write(str(data))
 
-            # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
+            v_.now_cla = 'two' # <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
 
             self.m_ = Monitoring_two()
             self.m_.start()
@@ -2865,18 +2840,13 @@ class game_Playing_threecla(QThread):
         try:
             dir_path = "C:\\my_games\\load\\ares"
             file_path = dir_path + "\\start.txt"
-            file_path2 = dir_path + "\\cla.txt"
 
             with open(file_path, "w", encoding='utf-8-sig') as file:
                 data = 'yes'
                 file.write(str(data))
 
-            with open(file_path2, "w", encoding='utf-8-sig') as file:
-                data = 'three'
-                v_.now_cla = 'three'
-                file.write(str(data))
 
-            # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
+            v_.now_cla = 'three' # <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
 
             self.m_ = Monitoring_three()
             self.m_.start()
@@ -2895,18 +2865,13 @@ class game_Playing_fourcla(QThread):
         try:
             dir_path = "C:\\my_games\\load\\ares"
             file_path = dir_path + "\\start.txt"
-            file_path2 = dir_path + "\\cla.txt"
 
             with open(file_path, "w", encoding='utf-8-sig') as file:
                 data = 'yes'
                 file.write(str(data))
 
-            with open(file_path2, "w", encoding='utf-8-sig') as file:
-                data = 'four'
-                v_.now_cla = 'four'
-                file.write(str(data))
 
-            # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
+            v_.now_cla = 'four' # <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
 
             self.m_ = Monitoring_four()
             self.m_.start()

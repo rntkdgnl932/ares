@@ -13,7 +13,6 @@ def game_start():
 
         dir_path = "C:\\my_games\\load\\ares"
         file_path = dir_path + "\\start.txt"
-        file_path2 = dir_path + "\\cla.txt"
 
         isstart1 = False
         while isstart1 is False:
@@ -24,20 +23,6 @@ def game_start():
                         isstart1 = True
                 else:
                     with open(file_path, "w", encoding='utf-8-sig') as file:
-                        data = 'none'
-                        file.write(str(data))
-            else:
-                os.makedirs(dir_path)
-        isstart2 = False
-        while isstart2 is False:
-            if os.path.isdir(dir_path) == True:
-                if os.path.isfile(file_path2) == True:
-                    with open(file_path2, "r", encoding='utf-8-sig') as file:
-                        v_.now_cla = file.read()
-
-                        isstart2 = True
-                else:
-                    with open(file_path2, "w", encoding='utf-8-sig') as file:
                         data = 'none'
                         file.write(str(data))
             else:
