@@ -1,8 +1,4 @@
 import time
-
-import mouse
-import requests
-import json
 # import os
 import sys
 
