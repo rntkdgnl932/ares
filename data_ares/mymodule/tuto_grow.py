@@ -917,7 +917,15 @@ def tuto_grow_explain(cla):
                         time.sleep(0.2)
                         break
                     else:
-                        click_pos_2(40, 180, cla)
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_talgut\\chap_1_7_talgut_4.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 110, 200, 600, cla, img, 0.7)
+                        if imgs_ is not None:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            click_pos_2(40, 180, cla)
                         time.sleep(0.2)
                     time.sleep(0.3)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_talgut\\talgut_title.PNG"
