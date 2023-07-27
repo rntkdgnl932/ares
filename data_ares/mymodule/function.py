@@ -456,8 +456,6 @@ def click_pos_reg(pos_1, pos_2, cla):
             arduino_port = v_.COM_
             baudrate = v_.speed_
 
-
-
             ser = serial.Serial(arduino_port, baudrate)
 
             moveZ = 1
@@ -470,8 +468,6 @@ def click_pos_reg(pos_1, pos_2, cla):
                 move_count += 1
                 if move_count > 300:
                     move_ = True
-
-
 
                 # 이동 시킬 포인트 계산
                 x_reg = pos_1 + coordinate - pyautogui.position()[0]
@@ -503,7 +499,6 @@ def click_pos_reg(pos_1, pos_2, cla):
                     else:
                         moveY = max(-k_reg, y_reg)
 
-
                 data = f'x = {moveX}, y = {moveY}, z = {moveZ}\n'
                 ser.write(data.encode())
                 received_data = ser.readline().decode().strip()
@@ -527,7 +522,6 @@ def click_pos_reg(pos_1, pos_2, cla):
 
     except Exception as e:
         print("error:", e)
-
 
 def mouse_move_cpp(pos_1, pos_2, cla):
     try:
@@ -755,12 +749,12 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
 
 def text_check_potion(posX1, posY1, posX2, posY2, cla):
     try:
-        # from PIL import ImageGrab
-        # from functools import partial
+        from PIL import ImageGrab
+        from functools import partial
         import pyautogui
         import pytesseract
 
-        # ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
 
         potion = 0
 
