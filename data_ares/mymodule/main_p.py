@@ -2941,7 +2941,7 @@ class game_Playing(QThread):
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                             # 아레스는 1클라 고정
-                                            imgs_ = imgs_set_(0, 50, 960, 1030, "one", img, 0.7)
+                                            imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.7)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
                                             break
