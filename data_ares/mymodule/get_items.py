@@ -586,6 +586,14 @@ def bag_item_open(cla):
                         time.sleep(0.3)
                     if is_sohwan == True:
                         for y in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\barobogi.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(390, 970, 550, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan_exit.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
