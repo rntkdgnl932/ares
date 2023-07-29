@@ -921,7 +921,7 @@ def tuto_grow_explain(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_talgut\\chap_1_7_talgut_4.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 110, 200, 600, cla, img, 0.7)
+                        imgs_ = imgs_set_(0, 110, 600, 1050, cla, img, 0.7)
                         if imgs_ is not None:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
@@ -1064,7 +1064,7 @@ def burst_mode(cla):
                     # 0.2초
                     time.sleep(0.2)
 
-                    for i in range(30):
+                    for i in range(10):
 
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -1108,7 +1108,7 @@ def burst_mode(cla):
                                         burst_mode_action_right = True
 
                         if burst_mode_action_right == True:
-                            x_reg = 280 + (i * 40)
+                            x_reg = 280 + (i * 50)
                             # 마우스 이동
                             mouse_move_cpp(x_reg, 505, cla)
                             # 0.2초
@@ -1130,7 +1130,7 @@ def burst_mode(cla):
                     # 0.2초!
                     time.sleep(0.2)
 
-                    for i in range(30):
+                    for i in range(10):
 
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -1174,7 +1174,7 @@ def burst_mode(cla):
                                         burst_mode_action_right = True
 
                         if burst_mode_action_right == False:
-                            x_reg = 880 - (i * 40)
+                            x_reg = 880 - (i * 50)
                             # 마우스 이동
                             mouse_move_cpp(x_reg, 505, cla)
                             # 0.2초
