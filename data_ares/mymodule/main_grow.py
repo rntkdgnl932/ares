@@ -242,7 +242,7 @@ def grow_explain(cla):
         if imgs_ is not None:
             click_pos_2(940, 50, cla)
 
-        if v_.now_chabter == "chap_2_1":
+        if v_.now_chabter == "chap_2_1_1" or v_.now_chabter == "chap_2_1_3":
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -329,7 +329,7 @@ def grow_explain(cla):
                     else:
                         break
                     time.sleep(0.3)
-        if v_.now_chabter == "chap_2_2" or v_.now_chabter == "chap_2_22":
+        if v_.now_chabter == "chap_2_1_2" or v_.now_chabter == "chap_2_1_22":
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\select_dress_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
