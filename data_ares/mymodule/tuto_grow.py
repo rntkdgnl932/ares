@@ -1044,7 +1044,7 @@ def burst_mode(cla):
 
         while burst_mode_action is True:
             burst_mode_count += 1
-            if burst_mode_count > 30:
+            if burst_mode_count > 50:
                 burst_mode_action = False
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\burst_1.PNG"
@@ -1108,7 +1108,7 @@ def burst_mode(cla):
                                         burst_mode_action_right = True
 
                         if burst_mode_action_right == True:
-                            x_reg = 280 + (i * 20)
+                            x_reg = 280 + (i * 40)
                             # 마우스 이동
                             mouse_move_cpp(x_reg, 505, cla)
                             # 0.2초
@@ -1174,7 +1174,7 @@ def burst_mode(cla):
                                         burst_mode_action_right = True
 
                         if burst_mode_action_right == False:
-                            x_reg = 880 - (i * 20)
+                            x_reg = 880 - (i * 40)
                             # 마우스 이동
                             mouse_move_cpp(x_reg, 505, cla)
                             # 0.2초
