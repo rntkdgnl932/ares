@@ -1039,6 +1039,9 @@ def burst_mode(cla):
 
         burst_mode_action = True
         burst_mode_count = 0
+
+        burst_mode_action_right = True
+
         while burst_mode_action is True:
             burst_mode_count += 1
             if burst_mode_count > 30:
@@ -1050,28 +1053,82 @@ def burst_mode(cla):
             imgs_ = imgs_set_(890, 890, 960, 1050, cla, img, 0.7)
             if imgs_ is not None:
 
-                # 마우스 이동
-                mouse_move_cpp(280, 505, cla)
-                # 0.2초
-                time.sleep(0.2)
-
-                # 마우스 누르기
-                drag_pos_Press()
-                # 0.2초
-                time.sleep(0.2)
-
-                for i in range(30):
-                    x_reg = 280 + (i * 20)
+                if burst_mode_action_right == True:
+                    # 최초 오른쪽으로 공격
                     # 마우스 이동
-                    mouse_move_cpp(x_reg, 505, cla)
+                    mouse_move_cpp(280, 505, cla)
+                    # 0.2초
+                    time.sleep(0.2)
+                    # 마우스 누르기
+                    drag_pos_Press()
                     # 0.2초
                     time.sleep(0.2)
 
-                # 마우스 떼기
-                drag_pos_Release()
-                # 0.2초
-                time.sleep(0.2)
+                    for i in range(30):
 
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = False
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = True
+
+                        if burst_mode_action_right == True:
+                            x_reg = 280 + (i * 20)
+                            # 마우스 이동
+                            mouse_move_cpp(x_reg, 505, cla)
+                            # 0.2초
+                            time.sleep(0.2)
+                        else:
+                            break
+                    # 마우스 떼기
+                    drag_pos_Release()
+                    # 0.2초
+                    time.sleep(0.2)
+
+                else:
+                    # 마우스 이동
+                    mouse_move_cpp(880, 505, cla)
+                    # 0.2초
+                    time.sleep(0.2)
+                    # 마우스 누르기
+                    drag_pos_Press()
+                    # 0.2초
+                    time.sleep(0.2)
+
+                    for i in range(30):
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = False
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = True
+
+                        if burst_mode_action_right == False:
+                            x_reg = 880 - (i * 20)
+                            # 마우스 이동
+                            mouse_move_cpp(x_reg, 505, cla)
+                            # 0.2초
+                            time.sleep(0.2)
+                        else:
+                            break
+                    # 마우스 떼기
+                    drag_pos_Release()
+                    # 0.2초
+                    time.sleep(0.2)
 
 
             else:
