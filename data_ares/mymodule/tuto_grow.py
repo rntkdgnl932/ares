@@ -1127,7 +1127,7 @@ def burst_mode(cla):
                     time.sleep(0.2)
                     # 마우스 누르기
                     drag_pos_Press()
-                    # 0.2초
+                    # 0.2초!
                     time.sleep(0.2)
 
                     for i in range(30):
