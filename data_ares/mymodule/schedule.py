@@ -495,6 +495,9 @@ def myQuest_play_add(cla, data):
 
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(last_result)
+                if data == "튜토육성":
+                with open(file_path3, "w", encoding='utf-8-sig') as file:
+                    file.write(last_result)
             else:
                 print("아직 미션 진행중")
         else:
