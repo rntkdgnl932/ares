@@ -812,6 +812,13 @@ def tuto_grow_explain(cla):
                         click_pos_2(870, 985, cla)
                     else:
                         click_pos_2(920, 935, cla)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_5_wisung\\ares_booster.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 900, 920, 1020, cla, img, 0.7)
+                if imgs_ is not None:
+                    click_pos_2(920, 990, cla)
+                    time.sleep(10)
         if v_.now_chabter == "chap_1_5" or v_.now_chabter == "chap_1_6":
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\scan\\scan_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
