@@ -1030,8 +1030,8 @@ def tuto_grow_explain(cla):
         print(e)
         return 0
 
-
 def burst_mode(cla):
+    import pyautogui
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, mouse_move_cpp, drag_pos_Press, drag_pos_Release
@@ -1193,6 +1193,149 @@ def burst_mode(cla):
                     time.sleep(0.2)
 
 
+            else:
+
+                burst_mode_action = False
+
+            time.sleep(0.2)
+
+
+    except Exception as e:
+        print(e)
+        return 0
+def burst_mode_2(cla):
+    import pyautogui
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_2, mouse_move_cpp, drag_pos_Press, drag_pos_Release
+
+    try:
+        print("burst_mode_2")
+
+
+
+        burst_mode_action = True
+        burst_mode_count = 0
+
+        burst_mode_action_right = True
+
+        while burst_mode_action is True:
+            burst_mode_count += 1
+            if burst_mode_count > 50:
+                burst_mode_action = False
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\burst_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(890, 890, 960, 1050, cla, img, 0.7)
+            if imgs_ is not None:
+
+                if burst_mode_action_right == True:
+                    # 최초 오른쪽으로 공격
+
+
+                    for i in range(10):
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = False
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                burst_mode_action_right = False
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = True
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                burst_mode_action_right = True
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_3.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                                if imgs_ is not None:
+                                    burst_mode_action_right = True
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_4.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                                    if imgs_ is not None:
+                                        burst_mode_action_right = True
+
+                        if burst_mode_action_right == True:
+                            click_pos_2(180, 505, cla)
+                            time.sleep(0.1)
+                            pyautogui.dragTo(880, 505, 2)
+                        else:
+                            break
+                        time.sleep(0.1)
+
+                else:
+
+                    for i in range(10):
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = False
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                burst_mode_action_right = False
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                        if imgs_ is not None:
+                            burst_mode_action_right = True
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                burst_mode_action_right = True
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_3.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                                if imgs_ is not None:
+                                    burst_mode_action_right = True
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_4.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                                    if imgs_ is not None:
+                                        burst_mode_action_right = True
+
+                        if burst_mode_action_right == False:
+                            click_pos_2(880, 505, cla)
+                            time.sleep(0.1)
+                            pyautogui.dragTo(180, 505, 2)
+                        else:
+                            break
             else:
 
                 burst_mode_action = False
