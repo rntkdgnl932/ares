@@ -25,7 +25,7 @@ def main_grow_start(cla, schedule):
 def grow_main(cla, schedule):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, click_pos_2
+    from function import imgs_set_, click_pos_reg, click_pos_2, drag_pos
     from schedule import myQuest_play_add
     from action_ares import out_check
 
@@ -42,6 +42,7 @@ def grow_main(cla, schedule):
         result_out = out_check(cla)
         if result_out == True:
             drag_pos(405, 605, 805, 805, cla)
+            time.sleep(1)
 
 
         file_path = "C:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chaps\\chaps.txt"
