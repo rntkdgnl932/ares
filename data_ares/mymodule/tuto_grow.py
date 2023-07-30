@@ -143,6 +143,7 @@ def tuto_grow_main(cla, schedule):
     import cv2
     from function import imgs_set_, click_pos_reg, drag_pos
     from schedule import myQuest_play_add
+    from action_ares import out_check
 
 
     try:
