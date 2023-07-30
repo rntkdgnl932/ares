@@ -16,20 +16,69 @@ def go_test():
     print("tst")
     cla = "one"
 
-    bag_item_open(cla)
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\friend.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
-    if imgs_ is not None:
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\challenge_1.PNG"
+    burst_mode_action_right = True
+
+    mouse_move_cpp(180, 505, cla)
+    # 0.2초
+    time.sleep(0.2)
+    # 마우스 누르기
+    drag_pos_Press()
+    # 0.2초
+    time.sleep(0.2)
+
+    for i in range(10):
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 170, 150, 270, cla, img, 0.77)
+        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
         if imgs_ is not None:
-            print("보여", imgs_)
+            burst_mode_action_right = False
         else:
-            print("안보여")
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_right_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+            if imgs_ is not None:
+                burst_mode_action_right = False
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+        if imgs_ is not None:
+            burst_mode_action_right = True
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+            if imgs_ is not None:
+                burst_mode_action_right = True
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                if imgs_ is not None:
+                    burst_mode_action_right = True
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\ares_left_4.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1050, cla, img, 0.7)
+                    if imgs_ is not None:
+                        burst_mode_action_right = True
+
+        if burst_mode_action_right == True:
+            x_reg = 180 + (i * 60)
+            # 마우스 이동
+            mouse_move_cpp(x_reg, 505, cla)
+        else:
+            break
+    # 마우스 떼기
+    drag_pos_Release()
+    # 0.2초
+    time.sleep(0.2)
 
     # address = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
     # result_many = how_many_pic(270, 370, 310, 700, address, cla)

@@ -1060,7 +1060,7 @@ def burst_mode(cla):
                 if burst_mode_action_right == True:
                     # 최초 오른쪽으로 공격
                     # 마우스 이동
-                    mouse_move_cpp(280, 505, cla)
+                    mouse_move_cpp(180, 505, cla)
                     # 0.2초
                     time.sleep(0.2)
                     # 마우스 누르기
@@ -1112,13 +1112,14 @@ def burst_mode(cla):
                                         burst_mode_action_right = True
 
                         if burst_mode_action_right == True:
-                            x_reg = 280 + (i * 50)
+                            x_reg = 180 + (i * 60)
                             # 마우스 이동
                             mouse_move_cpp(x_reg, 505, cla)
                             # 0.2초
                             time.sleep(0.2)
                         else:
                             break
+                        time.sleep(0.1)
                     # 마우스 떼기
                     drag_pos_Release()
                     # 0.2초
@@ -1178,13 +1179,14 @@ def burst_mode(cla):
                                         burst_mode_action_right = True
 
                         if burst_mode_action_right == False:
-                            x_reg = 880 - (i * 50)
+                            x_reg = 880 - (i * 60)
                             # 마우스 이동
                             mouse_move_cpp(x_reg, 505, cla)
                             # 0.2초
                             time.sleep(0.2)
                         else:
                             break
+                        time.sleep(0.1)
                     # 마우스 떼기
                     drag_pos_Release()
                     # 0.2초

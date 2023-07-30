@@ -604,6 +604,8 @@ def mouse_move_cpp(pos_1, pos_2, cla):
     except Exception as e:
         print("error:", e)
 
+
+
 def drag_pos_Press():
     try:
         import serial
