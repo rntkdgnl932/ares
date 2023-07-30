@@ -585,7 +585,24 @@ def bag_item_open(cla):
                                     time.sleep(0.5)
                         time.sleep(0.3)
                     if is_sohwan == True:
-                        for y in range(5):
+
+                        exit_ready = False
+                        exit_ready_count = 0
+                        while exit_ready is False:
+                            exit_ready_count += 1
+                            if exit_ready_count > 20:
+                                exit_ready = True
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan_exit.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 950, 800, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                exit_ready = True
+
+                        for y in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\barobogi.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -597,11 +614,19 @@ def bag_item_open(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan_exit.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(300, 970, 700, 1050, cla, img, 0.7)
+                            imgs_ = imgs_set_(300, 950, 800, 1050, cla, img, 0.7)
                             if imgs_ is not None:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
                                 break
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan__confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 970, 700, 1050, cla, img, 0.7)
+                            if imgs_ is not None:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
                             else:
                                 tuto_grow_skip(cla)
                             time.sleep(1)
