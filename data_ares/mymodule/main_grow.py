@@ -49,6 +49,9 @@ def grow_main(cla, schedule):
         with open(file_path, "r", encoding='utf-8-sig') as file:
             read_chap = file.read().splitlines()
 
+        x_reg = 0
+        y_reg = 0
+
         for i in range(len(read_chap)):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chaps\\" + read_chap[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -378,7 +381,7 @@ def grow_explain(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
             if imgs_ is not None:
-
+                click_pos_2(940, 50, cla)
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\sute_room_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -408,7 +411,6 @@ def grow_explain(cla):
                     else:
                         break
                     time.sleep(0.5)
-
 
 
     except Exception as e:
