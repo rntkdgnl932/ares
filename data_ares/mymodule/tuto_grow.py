@@ -154,7 +154,7 @@ def tuto_grow_main(cla, schedule):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(785, 75, 835, 100, cla, img, 0.77)
         if imgs_ is not None:
-            drag_pos(405, 605, 805, 605, cla)
+            drag_pos(405, 605, 805, 805, cla)
             time.sleep(1)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chaps\\chaps.png"
             img_array = np.fromfile(full_path, np.uint8)
@@ -165,7 +165,10 @@ def tuto_grow_main(cla, schedule):
                 myQuest_play_add(cla, schedule)
                 time.sleep(1)
         else:
-            drag_pos(405, 605, 805, 605, cla)
+            result_out = out_check(cla)
+            if result_out == True:
+                drag_pos(405, 605, 805, 805, cla)
+                time.sleep(1)
             file_path = "C:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chap_1\\chap_1.txt"
             with open(file_path, "r", encoding='utf-8-sig') as file:
                 read_chap = file.read().splitlines()

@@ -27,6 +27,7 @@ def grow_main(cla, schedule):
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
     from schedule import myQuest_play_add
+    from action_ares import out_check
 
     try:
         print("grow_main")
@@ -37,6 +38,10 @@ def grow_main(cla, schedule):
         imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
         if imgs_ is not None:
             click_pos_2(935, 50, cla)
+
+        result_out = out_check(cla)
+        if result_out == True:
+            drag_pos(405, 605, 805, 805, cla)
 
 
         file_path = "C:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chaps\\chaps.txt"
