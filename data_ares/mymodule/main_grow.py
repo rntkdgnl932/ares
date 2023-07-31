@@ -259,6 +259,13 @@ def grow_explain(cla):
             click_pos_reg(imgs_.x - 110, imgs_.y - 60, cla)
             v_.now_chabter = "chap_2_1_2"
 
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\sute\\sute_room_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 90, 80, cla, img, 0.7)
+        if imgs_ is not None:
+            click_pos_2(940, 50, cla)
+
         if v_.now_chabter == "chap_2_1_1" or v_.now_chabter == "chap_2_1_3":
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
