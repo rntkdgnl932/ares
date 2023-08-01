@@ -132,44 +132,44 @@ def myQuest_play_check(cla, data):
                                         reset_schedule_ += complete_[j] + ":"
                                     if j == 3:
 
-                                        if '_' in complete_[2]:
-                                            dunjeon_spl_ = complete_[2].split("_")
-                                            print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                            print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                            # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                            if dunjeon_spl_[1] == "신전":
-                                                reset_schedule_ += complete_[j] + ":"
-                                            else:
-                                                reset_schedule_ += '대기중:'
-                                        else:
-                                            reset_schedule_ += '대기중:'
-
-                                        # if complete_[2] == "지하감옥":
-                                        #     reset_schedule_ += complete_[j] + ":"
+                                        # if '_' in complete_[2]:
+                                        #     dunjeon_spl_ = complete_[2].split("_")
+                                        #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                        #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                        #
+                                        #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                        #     if dunjeon_spl_[1] == "신전":
+                                        #         reset_schedule_ += complete_[j] + ":"
+                                        #     else:
+                                        #         reset_schedule_ += '대기중:'
                                         # else:
                                         #     reset_schedule_ += '대기중:'
+
+                                        if complete_[2] == "튜토육성":
+                                            reset_schedule_ += complete_[j] + ":"
+                                        else:
+                                            reset_schedule_ += '대기중:'
                                     if 3 < j < 7:
                                         reset_schedule_ += complete_[j] + ":"
                                     if j == 7:
 
-                                        if '_' in complete_[6]:
-                                            dunjeon_spl_ = complete_[6].split("_")
-                                            print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                            print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                            # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                            if dunjeon_spl_[1] == "신전":
-                                                reset_schedule_ += complete_[j] + "\n"
-                                            else:
-                                                reset_schedule_ += "대기중\n"
-                                        else:
-                                            reset_schedule_ += "대기중\n"
-
-                                        # if complete_[6] == "지하감옥":
-                                        #     reset_schedule_ += complete_[j] + "\n"
+                                        # if '_' in complete_[2]:
+                                        #     dunjeon_spl_ = complete_[2].split("_")
+                                        #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                        #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                        #
+                                        #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                        #     if dunjeon_spl_[1] == "신전":
+                                        #         reset_schedule_ += complete_[j] + ":"
+                                        #     else:
+                                        #         reset_schedule_ += '대기중:'
                                         # else:
-                                        #     reset_schedule_ += "대기중\n"
+                                        #     reset_schedule_ += '대기중:'
+
+                                        if complete_[6] == "튜토육성":
+                                            reset_schedule_ += complete_[j] + ":"
+                                        else:
+                                            reset_schedule_ += '대기중:'
 
                             print('reset_schedule_', reset_schedule_)
                             with open(file_path, "w", encoding='utf-8-sig') as file:
@@ -249,19 +249,6 @@ def myQuest_play_check(cla, data):
                 print("dunjeon_spl_[0]", dunjeon_spl_[0])
                 print("dunjeon_spl_[1]", dunjeon_spl_[1])
                 dunjeon_spl_re = dunjeon_spl_[0]
-
-            # if start[2] == '미드가르드' or start[2] == '요툰하임':
-            #     now_ing = 'maul'
-            # elif start[2] == '공허' or dunjeon_spl_re == '공허':
-            #     now_ing = 'gonghu'
-            # elif start[2] == '난쟁이' or dunjeon_spl_re == '난쟁이':
-            #     now_ing = 'nanjang'
-            # elif start[2] == '지하감옥' or dunjeon_spl_re == '지하감옥':
-            #     now_ing = 'underprison'
-            # elif start[2] == '요툰육성' or start[2] == '니다육성':
-            #     now_ing = 'grow'
-            # else:
-            #     now_ing = 'jadong'
 
 
 
@@ -534,11 +521,30 @@ def myQuest_play_add(cla, data):
                                 if j < 3:
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 3:
-                                    reset_schedule_ += '대기중:'
+                                    if complete_[2] == "튜토육성":
+                                        reset_schedule_ += complete_[j] + ":"
+                                    else:
+                                        reset_schedule_ += '대기중:'
                                 if 3 < j < 7:
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 7:
-                                    reset_schedule_ += "대기중\n"
+                                    # if '_' in complete_[2]:
+                                    #     dunjeon_spl_ = complete_[2].split("_")
+                                    #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                    #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                    #
+                                    #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    #     if dunjeon_spl_[1] == "신전":
+                                    #         reset_schedule_ += complete_[j] + ":"
+                                    #     else:
+                                    #         reset_schedule_ += '대기중:'
+                                    # else:
+                                    #     reset_schedule_ += '대기중:'
+
+                                    if complete_[6] == "튜토육성":
+                                        reset_schedule_ += complete_[j] + ":"
+                                    else:
+                                        reset_schedule_ += '대기중:'
                         print('reset_schedule_', reset_schedule_)
                         with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(reset_schedule_)
@@ -574,44 +580,44 @@ def myQuest_play_add(cla, data):
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 3:
 
-                                    if '_' in complete_[2]:
-                                        dunjeon_spl_ = complete_[2].split("_")
-                                        print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                        print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                        # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                        if dunjeon_spl_[1] == "신전":
-                                            reset_schedule_ += complete_[j] + ":"
-                                        else:
-                                            reset_schedule_ += '대기중:'
-                                    else:
-                                        reset_schedule_ += '대기중:'
-
-                                    # if complete_[2] == "지하감옥":
-                                    #     reset_schedule_ += complete_[j] + ":"
+                                    # if '_' in complete_[2]:
+                                    #     dunjeon_spl_ = complete_[2].split("_")
+                                    #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                    #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                    #
+                                    #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    #     if dunjeon_spl_[1] == "신전":
+                                    #         reset_schedule_ += complete_[j] + ":"
+                                    #     else:
+                                    #         reset_schedule_ += '대기중:'
                                     # else:
                                     #     reset_schedule_ += '대기중:'
+
+                                    if complete_[2] == "튜토육성":
+                                        reset_schedule_ += complete_[j] + ":"
+                                    else:
+                                        reset_schedule_ += '대기중:'
                                 if 3 < j < 7:
                                     reset_schedule_ += complete_[j] + ":"
                                 if j == 7:
 
-                                    if '_' in complete_[6]:
-                                        dunjeon_spl_ = complete_[6].split("_")
-                                        print("dunjeon_spl_[0]", dunjeon_spl_[0])
-                                        print("dunjeon_spl_[1]", dunjeon_spl_[1])
-
-                                        # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
-                                        if dunjeon_spl_[1] == "신전":
-                                            reset_schedule_ += complete_[j] + "\n"
-                                        else:
-                                            reset_schedule_ += "대기중\n"
-                                    else:
-                                        reset_schedule_ += "대기중\n"
-
-                                    # if complete_[6] == "지하감옥":
-                                    #     reset_schedule_ += complete_[j] + "\n"
+                                    # if '_' in complete_[2]:
+                                    #     dunjeon_spl_ = complete_[2].split("_")
+                                    #     print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                    #     print("dunjeon_spl_[1]", dunjeon_spl_[1])
+                                    #
+                                    #     # if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    #     if dunjeon_spl_[1] == "신전":
+                                    #         reset_schedule_ += complete_[j] + ":"
+                                    #     else:
+                                    #         reset_schedule_ += '대기중:'
                                     # else:
-                                    #     reset_schedule_ += "대기중\n"
+                                    #     reset_schedule_ += '대기중:'
+
+                                    if complete_[6] == "튜토육성":
+                                        reset_schedule_ += complete_[j] + ":"
+                                    else:
+                                        reset_schedule_ += '대기중:'
 
                         print('reset_schedule_', reset_schedule_)
                         with open(file_path, "w", encoding='utf-8-sig') as file:

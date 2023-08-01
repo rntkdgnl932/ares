@@ -36,7 +36,7 @@ def grow_main(cla, schedule):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_2(935, 50, cla)
 
         result_out = out_check(cla)
@@ -57,7 +57,7 @@ def grow_main(cla, schedule):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(770, 60, 960, 100, cla, img, 0.77)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("chap", read_chap[i])
                 v_.now_chabter = read_chap[i]
                 x_reg = imgs_.x
@@ -116,7 +116,7 @@ def grow_quest_ing(cla):
                 imgs_ = imgs_set_(750, 70, 810, 110, cla, img, 0.7)
             else:
                 imgs_ = imgs_set_(750, 70, 810, 180, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("quest_ing_1")
                 ing_ = True
                 ing_now = True
@@ -137,7 +137,7 @@ def grow_skip(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(840, 30, 960, 100, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             print("skip_1")
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -145,7 +145,7 @@ def grow_skip(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(640, 470, 720, 570, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             print("skip_2")
 
             for i in range(10):
@@ -153,14 +153,14 @@ def grow_skip(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(640, 470, 720, 570, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\skip\\skip_2_end.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(640, 410, 720, 570, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                     else:
                         click_pos_2(685, 445, cla)
@@ -170,13 +170,13 @@ def grow_skip(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(640, 410, 720, 570, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\skip\\level_up_skip.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(280, 620, 600, 1050, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
@@ -196,7 +196,7 @@ def grow_complete(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 350, 550, 500, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             print("complete_1")
             click_pos_reg(imgs_.x, imgs_.y, cla)
         else:
@@ -204,7 +204,7 @@ def grow_complete(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(400, 350, 550, 500, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("complete_3")
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
@@ -212,7 +212,7 @@ def grow_complete(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(400, 350, 550, 500, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     print("complete_4")
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
@@ -220,7 +220,7 @@ def grow_complete(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(400, 350, 550, 500, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         print("complete_5")
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -234,28 +234,137 @@ def grow_explain(cla):
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
     from action_ares import out_check, bag_open
+    from schedule import myQuest_play_add
 
     try:
-
+        new_contents = False
         # 새로운 컨텐츠가 개방되었어요
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_hybdong\\new_contents.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(700, 60, 940, 140, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_2(940, 50, cla)
+            new_contents = True
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_hybdong\\quest_menu_open.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(880, 20, 960, 100, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_2(940, 50, cla)
+            new_contents = True
+        if new_contents == True:
+            for i in range(10):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\friend.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                else:
+                    click_pos_2(100, 230, cla)
+                    time.sleep(0.5)
+                    click_pos_2(100, 280, cla)
+                    time.sleep(0.5)
+                    click_pos_2(100, 330, cla)
+                    time.sleep(0.5)
+                time.sleep(0.5)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_raid\\chap_2_raid.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(360, 520, 440, 570, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_raid\\chap_2_raid_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+
+            for i in range(5):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_raid\\chap_2_raid_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(940, 50, cla)
+                else:
+                    break
+                time.sleep(0.5)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_8_gigantomakia\\chap_2_1_8_gigantomakia.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(550, 520, 700, 570, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_8_gigantomakia\\gigantomakia_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_8_gigantomakia\\book.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(760, 990, 880, 1060, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                click_pos_2(335, 545, cla)
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_8_gigantomakia\\book_cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(760, 990, 880, 1060, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.2)
+                click_pos_2(940, 50, cla)
+
+
+            click_pos_2(335, 545, cla)
+
+        # chap_2_2_2 or chap_2_1_3
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_2_moria_giji\\chap_2_2_2_moria_giji.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(360, 520, 450, 570, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_2_moria_giji\\moria_giji_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(10):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_2_moria_giji\\moria_giji_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(940, 50, cla)
+                else:
+                    break
+                time.sleep(0.2)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_7_shot\\chap_2_1_7_shot.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(370, 250, 590, 320, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x - 110, imgs_.y - 60, cla)
+            print("수동으로만 가능")
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\select_dress_4.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(0, 0, 700, 1030, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x - 110, imgs_.y - 60, cla)
             v_.now_chabter = "chap_2_1_2"
 
@@ -263,7 +372,7 @@ def grow_explain(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(10, 10, 90, 80, cla, img, 0.7)
-        if imgs_ is not None:
+        if imgs_ is not None and imgs_ != False:
             click_pos_2(940, 50, cla)
 
         if v_.now_chabter == "chap_2_1_1" or v_.now_chabter == "chap_2_1_3":
@@ -271,14 +380,14 @@ def grow_explain(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("region_quest_title")
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(480, 560, 600, 610, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         break
                     else:
@@ -286,7 +395,7 @@ def grow_explain(cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(150, 100, 960, 330, cla, img, 0.7)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.5)
                         else:
@@ -294,7 +403,7 @@ def grow_explain(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(150, 100, 960, 330, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.5)
                     time.sleep(0.5)
@@ -302,20 +411,20 @@ def grow_explain(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(470, 620, 580, 660, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\photo_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_2(930, 530, cla)
             # 버스트 모드
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\burst\\burst_mode.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(810, 850, 960, 900, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("burst_mode")
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             # 도전
@@ -323,32 +432,32 @@ def grow_explain(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\challenge_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(0, 170, 150, 270, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\challenge_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_2(360, 530, cla)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\hangsung_help_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\hangsung_help_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_2(940, 50, cla)
                     else:
                         break
@@ -358,7 +467,7 @@ def grow_explain(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(770, 980, 950, 1040, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_2(130, 160, cla)
                 time.sleep(0.2)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -366,40 +475,40 @@ def grow_explain(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(480, 560, 610, 610, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\select_dress_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(670, 70, 850, 130, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_2(870, 55, cla)
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\select_dress_22.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(820, 20, 910, 90, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\sute_room_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_2(940, 50, cla)
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\sute_room_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_select_dress\\select_dress_4.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(0, 0, 700, 1030, cla, img, 0.7)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x - 110, imgs_.y - 60, cla)
                             # click_pos_2(150, 170, cla)
                             time.sleep(0.5)
@@ -407,7 +516,7 @@ def grow_explain(cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(200, 800, 800, 1000, cla, img, 0.7)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             click_pos_2(535, 1005, cla)
                             time.sleep(0.5)
 
@@ -418,7 +527,37 @@ def grow_explain(cla):
                     else:
                         break
                     time.sleep(0.5)
+        if v_.now_chabter == "chap_2_2_1" or v_.now_chabter == "chap_2_1_3":
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_rank_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_1_gardiun_rank\\g_point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(125, 55, 920, 120, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.7)
 
+                    else:
+                        click_pos_2(940, 50, cla)
+                        time.sleep(1)
+                        # 메이퀘스트 끝내기(수동조작)
+                        myQuest_play_add(cla, "메인퀘스트")
+                        break
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_1_gardiun_rank\\g_touch.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(380, 610, 580, 660, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.7)
+
+                    time.sleep(0.5)
 
     except Exception as e:
         print(e)

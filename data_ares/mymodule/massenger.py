@@ -216,7 +216,7 @@ def line_monitor(game, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "one", img)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("one", ms_)
 
@@ -224,7 +224,7 @@ def line_monitor(game, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "one", img)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("one", ms_)
 
@@ -232,7 +232,7 @@ def line_monitor(game, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "two", img)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("two", ms_)
 
@@ -240,7 +240,7 @@ def line_monitor(game, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "two", img)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("two", ms_)
 
@@ -271,7 +271,7 @@ def line_monitor(game, cla):
                 # img_array = np.fromfile(full_path, np.uint8)
                 # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 # imgs_ = imgs_set(300, 450, 700, 550, cla, img)
-                # if imgs_ is not None:
+                # if imgs_ is not None and imgs_ != False:
                 #     ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다")
                 #     line_to_me(cla, ms_)
 

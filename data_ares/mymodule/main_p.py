@@ -545,7 +545,7 @@ class SecondTab(QWidget):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(960, 0, 1920, 1080, "four", img, 0.8)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x + 100, imgs_.y, "four")
 
     def let_is_login_1(self):
@@ -926,27 +926,28 @@ class FirstTab(QWidget):
 
         # 사냥터
         dir_path = "C:\\my_games\\ares\\data_ares"
-        file_path1 = dir_path + "\\jadong\\midgard.txt"
-        file_path2 = dir_path + "\\jadong\\bastium.txt"
+        file_path1 = dir_path + "\\jadong\\ares_elia.txt"
+        file_path2 = dir_path + "\\jadong\\ares_loona.txt"
         file_path3 = dir_path + "\\jadong\\chalano.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
-                read_1 = file.read()
-                read_1 = read_1.split(":")
-                read_1 = "< 미드가르드 >/" + read_1[1]
-                read_1 = read_1.split("/")
+                read_elia = file.read().splitlines()
                 list5 = []
-                for i in range(len(read_1)):
-                    list5.append(read_1[i])
+                for i in range(len(read_elia)):
+                    read_ready = read_elia[i].split("/")
+                    read_result = read_ready[2] + "/" + read_ready[0]
+                    list5.append(read_result)
+                list5.insert(0, "< 엘리아 >")
+
             with open(file_path2, "r", encoding='utf-8-sig') as file:
-                read_1 = file.read()
-                read_1 = read_1.split(":")
-                read_1 = "< 바스티움 >/" + read_1[1]
-                read_1 = read_1.split("/")
+                read_loona = file.read().splitlines()
                 list55 = []
-                for i in range(len(read_1)):
-                    list55.append(read_1[i])
+                for i in range(len(read_loona)):
+                    read_2_ready = read_loona[i].split("/")
+                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
+                    list55.append(read_2_result)
+                list55.insert(0, "< 루나 >")
             with open(file_path3, "r", encoding='utf-8-sig') as file:
                 read_1 = file.read()
                 read_1 = read_1.split(":")
@@ -960,13 +961,13 @@ class FirstTab(QWidget):
         cb5 = QComboBox()
         #list5 = ['자동 사냥터 선택1', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb5.addItems(list5)
-        jadong1 = QPushButton('미드가르드 추가')
+        jadong1 = QPushButton('엘리아 추가')
         jadong1.clicked.connect(self.onActivated_hunt_add)
 
         cb55 = QComboBox()
         #list55 = ['자동 사냥터 선택2', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb55.addItems(list55)
-        jadong2 = QPushButton('바스티움 추가')
+        jadong2 = QPushButton('루나 추가')
         jadong2.clicked.connect(self.onActivated_hunt_add_2)
 
         cb555 = QComboBox()
@@ -1506,12 +1507,13 @@ class FirstTab(QWidget):
     def onActivated_hunt_add(self):
         global onCharacter, onHunt
         char_ = onCharacter
-        hun_ = "사냥_" + "미드가르드_" + onHunt
+        # hun_ = onHunt
+        hun_ = "사냥/elia/" + onHunt
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt == '< 미드가르드 >' or onHunt == 'none':
+        elif onHunt == '< 엘리아 >' or onHunt == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt != '< 미드가르드 >':
+        elif onCharacter != 0 and onHunt != '< 엘리아 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -1526,12 +1528,13 @@ class FirstTab(QWidget):
     def onActivated_hunt_add_2(self):
         global onCharacter, onHunt2
         char_ = onCharacter
-        hun_ = "사냥_" + "바스티움_" + onHunt2
+        # hun_ = onHunt2
+        hun_ = "사냥/loona/" + onHunt2
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt2 == '< 바스티움 >' or onHunt2 == 'none':
+        elif onHunt2 == '< 루나 >' or onHunt2 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt2 != '< 바스티움 >':
+        elif onCharacter != 0 and onHunt2 != '< 루나 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -1695,17 +1698,17 @@ class FirstTab(QWidget):
                             with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
 
-            print("ggggggggggggggggg", lines)
+            # print("ggggggggggggggggg", lines)
 
             # self.tableWidget.insertRow(self.tableWidget.rowCount(2))
             self.tableWidget.setColumnWidth(0, 50)
             self.tableWidget.setColumnWidth(1, 40)
-            self.tableWidget.setColumnWidth(2, 200)
-            self.tableWidget.setColumnWidth(3, 100)
+            self.tableWidget.setColumnWidth(2, 240)
+            self.tableWidget.setColumnWidth(3, 80)
             self.tableWidget.setColumnWidth(4, 50)
             self.tableWidget.setColumnWidth(5, 40)
-            self.tableWidget.setColumnWidth(6, 200)
-            self.tableWidget.setColumnWidth(7, 100)
+            self.tableWidget.setColumnWidth(6, 240)
+            self.tableWidget.setColumnWidth(7, 80)
 
             for i in range(len(lines)):
                 result = str(lines[i]).split(":")
@@ -2975,12 +2978,12 @@ class game_Playing(QThread):
                                 if result_schedule_ == "메인퀘스트":
                                     main_grow_start(v_.now_cla, result_schedule_)
 
-                                # if '_' in result_schedule_:
-                                #     jadong_spl_ = result_schedule_.split("_")
-                                #     if jadong_spl_[0] == "사냥":
-                                #         jadong_start(v_.now_cla, result_schedule_)
-                                #     elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
-                                #         dungeon_start(v_.now_cla, result_schedule_)
+                                if '/' in result_schedule_:
+                                    jadong_spl_ = result_schedule_.split("/")
+                                    if jadong_spl_[0] == "사냥":
+                                        jadong_start(v_.now_cla, result_schedule_)
+                                    elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+                                        dungeon_start(v_.now_cla, result_schedule_)
                         else:
                             print("아레스 꺼져있는지 10초간 다시 검사하기")
                             is_ares = False

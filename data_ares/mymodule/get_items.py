@@ -56,7 +56,7 @@ def get_event(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(440, 350, 515, 400, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("event 창 열렸다.")
                 event_ready = True
 
@@ -73,13 +73,13 @@ def get_event(cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(270, 370, 310, 700, cla, img, 0.7)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             print("받기 시작")
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(270, 370, 310, 700, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
                                 aim_reg = "none"
                                 for i in range(len(read_event)):
@@ -103,7 +103,7 @@ def get_event(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(745, 360, 800, 400, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                 # 여기엔 드래그가 있는지 파악 후 있다면 기존 오딘과 같은 방식으로 get_event_drag.txt 만들어서 좌표와 클릭할 함수 설정해서 받도록...추후예정
                 time.sleep(0.1)
@@ -113,7 +113,7 @@ def get_event(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(800, 20, 830, 50, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
             time.sleep(1)
 
@@ -137,13 +137,13 @@ def get_event_click(reg_x, reg_y, how, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 580, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -151,7 +151,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 580, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -159,7 +159,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 580, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -170,13 +170,13 @@ def get_event_click(reg_x, reg_y, how, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -184,7 +184,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -192,7 +192,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -203,13 +203,13 @@ def get_event_click(reg_x, reg_y, how, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -217,7 +217,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -225,7 +225,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -236,13 +236,13 @@ def get_event_click(reg_x, reg_y, how, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(330, 515, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -250,7 +250,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(330, 515, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -258,7 +258,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(330, 515, 780, 680, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
@@ -269,20 +269,20 @@ def get_event_click(reg_x, reg_y, how, cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(345, 495, 780, 530, cla, img, 0.77)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
                         time.sleep(0.1)
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                             time.sleep(0.1)
                             break
@@ -290,7 +290,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                             time.sleep(0.1)
                             break
@@ -298,7 +298,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                             time.sleep(0.1)
                             break
@@ -336,7 +336,7 @@ def get_post(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("post 창 열렸다.")
                 post_ready = True
 
@@ -347,7 +347,7 @@ def get_post(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(65, 85, 115, 155, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         print("보여", imgs_)
                         click_pos_reg(imgs_.x - 40, imgs_.y, cla)
                         time.sleep(0.2)
@@ -356,7 +356,7 @@ def get_post(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_2(715, 1015, cla)
                             else:
                                 click_pos_2(715, 1015, cla)
@@ -374,7 +374,7 @@ def get_post(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_2(940, 50, cla)
                     else:
                         break
@@ -386,7 +386,7 @@ def get_post(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(800, 350, 830, 375, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
             time.sleep(1)
 
@@ -417,7 +417,7 @@ def get_gardiun_pass(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("gardiun_pass 창 열렸다.")
                 gardiun_ready = True
 
@@ -434,7 +434,7 @@ def get_gardiun_pass(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_2(940, 50, cla)
                     else:
                         break
@@ -446,7 +446,7 @@ def get_gardiun_pass(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(930, 210, 960, 250, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
             time.sleep(1)
 
@@ -476,7 +476,7 @@ def get_gardiun_rank(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("gardiun_rank 창 열렸다.")
                 gardiun_ready = True
 
@@ -491,7 +491,7 @@ def get_gardiun_rank(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_2(940, 50, cla)
                     else:
                         break
@@ -503,7 +503,7 @@ def get_gardiun_rank(cla):
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(805, 155, 830, 175, cla, img, 0.7)
-                if imgs_ is not None:
+                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
             time.sleep(1)
 
@@ -534,7 +534,7 @@ def bag_item_open(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-            if imgs_ is not None:
+            if imgs_ is not None and imgs_ != False:
                 print("bag 창 열렸다.")
                 bag_item_open_ready = True
 
@@ -554,7 +554,7 @@ def bag_item_open(cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(515, 565, 570, 610, cla, img, 0.7)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             is_sohwan = True
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.2)
@@ -569,7 +569,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(125, 75, 800, 600, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.1)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -580,7 +580,7 @@ def bag_item_open(cla):
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(515, 565, 570, 610, cla, img, 0.7)
-                                    if imgs_ is not None:
+                                    if imgs_ is not None and imgs_ != False:
                                         break
                                     time.sleep(0.5)
                         time.sleep(0.3)
@@ -596,7 +596,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(300, 950, 800, 1050, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -607,7 +607,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(390, 970, 550, 1050, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
 
@@ -615,7 +615,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(300, 950, 800, 1050, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
                                 break
@@ -624,7 +624,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(300, 970, 700, 1050, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
                             else:
@@ -635,7 +635,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(300, 970, 700, 1050, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.2)
                             else:
@@ -643,7 +643,7 @@ def bag_item_open(cla):
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                                if imgs_ is not None:
+                                if imgs_ is not None and imgs_ != False:
                                     break
                             time.sleep(0.3)
 
@@ -665,7 +665,7 @@ def bag_item_open(cla):
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(515, 565, 570, 610, cla, img, 0.7)
-                        if imgs_ is not None:
+                        if imgs_ is not None and imgs_ != False:
                             is_box = True
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.2)
@@ -681,7 +681,7 @@ def bag_item_open(cla):
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(125, 75, 800, 600, cla, img, 0.7)
-                            if imgs_ is not None:
+                            if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.1)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -692,7 +692,7 @@ def bag_item_open(cla):
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(515, 565, 570, 610, cla, img, 0.7)
-                                    if imgs_ is not None:
+                                    if imgs_ is not None and imgs_ != False:
                                         break
                                     time.sleep(0.5)
                         time.sleep(0.3)
@@ -709,7 +709,7 @@ def bag_item_open(cla):
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                    if imgs_ is not None:
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_2(940, 50, cla)
                     else:
                         break
