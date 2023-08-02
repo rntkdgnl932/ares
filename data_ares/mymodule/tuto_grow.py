@@ -185,6 +185,12 @@ def tuto_grow_main(cla, schedule):
             imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 click_pos_2(935, 50, cla)
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(915, 20, 960, 70, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
 
             for i in range(len(read_chap)):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chap_1\\" + read_chap[i] + ".PNG"
