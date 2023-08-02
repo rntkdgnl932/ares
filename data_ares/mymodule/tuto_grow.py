@@ -944,6 +944,19 @@ def tuto_grow_explain(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_talgut\\talgut_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 110, 960, 1050, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x - 120, imgs_.y - 70, cla)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_talgut\\talgut_click2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 110, 600, 1050, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                             click_pos_2(40, 180, cla)
                         time.sleep(0.2)
                     time.sleep(0.3)
