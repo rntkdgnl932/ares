@@ -66,6 +66,7 @@ def clean_screen(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, drag_pos
+    from massenger import line_to_me
 
     try:
         print("clean_screen")
