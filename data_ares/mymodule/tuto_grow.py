@@ -141,7 +141,7 @@ def tuto_grow_intro(cla):
 def tuto_grow_main(cla, schedule):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, drag_pos
+    from function import imgs_set_, click_pos_reg, drag_pos, click_pos_2
     from schedule import myQuest_play_add
     from action_ares import out_check
 
