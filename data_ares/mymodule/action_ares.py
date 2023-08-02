@@ -76,7 +76,6 @@ def clean_screen(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("game_ares_title", imgs_)
             # 절전모드일 경우 풀기
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
             img_array = np.fromfile(full_path, np.uint8)
