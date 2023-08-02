@@ -2996,6 +2996,7 @@ class game_Playing(QThread):
                                 if imgs_ is not None and imgs_ != False:
                                     is_ares = True
                                     break
+                                time.sleep(1)
                             if is_ares == False:
                                 why = "아레스 꺼진게 확실하다"
                                 print(why)
