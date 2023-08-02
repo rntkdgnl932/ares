@@ -178,6 +178,14 @@ def tuto_grow_main(cla, schedule):
             # 제1막 1, 가디언의 소명
             # 제1막 2, 오지않는 보급품
             # 제1막 3, 위기에 처한 기지, chap_1_3
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_jejak\\friend.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(935, 50, cla)
+
             for i in range(len(read_chap)):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chap_1\\" + read_chap[i] + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
