@@ -94,6 +94,8 @@ def go_hangsun_map(cla, where):
 
                 else:
                     # 지도 클릭
+                    click_pos_2(25, 50, cla)
+                    time.sleep(0.5)
                     click_pos_2(65, 115, cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"

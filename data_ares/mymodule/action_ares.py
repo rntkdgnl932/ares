@@ -74,54 +74,65 @@ def clean_screen(cla):
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            # 절전모드일 경우 풀기
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                drag_pos(405, 605, 945, 605, cla)
 
-            # post 받고 난 후
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\post_get.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 400, 560, 460, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+            for i in range(3):
+                # 절전모드일 경우 풀기
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    drag_pos(405, 605, 945, 605, cla)
 
-            # 이벤트 보상 닫기
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\space_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 620, 540, 700, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-            else:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\space_2.PNG"
+                # post 받고 난 후
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\post_get.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 400, 560, 460, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                # 이벤트 보상 닫기
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\space_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(400, 620, 540, 700, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\space_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 620, 540, 700, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
-            # event 닫기
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(745, 360, 800, 400, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+                # event 닫기
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(745, 360, 800, 400, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
-            # 각종 활성화 되어 있는 title 닫기
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(915, 20, 960, 70, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+                # 각종 활성화 되어 있는 title 닫기
+                for z in range(3):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(915, 20, 960, 70, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        break
+                    time.sleep(0.1)
+
+                result_out = out_check(cla)
+                if result_out == True:
+                    break
+
         else:
             print("clean_screen : 아레스 꺼져있는지 10초간 다시 검사하기")
             is_ares = False
@@ -130,14 +141,14 @@ def clean_screen(cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     is_ares = True
                     break
             if is_ares == False:
                 why = "아레스 꺼진게 확실하다"
                 print(why)
-                line_to_me(v_.now_cla, why)
+                line_to_me(cla, why)
 
                 dir_path = "C:\\my_games\\load\\ares"
                 file_path = dir_path + "\\start.txt"
@@ -396,6 +407,53 @@ def confirm_all(cla):
         imgs_ = imgs_set_(480, 600, 570, 660, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # 몬스터 도감
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_dogam_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 580, 580, 630, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # 수집
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_setting_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 640, 640, 680, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # 분해
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 600, 600, 640, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 분해2
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 640, 570, 670, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 행성파견
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\hangsungpagyun_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 레이드 자동입장
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\jadong_in_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(470, 570, 610, 610, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
     except Exception as e:
         print(e)
         return 0
@@ -526,6 +584,49 @@ def maul_go(cla):
         return maul_in
 
 
+    except Exception as e:
+        print(e)
+        return 0
+
+def loading_ares(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_
+
+    try:
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("loding")
+            loading = True
+            loading_count = 0
+            while loading is True:
+                loading_count += 1
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("loding", loading_count)
+                else:
+                    loading = False
+                time.sleep(1)
+    except Exception as e:
+        print(e)
+        return 0
+
+
+
+def map_in(cla):
+    from function import click_pos_2
+    try:
+        clean_screen(cla)
+
+        click_pos_2(25, 50, cla)
+        time.sleep(0.5)
+        click_pos_2(65, 115, cla)
     except Exception as e:
         print(e)
         return 0
