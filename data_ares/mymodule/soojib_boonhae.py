@@ -300,9 +300,9 @@ def soojib_start(cla):
                     imgs_ = imgs_set_(430, 600, 550, 650, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.2)
+                        time.sleep(0.5)
                         confirm_all(cla)
-                        time.sleep(0.2)
+                        time.sleep(0.5)
 
 
                     click_pos_2(915, 1015, cla)
@@ -338,7 +338,7 @@ def boonhae(cla):
         while boonhae_complete is False:
             boonhae_complete_count += 1
             print("boonhae_complete_count", boonhae_complete_count)
-            if boonhae_complete_count > 7:
+            if boonhae_complete_count > 4:
                 boonhae_complete = True
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
@@ -388,6 +388,23 @@ def boonhae(cla):
                 else:
                     print("일괄분해 누른 후 셋팅하기")
                     boonhae_setting(cla)
+
+                    is_on = False
+
+                    for i in range(7):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_click_on.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(800, 990, 930, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            is_on = True
+                            break
+                        time.sleep(1)
+                    if is_on == False:
+                        boonhae_complete_count += 2
+                    time.sleep(1)
+
+
             else:
 
                 menu_open(cla)
