@@ -246,6 +246,7 @@ def soojib_start(cla):
     import numpy as np
     import cv2
     from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import confirm_all
     try:
         print("soojib_start")
 
@@ -293,6 +294,17 @@ def soojib_start(cla):
                             click_ready = True
                 time.sleep(0.2)
                 if click_ready == True:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\no_again_look.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(430, 600, 550, 650, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        confirm_all(cla)
+                        time.sleep(0.2)
+
+
                     click_pos_2(915, 1015, cla)
                 else:
                     collection_start_ = True
