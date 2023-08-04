@@ -7,10 +7,12 @@ import variable as v_
 
 
 
-def soojib_boonhae(cla):
+def soojib_boonhae_start(cla):
     try:
-        print("soojib_boonhae")
+        print("soojib_boonhae_start")
         soojib(cla)
+        time.sleep(0.2)
+        boonhae(cla)
     except Exception as e:
         print(e)
         return 0
@@ -293,18 +295,20 @@ def soojib_start(cla):
                 if click_ready == True:
                     click_pos_2(915, 1015, cla)
                 else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_all_point.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 65, 115, 100, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("soojib_all_point", imgs_)
-                        click_pos_2(155, 95, cla)
-                        time.sleep(0.2)
-                        click_pos_2(55, 95, cla)
-                        time.sleep(0.5)
-                    else:
-                        collection_start_ = True
+                    collection_start_ = True
+                    # # 이건 어차피 A 등급 이상 있으면 반복되는 상황...그래서 삭제 예정
+                    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_all_point.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(80, 65, 115, 100, cla, img, 0.8)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     print("soojib_all_point", imgs_)
+                    #     click_pos_2(155, 95, cla)
+                    #     time.sleep(0.2)
+                    #     click_pos_2(55, 95, cla)
+                    #     time.sleep(0.5)
+                    # else:
+                    #     collection_start_ = True
             time.sleep(0.5)
     except Exception as e:
         print(e)

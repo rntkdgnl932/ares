@@ -11,6 +11,11 @@ import variable as v_
 def power_up_start(cla):
     try:
         print("power_up_start")
+        soohosuk(cla)
+        time.sleep(0.2)
+        hoilodo(cla)
+        time.sleep(0.2)
+        monster_dogam(cla)
     except Exception as e:
         print(e)
         return 0

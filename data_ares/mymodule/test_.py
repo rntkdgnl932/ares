@@ -12,11 +12,12 @@ def go_test():
     import pyautogui
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_event
-    from action_ares import out_check, clean_screen
+    from action_ares import out_check, clean_screen, maul_go
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae
     from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji
+    from potion_ares import maul_potion_get
     print("tst")
     cla = "one"
 
@@ -41,7 +42,9 @@ def go_test():
 
     # dungeon_in_moriagiji(cla, "모리아기지_1")
 
-    get_event(cla)
+    result_maul = maul_go(cla)
+    if result_maul == True:
+        maul_potion_get(cla)
 
     # # 2 = 97, 887
     # # 3 = 97, 946

@@ -44,7 +44,9 @@ def dead_die(cla, schedule):
                     break
                 time.sleep(1)
             # 물약 사자~!
-            maul_potion_get(cla)
+            result_maul = maul_go(cla)
+            if result_maul == True:
+                maul_potion_get(cla)
 
         if deaded == True:
             if schedule == "튜토육성":
@@ -604,6 +606,10 @@ def maul_go(cla):
 
                 else:
                     # 지도 클릭
+                    click_pos_2(25, 50, cla)
+
+                    time.sleep(0.3)
+
                     click_pos_2(65, 115, cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
