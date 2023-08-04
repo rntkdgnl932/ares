@@ -13,6 +13,7 @@ def dead_die(cla, schedule):
     from get_items import get_item_start
     from massenger import line_to_me
     from schedule import myQuest_play_add
+    from potion_ares import maul_potion_get
 
     try:
         print("dead_die")
@@ -26,6 +27,24 @@ def dead_die(cla, schedule):
         if imgs_ is not None and imgs_ != False:
             deaded = True
             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+            for i in range(10):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("loding")
+                    loading_ares(cla)
+                    break
+                time.sleep(1)
+            for i in range(10):
+                result_out = out_check(cla)
+                if result_out == True:
+                    break
+                time.sleep(1)
+            # 물약 사자~!
+            maul_potion_get(cla)
 
         if deaded == True:
             if schedule == "튜토육성":
@@ -450,6 +469,20 @@ def confirm_all(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(470, 570, 610, 610, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 도전(행성파견, 성운돌파)
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\dojun_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 성운돌파
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoondolpa_yes.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 

@@ -263,22 +263,22 @@ def grow_explain(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_2(940, 50, cla)
             new_contents = True
-        if new_contents == True:
-            for i in range(10):
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\friend.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    break
-                else:
-                    click_pos_2(100, 230, cla)
-                    time.sleep(0.5)
-                    click_pos_2(100, 280, cla)
-                    time.sleep(0.5)
-                    click_pos_2(100, 330, cla)
-                    time.sleep(0.5)
-                time.sleep(0.5)
+        # if new_contents == True:
+        #     for i in range(10):
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_challenge\\friend.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(100, 230, cla)
+            time.sleep(0.5)
+            click_pos_2(100, 280, cla)
+            time.sleep(0.5)
+            click_pos_2(100, 330, cla)
+            time.sleep(0.5)
+                # else:
+                #     break
+                # time.sleep(0.5)
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_raid\\chap_2_raid.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -286,6 +286,29 @@ def grow_explain(cla):
         imgs_ = imgs_set_(360, 520, 440, 570, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_sungwoondolpa\\sungwoondolpa_click.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(360, 520, 570, 570, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_sungwoondolpa\\sungwoondolpa_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(5):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_sungwoondolpa\\sungwoondolpa_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(940, 50, cla)
+                else:
+                    break
+                time.sleep(0.3)
 
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_raid\\chap_2_raid_title.PNG"
@@ -338,6 +361,29 @@ def grow_explain(cla):
 
             click_pos_2(335, 545, cla)
 
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_daymos\\daymos_click.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(170, 520, 280, 570, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_daymos\\daymos_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(5):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_daymos\\daymos_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(940, 50, cla)
+                else:
+                    break
+                time.sleep(0.3)
+
         # chap_2_2_2 or chap_2_1_3
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_2_moria_giji\\chap_2_2_2_moria_giji.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -386,6 +432,7 @@ def grow_explain(cla):
             click_pos_2(940, 50, cla)
 
         if v_.now_chabter == "chap_2_1_1" or v_.now_chabter == "chap_2_1_3":
+
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

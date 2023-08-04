@@ -50,7 +50,7 @@ from main_grow import main_grow_start
 from jadong import jadong_start
 from dungeon import dungeon_start
 from get_items import get_item_start
-from dungeon import dungeon_in_hangsungpagyun, dungeon_in_raid, moriagiji_start
+from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start
 
 from stop_event18 import _stop_please
 
@@ -3172,6 +3172,8 @@ class game_Playing(QThread):
                                         jadong_start(v_.now_cla, result_schedule_)
                                 elif '행성파견' in result_schedule_:
                                     dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
+                                elif '성운돌파' in result_schedule_:
+                                    dungeon_in_sungwoondolpa(v_.now_cla, result_schedule_)
                                 elif '레이드' in result_schedule_:
                                     dungeon_in_raid(v_.now_cla, result_schedule_)
                                 elif '모리아기지' in result_schedule_:
