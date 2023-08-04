@@ -7,9 +7,8 @@ import variable as v_
 
 
 def get_item_start(cla):
-    import numpy as np
-    import cv2
-    from function import imgs_set_, click_pos_reg
+    from action_ares import maul_go
+    from potion_ares import maul_potion_get
 
     try:
         print("get_item_start")
@@ -22,6 +21,10 @@ def get_item_start(cla):
         get_gardiun_rank(cla)
         time.sleep(0.1)
         bag_item_open(cla)
+        time.sleep(0.3)
+        result_maul = maul_go(cla)
+        if result_maul == True:
+            maul_potion_get(cla)
 
 
 
