@@ -24,7 +24,7 @@ def chaejib_start(cla):
         # where = "사냥/" + str(where_ready[3]) + "/" + str(where_ready[2]) + "/" + str(where_ready[0])
         #
         # print("where", where)
-
+        chaejib_setting(cla)
         for i in range(len(result_maps)):
             print(i + 1, "번째 맵 채집 시작!!!")
             where_ready = result_maps[i].split("/")
