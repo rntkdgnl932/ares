@@ -10,6 +10,7 @@ import variable as v_
 
 def chaejib_start(cla):
     from function import click_pos_2
+    from schedule import myQuest_play_add
     try:
 
         print("chaejib_start")
@@ -28,9 +29,12 @@ def chaejib_start(cla):
             print(i + 1, "번째 맵 채집 시작!!!")
             where_ready = result_maps[i].split("/")
             where = "사냥/" + str(where_ready[3]) + "/" + str(where_ready[2]) + "/" + str(where_ready[0])
-            go_spot_in(cla, where)
+            result_quest = go_spot_in(cla, where)
+            if result_quest == False:
+                break
         time.sleep(1)
         # add
+        myQuest_play_add(cla, "채집")
         click_pos_2(945, 100, cla)
 
 
@@ -389,6 +393,8 @@ def go_spot_in(cla, where):
 
         where_split = where.split("/")
 
+        quest_complete = True
+
         spot_in = False
         spot_in_count = 0
         while spot_in is False:
@@ -450,6 +456,16 @@ def go_spot_in(cla, where):
                         imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\not_complete_quest.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(365, 80, 635, 160, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("퀘스트 미완료")
+                                spot_in = True
+                                quest_complete = False
+                                break
                         time.sleep(1)
                 time.sleep(1)
 
@@ -464,6 +480,7 @@ def go_spot_in(cla, where):
             # where_split[1] => 좌표 => "," 로 분류 x1, y1, x2, y2
             # where_split[2] => 사냥터 이름
             # where_split[3] => 행성 이름
+        return quest_complete
     except Exception as e:
         print(e)
         return 0
