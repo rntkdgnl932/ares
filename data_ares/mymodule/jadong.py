@@ -305,6 +305,9 @@ def go_spot_click(cla, where):
                                                   img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    print("사냥터가 무언가에 가려져이싸.")
+                                    spot_moglog(cla, where)
                     time.sleep(1)
 
             time.sleep(1)
@@ -439,6 +442,13 @@ def jadong_arrive(cla, where):
                     if imgs_ is not None and imgs_ != False:
                         print("사냥터이동중", moving_count)
                     else:
+
+                        where_split = where.split("/")
+                        where_in_data = where_split[3].split("_")
+
+                        if where_in_data[4] == ("pk1" or "pk2"):
+                            time.sleep(20)
+
                         moving_ = False
                         # 공격하기
                         click_pos_2(595, 1010, cla)
@@ -514,6 +524,64 @@ def juljun_attack_check(cla, where):
                         break
                     time.sleep(1)
         return go_
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def spot_moglog(cla, where):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    try:
+        print("spot_moglog")
+        # 사냥/elia/버려진땅/30_no_no_no_pk1
+
+        where_split = where.split("/")
+
+        # 사냥터
+        dir_path = "C:\\my_games\\ares\\data_ares"
+        if where_split[1] == "edan":
+            file_path = dir_path + "\\jadong\\ares_edan_moglog.txt"
+        if where_split[1] == "elia":
+            file_path = dir_path + "\\jadong\\ares_elia_moglog.txt"
+        if where_split[1] == "loona":
+            file_path = dir_path + "\\jadong\\ares_loona_moglog.txt"
+
+        with open(file_path, "r", encoding='utf-8-sig') as file:
+            read_data = file.read().splitlines()
+            for i in range(len(read_data)):
+                read_ready = read_data[i].split("/")
+                if read_ready[0] == where_split[2]:
+                    x_reg = 110
+                    y_reg = int(read_ready[1])
+                    break
+        for k in range(10):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\moglog_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(95, 90, 170, 130, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(x_reg, y_reg, cla)
+                for z in range(3):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(1)
+                break
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\moglog_title_ready.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 70, 60, 260, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(1)
+
+
     except Exception as e:
         print(e)
         return 0

@@ -1,4 +1,5 @@
 import sys
+import os
 import time
 import requests
 
@@ -11,13 +12,15 @@ def go_test():
     import cv2
     import pyautogui
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos
-    from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_event
+    from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_event, get_item_start
     from action_ares import out_check, clean_screen, maul_go
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae
-    from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji
+    from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play
     from potion_ares import maul_potion_get
+    from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
+    from gardiun_mission import gardiun_mission_get
     print("tst")
     cla = "one"
 
@@ -33,18 +36,29 @@ def go_test():
 
     # go_hangsun_map(cla, "where")
 
-    # boonhae(cla)
-
-    # click_pos_2(860, 1015, cla)
-    #
+    # click_pos_reg(860, 1015, cla)
     # time.sleep(1)
-    # #
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\click_check.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(900, 110, 935, 145, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("click_check", imgs_)
+    else:
+        print("not click_check")
+
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_npc.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(300, 300, 660, 700, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("gardiun_npc", imgs_)
+    # else:
+    #     print("not gardiun_npc")
 
     # dungeon_in_moriagiji(cla, "모리아기지_1")
 
-    result_maul = maul_go(cla)
-    if result_maul == True:
-        maul_potion_get(cla)
+    # get_item_start(cla)
 
     # # 2 = 97, 887
     # # 3 = 97, 946

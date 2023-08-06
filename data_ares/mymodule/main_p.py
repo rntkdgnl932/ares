@@ -50,7 +50,10 @@ from main_grow import main_grow_start
 from jadong import jadong_start
 from dungeon import dungeon_start
 from get_items import get_item_start
-from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start
+from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start, dark_play
+from region_quest import region_quest_start
+from chaejib import chaejib_start
+from gardiun_mission import gardiun_mission_start
 
 from stop_event18 import _stop_please
 
@@ -903,7 +906,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트', '각종템받기', '거래소등록']
+        list6 = ['스케쥴 선택', '튜토육성', '채집', '메인퀘스트', '가디언임무', '각종템받기', '거래소등록', '지역퀘스트_1', '지역퀘스트_2', '지역퀘스트_3', '지역퀘스트_4', '지역퀘스트_5', '지역퀘스트_6', '지역퀘스트_7', '지역퀘스트_8']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -912,6 +915,7 @@ class FirstTab(QWidget):
 
         vbox6.addWidget(maul_add)
         self.com_group6.setLayout(vbox6)
+
 
         # 던전 종류
         self.dun_group_1 = QGroupBox('도전')
@@ -3170,14 +3174,26 @@ class game_Playing(QThread):
                                     jadong_spl_ = result_schedule_.split("/")
                                     if jadong_spl_[0] == "사냥":
                                         jadong_start(v_.now_cla, result_schedule_)
+                                elif '채집' in result_schedule_:
+                                    chaejib_start(v_.now_cla)
                                 elif '행성파견' in result_schedule_:
                                     dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
                                 elif '성운돌파' in result_schedule_:
                                     dungeon_in_sungwoondolpa(v_.now_cla, result_schedule_)
                                 elif '레이드' in result_schedule_:
                                     dungeon_in_raid(v_.now_cla, result_schedule_)
+                                    dark_play(v_.now_cla)
                                 elif '모리아기지' in result_schedule_:
                                     moriagiji_start(v_.now_cla, result_schedule_)
+                                elif '가디언임무' in result_schedule_:
+                                    gardiun_mission_start(v_.now_cla, result_schedule_)
+                                else:
+                                    if '_' in result_schedule_:
+                                        data_ = result_schedule_.split("_")
+                                        if data_[0] == "지역퀘스트":
+                                            region_quest_start(v_.now_cla, data_[1])
+                                            dark_play(v_.now_cla)
+
                         else:
                             print("아레스 꺼져있는지 10초간 다시 검사하기")
                             is_ares = False

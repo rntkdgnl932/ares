@@ -2,8 +2,6 @@ import time
 # import os
 import sys
 
-import win32gui
-
 sys.path.append('C:/my_games/ares/data_ares/mymodule')
 
 import variable as v_

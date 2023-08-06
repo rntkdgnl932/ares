@@ -86,8 +86,9 @@ def dead_die(cla, schedule):
 def clean_screen(cla):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, drag_pos
+    from function import imgs_set_, click_pos_reg, drag_pos, click_pos_2
     from massenger import line_to_me
+    from main_grow import grow_skip, grow_complete
 
     try:
         print("clean_screen")
@@ -106,6 +107,18 @@ def clean_screen(cla):
                 imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     drag_pos(405, 605, 945, 605, cla)
+
+                # 메뉴 닫기
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(935, 50, cla)
+
+                # skip
+                grow_skip(cla)
+                grow_complete(cla)
 
                 # post 받고 난 후
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\post_get.PNG"
@@ -513,6 +526,7 @@ def maul_go(cla):
         maul_in_count = 0
         while maul_in is False:
             maul_in_count += 1
+            print("maul_in_count", maul_in_count)
             if maul_in_count > 7:
                 maul_in = True
 
@@ -521,6 +535,7 @@ def maul_go(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(0, 50, 50, 100, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
+                print("마을 도착")
                 maul_in = True
 
             else:
@@ -540,11 +555,20 @@ def maul_go(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(0, 50, 50, 100, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("광장 도착", imgs_)
+                                print("광장 도착1", imgs_)
                                 maul_in = True
                                 break
                             else:
-                                click_pos_2(940, 50, cla)
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\maul\\gwangjang2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 50, 50, 100, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("광장 도착2", imgs_)
+                                    maul_in = True
+                                    break
+                                else:
+                                    click_pos_2(940, 50, cla)
                             time.sleep(2)
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\maul\\confirm.PNG"
@@ -661,7 +685,9 @@ def loading_ares(cla):
 def map_in(cla):
     from function import click_pos_2
     try:
+        print("map_in")
         clean_screen(cla)
+        time.sleep(0.5)
 
         click_pos_2(25, 50, cla)
         time.sleep(0.5)

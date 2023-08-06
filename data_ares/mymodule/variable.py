@@ -1,14 +1,3 @@
-# pyqt5 부분
-rowcount = 0
-colcount = 0
-thisRow = 0
-thisCol = 0
-table_datas = ""
-onCharacter = 0
-onDunjeon = "none"
-onHunt = "none"
-onMaul = "none"
-
 # 현재실행중인 클라우드
 now_cla = 'none'
 
@@ -19,6 +8,9 @@ now_chabter = 'none'
 now_arduino = "none"
 
 # 아레스 관련
+# 협동 던전 : 다크디멘젼
+dark_demen = False
+
 # 버젼
 
 dir_path = "C:\\my_games\\ares\\data_ares"
