@@ -251,6 +251,7 @@ def chaejib_go(cla):
                     imgs_ = imgs_set_(890, 105, 930, 135, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(850, 120, cla)
+                        time.sleep(0.3)
                     else:
                         chaejib_ready = True
                 else:
@@ -258,29 +259,29 @@ def chaejib_go(cla):
 
                     time.sleep(0.3)
 
-                    mouse_move_cpp(545, 445, cla)
+                mouse_move_cpp(545, 445, cla)
 
-                    for i in range(160):
-                        if i % 20 == 0:
-                            se_ = i / 10
-                            data = "채집하는 중 : " + str(se_) + "초"
-                            print(data)
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\chaejib_ing_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(555, 500, 610, 560, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("채집중 1")
-                            break
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\chaejib_ing_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(555, 500, 610, 560, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("채집중 2")
-                            break
-                        time.sleep(0.1)
-                    time.sleep(3.5)
+                for i in range(160):
+                    if i % 20 == 0:
+                        se_ = i / 10
+                        data = "채집하는 중 : " + str(se_) + "초"
+                        print(data)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\chaejib_ing_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(555, 500, 610, 560, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("채집중 1")
+                        break
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\chaejib_ing_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(555, 500, 610, 560, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("채집중 2")
+                        break
+                    time.sleep(0.1)
+                time.sleep(3.5)
 
             else:
                 chaejib_ready = True
