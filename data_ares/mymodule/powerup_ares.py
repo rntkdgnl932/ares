@@ -88,10 +88,17 @@ def soohosuk(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("soohosuk_point", imgs_)
                         click_pos_reg(imgs_.x - 14, imgs_.y + 10, cla)
-                        x1 = imgs_.x - 15
+
+                        if cla == "one":
+                            x1 = imgs_.x - 15
+                            x2 = imgs_.x + 15
+                        if cla == "two":
+                            x1 = imgs_.x - 15 - 960
+                            x2 = imgs_.x + 15 - 960
+
                         y1 = imgs_.y - 15
-                        x2 = imgs_.x + 15
                         y2 = imgs_.y + 15
+
                         time.sleep(0.5)
 
 

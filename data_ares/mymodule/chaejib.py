@@ -227,6 +227,8 @@ def chaejib_go(cla):
 
         # where_split = where.split("/")
 
+        click_pos_2(945, 145, cla)
+
         chaejib_ready = False
         chaejib_ready_count = 0
         while chaejib_ready is False:
