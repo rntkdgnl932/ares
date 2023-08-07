@@ -75,6 +75,7 @@ def grow_main(cla, schedule):
             if result_ing == False:
                 click_pos_2(890, 90, cla)
 
+        quest_look = False
 
         for i in range(len(read_chap)):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chaps\\" + read_chap[i] + ".PNG"
@@ -82,6 +83,7 @@ def grow_main(cla, schedule):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(770, 60, 960, 100, cla, img, 0.77)
             if imgs_ is not None and imgs_ != False:
+                quest_look = True
                 print("chap", read_chap[i])
                 v_.now_chabter = read_chap[i]
                 x_reg = imgs_.x
@@ -106,7 +108,9 @@ def grow_main(cla, schedule):
                         #
                         #     click_pos_reg(x_reg, y_reg, cla)
                         #     break
-
+        if quest_look == False:
+            click_pos_2(945, 100, cla)
+            time.sleep(0.5)
 
 
     except Exception as e:

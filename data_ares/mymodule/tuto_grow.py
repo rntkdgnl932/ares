@@ -192,12 +192,15 @@ def tuto_grow_main(cla, schedule):
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
+            quest_look = False
+
             for i in range(len(read_chap)):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chap_1\\" + read_chap[i] + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(700, 30, 960, 260, cla, img, 0.77)
                 if imgs_ is not None and imgs_ != False:
+                    quest_look = True
                     print("chap", read_chap[i])
                     v_.now_chabter = read_chap[i]
                     x_reg = imgs_.x
@@ -212,7 +215,9 @@ def tuto_grow_main(cla, schedule):
                         if result_ing == False:
                             click_pos_reg(x_reg, y_reg, cla)
                             break
-
+            if quest_look == False:
+                click_pos_2(945, 100, cla)
+                time.sleep(0.5)
 
 
     except Exception as e:
