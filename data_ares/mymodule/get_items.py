@@ -84,6 +84,7 @@ def get_event(cla):
                             imgs_ = imgs_set_(270, 370, 310, 700, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
+                                time.sleep(0.5)
                                 aim_reg = "none"
                                 for i in range(len(read_event)):
                                     y_average = 399
@@ -100,6 +101,7 @@ def get_event(cla):
                                     result_aim_reg = aim_reg.split(":")
                                     # 추려낸 결과 ex => 2:seven
                                     get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
+                                    time.sleep(0.5)
                         time.sleep(0.2)
                 # 이벤트 창 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_1.PNG"
@@ -322,7 +324,7 @@ def get_event_click(reg_x, reg_y, how, cla):
 
         time.sleep(0.3)
         for i in range(random_int()):
-            click_pos_reg(reg_x, reg_y, cla)
+            click_pos_2(reg_x, reg_y, cla)
             time.sleep(0.1)
 
 
