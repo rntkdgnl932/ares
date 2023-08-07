@@ -62,6 +62,21 @@ def grow_main(cla, schedule):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        if v_.now_chabter == "chap_2_1":
+            imgs_ = imgs_set_(880, 80, 960, 110, cla, img, 0.7)
+        else:
+            imgs_ = imgs_set_(880, 80, 960, 170, cla, img, 0.7)
+        if imgs_ is None:
+
+            result_ing = grow_quest_ing(cla)
+            if result_ing == False:
+                click_pos_reg(x_reg, y_reg, cla)
+                break
+
+
         for i in range(len(read_chap)):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\main\\chaps\\" + read_chap[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -242,6 +257,7 @@ def grow_complete(cla):
 def grow_explain(cla):
     import numpy as np
     import cv2
+    import pyautogui
     from function import imgs_set_, click_pos_reg, click_pos_2
     from action_ares import out_check, bag_open
     from schedule import myQuest_play_add
@@ -279,6 +295,24 @@ def grow_explain(cla):
                 # else:
                 #     break
                 # time.sleep(0.5)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\lctl\\lctl_blue.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(420, 160, 540, 230, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            pyautogui.press("ctrlleft")
+            time.sleep(0.1)
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\lctl\\lctl_black.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(420, 160, 540, 230, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                pyautogui.press("ctrlleft")
+                time.sleep(0.1)
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_raid\\chap_2_raid.PNG"
         img_array = np.fromfile(full_path, np.uint8)
