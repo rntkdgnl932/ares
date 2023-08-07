@@ -9,8 +9,11 @@ import variable as v_
 
 
 def chaejib_start(cla):
-    from function import click_pos_2
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_
     from schedule import myQuest_play_add
+    from action_ares import clean_screen, out_check
     try:
 
         print("chaejib_start")
@@ -33,11 +36,69 @@ def chaejib_start(cla):
             if result_quest == False:
                 break
         time.sleep(1)
+
         # add
-        myQuest_play_add(cla, "채집")
-        click_pos_2(945, 100, cla)
+        add_ready = False
+        add_ready_count = 0
+        while add_ready is False:
+            add_ready_count += 1
+            if add_ready_count > 7:
+                time.sleep(30)
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(945, 100, cla)
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(945, 100, cla)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(945, 100, cla)
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(945, 100, cla)
+                        else:
+                            clean_screen(cla)
 
-
+            result_out = out_check(cla)
+            if result_out == True:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                add_ready = True
+                                myQuest_play_add(cla, "채집")
+                                time.sleep(0.5)
 
     except Exception as e:
         print(e)
