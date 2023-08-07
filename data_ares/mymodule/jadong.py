@@ -9,6 +9,7 @@ import variable as v_
 
 def jadong_start(cla, where):
     from potion_ares import juljun_potion_check
+    from action_ares import dead_die
     try:
         print("jadong_start")
         result_attck = juljun_attack_check(cla, where)

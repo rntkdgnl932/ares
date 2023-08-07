@@ -9,7 +9,7 @@ import variable as v_
 def dead_die(cla, schedule):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg
+    from function import imgs_set_, click_pos_reg, click_pos_2
     from get_items import get_item_start
     from massenger import line_to_me
     from schedule import myQuest_play_add
@@ -58,6 +58,44 @@ def dead_die(cla, schedule):
                 why = "메인퀘하다 죽었다. 손 좀 보자"
                 line_to_me(cla, why)
                 myQuest_play_add(cla, schedule)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+            dead_ = False
+            dead_count = 0
+            while dead_ is False:
+                dead_count += 1
+                if dead_count > 5:
+                    dead_ = True
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 380, 530, 430, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(475, 655, cla)
+                    time.sleep(1)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 560, 585, 615, cla, img, 0.75)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        dead_ = True
+
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
 
         # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_1.PNG"
         # img_array = np.fromfile(full_path, np.uint8)
@@ -501,6 +539,13 @@ def confirm_all(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # dead
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 560, 585, 615, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
 
     except Exception as e:
         print(e)
