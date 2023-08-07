@@ -73,8 +73,7 @@ def grow_main(cla, schedule):
 
             result_ing = grow_quest_ing(cla)
             if result_ing == False:
-                click_pos_reg(x_reg, y_reg, cla)
-                break
+                click_pos_2(890, 90, cla)
 
 
         for i in range(len(read_chap)):
