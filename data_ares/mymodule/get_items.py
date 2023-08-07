@@ -731,7 +731,7 @@ def bag_item_open(cla):
             else:
                 menu_open(cla)
                 time.sleep(0.2)
-                click_pos_2(900, 55, cla)
+                click_pos_2(905, 55, cla)
             time.sleep(1)
 
 
