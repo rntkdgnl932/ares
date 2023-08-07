@@ -3150,7 +3150,6 @@ class game_Playing(QThread):
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
                                             break
-
                                     else:
                                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_start_ready_2.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
