@@ -74,32 +74,51 @@ def chaejib_start(cla):
                         else:
                             clean_screen(cla)
 
-            result_out = out_check(cla)
-            if result_out == True:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                add_ready = True
-                                myQuest_play_add(cla, "채집")
-                                time.sleep(0.5)
+            result_scan = scan_check(cla)
+            if result_scan == False:
+                myQuest_play_add(cla, "채집")
+                add_ready = True
 
+    except Exception as e:
+        print(e)
+        return 0
+
+def scan_check(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_
+    from action_ares import out_check
+    try:
+        go_ = False
+
+        result_out = out_check(cla)
+        if result_out == True:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
+
+        return go_
     except Exception as e:
         print(e)
         return 0
