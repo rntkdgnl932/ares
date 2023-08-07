@@ -70,7 +70,7 @@ def get_event(cla):
 
                 if result_many != 0:
 
-                    for z in range(result_many):
+                    for z in range(len(read_event)):
 
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
