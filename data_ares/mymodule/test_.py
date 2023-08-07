@@ -38,14 +38,34 @@ def go_test():
 
     # click_pos_reg(860, 1015, cla)
     # time.sleep(1)
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\click_check.PNG"
+
+    where_split = "loona"
+
+    if where_split == "edan":
+        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\edan_map_title.PNG"
+    elif where_split == "elia":
+        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\elia_map_title.PNG"
+    elif where_split == "loona":
+        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
+    full_path = spot_pic
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 110, 935, 145, cla, img, 0.7)
+    imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
     if imgs_ is not None and imgs_ != False:
-        print("click_check", imgs_)
+        print("맞다")
     else:
-        print("not click_check")
+        print("아니다")
+
+
+
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\click_check.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(900, 110, 935, 145, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("click_check", imgs_)
+    # else:
+    #     print("not click_check")
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_npc.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

@@ -385,7 +385,7 @@ def go_hangsun_map(cla, where):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\hangsung_map_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
 
                 hangsung_in = True
@@ -394,7 +394,7 @@ def go_hangsun_map(cla, where):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     if where_split[1] == "edan":
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\edan_map_title.PNG"
@@ -405,7 +405,7 @@ def go_hangsun_map(cla, where):
                     full_path = spot_pic
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         hangsung_in = True
 
@@ -413,7 +413,7 @@ def go_hangsun_map(cla, where):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\hangsung_map.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 980, 100, 1060, cla, img, 0.7)
+                        imgs_ = imgs_set_(0, 980, 100, 1060, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -421,7 +421,7 @@ def go_hangsun_map(cla, where):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\hangsung_map_title.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
                                     break
                                 time.sleep(0.5)
@@ -437,7 +437,7 @@ def go_hangsun_map(cla, where):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.5)
@@ -476,13 +476,13 @@ def go_spot_in(cla, where):
             full_path = spot_pic
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.7)
+            imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 for i in range(20):
                     full_path = spot_pic
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         spot_in = True
                         go_spot_click(cla, where)
@@ -494,7 +494,7 @@ def go_spot_in(cla, where):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\hangsung_map_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
 
                     # 에단평원인지, 엘리아인지...행성 이름 파악후 그 행성을 클릭
@@ -517,7 +517,7 @@ def go_spot_in(cla, where):
                         full_path = spot_pic
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.7)
+                        imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             break
                         else:
@@ -615,7 +615,7 @@ def go_spot_click(cla, where):
 
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.7)
+            imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 drag_pos(200, 200, 800, 800, cla)
                 time.sleep(0.5)
@@ -712,7 +712,7 @@ def jadong_arrive(cla, where):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
