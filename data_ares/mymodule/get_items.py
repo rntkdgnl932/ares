@@ -133,6 +133,16 @@ def get_event_click(reg_x, reg_y, how, cla):
 
     try:
         print("get_event_click", how)
+
+        if cla == "one":
+            reg_x = reg_x
+        if cla == "two":
+            reg_x = reg_x - 960
+        if cla == "three":
+            reg_x = reg_x - 960 - 960
+        if cla == "four":
+            reg_x = reg_x - 960 - 960 - 960
+
         get_complete = False
         if how == "four":
             for i in range(15):

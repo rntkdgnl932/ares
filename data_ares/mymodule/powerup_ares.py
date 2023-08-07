@@ -95,6 +95,12 @@ def soohosuk(cla):
                         if cla == "two":
                             x1 = imgs_.x - 15 - 960
                             x2 = imgs_.x + 15 - 960
+                        if cla == "three":
+                            x1 = imgs_.x - 15 - 960 - 960
+                            x2 = imgs_.x + 15 - 960 - 960
+                        if cla == "four":
+                            x1 = imgs_.x - 15 - 960 - 960 - 960
+                            x2 = imgs_.x + 15 - 960 - 960 - 960
 
                         y1 = imgs_.y - 15
                         y2 = imgs_.y + 15
