@@ -12,6 +12,7 @@ def gardiun_mission_start(cla, schedule):
     from potion_ares import juljun_potion_check
     try:
         print("gardiun_mission_start")
+
         result_quest = juljun_quest_check(cla)
         if result_quest == False:
             gardiun_mission_get(cla, schedule)
@@ -26,7 +27,7 @@ def gardiun_mission_get(cla, schedule):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import maul_go, map_in
+    from action_ares import maul_go, map_in, loading_ares
     from potion_ares import maul_potion_gardiun
     from schedule import myQuest_play_add
     try:
@@ -102,6 +103,17 @@ def gardiun_mission_get(cla, schedule):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             mission_get_ = True
+
+                            for z in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("loding")
+                                    loading_ares(cla)
+                                time.sleep(0.7)
+
                             break
                         else:
 
