@@ -532,6 +532,7 @@ def go_spot_in(cla, where):
                         # 루나 위치 클릭하기
                         click_pos_2(55, 690, cla)
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
+                    time.sleep(1)
                     for i in range(20):
                         full_path = spot_pic
                         img_array = np.fromfile(full_path, np.uint8)

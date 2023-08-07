@@ -13,7 +13,7 @@ def go_test():
     import pyautogui
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_event, get_item_start
-    from action_ares import out_check, clean_screen, maul_go
+    from action_ares import out_check, clean_screen, maul_go, dead_die
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae
@@ -40,20 +40,7 @@ def go_test():
     # click_pos_reg(860, 1015, cla)
     # time.sleep(1)
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_start_ready_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 50, 960, 1030, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("매크로를 내려야 실행됨...10초", imgs_)
-        time.sleep(2)
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\ares_title_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        # 아레스는 1클라 고정
-        imgs_ = imgs_set_(0, 50, 960, 1030, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x - 40, imgs_.y, cla)
+    dead_die(cla, "hi")
 
 
 
