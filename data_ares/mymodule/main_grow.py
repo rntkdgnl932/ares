@@ -109,7 +109,7 @@ def grow_main(cla, schedule):
                         #     click_pos_reg(x_reg, y_reg, cla)
                         #     break
         if quest_look == False:
-            click_pos_2(945, 100, cla)
+            # click_pos_2(945, 100, cla)
             time.sleep(0.5)
 
 
