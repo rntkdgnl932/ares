@@ -88,6 +88,7 @@ def region_quest_camera(cla):
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
     from action_ares import out_check, clean_screen
+    from gardiun_mission import gardiun_mission_get
 
     try:
         print("region_quest_camera")
@@ -161,7 +162,14 @@ def region_quest_camera(cla):
             if imgs_ is not None and imgs_ != False:
                 print("퀘스트 받기 대기중")
             else:
-                clean_screen(cla)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    gardiun_mission_get(cla)
+                else:
+                    clean_screen(cla)
 
     except Exception as e:
         print(e)
