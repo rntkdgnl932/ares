@@ -59,8 +59,6 @@ def myQuest_play_check(cla, data):
             if day_[0] == nowDay:
                 print("nowDay ing good")
             else:
-                v_.just_one = False
-                v_.force_sub_quest = False
 
                 if datetime.today().weekday() == 0:
 
@@ -177,11 +175,9 @@ def myQuest_play_check(cla, data):
                             with open(file_path3, "w", encoding='utf-8-sig') as file:
                                 file.write(reset_schedule_)
                 refresh_ = True
-                v_.one_cla_count = 0
-                v_.two_cla_count = 0
-                v_.one_cla_ing = 'check'
-                v_.two_cla_ing = 'check'
-                v_.dead_count = 0
+                # 초기화 할때 변경해야할 전역 변수
+                v_.gardiun_juljun_count = 0
+                v_.penetra = False
 
 
         else:
@@ -488,8 +484,7 @@ def myQuest_play_add(cla, data):
             else:
                 print("아직 미션 진행중")
         else:
-            v_.just_one = False
-            v_.force_sub_quest = False
+
 
             if datetime.today().weekday() == 0:
 
@@ -628,16 +623,10 @@ def myQuest_play_add(cla, data):
             myQuest_play_add(cla, data)
 
 
-            # 새로 갱신이니 1번 캐릭 선택으로...and 스케쥴 초기화
-            # 스케쥴 초기화 후 다시 진행
-            v_.one_cla_count = 0
-            v_.two_cla_count = 0
-            v_.one_cla_ing = 'check'
-            v_.two_cla_ing = 'check'
-            v_.dead_count = 0
-            # myQuest_number_check(cla, "new")
-            # change_ = 1
-            # characterChange(change_, cla)
+            # 초기화 할때 변경해야할 전역 변수
+            v_.gardiun_juljun_count = 0
+            v_.penetra = False
+
 
         add_result = 'check'
         return add_result
