@@ -153,6 +153,15 @@ def region_quest_camera(cla):
                     if success == True:
                         ing_ = True
                 time.sleep(1)
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("퀘스트 받기 대기중")
+            else:
+                clean_screen(cla)
 
     except Exception as e:
         print(e)
