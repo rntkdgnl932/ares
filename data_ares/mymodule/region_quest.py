@@ -38,6 +38,7 @@ def region_quest_start(cla, region_n):
                 dead_die(cla, "지역퀘스트")
                 grow_skip(cla)
                 region_quest_camera(cla)
+                region_quest_penetra(cla)
                 grow_complete(cla)
                 confirm_all(cla)
 
