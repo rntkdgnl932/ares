@@ -39,7 +39,7 @@ def region_quest_start(cla, region_n):
                 grow_skip(cla)
                 region_quest_camera(cla)
                 grow_complete(cla)
-                clean_screen(cla)
+                confirm_all(cla)
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -60,6 +60,10 @@ def region_quest_start(cla, region_n):
                             if result_dark == False:
 
                                 click_pos_2(840, 125, cla)
+
+                                time.sleep(1)
+
+                                confirm_all(cla)
 
                             # region_quest_get(cla, region_n),
         else:
