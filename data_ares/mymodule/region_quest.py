@@ -27,6 +27,7 @@ def region_quest_start(cla, region_n):
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 region_quest_get(cla, region_n)
+                v_.region_click = 0
             else:
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -34,6 +35,7 @@ def region_quest_start(cla, region_n):
                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     region_quest_get(cla, region_n)
+                    v_.region_click = 0
 
                 dead_die(cla, "지역퀘스트")
                 grow_skip(cla)
@@ -60,7 +62,13 @@ def region_quest_start(cla, region_n):
 
                             if result_dark == False:
 
-                                click_pos_2(840, 125, cla)
+                                v_.region_click += 1
+                                print("v_.region_click", v_.region_click)
+                                if v_.region_click > 10:
+                                    v_.region_click = 0
+                                    region_quest_get(cla, region_n)
+                                else:
+                                    click_pos_2(840, 125, cla)
 
                                 time.sleep(1)
 
