@@ -19,8 +19,16 @@ def region_quest_start(cla, region_n):
     try:
         print("quest_start")
 
-        if v_.penetra == False or v_.gorgon:
 
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            region_quest_get(cla, region_n)
+            v_.region_click = 0
+        else:
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -28,72 +36,62 @@ def region_quest_start(cla, region_n):
             if imgs_ is not None and imgs_ != False:
                 region_quest_get(cla, region_n)
                 v_.region_click = 0
-            else:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    region_quest_get(cla, region_n)
-                    v_.region_click = 0
 
-                dead_die(cla, "지역퀘스트")
-                grow_skip(cla)
-                region_quest_camera(cla)
+            dead_die(cla, "지역퀘스트")
+            grow_skip(cla)
+            region_quest_camera(cla)
+            grow_complete(cla)
+            confirm_all(cla)
+
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(880, 80, 960, 170, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("이동 중")
+            else:
                 # 지역퀘스트 필드보스
                 region_quest_penetra(cla)
                 region_quest_gorgon(cla)
-                grow_complete(cla)
-                confirm_all(cla)
 
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
+                result_ing = region_quest_ing(cla)
+
+                if result_ing == False:
+
+                    result_click = region_quest_click_before(cla)
+
+                    if result_click == False:
+
+                        result_dark = dark_play(cla)
+
+                        if result_dark == False:
+
+                            v_.region_click += 1
+                            print("v_.region_click", v_.region_click)
+                            if v_.region_click > 10:
+                                v_.region_click = 0
+                                region_quest_get(cla, region_n)
+                            else:
+                                click_pos_2(840, 125, cla)
+
+                            time.sleep(1)
+
+                            confirm_all(cla)
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_clear.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("region : dark_clear", imgs_)
+                time.sleep(1)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_exit.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(880, 105, 960, 170, cla, img, 0.7)
-                if imgs_ is None:
-
-                    result_ing = region_quest_ing(cla)
-
-                    if result_ing == False:
-
-                        result_click = region_quest_click_before(cla)
-
-                        if result_click == False:
-
-                            result_dark = dark_play(cla)
-
-                            if result_dark == False:
-
-                                v_.region_click += 1
-                                print("v_.region_click", v_.region_click)
-                                if v_.region_click > 10:
-                                    v_.region_click = 0
-                                    region_quest_get(cla, region_n)
-                                else:
-                                    click_pos_2(840, 125, cla)
-
-                                time.sleep(1)
-
-                                confirm_all(cla)
-
-                            # region_quest_get(cla, region_n),
-        else:
-            if v_.penetra == True:
-                data = "페네트라"
-            if v_.gorgon == True:
-                data = "고르곤졸라"
-            print("필드보스 대기중 : ", data)
-            # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
-            # img_array = np.fromfile(full_path, np.uint8)
-            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            # imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
-            # if imgs_ is not None and imgs_ != False:
-            #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend_juljun_title.PNG"
-            #     img_array = np.fromfile(full_path, np.uint8)
-            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            #     imgs_ = imgs_set_(15, 55, 70, 90, cla, img, 0.8)
-            #     if imgs_ is not None and imgs_ != False:
-            #         juljun_potion_check(cla)
+                imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
     except Exception as e:
         print(e)
         return 0
@@ -202,10 +200,10 @@ def region_quest_penetra(cla):
         ing_ = False
         ing_count = 0
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend.PNG"
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(780, 100, 860, 135, cla, img, 0.7)
+        imgs_ = imgs_set_(0, 135, 55, 185, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
 
             while ing_ is False:
@@ -219,35 +217,8 @@ def region_quest_penetra(cla):
                 imgs_ = imgs_set_(0, 135, 55, 185, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    ing_ = True
                     time.sleep(1)
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        v_.penetra = True
-                        ing_ = True
-
-
-                else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(780, 100, 860, 135, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                        for i in range(100):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend2.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 135, 55, 185, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                break
-                            else:
-                                confirm_all(cla)
-                            time.sleep(1)
 
 
     except Exception as e:
@@ -272,6 +243,9 @@ def region_quest_gorgon(cla):
         # imgs_ = imgs_set_(780, 100, 900, 135, cla, img, 0.7)
         # if imgs_ is not None and imgs_ != False:
 
+
+
+
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -289,10 +263,8 @@ def region_quest_gorgon(cla):
                 imgs_ = imgs_set_(0, 135, 65, 185, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(1)
-                    v_.gorgon = True
                     ing_ = True
-
+                time.sleep(1)
                     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
                     # img_array = np.fromfile(full_path, np.uint8)
                     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -301,26 +273,26 @@ def region_quest_gorgon(cla):
                     #     click_pos_reg(imgs_.x, imgs_.y, cla)
                     #     v_.gorgon = True
                     #     ing_ = True
-
-
-                else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(780, 100, 860, 135, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                        for i in range(100):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon2.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 135, 65, 185, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                break
-                            else:
-                                confirm_all(cla)
-                            time.sleep(1)
+                #
+                #
+                # else:
+                #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon.PNG"
+                #     img_array = np.fromfile(full_path, np.uint8)
+                #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                #     imgs_ = imgs_set_(780, 100, 860, 135, cla, img, 0.7)
+                #     if imgs_ is not None and imgs_ != False:
+                #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                #
+                #         for i in range(100):
+                #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon2.PNG"
+                #             img_array = np.fromfile(full_path, np.uint8)
+                #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                #             imgs_ = imgs_set_(0, 135, 65, 185, cla, img, 0.7)
+                #             if imgs_ is not None and imgs_ != False:
+                #                 break
+                #             else:
+                #                 confirm_all(cla)
+                #             time.sleep(1)
 
 
     except Exception as e:

@@ -177,8 +177,8 @@ def myQuest_play_check(cla, data):
                 refresh_ = True
                 # 초기화 할때 변경해야할 전역 변수
                 v_.gardiun_juljun_count = 0
-                v_.penetra = False
-                v_.gorgon = False
+                # v_.penetra = False
+                # v_.gorgon = False
 
 
         else:
@@ -626,8 +626,8 @@ def myQuest_play_add(cla, data):
 
             # 초기화 할때 변경해야할 전역 변수
             v_.gardiun_juljun_count = 0
-            v_.penetra = False
-            v_.gorgon = False
+            # v_.penetra = False
+            # v_.gorgon = False
 
 
         add_result = 'check'
