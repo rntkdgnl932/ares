@@ -167,7 +167,7 @@ def region_quest_camera(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    gardiun_mission_get(cla "가디언임무")
+                    gardiun_mission_get(cla, "가디언임무")
                 else:
                     clean_screen(cla)
 
