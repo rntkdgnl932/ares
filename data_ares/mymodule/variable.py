@@ -10,6 +10,9 @@ now_arduino = "none"
 # 아레스 관련
 # 협동 던전 : 다크디멘젼
 dark_demen = False
+# 지역퀘스트 : 전설속 몬스터 페네트라
+penetra = False
+
 
 # 버젼
 

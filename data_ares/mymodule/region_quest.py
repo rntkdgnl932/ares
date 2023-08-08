@@ -15,51 +15,65 @@ def region_quest_start(cla, region_n):
     from action_ares import confirm_all, dead_die, clean_screen
     from main_grow import grow_skip, grow_complete
     from dungeon import dark_play
+    from potion_ares import juljun_potion_check
     try:
         print("quest_start")
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            region_quest_get(cla, region_n)
-        else:
+        if v_.penetra == False:
+
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 region_quest_get(cla, region_n)
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    region_quest_get(cla, region_n)
 
-            dead_die(cla, "지역퀘스트")
-            grow_skip(cla)
-            region_quest_camera(cla)
-            grow_complete(cla)
-            clean_screen(cla)
+                dead_die(cla, "지역퀘스트")
+                grow_skip(cla)
+                region_quest_camera(cla)
+                grow_complete(cla)
+                clean_screen(cla)
 
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(880, 105, 960, 170, cla, img, 0.7)
+                if imgs_ is None:
+
+                    result_ing = region_quest_ing(cla)
+
+                    if result_ing == False:
+
+                        result_click = region_quest_click_before(cla)
+
+                        if result_click == False:
+
+                            result_dark = dark_play(cla)
+
+                            if result_dark == False:
+
+                                click_pos_2(840, 125, cla)
+
+                            # region_quest_get(cla, region_n),
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(880, 105, 960, 170, cla, img, 0.7)
-            if imgs_ is None:
-
-                result_ing = region_quest_ing(cla)
-
-                if result_ing == False:
-
-                    result_click = region_quest_click_before(cla)
-
-                    if result_click == False:
-
-                        result_dark = dark_play(cla)
-
-                        if result_dark == False:
-
-                            click_pos_2(840, 125, cla)
-
-                        # region_quest_get(cla, region_n),
-
+            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend_juljun_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(15, 55, 70, 90, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    juljun_potion_check(cla)
     except Exception as e:
         print(e)
         return 0
@@ -134,6 +148,70 @@ def region_quest_camera(cla):
                     if success == True:
                         ing_ = True
                 time.sleep(1)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def region_quest_penetra(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import confirm_all
+
+    try:
+        print("region_quest_penetra")
+
+        ing_ = False
+        ing_count = 0
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(780, 100, 860, 135, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+
+            while ing_ is False:
+                ing_count += 1
+                if ing_count > 20:
+                    ing_ = True
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 135, 55, 185, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(1)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        v_.penetra = True
+                        ing_ = True
+
+
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(780, 100, 860, 135, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        for i in range(100):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 135, 55, 185, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                confirm_all(cla)
+                            time.sleep(1)
+
 
     except Exception as e:
         print(e)
