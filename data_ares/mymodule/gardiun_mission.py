@@ -378,21 +378,26 @@ def juljun_quest_check(cla):
         if go_ == True:
             v_.gardiun_juljun_count += 1
             if v_.gardiun_juljun_count > 300:
-                drag_pos(405, 605, 945, 605, cla)
-                time.sleep(1)
-                for i in range(10):
-                    result_out = out_check(cla)
-                    if result_out == True:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            v_.gardiun_juljun_count = 0
-                            time.sleep(1)
-                            break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    drag_pos(405, 605, 945, 605, cla)
                     time.sleep(1)
+                    for i in range(10):
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                v_.gardiun_juljun_count = 0
+                                time.sleep(1)
+                                break
+                        time.sleep(1)
 
 
 
