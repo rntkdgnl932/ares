@@ -58,7 +58,7 @@ def region_quest_start(cla, region_n):
 
                             click_pos_2(840, 125, cla)
 
-                        # region_quest_get(cla, region_n)
+                        # region_quest_get(cla, region_n),
 
     except Exception as e:
         print(e)
