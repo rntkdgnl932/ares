@@ -19,7 +19,7 @@ def region_quest_start(cla, region_n):
     try:
         print("quest_start")
 
-        if v_.penetra == False:
+        if v_.penetra == False or v_.gorgon:
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -76,17 +76,22 @@ def region_quest_start(cla, region_n):
 
                             # region_quest_get(cla, region_n),
         else:
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend_juljun_title.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(15, 55, 70, 90, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    juljun_potion_check(cla)
+            if v_.penetra == True:
+                data = "페네트라"
+            if v_.gorgon == True:
+                data = "고르곤졸라"
+            print("필드보스 대기중 : ", data)
+            # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+            # img_array = np.fromfile(full_path, np.uint8)
+            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            # imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+            # if imgs_ is not None and imgs_ != False:
+            #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\penetra_legend_juljun_title.PNG"
+            #     img_array = np.fromfile(full_path, np.uint8)
+            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #     imgs_ = imgs_set_(15, 55, 70, 90, cla, img, 0.8)
+            #     if imgs_ is not None and imgs_ != False:
+            #         juljun_potion_check(cla)
     except Exception as e:
         print(e)
         return 0
@@ -259,10 +264,16 @@ def region_quest_gorgon(cla):
         ing_ = False
         ing_count = 0
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon.PNG"
+        # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(780, 100, 900, 135, cla, img, 0.7)
+        # if imgs_ is not None and imgs_ != False:
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gorgon2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(780, 100, 900, 135, cla, img, 0.7)
+        imgs_ = imgs_set_(0, 135, 65, 185, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
 
             while ing_ is False:
@@ -277,14 +288,17 @@ def region_quest_gorgon(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(1)
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        v_.gorgon = True
-                        ing_ = True
+                    v_.gorgon = True
+                    ing_ = True
+
+                    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #     v_.gorgon = True
+                    #     ing_ = True
 
 
                 else:
