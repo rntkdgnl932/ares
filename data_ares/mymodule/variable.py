@@ -12,6 +12,7 @@ now_arduino = "none"
 dark_demen = False
 # 지역퀘스트 : 전설속 몬스터 페네트라
 penetra = False
+gorgon = False
 region_click = 0
 # 가디언 임무 관련
 gardiun_juljun_count = 0
