@@ -12,7 +12,7 @@ def region_quest_start(cla, region_n):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import confirm_all, dead_die
+    from action_ares import confirm_all, dead_die, clean_screen
     from main_grow import grow_skip, grow_complete
     from dungeon import dark_play
     try:
@@ -36,7 +36,7 @@ def region_quest_start(cla, region_n):
             grow_skip(cla)
             region_quest_camera(cla)
             grow_complete(cla)
-            confirm_all(cla)
+            clean_screen(cla)
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\move\\move_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -68,7 +68,7 @@ def region_quest_camera(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import out_check
+    from action_ares import out_check, clean_screen
 
     try:
         print("region_quest_camera")
@@ -85,7 +85,10 @@ def region_quest_camera(cla):
             while ing_ is False:
                 ing_count += 1
                 if ing_count > 20:
-                    ing_ = True
+                    clean_screen(cla)
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        ing_ = True
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -93,7 +96,7 @@ def region_quest_camera(cla):
                 imgs_ = imgs_set_(890, 490, 960, 565, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(1)
+                    time.sleep(3)
 
                     success = True
 
