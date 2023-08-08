@@ -104,7 +104,7 @@ def gardiun_mission_get(cla, schedule):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             mission_get_ = True
 
-                            for z in range(10):
+                            for z in range(20):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -112,6 +112,27 @@ def gardiun_mission_get(cla, schedule):
                                 if imgs_ is not None and imgs_ != False:
                                     print("loding")
                                     loading_ares(cla)
+                                    break
+                                time.sleep(0.7)
+
+                            moving_count = 0
+                            for k in range(20):
+                                moving_count += 1
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_moving.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("사냥터이동중", moving_count)
+                                    time.sleep(1)
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+                                    time.sleep(1)
                                 time.sleep(0.7)
 
                             break
