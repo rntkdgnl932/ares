@@ -12,7 +12,7 @@ def go_test():
     import cv2
     import pyautogui
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos
-    from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_event, get_item_start
+    from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start
     from action_ares import out_check, clean_screen, maul_go, dead_die
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
@@ -40,9 +40,21 @@ def go_test():
     # click_pos_reg(860, 1015, cla)
     # time.sleep(1)
 
-    bag_item_open(cla)
+    get_event(cla)
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_5.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(345, 495, 780, 530, cla, img, 0.77)
+    if imgs_ is not None and imgs_ != False:
+        print("get_event_point_5", imgs_)
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_seven_six_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(300, 525, 780, 680, cla, img, 0.77)
+    if imgs_ is not None and imgs_ != False:
+        print("get_event_point_2", imgs_)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\click_check.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

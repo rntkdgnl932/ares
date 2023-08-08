@@ -36,7 +36,7 @@ def get_item_start(cla):
 def get_event(cla):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, how_many_pic, click_pos_2
+    from function import imgs_set_, click_pos_reg, how_many_pic, click_pos_2, drag_pos
     from action_ares import menu_open
     try:
         print("get_event")
@@ -46,6 +46,8 @@ def get_event(cla):
 
         with open(file_path, "r", encoding='utf-8-sig') as file:
             read_event = file.read().splitlines()
+
+        drag_num = 0
 
         # 첫번째 y값 기준 : 399, 각 단계별로 33픽셀 차이
         event_ready = False
@@ -63,15 +65,25 @@ def get_event(cla):
                 print("event 창 열렸다.")
                 event_ready = True
 
-                # 포인트 갯수 알아내기
-                address = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
-                result_many = how_many_pic(270, 370, 310, 700, address, cla)
-                print("result_many", result_many)
+                # # 포인트 갯수 알아내기
+                # address = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                # result_many = how_many_pic(270, 370, 310, 700, address, cla)
+                # print("result_many", result_many)
+                #
+                # if result_many != 0:
 
-                if result_many != 0:
+                for z in range(len(read_event)):
 
-                    for z in range(len(read_event)):
+                    is_drag = read_event[z].split(":")
 
+                    if is_drag[1] == "drag":
+                        drag_pos(240, 670, 240, 420, cla)
+                        time.sleep(0.5)
+                        drag_pos(240, 670, 240, 420, cla)
+                        drag_num = z
+                        time.sleep(1)
+
+                    if drag_num == 0:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -102,7 +114,14 @@ def get_event(cla):
                                     # 추려낸 결과 ex => 2:seven
                                     get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
                                     time.sleep(0.5)
-                        time.sleep(0.2)
+                    else:
+                        if is_drag[0] == "11":
+                            get_event_click_drag(240, 670, "seven_six", cla)
+
+
+
+                    time.sleep(0.2)
+
                 # 이벤트 창 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -121,7 +140,10 @@ def get_event(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
                 else:
+                    print("이벤트 안 보이나?")
                     click_pos_2(810, 60, cla)
+                    time.sleep(1)
+
             time.sleep(1)
 
 
@@ -195,24 +217,32 @@ def get_event_click(reg_x, reg_y, how, cla):
                     imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
-                        time.sleep(0.1)
-                        break
+                        time.sleep(0.3)
+                        for k in range(random_int()):
+                            click_pos_2(reg_x, reg_y, cla)
+                            time.sleep(0.1)
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
-                        time.sleep(0.1)
-                        break
+                        time.sleep(0.3)
+                        for k in range(random_int()):
+                            click_pos_2(reg_x, reg_y, cla)
+                            time.sleep(0.1)
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
-                        time.sleep(0.1)
-                        break
+                        time.sleep(0.3)
+                        for k in range(random_int()):
+                            click_pos_2(reg_x, reg_y, cla)
+                            time.sleep(0.1)
+                else:
+                    break
                 time.sleep(0.1)
         elif how == "seven":
             for i in range(15):
@@ -288,38 +318,28 @@ def get_event_click(reg_x, reg_y, how, cla):
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_5.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(345, 495, 780, 530, cla, img, 0.77)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
                         time.sleep(0.1)
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
-                            time.sleep(0.1)
-                            break
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
-                            time.sleep(0.1)
-                            break
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
-                            time.sleep(0.1)
-                            break
 
+                        for k in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_seven_six_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                time.sleep(0.5)
+                                for z in range(random_int()):
+                                    click_pos_2(reg_x, reg_y, cla)
+                                    time.sleep(0.1)
+                            time.sleep(0.1)
+                else:
+                    break
                 time.sleep(0.1)
         elif how == "pass":
             print("수동으로 받자")
@@ -333,6 +353,175 @@ def get_event_click(reg_x, reg_y, how, cla):
     except Exception as e:
         print(e)
         return 0
+
+def get_event_click_drag(reg_x, reg_y, how, cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2, random_int
+
+    try:
+        print("get_event_click_drag", how)
+
+        # if cla == "one":
+        #     reg_x = reg_x
+        # if cla == "two":
+        #     reg_x = reg_x - 960
+        # if cla == "three":
+        #     reg_x = reg_x - 960 - 960
+        # if cla == "four":
+        #     reg_x = reg_x - 960 - 960 - 960
+
+        click_pos_2(reg_x, reg_y, cla)
+        time.sleep(1)
+
+        if how == "four":
+            for i in range(15):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 580, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 580, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 580, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                time.sleep(0.1)
+        elif how == "six":
+            for i in range(15):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 530, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                time.sleep(0.1)
+        elif how == "seven":
+            for i in range(15):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                time.sleep(0.1)
+        elif how == "fourteen":
+            for i in range(15):
+                # 여기 받기 부분이 how에 따라 달라짐.
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 515, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 515, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 515, 780, 680, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                    time.sleep(0.1)
+                    break
+                time.sleep(0.1)
+        elif how == "seven_six":
+            for i in range(10):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_5.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(345, 495, 780, 530, cla, img, 0.77)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                    time.sleep(0.1)
+
+                    for k in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_seven_six_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(515, 525, 780, 680, cla, img, 0.77)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                            time.sleep(0.5)
+                            for z in range(random_int() + 1):
+                                click_pos_2(reg_x, reg_y, cla)
+                                time.sleep(0.1)
+                        time.sleep(0.1)
+                else:
+                    break
+
+                time.sleep(0.3)
+        elif how == "pass":
+            print("수동으로 받자")
+
+        time.sleep(0.3)
+        for i in range(random_int()):
+            click_pos_2(reg_x, reg_y, cla)
+            time.sleep(0.1)
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
 
 def get_post(cla):
     import numpy as np
