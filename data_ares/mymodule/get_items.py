@@ -36,7 +36,7 @@ def get_item_start(cla):
 def get_event(cla):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, how_many_pic
+    from function import imgs_set_, click_pos_reg, how_many_pic, click_pos_2
     from action_ares import menu_open
     try:
         print("get_event")
@@ -120,6 +120,8 @@ def get_event(cla):
                 imgs_ = imgs_set_(800, 20, 830, 50, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
+                else:
+                    click_pos_2(810, 60, cla)
             time.sleep(1)
 
 
@@ -403,6 +405,8 @@ def get_post(cla):
                 imgs_ = imgs_set_(800, 350, 830, 375, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
+                else:
+                    post_ready = True
             time.sleep(1)
 
 
@@ -463,6 +467,8 @@ def get_gardiun_pass(cla):
                 imgs_ = imgs_set_(930, 210, 960, 250, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
+                else:
+                    gardiun_ready = True
             time.sleep(1)
 
 
@@ -520,6 +526,8 @@ def get_gardiun_rank(cla):
                 imgs_ = imgs_set_(805, 155, 830, 175, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
+                else:
+                    gardiun_ready = True
             time.sleep(1)
 
 
@@ -734,6 +742,15 @@ def bag_item_open(cla):
                 menu_open(cla)
                 time.sleep(0.2)
                 click_pos_2(905, 55, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\bag_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
             time.sleep(1)
 
 

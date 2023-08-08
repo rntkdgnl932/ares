@@ -40,7 +40,7 @@ def go_test():
     # click_pos_reg(860, 1015, cla)
     # time.sleep(1)
 
-    dead_die(cla, "hi")
+    bag_item_open(cla)
 
 
 
