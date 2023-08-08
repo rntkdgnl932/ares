@@ -34,6 +34,7 @@ def region_quest_start(cla, region_n):
 
             dead_die(cla, "지역퀘스트")
             grow_skip(cla)
+            region_quest_camera(cla)
             grow_complete(cla)
             confirm_all(cla)
 
@@ -63,6 +64,44 @@ def region_quest_start(cla, region_n):
         print(e)
         return 0
 
+def region_quest_camera(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg
+
+    try:
+        print("region_quest_camera")
+
+        ing_ = False
+        ing_count = 0
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(890, 490, 960, 565, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            x_reg = imgs_.x
+            y_reg = imgs_.y
+            while ing_ is False:
+                ing_count += 1
+                if ing_count > 20:
+                    ing_ = True
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera_no_shot.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(460, 510, 505, 555, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("사진찍는 퀘스트 중")
+                else:
+                    print("사진 찍자~!")
+                    click_pos_reg(x_reg, y_reg, cla)
+                    ing_ = True
+                time.sleep(0.1)
+
+    except Exception as e:
+        print(e)
+        return 0
 
 def region_quest_ing(cla):
     import numpy as np
