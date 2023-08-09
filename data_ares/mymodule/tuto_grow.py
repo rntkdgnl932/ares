@@ -9,7 +9,16 @@ import variable as v_
 
 def tuto_grow_start(cla, schedule):
     from action_ares import confirm_all, dead_die
+    from function import drag_pos
     try:
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            drag_pos(405, 605, 945, 605, cla)
+
         print("tuto_grow_start")
         dead_die(cla, schedule)
         tuto_grow_intro(cla)
