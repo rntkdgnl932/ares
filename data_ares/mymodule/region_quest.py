@@ -67,18 +67,17 @@ def region_quest_start(cla, region_n):
 
                         if result_dark == False:
 
-                            v_.region_click += 1
-                            print("v_.region_click", v_.region_click)
-                            if v_.region_click > 10:
-                                v_.region_click = 0
-                                region_quest_get(cla, region_n)
-                            else:
-                                click_pos_2(840, 125, cla)
+                            click_pos_2(840, 125, cla)
 
                             time.sleep(1)
 
                             confirm_all(cla)
-
+                else:
+                    v_.region_click += 1
+                    print("v_.region_click", v_.region_click)
+                    if v_.region_click > 10:
+                        v_.region_click = 0
+                        region_quest_get(cla, region_n)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_clear.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
