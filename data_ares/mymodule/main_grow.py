@@ -9,7 +9,9 @@ import variable as v_
 
 def main_grow_start(cla, schedule):
     from action_ares import confirm_all, dead_die
-    from function import drag_pos
+    from function import drag_pos, imgs_set_
+    import numpy as np
+    import cv2
     try:
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"

@@ -49,6 +49,8 @@ def get_event(cla):
 
         drag_num = 0
 
+        y_plus = 0
+
         # 첫번째 y값 기준 : 399, 각 단계별로 33픽셀 차이
         event_ready = False
         event_ready_count = 0
@@ -82,18 +84,20 @@ def get_event(cla):
                         drag_pos(240, 670, 240, 420, cla)
                         drag_num = z
                         time.sleep(1)
+                    elif is_drag[1] == "pass":
+                        y_plus += 40
 
                     if drag_num == 0:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(270, 370, 310, 700, cla, img, 0.7)
+                        imgs_ = imgs_set_(270, 380 + y_plus, 310, 700, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             print("받기 시작")
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(270, 370, 310, 700, cla, img, 0.7)
+                            imgs_ = imgs_set_(270, 380 + y_plus, 310, 700, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
                                 time.sleep(0.5)
