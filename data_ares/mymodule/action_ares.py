@@ -153,7 +153,7 @@ def clean_screen(cla):
                 imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(935, 50, cla)
-                    
+
                 # 아이템 소환 후 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan_exit.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

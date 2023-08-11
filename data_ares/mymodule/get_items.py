@@ -698,6 +698,51 @@ def get_gardiun_rank(cla):
                     click_pos_2(50, 1015, cla)
                     time.sleep(0.2)
 
+                for i in range(100):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gardiun_rank_point_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(100, 50, 900, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+
+                        x_reg = imgs_.x - 25
+                        y_reg = imgs_.y + 20
+
+                        click_pos_reg(x_reg, y_reg, cla)
+                        time.sleep(0.5)
+                        for k in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gardiun_rank_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(0.2)
+                            time.sleep(0.3)
+                    else:
+                        time.sleep(1)
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gardiun_rank_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gardiun_rank_point_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(100, 50, 900, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                x_reg = imgs_.x - 25
+                                y_reg = imgs_.y + 20
+
+                                click_pos_reg(x_reg, y_reg, cla)
+                            else:
+                                break
+                        else:
+                            click_pos_2(480, 680, cla)
+                            time.sleep(0.2)
+                    time.sleep(1)
 
                 # 이벤트 창 닫기
                 for i in range(5):
@@ -954,4 +999,102 @@ def bag_item_open(cla):
         print(e)
         return 0
 
+def get_mission_bosang(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import menu_open
 
+    try:
+        print("get_mission_bosang")
+        mission_ready = False
+        mission_ready_count = 0
+        while mission_ready is False:
+            mission_ready_count += 1
+            if mission_ready_count > 5:
+                mission_ready = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\mission_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("get_mission_bosang 창 열렸다.")
+                mission_ready = True
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_mission_bosang_point_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(130, 840, 960, 870, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("get_mission_bosang_point_1 -80, +10 ", imgs_)
+                        click_pos_reg(imgs_.x - 80, imgs_.y + 10, cla)
+
+                        for x in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\mission_get_complete.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(420, 400, 530, 445, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.2)
+
+
+                        for y in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\mission_get_complete.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(420, 400, 530, 445, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("get_mission_bosang_point_1 -80, +10 ", imgs_)
+                                click_pos_reg(imgs_.x - 80, imgs_.y + 10, cla)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\mission_get_cancle.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(390, 560, 450, 610, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.5)
+                                break
+                            time.sleep(0.2)
+                        for z in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\mission_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                click_pos_2(470, 930, cla)
+                            time.sleep(0.2)
+
+            else:
+                menu_open(cla)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_post_point_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(865, 255, 900, 290, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
+                else:
+                    mission_ready = True
+            time.sleep(1)
+        for i in range(5):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\mission_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(940, 50, cla)
+            else:
+                break
+            time.sleep(0.2)
+        time.sleep(0.1)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0

@@ -59,19 +59,20 @@ def region_quest_start(cla, region_n):
 
                 if result_ing == False:
 
-                    result_click = region_quest_click_before(cla)
+                    # result_click = region_quest_click_before(cla)
+                    #
+                    # if result_click == False:
 
-                    if result_click == False:
+                    result_dark = dark_play(cla)
 
-                        result_dark = dark_play(cla)
+                    if result_dark == False:
 
-                        if result_dark == False:
+                        # click_pos_2(840, 125, cla)
+                        region_quest_get(cla, region_n)
 
-                            click_pos_2(840, 125, cla)
+                        time.sleep(1)
 
-                            time.sleep(1)
-
-                            confirm_all(cla)
+                        confirm_all(cla)
                 else:
                     v_.region_click += 1
                     print("v_.region_click", v_.region_click)
@@ -313,7 +314,7 @@ def region_quest_ing(cla):
 
         while ing_ is False:
             ing_count += 1
-            if ing_count > 20:
+            if ing_count > 15:
                 ing_ = True
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\quest_ing\\quest_ing_1.PNG"
@@ -340,10 +341,10 @@ def region_quest_click_before(cla):
 
         ing_now = False
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\click_check.PNG"
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\click_check_region.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(900, 110, 935, 145, cla, img, 0.7)
+        imgs_ = imgs_set_(900, 110, 935, 180, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             print("click_check")
             click_pos_reg(imgs_.x, imgs_.y, cla)

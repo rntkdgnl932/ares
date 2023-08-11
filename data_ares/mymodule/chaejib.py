@@ -130,8 +130,8 @@ def chaejib_maps():
 
         dir_path = "C:\\my_games\\ares\\data_ares"
         file_path1 = dir_path + "\\jadong\\ares_edan.txt"
-        file_path2 = dir_path + "\\jadong\\ares_elia.txt"
-        file_path3 = dir_path + "\\jadong\\ares_loona.txt"
+        file_path2 = dir_path + "\\jadong\\ares_elia_chaejib.txt"
+        file_path3 = dir_path + "\\jadong\\ares_loona_chaejib.txt"
 
         result_chaejib_maps = []
 

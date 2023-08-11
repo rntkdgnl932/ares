@@ -5,6 +5,7 @@ sys.path.append('C:/my_games/ares/data_ares/mymodule')
 
 import variable as v_
 
+gardiun_count = 0
 
 
 def main_grow_start(cla, schedule):
@@ -39,6 +40,7 @@ def grow_main(cla, schedule):
     from function import imgs_set_, click_pos_reg, click_pos_2, drag_pos
     from schedule import myQuest_play_add
     from action_ares import out_check
+    from dungeon import dark_play
 
     try:
         print("grow_main")
@@ -108,17 +110,29 @@ def grow_main(cla, schedule):
                     imgs_ = imgs_set_(880, 80, 960, 170, cla, img, 0.7)
                 if imgs_ is None:
 
+                    # # 빠른 실행되는지 테스트
+                    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     print("auto_off", imgs_)
+                    #     click_pos_reg(imgs_.x, imgs_.y, cla)
+
                     result_ing = grow_quest_ing(cla)
                     if result_ing == False:
-                        click_pos_reg(x_reg, y_reg, cla)
-                        break
-                        # if v_.now_chabter == "chap_2_1":
-                        #     grow_sub(cla)
-                        #
-                        # else:
-                        #
-                        #     click_pos_reg(x_reg, y_reg, cla)
-                        #     break
+                        result_dark = dark_play(cla)
+
+                        if result_dark == False:
+                            click_pos_reg(x_reg, y_reg, cla)
+                            break
+                            # if v_.now_chabter == "chap_2_1":
+                            #     grow_sub(cla)
+                            #
+                            # else:
+                            #
+                            #     click_pos_reg(x_reg, y_reg, cla)
+                            #     break
         if quest_look == False:
             # click_pos_2(945, 100, cla)
             time.sleep(0.5)
@@ -145,7 +159,7 @@ def grow_quest_ing(cla):
 
         while ing_ is False:
             ing_count += 1
-            if ing_count > 30:
+            if ing_count > 15:
                 ing_ = True
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\quest_ing\\quest_ing_1.PNG"
@@ -269,12 +283,17 @@ def grow_complete(cla):
 
 
 def grow_explain(cla):
+
+    global gardiun_count
+
     import numpy as np
     import cv2
     import pyautogui
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import out_check, bag_open
+    from action_ares import out_check, bag_open, clean_screen
     from schedule import myQuest_play_add
+    from get_items import get_gardiun_rank
+    from massenger import line_to_me
 
     try:
         new_contents = False
@@ -300,6 +319,13 @@ def grow_explain(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
+            # 모듈
+            click_pos_2(870, 180, cla)
+            time.sleep(0.5)
+
+            # 좌측 메뉴 모두 클릭
+            click_pos_2(100, 160, cla)
+            time.sleep(0.5)
             click_pos_2(100, 230, cla)
             time.sleep(0.5)
             click_pos_2(100, 280, cla)
@@ -376,6 +402,70 @@ def grow_explain(cla):
                     break
                 time.sleep(0.5)
 
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\hondon\\hondon_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(5):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\hondon\\hondon_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(940, 50, cla)
+                else:
+                    break
+                time.sleep(0.5)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(890, 490, 960, 565, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            ing_ = False
+            ing_count = 0
+            while ing_ is False:
+                ing_count += 1
+                if ing_count > 20:
+                    clean_screen(cla)
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        ing_ = True
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 490, 960, 565, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(3)
+
+                    success = True
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\camera_trash.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(440, 940, 480, 990, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+
+                            success = False
+
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+                            click_pos_2(940, 50, cla)
+                            time.sleep(1)
+                            click_pos_2(840, 125, cla)
+                            break
+                        else:
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                ing_ = True
+                                break
+                    if success == True:
+                        ing_ = True
+
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_8_gigantomakia\\chap_2_1_8_gigantomakia.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -432,6 +522,43 @@ def grow_explain(cla):
                     break
                 time.sleep(0.3)
 
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\module\\module_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(5):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\module\\module_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\module\\haeje.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(860, 990, 950, 1050, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(940, 50, cla)
+                    else:
+                        click_pos_2(46, 160, cla)
+                        time.sleep(0.5)
+                        click_pos_2(905, 1015, cla)
+                        time.sleep(0.5)
+                        click_pos_2(940, 50, cla)
+                    time.sleep(0.5)
+                else:
+                    break
+                time.sleep(0.3)
+
+        # chap_3_1_2
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_3_1_2_barior\\timer.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(360, 60, 560, 110, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("그냥 이김")
+
         # chap_2_2_2 or chap_2_1_3
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_2_moria_giji\\chap_2_2_2_moria_giji.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -478,6 +605,35 @@ def grow_explain(cla):
         imgs_ = imgs_set_(10, 10, 90, 80, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_2(940, 50, cla)
+
+        # 이모션
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\emotion\\emotion_open.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(70, 850, 170, 890, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(20, 870, cla)
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\emotion\\want_emotion.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(375, 915, 470, 970, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(420, 980, cla)
+
+        # 가디언랭크
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gardiun_rank_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            get_gardiun_rank(cla)
+            gardiun_count += 1
+            if gardiun_count > 4:
+                data = "따로 점검 필요하다."
+                print(data)
+                line_to_me(cla, data)
+                myQuest_play_add(cla, "메인퀘스트")
+
 
         if v_.now_chabter == "chap_2_1_1" or v_.now_chabter == "chap_2_1_3":
 

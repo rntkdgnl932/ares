@@ -176,26 +176,44 @@ def gardiun_mission_get(cla, schedule):
 
                                     time.sleep(0.5)
 
-                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_complete.PNG"
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(140, 940, 210, 1010, cla, img, 0.8)
+                                    imgs_ = imgs_set_(150, 240, 200, 550, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("가디언 스케쥴 완료")
-                                        mission_get_ = True
-                                        myQuest_play_add(cla, schedule)
-                                        click_pos_2(940, 50, cla)
-                                        break
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.5)
+                                        click_pos_2(815, 1015, cla)
+                                        time.sleep(0.5)
                                     else:
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
+
+
+                                        # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_complete.PNG"
+                                        # img_array = np.fromfile(full_path, np.uint8)
+                                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        # imgs_ = imgs_set_(140, 940, 210, 1010, cla, img, 0.8)
+                                        # if imgs_ is not None and imgs_ != False:
+
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_complete _zero.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(150, 240, 200, 550, cla, img, 0.8)
+                                        imgs_ = imgs_set_(140, 940, 210, 1010, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            time.sleep(0.5)
-                                            click_pos_2(815, 1015, cla)
-                                            time.sleep(0.5)
+                                            print("가디언 스케쥴 완료")
+                                            mission_get_ = True
+                                            myQuest_play_add(cla, schedule)
+                                            click_pos_2(940, 50, cla)
+                                            break
+                                        # else:
+                                        #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
+                                        #     img_array = np.fromfile(full_path, np.uint8)
+                                        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        #     imgs_ = imgs_set_(150, 240, 200, 550, cla, img, 0.8)
+                                        #     if imgs_ is not None and imgs_ != False:
+                                        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        #         time.sleep(0.5)
+                                        #         click_pos_2(815, 1015, cla)
+                                        #         time.sleep(0.5)
 
                         time.sleep(1)
             else:
@@ -287,11 +305,36 @@ def gardiun_mission_get(cla, schedule):
         print(e)
         return 0
 
+
+def gardiun_quest_click_before(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg
+
+    try:
+        print("region_quest_click_before")
+
+        ing_now = False
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\click_check_gardiun.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(900, 110, 935, 145, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("click_check")
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            ing_now = True
+        return ing_now
+    except Exception as e:
+        print(e)
+        return 0
+
+
 def juljun_quest_check(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, drag_pos
-    from action_ares import out_check, clean_screen
+    from action_ares import out_check, clean_screen, maul_go
     try:
         print("juljun_quest_check")
         go_ = False
@@ -376,8 +419,10 @@ def juljun_quest_check(cla):
                 time.sleep(1)
 
         if go_ == True:
+            print("v_.gardiun_juljun_count : 60번 마다 체크하기", v_.gardiun_juljun_count)
             v_.gardiun_juljun_count += 1
-            if v_.gardiun_juljun_count > 300:
+            if v_.gardiun_juljun_count > 59:
+                v_.gardiun_juljun_count = 0
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -388,14 +433,20 @@ def juljun_quest_check(cla):
                     for i in range(10):
                         result_out = out_check(cla)
                         if result_out == True:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                v_.gardiun_juljun_count = 0
-                                time.sleep(1)
+
+                            result_gardiun_ing = gardiun_quest_ing(cla)
+
+                            if result_gardiun_ing == True:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(1)
+                                    break
+                            else:
+                                go_ = False
                                 break
                         time.sleep(1)
 
@@ -406,5 +457,57 @@ def juljun_quest_check(cla):
         print(e)
         return 0
 
+def gardiun_quest_ing(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg
 
+    try:
+        print("gardiun : gardiun_quest_ing")
+
+        ing_1 = False
+        ing_2 = False
+
+        for i in range(15):
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\quest_ing\\quest_ing_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(750, 100, 800, 180, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("gardiun : quest_ing_1...1")
+
+                click_pos_reg(imgs_.x + 50, imgs_.y, cla)
+
+                time.sleep(0.5)
+
+                click_pos_reg(imgs_.x + 50, imgs_.y, cla)
+
+                ing_1 = True
+                break
+
+            time.sleep(0.1)
+
+        time.sleep(0.5)
+
+        if ing_1 == True:
+
+            for i in range(15):
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\quest_ing\\quest_ing_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(750, 100, 800, 180, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("gardiun : quest_ing_1...2")
+                    ing_2 = True
+                    break
+                time.sleep(0.1)
+
+
+
+        return ing_2
+    except Exception as e:
+        print(e)
+        return 0
 

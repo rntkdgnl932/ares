@@ -391,11 +391,60 @@ def tuto_grow_explain(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import out_check, bag_open
+    from action_ares import out_check, bag_open, clean_screen
 
     try:
         all_pass = True
         if v_.now_chabter == "chap_1_1":
+
+            # 포토모드
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(890, 490, 960, 565, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                ing_ = False
+                ing_count = 0
+                while ing_ is False:
+                    ing_count += 1
+                    if ing_count > 20:
+                        clean_screen(cla)
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            ing_ = True
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_camera.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(890, 490, 960, 565, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(3)
+
+                        success = True
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\camera_trash.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 940, 480, 990, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+
+                                success = False
+
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                                click_pos_2(940, 50, cla)
+                                time.sleep(1)
+                                click_pos_2(840, 125, cla)
+                                break
+                            else:
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    ing_ = True
+                                    break
+                        if success == True:
+                            ing_ = True
 
             # 행성지도 알아볼까요?
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\map\\map_1.PNG"
