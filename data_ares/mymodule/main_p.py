@@ -997,7 +997,7 @@ class FirstTab(QWidget):
         dir_path = "C:\\my_games\\ares\\data_ares"
         file_path1 = dir_path + "\\jadong\\ares_elia.txt"
         file_path2 = dir_path + "\\jadong\\ares_loona.txt"
-        file_path3 = dir_path + "\\jadong\\chalano.txt"
+        file_path3 = dir_path + "\\jadong\\ares_jalis.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
@@ -1017,14 +1017,24 @@ class FirstTab(QWidget):
                     read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
                     list55.append(read_2_result)
                 list55.insert(0, "< 루나 >")
+
             with open(file_path3, "r", encoding='utf-8-sig') as file:
-                read_1 = file.read()
-                read_1 = read_1.split(":")
-                read_1 = "< 첼라노 >/" + read_1[1]
-                read_1 = read_1.split("/")
+                read_jalis = file.read().splitlines()
                 list555 = []
-                for i in range(len(read_1)):
-                    list555.append(read_1[i])
+                for i in range(len(read_jalis)):
+                    read_2_ready = read_jalis[i].split("/")
+                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
+                    list555.append(read_2_result)
+                list555.insert(0, "< 자리스 >")
+
+            # with open(file_path3, "r", encoding='utf-8-sig') as file:
+            #     read_1 = file.read()
+            #     read_1 = read_1.split(":")
+            #     read_1 = "< 첼라노 >/" + read_1[1]
+            #     read_1 = read_1.split("/")
+            #     list555 = []
+            #     for i in range(len(read_1)):
+            #         list555.append(read_1[i])
 
         self.com_group5 = QGroupBox('자동사냥터')
         cb5 = QComboBox()
@@ -1042,7 +1052,7 @@ class FirstTab(QWidget):
         cb555 = QComboBox()
         #list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb555.addItems(list555)
-        jadong3 = QPushButton('첼라노 추가')
+        jadong3 = QPushButton('자리스 추가')
         jadong3.clicked.connect(self.onActivated_hunt_add_3)
 
 
@@ -1741,12 +1751,13 @@ class FirstTab(QWidget):
     def onActivated_hunt_add_3(self):
         global onCharacter, onHunt3
         char_ = onCharacter
-        hun_ = "사냥_" + "첼라노_" + onHunt3
+        # hun_ = "사냥_" + "첼라노_" + onHunt3
+        hun_ = "사냥/jalis/" + onHunt3
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt3 == '< 첼라노 >' or onHunt3 == 'none':
+        elif onHunt3 == '< 자리스 >' or onHunt3 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt != '< 첼라노 >':
+        elif onCharacter != 0 and onHunt != '< 자리스 >':
             print('char_', char_)
             print('dun_', hun_)
 

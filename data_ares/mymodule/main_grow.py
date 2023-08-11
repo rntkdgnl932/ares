@@ -788,37 +788,37 @@ def grow_explain(cla):
                     else:
                         break
                     time.sleep(0.5)
-        if v_.now_chabter == "chap_2_2_1" or v_.now_chabter == "chap_2_1_3":
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_rank_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                for i in range(20):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_1_gardiun_rank\\g_point.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(125, 55, 920, 120, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.7)
-
-                    else:
-                        click_pos_2(940, 50, cla)
-                        time.sleep(1)
-                        # 메이퀘스트 끝내기(수동조작)
-                        myQuest_play_add(cla, "메인퀘스트")
-                        break
-
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_1_gardiun_rank\\g_touch.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(380, 610, 580, 660, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.7)
-
-                    time.sleep(0.5)
+        # if v_.now_chabter == "chap_2_2_1" or v_.now_chabter == "chap_2_1_3":
+        #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_rank_title.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.7)
+        #     if imgs_ is not None and imgs_ != False:
+        #         for i in range(20):
+        #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_1_gardiun_rank\\g_point.PNG"
+        #             img_array = np.fromfile(full_path, np.uint8)
+        #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #             imgs_ = imgs_set_(125, 55, 920, 120, cla, img, 0.7)
+        #             if imgs_ is not None and imgs_ != False:
+        #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+        #                 time.sleep(0.7)
+        #
+        #             else:
+        #                 click_pos_2(940, 50, cla)
+        #                 time.sleep(1)
+        #                 # 메이퀘스트 끝내기(수동조작)
+        #                 myQuest_play_add(cla, "메인퀘스트")
+        #                 break
+        #
+        #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_2_1_gardiun_rank\\g_touch.PNG"
+        #             img_array = np.fromfile(full_path, np.uint8)
+        #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #             imgs_ = imgs_set_(380, 610, 580, 660, cla, img, 0.7)
+        #             if imgs_ is not None and imgs_ != False:
+        #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+        #                 time.sleep(0.7)
+        #
+        #             time.sleep(0.5)
 
     except Exception as e:
         print(e)

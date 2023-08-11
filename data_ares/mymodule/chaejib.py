@@ -132,6 +132,7 @@ def chaejib_maps():
         file_path1 = dir_path + "\\jadong\\ares_edan.txt"
         file_path2 = dir_path + "\\jadong\\ares_elia_chaejib.txt"
         file_path3 = dir_path + "\\jadong\\ares_loona_chaejib.txt"
+        file_path4 = dir_path + "\\jadong\\ares_jalis_chaejib.txt"
 
         result_chaejib_maps = []
 
@@ -150,6 +151,13 @@ def chaejib_maps():
                 if read_ready1 != "no" or read_ready2 !="no":
                     result_chaejib_maps.append(read_data[i])
         with open(file_path3, "r", encoding='utf-8-sig') as file:
+            read_data = file.read().splitlines()
+            for i in range(len(read_data)):
+                read_ready1 = read_data[i].split("/")[0].split("_")[2]
+                read_ready2 = read_data[i].split("/")[0].split("_")[3]
+                if read_ready1 != "no" or read_ready2 !="no":
+                    result_chaejib_maps.append(read_data[i])
+        with open(file_path4, "r", encoding='utf-8-sig') as file:
             read_data = file.read().splitlines()
             for i in range(len(read_data)):
                 read_ready1 = read_data[i].split("/")[0].split("_")[2]
