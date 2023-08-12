@@ -33,6 +33,7 @@ def go_test():
         imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("not_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movement", imgs_)
+            break
         time.sleep(0.3)
 
 
