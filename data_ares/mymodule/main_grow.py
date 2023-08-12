@@ -39,7 +39,7 @@ def grow_main(cla, schedule):
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2, drag_pos
     from schedule import myQuest_play_add
-    from action_ares import out_check, maul_go
+    from action_ares import out_check, maul_go, confirm_all
     from dungeon import dark_play
 
     try:
@@ -134,6 +134,9 @@ def grow_main(cla, schedule):
                                 if imgs_ is not None and imgs_ != False:
                                     print("not_movement", imgs_)
                                     click_pos_2(780, 60, cla)
+                                    # time.sleep(1)
+                                    # confirm_all(cla)
+                                    # time.sleep(1)
                                     # 이거 안되면 maul_go 추가하기
                                     maul_go(cla)
                                     break
