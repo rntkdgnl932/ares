@@ -867,6 +867,8 @@ def dark_play(cla):
     try:
         print("dark_play")
 
+        v_.dark_demen = False
+
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_demen.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -910,6 +912,7 @@ def dark_play(cla):
                 dark_count += 1
                 if dark_count > 300:
                     dark_ = True
+                    v_.dark_demen = False
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_demen_arrived.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
