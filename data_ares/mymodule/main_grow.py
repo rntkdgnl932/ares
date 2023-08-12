@@ -22,7 +22,7 @@ def main_grow_start(cla, schedule):
         if imgs_ is not None and imgs_ != False:
             drag_pos(405, 605, 945, 605, cla)
 
-        print("main_grow_start")
+        print("main_grow_start : dark_play", v_.dark_demen)
         dead_die(cla, schedule)
         grow_main(cla, schedule)
         grow_skip(cla)
@@ -125,6 +125,15 @@ def grow_main(cla, schedule):
 
                         if result_dark == False:
                             click_pos_reg(x_reg, y_reg, cla)
+                            time.sleep(1)
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\check\\not_movement.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("not_movement", imgs_)
+
+
                             break
                             # if v_.now_chabter == "chap_2_1":
                             #     grow_sub(cla)

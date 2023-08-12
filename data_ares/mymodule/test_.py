@@ -22,7 +22,18 @@ def go_test():
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
     from gardiun_mission import gardiun_mission_get
     print("tst")
-    cla = "one"
+    cla = "four"
+
+    click_pos_2(840, 90, cla)
+    time.sleep(1)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\check\\not_movement.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("not_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movement", imgs_)
+    else:
+        print("not not not not not not_movement")
 
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
