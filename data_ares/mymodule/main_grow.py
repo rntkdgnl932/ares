@@ -39,7 +39,7 @@ def grow_main(cla, schedule):
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2, drag_pos
     from schedule import myQuest_play_add
-    from action_ares import out_check
+    from action_ares import out_check, maul_go
     from dungeon import dark_play
 
     try:
@@ -126,13 +126,16 @@ def grow_main(cla, schedule):
                         if result_dark == False:
                             click_pos_reg(x_reg, y_reg, cla)
                             time.sleep(1)
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\check\\not_movement.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                print("not_movement", imgs_)
-
+                            for k in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\check\\not_movement.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("not_movement", imgs_)
+                                    maul_go(cla)
+                                    break
+                                time.sleep(0.3)
 
                             break
                             # if v_.now_chabter == "chap_2_1":
