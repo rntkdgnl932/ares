@@ -135,6 +135,7 @@ def grow_main(cla, schedule):
                                     print("not_movement", imgs_)
                                     click_pos_2(780, 60, cla)
                                     # 이거 안되면 maul_go 추가하기
+                                    maul_go(cla)
                                     break
                                 time.sleep(0.3)
 
