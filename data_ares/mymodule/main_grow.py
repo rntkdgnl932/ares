@@ -133,7 +133,8 @@ def grow_main(cla, schedule):
                                 imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("not_movement", imgs_)
-                                    maul_go(cla)
+                                    click_pos_2(780, 60, cla)
+                                    # 이거 안되면 maul_go 추가하기
                                     break
                                 time.sleep(0.3)
 
