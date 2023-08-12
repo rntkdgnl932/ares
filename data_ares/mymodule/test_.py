@@ -22,7 +22,7 @@ def go_test():
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
     from gardiun_mission import gardiun_mission_get
     print("tst")
-    cla = "four"
+    cla = "two"
 
     click_pos_2(840, 90, cla)
     time.sleep(1)
