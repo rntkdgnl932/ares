@@ -36,6 +36,7 @@ def main_grow_start(cla, schedule):
 
 def grow_main(cla, schedule):
     import numpy as np
+    import pyautogui
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2, drag_pos
     from schedule import myQuest_play_add
@@ -133,12 +134,16 @@ def grow_main(cla, schedule):
                                 imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("not_movement", imgs_)
-                                    click_pos_2(780, 60, cla)
-                                    time.sleep(2)
-                                    confirm_all(cla)
+                                    pyautogui.keyDown('w')
                                     time.sleep(1)
-                                    # 이거 안되면 maul_go 추가하기
-                                    maul_go(cla)
+                                    pyautogui.keyUp('w')
+                                    time.sleep(0.2)
+                                    # click_pos_2(780, 60, cla)
+                                    # time.sleep(2)
+                                    # confirm_all(cla)
+                                    # time.sleep(1)
+                                    # # 이거 안되면 maul_go 추가하기
+                                    # maul_go(cla)
                                     break
                                 time.sleep(0.3)
 
