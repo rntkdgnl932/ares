@@ -25,7 +25,8 @@ def go_test():
     print("tst")
     cla = "one"
 
-    auction_start(cla)
+    soojib(cla)
+
     # boonhae_ready(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"

@@ -41,20 +41,55 @@ def soojib(cla):
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("soojib_title : 진입완료")
-                click_pos_2(65, 130, cla)
+
+                collection_ = True
+
+
+                # 이벤트
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(90, 260, 115, 310, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(65, 285, cla)
+                    time.sleep(0.5)
+
+                soojib_start(cla)
+
                 time.sleep(0.2)
 
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_setting_on.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(210, 990, 250, 1030, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("조건설정 on")
-                    soojib_start(cla)
-                    collection_ = True
-                else:
-                    print("조건설정 off")
-                    soojib_setting(cla)
+                # 전체
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(90, 105, 115, 155, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(65, 130, cla)
+                    time.sleep(0.5)
+
+                time.sleep(0.2)
+
+
+                for i in range(4):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_setting_on.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(210, 990, 250, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("조건설정 on")
+                        soojib_start(cla)
+                        break
+                    else:
+                        print("조건설정 off")
+                        soojib_setting(cla)
+                        time.sleep(0.5)
                     time.sleep(0.5)
 
 
