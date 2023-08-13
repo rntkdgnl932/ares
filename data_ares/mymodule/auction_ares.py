@@ -202,12 +202,28 @@ def auction_sell(cla):
                                             click_pos_2(535, 635, cla)
                                         else:
                                             click_pos_2(555, 675, cla)
-                                        time.sleep(1)
+                                            for z in range(10):
+                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    break
+                                                time.sleep(0.5)
+                                        time.sleep(0.5)
                                 else:
                                     click_pos_reg(x_reg, y_reg, cla)
                                     time.sleep(0.5)
                                     click_pos_2(905, 1015, cla)
-                                time.sleep(1)
+                                    for z in range(10):
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        time.sleep(0.5)
+                                time.sleep(0.5)
 
                             time.sleep(1)
                 for i in range(len(auction_list_2)):
@@ -260,7 +276,15 @@ def auction_sell(cla):
                                                     click_pos_2(535, 635, cla)
                                                 else:
                                                     click_pos_2(555, 675, cla)
-                                                time.sleep(1)
+                                                    for z in range(10):
+                                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                                        img_array = np.fromfile(full_path, np.uint8)
+                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                        imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                                        if imgs_ is not None and imgs_ != False:
+                                                            break
+                                                        time.sleep(0.5)
+                                                time.sleep(0.5)
 
 
 
@@ -273,7 +297,15 @@ def auction_sell(cla):
                                     click_pos_reg(x_reg, y_reg, cla)
                                     time.sleep(0.5)
                                     click_pos_2(905, 1015, cla)
-                                time.sleep(1)
+                                    for z in range(10):
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        time.sleep(0.5)
+                                time.sleep(0.5)
 
                             time.sleep(1)
 
