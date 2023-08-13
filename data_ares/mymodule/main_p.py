@@ -54,6 +54,7 @@ from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon
 from region_quest import region_quest_start
 from chaejib import chaejib_start
 from gardiun_mission import gardiun_mission_start
+from auction_ares import auction_start
 
 from stop_event18 import _stop_please
 
@@ -3207,21 +3208,25 @@ class game_Playing(QThread):
                                 # character_change(v_.now_cla, character_id)
 
                                 # 스케쥴 시작
-                                if result_schedule_ == "각종템받기":
-                                    get_item_start(v_.now_cla)
-                                    myQuest_play_add(v_.now_cla, result_schedule_)
-                                    time.sleep(0.2)
 
-                                if result_schedule_ == "튜토육성":
-                                    tuto_grow_start(v_.now_cla, result_schedule_)
-
-                                if result_schedule_ == "메인퀘스트":
-                                    main_grow_start(v_.now_cla, result_schedule_)
 
                                 if '/' in result_schedule_:
                                     jadong_spl_ = result_schedule_.split("/")
                                     if jadong_spl_[0] == "사냥":
                                         jadong_start(v_.now_cla, result_schedule_)
+
+                                elif result_schedule_ == "각종템받기":
+                                    get_item_start(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
+                                    time.sleep(0.2)
+                                elif result_schedule_ == "튜토육성":
+                                    tuto_grow_start(v_.now_cla, result_schedule_)
+                                elif result_schedule_ == "메인퀘스트":
+                                    main_grow_start(v_.now_cla, result_schedule_)
+                                elif result_schedule_ == "거래소등록":
+                                    auction_start(v_.now_cla)
+                                    time.sleep(0.5)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
                                 elif '채집' in result_schedule_:
                                     chaejib_start(v_.now_cla)
                                 elif '행성파견' in result_schedule_:
@@ -3241,6 +3246,7 @@ class game_Playing(QThread):
                                         if data_[0] == "지역퀘스트":
                                             region_quest_start(v_.now_cla, data_[1])
                                             dark_play(v_.now_cla)
+                                time.sleep(0.5)
 
                         else:
                             print("아레스 꺼져있는지 10초간 다시 검사하기")

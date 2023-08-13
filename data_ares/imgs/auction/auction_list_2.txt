@@ -1,0 +1,12 @@
+joomoogi_up
+bojomoogi_up
+alpa_up
+gama_up
+suit_up
+skillbook_1
+skillbook_2
+skillbook_3
+igis_low
+joomoogi_skill
+bojomoogi_skill
+elia_box

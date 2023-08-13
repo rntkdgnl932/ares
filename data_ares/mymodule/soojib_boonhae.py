@@ -12,7 +12,7 @@ def soojib_boonhae_start(cla):
         print("soojib_boonhae_start")
         soojib(cla)
         time.sleep(0.2)
-        boonhae(cla)
+        boonhae_start(cla)
     except Exception as e:
         print(e)
         return 0
@@ -326,13 +326,218 @@ def soojib_start(cla):
         print(e)
         return 0
 
-def boonhae(cla):
+
+def boonhae_start(cla):
     import numpy as np
     import cv2
     from function import click_pos_2, imgs_set_, click_pos_reg
     from action_ares import menu_open
     try:
-        print("boonhae")
+        print("boonhae_start")
+        boonhae_complete = False
+        boonhae_complete_count = 0
+        while boonhae_complete is False:
+            boonhae_complete_count += 1
+            print("boonhae_complete_count", boonhae_complete_count)
+            if boonhae_complete_count > 4:
+                boonhae_complete = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("invenroty_title : 진입완료")
+
+                boonhae_complete = True
+
+                # 분해 전 착용
+                boonhae_ready(cla)
+
+                # 무기 분해
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(80, 80, 120, 140, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(50, 110, cla)
+                    time.sleep(0.5)
+
+                boonhae_moogi(cla)
+                time.sleep(0.5)
+                # 성물 분해
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(80, 115, 120, 165, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(50, 145, cla)
+                    time.sleep(0.5)
+
+                boonhae_sungmool(cla)
+
+
+            else:
+
+                menu_open(cla)
+
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(900, 50, cla)
+                    time.sleep(1)
+
+            time.sleep(1)
+        for i in range(5):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(940, 45, cla)
+            else:
+                break
+            time.sleep(0.5)
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def boonhae_ready(cla):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg, mouse_move_cpp
+    from action_ares import menu_open
+    try:
+        print("boonhae_ready")
+        boonhae_complete = False
+        boonhae_complete_count = 0
+        while boonhae_complete is False:
+            boonhae_complete_count += 1
+            print("boonhae_complete_count", boonhae_complete_count)
+            if boonhae_complete_count > 4:
+                boonhae_complete = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("invenroty_title : 진입완료")
+
+
+
+                # 슈트룸
+                click_pos_2(905, 50, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\suit_room_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+
+                # 첫번째 슈트
+                click_pos_2(40, 180, cla)
+                time.sleep(0.5)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(200, 640, 260, 680, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+
+                # 두번째 슈트
+                click_pos_2(95, 180, cla)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(200, 640, 260, 680, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+
+                # 세번째 슈트
+                click_pos_2(150, 180, cla)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(200, 640, 260, 680, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\suit_room_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+                    mouse_move_cpp(420, 675, cla)
+                    time.sleep(0.2)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            boonhae_complete = True
+                            break
+                        time.sleep(0.5)
+
+
+
+
+
+            else:
+
+                menu_open(cla)
+
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(900, 50, cla)
+                    time.sleep(1)
+
+            time.sleep(1)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+
+def boonhae_moogi(cla):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import menu_open
+    try:
+        print("boonhae_moogi")
         boonhae_complete = False
         boonhae_complete_count = 0
         while boonhae_complete is False:
@@ -387,11 +592,12 @@ def boonhae(cla):
                     
                 else:
                     print("일괄분해 누른 후 셋팅하기")
-                    boonhae_setting(cla)
+                    boonhae_setting_bc(cla)
+                    time.sleep(1)
 
                     is_on = False
 
-                    for i in range(7):
+                    for i in range(6):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_click_on.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -399,7 +605,16 @@ def boonhae(cla):
                         if imgs_ is not None and imgs_ != False:
                             is_on = True
                             break
-                        time.sleep(1)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\no_select_item.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 520, 930, 570, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                is_on = True
+                                boonhae_complete = True
+                                break
+                        time.sleep(0.5)
                     if is_on == False:
                         boonhae_complete_count += 2
                     time.sleep(1)
@@ -421,16 +636,7 @@ def boonhae(cla):
                     time.sleep(1)
 
             time.sleep(1)
-        for i in range(5):
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_2(940, 45, cla)
-            else:
-                break
-            time.sleep(0.5)
+
 
 
     except Exception as e:
@@ -438,7 +644,7 @@ def boonhae(cla):
         return 0
 
 
-def boonhae_setting(cla):
+def boonhae_setting_bc(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, mouse_move_cpp
@@ -537,4 +743,203 @@ def boonhae_setting(cla):
         print(e)
         return 0
 
+
+def boonhae_sungmool(cla):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import menu_open
+    try:
+        print("boonhae_sungmool")
+        boonhae_complete = False
+        boonhae_complete_count = 0
+        while boonhae_complete is False:
+            boonhae_complete_count += 1
+            print("boonhae_complete_count", boonhae_complete_count)
+            if boonhae_complete_count > 4:
+                boonhae_complete = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("invenroty_title : 진입완료")
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_click_on.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 990, 930, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("분해 진행")
+                    # 마무리하기
+
+                    for z in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 570, 570, 610, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            boonhae_complete = True
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 390, 510, 430, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(500, 640, 570, 670, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                click_pos_2(865, 1015, cla)
+                                time.sleep(0.5)
+                            time.sleep(0.5)
+
+
+
+
+                else:
+                    print("일괄분해 누른 후 셋팅하기")
+                    boonhae_setting_c(cla)
+                    time.sleep(1)
+
+                    is_on = False
+
+                    for i in range(6):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_click_on.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(800, 990, 930, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            is_on = True
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\no_select_item.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 520, 930, 570, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                is_on = True
+                                boonhae_complete = True
+                                break
+                        time.sleep(0.5)
+                    if is_on == False:
+                        boonhae_complete_count += 2
+                    time.sleep(1)
+
+
+            else:
+
+                menu_open(cla)
+
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(900, 50, cla)
+                    time.sleep(1)
+
+            time.sleep(1)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def boonhae_setting_c(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, mouse_move_cpp
+    try:
+        print("boonhae_setting")
+        boonhae_set_complete = False
+        boonhae_complete_count = 0
+        while boonhae_set_complete is False:
+            boonhae_complete_count += 1
+            print("boonhae_complete_count", boonhae_complete_count)
+            if boonhae_complete_count > 15:
+                boonhae_set_complete = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(500, 570, 600, 620, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("boonhae_confirm", imgs_)
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_setting_c_on.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(300, 480, 370, 540, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    last_set = True
+                    for i in range(5):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\checked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(355, 490, 630, 540, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("checked", imgs_)
+                            last_set = False
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            print("not checked")
+                            break
+                        time.sleep(0.5)
+
+                    if last_set == True:
+                        boonhae_set_complete = True
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_setting_c_off.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(300, 480, 370, 540, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+
+                mouse_move_cpp(480, 840, cla)
+                time.sleep(0.5)
+
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_select.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(130, 990, 240, 1040, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                else:
+                    print("일괄분해 누른 후 셋팅하기")
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\ilgwal_boonhae.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(640, 990, 750, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(1)
+        for i in range(5):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(500, 570, 600, 620, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                break
+            time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
+        return 0
 

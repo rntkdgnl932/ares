@@ -11,99 +11,131 @@ def go_test():
     import numpy as np
     import cv2
     import pyautogui
-    from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos
+    from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang
     from action_ares import out_check, clean_screen, maul_go, dead_die
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
-    from soojib_boonhae import soojib, soojib_setting, boonhae
+    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready
     from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play
     from potion_ares import maul_potion_get
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
     from gardiun_mission import gardiun_mission_get
+    from auction_ares import auction_start
     print("tst")
-    cla = "two"
+    cla = "one"
 
-    click_pos_2(840, 90, cla)
-    time.sleep(1)
-    for k in range(10):
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\check\\not_movement.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("not_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movementnot_movement", imgs_)
-            break
-        time.sleep(0.3)
+    auction_start(cla)
+    # boonhae_ready(cla)
 
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(780, 1000, 950, 1030, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("dnglock_1", imgs_)
+    #
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(780, 1000, 950, 1030, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("dnglock_2", imgs_)
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(120, 120, 170, 330, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
+    # re_ = text_check_get(595, 477, 620, 492, cla)
+    # print("3자리", re_)
+    # result_int = int_put_(re_)
+    # result_num = in_number_check(cla, result_int)
+    # if result_num == True:
+    #     print("숫자다", re_)
+    #     print("숫자다222", result_int)
+    # else:
+    #     print("숫자 아니다", re_)
+    #
+    # re_ = text_check_get(589, 477, 625, 492, cla)
+    # print("4자리", re_)
+    # result_int = int_put_(re_)
+    # result_num = in_number_check(cla, result_int)
+    # if result_num == True:
+    #     print("숫자다", re_)
+    #     print("숫자다222", result_int)
+    # else:
+    #     print("숫자 아니다", re_)
 
-        hoilodo_point = False
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(80, 80, 120, 300, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("clicked", imgs_)
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_3.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("hoilodo_point_3", imgs_)
-            click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
-            hoilodo_point = True
-            time.sleep(0.5)
-        else:
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_4.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("hoilodo_point_4", imgs_)
-                click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
-                hoilodo_point = True
-                time.sleep(0.5)
-            else:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_5.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("hoilodo_point_5", imgs_)
-                    click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
-                    hoilodo_point = True
-                    time.sleep(0.5)
-                else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_6.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("hoilodo_point_6", imgs_)
-                        click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
-                        hoilodo_point = True
-                        time.sleep(0.5)
-                    else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_7.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            print("hoilodo_point_7", imgs_)
-                            click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
-                            hoilodo_point = True
-                            time.sleep(0.5)
-                        else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_8.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                print("hoilodo_point_8", imgs_)
-                                click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
-                                hoilodo_point = True
-                                time.sleep(0.5)
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(120, 120, 170, 330, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #
+    #     hoilodo_point = False
+    #
+    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_3.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+    #     if imgs_ is not None and imgs_ != False:
+    #         print("hoilodo_point_3", imgs_)
+    #         click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+    #         hoilodo_point = True
+    #         time.sleep(0.5)
+    #     else:
+    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_4.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+    #         if imgs_ is not None and imgs_ != False:
+    #             print("hoilodo_point_4", imgs_)
+    #             click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+    #             hoilodo_point = True
+    #             time.sleep(0.5)
+    #         else:
+    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_5.PNG"
+    #             img_array = np.fromfile(full_path, np.uint8)
+    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #             imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+    #             if imgs_ is not None and imgs_ != False:
+    #                 print("hoilodo_point_5", imgs_)
+    #                 click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+    #                 hoilodo_point = True
+    #                 time.sleep(0.5)
+    #             else:
+    #                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_6.PNG"
+    #                 img_array = np.fromfile(full_path, np.uint8)
+    #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #                 imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+    #                 if imgs_ is not None and imgs_ != False:
+    #                     print("hoilodo_point_6", imgs_)
+    #                     click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+    #                     hoilodo_point = True
+    #                     time.sleep(0.5)
+    #                 else:
+    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_7.PNG"
+    #                     img_array = np.fromfile(full_path, np.uint8)
+    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #                     imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+    #                     if imgs_ is not None and imgs_ != False:
+    #                         print("hoilodo_point_7", imgs_)
+    #                         click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+    #                         hoilodo_point = True
+    #                         time.sleep(0.5)
+    #                     else:
+    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_8.PNG"
+    #                         img_array = np.fromfile(full_path, np.uint8)
+    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #                         imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+    #                         if imgs_ is not None and imgs_ != False:
+    #                             print("hoilodo_point_8", imgs_)
+    #                             click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+    #                             hoilodo_point = True
+    #                             time.sleep(0.5)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gardiun_rank_point_1.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
@@ -314,7 +346,7 @@ def go_test():
     # else:
     #     print("안보여")
 
-    # re_ = text_check_get(425, 525, 455, 545, cla)
+    # re_ = text_check_get(570, 470, 640, 500, cla)
     # print("r", re_)
 
 
