@@ -3124,11 +3124,24 @@ class game_Playing(QThread):
                     else:
                         print("touching 없")
 
+                        game_title = False
+
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
+                            game_title = True
+
+                        print()
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            game_title = True
+
+                        if game_title == True:
 
                             look_title = False
 
@@ -3241,6 +3254,14 @@ class game_Playing(QThread):
                                 if imgs_ is not None and imgs_ != False:
                                     is_ares = True
                                     break
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        is_ares = True
+                                        break
                                 time.sleep(1)
                             if is_ares == False:
                                 why = "아레스 꺼진게 확실하다"
