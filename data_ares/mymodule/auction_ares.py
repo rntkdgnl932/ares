@@ -255,6 +255,7 @@ def auction_sell(cla):
                                 imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     sell_ = True
+                                    print("무슨물건?", auction_list_2[i])
                                     re_ = text_check_get(589, 477, 625, 492, cla)
                                     result_int = int_put_(re_)
                                     result_num = in_number_check(cla, result_int)
