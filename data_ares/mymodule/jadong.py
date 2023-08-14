@@ -271,7 +271,7 @@ def go_spot_click(cla, where):
             if imgs_ is not None and imgs_ != False:
                 drag_pos(200, 200, 800, 800, cla)
                 time.sleep(0.5)
-                for i in range(3):
+                for i in range(5):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

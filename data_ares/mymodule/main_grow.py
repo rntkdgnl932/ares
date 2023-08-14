@@ -308,6 +308,14 @@ def grow_complete(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("complete_5")
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\complete\\region_complete.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 550, 500, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("region_complete")
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
     except Exception as e:
         print(e)
