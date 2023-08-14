@@ -999,7 +999,7 @@ def juljun_attack_check_moriagiji(cla, where):
         print("juljun_attack_check_moriagiji")
         go_ = "none"
 
-        check_ready = False:
+        check_ready = False
         check_ready_count = 0
         while check_ready is False:
             check_ready_count += 1
