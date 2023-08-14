@@ -838,8 +838,6 @@ def boonhae_sungmool(cla):
                         time.sleep(0.5)
 
 
-
-
                 else:
                     print("일괄분해 누른 후 셋팅하기")
                     boonhae_setting_c(cla)
