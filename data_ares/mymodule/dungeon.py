@@ -688,7 +688,7 @@ def dungeon_in_moriagiji(cla, dungeon):
     try:
         print("dungeon_in_moriagiji")
 
-        # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1
+        # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1...
 
         where_dungeon = dungeon.split("_")
 
