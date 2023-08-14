@@ -996,7 +996,7 @@ def juljun_attack_check_moriagiji(cla, where):
     from function import imgs_set_, click_pos_reg, click_pos_2
     from action_ares import clean_screen, out_check
     try:
-        print("juljun_attack_check")
+        print("juljun_attack_check_moriagiji")
         go_ = "none"
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -1043,6 +1043,7 @@ def juljun_attack_check_moriagiji(cla, where):
                     print("완전 다른 곳인 상태")
 
         else:
+            print("절전모드 아니다?")
             for i in range(10):
                 result_out = out_check(cla)
                 if result_out == True:
@@ -1065,6 +1066,8 @@ def juljun_attack_check_moriagiji(cla, where):
                 else:
                     clean_screen(cla)
                 time.sleep(1)
+
+        print("juljun_attack_check_moriagiji", go_)
 
         return go_
     except Exception as e:
