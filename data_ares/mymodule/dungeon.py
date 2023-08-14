@@ -998,76 +998,85 @@ def juljun_attack_check_moriagiji(cla, where):
     try:
         print("juljun_attack_check_moriagiji")
         go_ = "none"
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            # 먼저 모리아기지인지 파악
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1.PNG"
+
+        check_ready = False:
+        check_ready_count = 0
+        while check_ready is False:
+            check_ready_count += 1
+            if check_ready_count > 5:
+                check_ready = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.7)
+            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
-                # 이건 이동 못한 상태
-                print("모리아 기지에서 이동 못한 상태")
-                go_ = "moria_ready"
-            else:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2.PNG"
+                check_ready = True
+                # 먼저 모리아기지인지 파악
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     # 이건 이동 못한 상태
-                    print("모리아 기지인 상태")
-                    go_ = "moria_arrive"
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                    print("모리아 기지에서 이동 못한 상태")
+                    go_ = "moria_ready"
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        print("자동사냥중")
-                        go_ = "moria_attack"
+                        # 이건 이동 못한 상태
+                        print("모리아 기지인 상태")
+                        go_ = "moria_arrive"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("자동사냥중")
+                            go_ = "moria_attack"
+                        else:
+                            for i in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("자동사냥중")
+                                    go_ = "moria_attack"
+                                    break
+                                time.sleep(1)
                     else:
-                        for i in range(10):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                print("자동사냥중")
-                                go_ = "moria_attack"
-                                break
-                            time.sleep(1)
-                else:
-                    print("완전 다른 곳인 상태")
+                        print("완전 다른 곳인 상태")
 
-        else:
-            print("절전모드 아니다?")
-            for i in range(10):
-                result_out = out_check(cla)
-                if result_out == True:
+            else:
+                print("절전모드 아니다?")
+                for i in range(10):
+                    result_out = out_check(cla)
+                    if result_out == True:
 
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                        for z in range(10):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                break
-                            time.sleep(0.5)
-                    break
-                else:
-                    clean_screen(cla)
-                time.sleep(1)
+                            for z in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.5)
+                        break
+                    else:
+                        clean_screen(cla)
+                    time.sleep(1)
 
         print("juljun_attack_check_moriagiji", go_)
 
