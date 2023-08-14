@@ -1048,6 +1048,7 @@ def juljun_attack_check_moriagiji(cla, where):
                 result_out = out_check(cla)
                 if result_out == True:
 
+
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1063,6 +1064,7 @@ def juljun_attack_check_moriagiji(cla, where):
                             if imgs_ is not None and imgs_ != False:
                                 break
                             time.sleep(0.5)
+                    break
                 else:
                     clean_screen(cla)
                 time.sleep(1)
