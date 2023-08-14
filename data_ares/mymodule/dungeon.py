@@ -726,6 +726,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(370, 80, 625, 150, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
+                            print("이미 모리아 기지에 있다.", dungeon)
                             dun_go_ = True
                             for z in range(3):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
@@ -744,6 +745,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(450, 80, 550, 140, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
+                                print("모리아기지 끝", dungeon)
                                 dun_go_ = True
                                 myQuest_play_add(cla, dungeon)
                                 time.sleep(0.5)
@@ -758,6 +760,8 @@ def dungeon_in_moriagiji(cla, dungeon):
                                         break
                                     time.sleep(0.5)
                                 break
+                            else:
+                                print("이도 저도 아니다.")
 
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
