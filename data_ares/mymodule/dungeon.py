@@ -727,8 +727,38 @@ def dungeon_in_moriagiji(cla, dungeon):
                         imgs_ = imgs_set_(370, 80, 625, 150, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             dun_go_ = True
-                            click_pos_2(940, 50, cla)
+                            for z in range(3):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(940, 50, cla)
+                                else:
+                                    break
+                                time.sleep(0.5)
                             break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_lack_time.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(1410 - 960, 80, 1510 - 960, 140, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                dun_go_ = True
+                                myQuest_play_add(cla, dungeon)
+                                time.sleep(0.5)
+                                for z in range(3):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(940, 50, cla)
+                                    else:
+                                        break
+                                    time.sleep(0.5)
+                                break
+
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
