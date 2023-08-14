@@ -621,6 +621,7 @@ def boonhae_moogi(cla):
                                 click_pos_2(865, 1015, cla)
                                 time.sleep(0.5)
                             time.sleep(0.5)
+                        time.sleep(0.5)
 
 
 
@@ -834,6 +835,7 @@ def boonhae_sungmool(cla):
                                 click_pos_2(865, 1015, cla)
                                 time.sleep(0.5)
                             time.sleep(0.5)
+                        time.sleep(0.5)
 
 
 
