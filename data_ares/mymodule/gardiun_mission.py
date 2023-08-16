@@ -167,6 +167,9 @@ def gardiun_mission_get(cla, schedule):
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(1)
+                                else:
+                                    click_pos_2(800, 1010, cla)
+                                    time.sleep(1)
 
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\anymore_no_soolyung.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
