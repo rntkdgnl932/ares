@@ -420,6 +420,8 @@ def region_quest_get(cla, region_n):
                         print("이동경로 실패...마을로 갔다가 오자")
                         maul_go(cla)
                         break
+                    else:
+                        confirm_all(cla)
                     time.sleep(0.2)
 
                 if is_region == False:
