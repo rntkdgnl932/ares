@@ -321,7 +321,10 @@ def auction_sell(cla):
                 # 무기
 
                 click_pos_2(845, 143, cla)
+                time.sleep(0.2)
+                mouse_move_cpp(500, 300, cla)
                 time.sleep(1)
+
 
                 for i in range(len(auction_list_1)):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\list\\" + auction_list_0[i] + ".PNG"
