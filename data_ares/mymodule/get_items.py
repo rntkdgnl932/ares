@@ -635,7 +635,18 @@ def get_gardiun_pass(cla):
                 print("gardiun_pass 창 열렸다.")
                 gardiun_ready = True
 
-                for i in range(3):
+
+                for i in range(2):
+                    click_pos_2(100, 100, cla)
+                    time.sleep(1)
+                    click_pos_2(660, 1015, cla)
+                    time.sleep(0.2)
+                    click_pos_2(795, 1015, cla)
+                    time.sleep(0.2)
+
+                for i in range(2):
+                    click_pos_2(200, 100, cla)
+                    time.sleep(1)
                     click_pos_2(660, 1015, cla)
                     time.sleep(0.2)
                     click_pos_2(795, 1015, cla)
