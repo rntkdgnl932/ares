@@ -397,7 +397,7 @@ def go_hangsun_map(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import out_check, clean_screen
+    from action_ares import out_check, clean_screen, confirm_all
     try:
         print("chaejib : go_hangsun_map")
 
@@ -482,6 +482,8 @@ def go_hangsun_map(cla, where):
                         imgs_ = imgs_set_(380, 80, 480, 140, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(780, 60, cla)
+                            time.sleep(1)
+                            confirm_all(cla)
                         time.sleep(0.5)
                     time.sleep(0.2)
                 time.sleep(0.5)
