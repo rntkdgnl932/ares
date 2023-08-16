@@ -2,3 +2,4 @@ barrier_shield
 blast_lord
 p20
 storm_suji
+chacra_staff
