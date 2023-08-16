@@ -25,7 +25,7 @@ def go_test():
     print("tst")
     cla = "one"
 
-    get_mission_bosang(cla)
+    auction_start(cla)
 
     # boonhae_ready(cla)
 
