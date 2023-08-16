@@ -10,6 +10,9 @@ import variable as v_
 
 def gardiun_mission_start(cla, schedule):
     from potion_ares import juljun_potion_check
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg
     try:
         print("gardiun_mission_start")
 
