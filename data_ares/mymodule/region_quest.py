@@ -359,7 +359,7 @@ def region_quest_get(cla, region_n):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import menu_open, confirm_all
+    from action_ares import menu_open, confirm_all, maul_go
     from schedule import myQuest_play_add
 
     try:
@@ -410,6 +410,14 @@ def region_quest_get(cla, region_n):
                             time.sleep(0.5)
                             break
                     time.sleep(0.5)
+
+                for i in range(30):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\not_moving.png"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(390, 90, 480, 140, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("이동경로 실패...마을로 갔다가 오자")
 
                 if is_region == False:
                     data = "지역퀘스트_" + str(region_n)
