@@ -418,6 +418,9 @@ def region_quest_get(cla, region_n):
                     imgs_ = imgs_set_(390, 90, 480, 140, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("이동경로 실패...마을로 갔다가 오자")
+                        maul_go(cla)
+                        break
+                    time.sleep(0.2)
 
                 if is_region == False:
                     data = "지역퀘스트_" + str(region_n)
