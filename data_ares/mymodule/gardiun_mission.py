@@ -139,7 +139,7 @@ def gardiun_mission_get(cla, schedule):
                         else:
 
 
-
+                            # 수락하기 버튼
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_soolock.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -147,6 +147,15 @@ def gardiun_mission_get(cla, schedule):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(1)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_move.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(780, 990, 840, 1040, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(1)
+
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\anymore_no_soolyung.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
