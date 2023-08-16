@@ -39,6 +39,7 @@ def region_quest_start(cla, region_n):
 
             dead_die(cla, "지역퀘스트")
             grow_skip(cla)
+            region_skip(cla)
             region_quest_camera(cla)
             grow_complete(cla)
             confirm_all(cla)
@@ -92,6 +93,27 @@ def region_quest_start(cla, region_n):
                 imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+    except Exception as e:
+        print(e)
+        return 0
+
+def region_skip(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import out_check, clean_screen
+    from gardiun_mission import gardiun_mission_get
+
+    try:
+        print("region_skip")
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\region_gold_click_ready.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(340, 380, 440, 450, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y - 100, cla)
+
+
     except Exception as e:
         print(e)
         return 0
