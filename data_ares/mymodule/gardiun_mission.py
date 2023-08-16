@@ -194,7 +194,7 @@ def gardiun_mission_get(cla, schedule):
                                         # imgs_ = imgs_set_(140, 940, 210, 1010, cla, img, 0.8)
                                         # if imgs_ is not None and imgs_ != False:
 
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_complete _zero.PNG"
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_complete_zero.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(140, 940, 210, 1010, cla, img, 0.8)
@@ -204,6 +204,17 @@ def gardiun_mission_get(cla, schedule):
                                             myQuest_play_add(cla, schedule)
                                             click_pos_2(940, 50, cla)
                                             break
+                                        else:
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_complete_zero2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(140, 940, 210, 1010, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("가디언 스케쥴 완료2")
+                                                mission_get_ = True
+                                                myQuest_play_add(cla, schedule)
+                                                click_pos_2(940, 50, cla)
+                                                break
                                         # else:
                                         #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
                                         #     img_array = np.fromfile(full_path, np.uint8)
