@@ -330,24 +330,33 @@ def chaejib_go(cla):
             imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
 
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
+                imgs_ = imgs_set_(890, 130, 930, 165, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+                    click_pos_2(850, 150, cla)
+                    time.sleep(0.3)
+                else:
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(890, 105, 930, 135, cla, img, 0.7)
+                    imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_2(850, 120, cla)
-                        time.sleep(0.3)
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(890, 105, 930, 135, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(850, 120, cla)
+                            time.sleep(0.3)
+                        else:
+                            chaejib_ready = True
                     else:
-                        chaejib_ready = True
-                else:
-                    click_pos_2(850, 95, cla)
+                        click_pos_2(850, 95, cla)
 
-                    time.sleep(0.3)
+                        time.sleep(0.3)
 
                 mouse_move_cpp(545, 445, cla)
 
@@ -467,6 +476,12 @@ def go_hangsun_map(cla, where):
                         imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             break
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\now_status_no_map.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(380, 80, 480, 140, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(780, 60, cla)
                         time.sleep(0.5)
                     time.sleep(0.2)
                 time.sleep(0.5)

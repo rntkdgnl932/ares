@@ -1,5 +1,4 @@
 igis_low
 jamsic_heart
 gardiun_wisdom
-barrier_shield
-blast_lord
+gyulsadae_hyulsu
