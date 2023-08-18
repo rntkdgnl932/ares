@@ -54,6 +54,47 @@ def dungeon_in_title(cla, dungeon):
         print(e)
         return 0
 
+def not_available(cla):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import out_check, clean_screen, confirm_all
+    try:
+        print("not_available")
+
+        # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\not_available.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 90, 500, 140, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(5):
+                result_out = out_check(cla)
+                if result_out == True:
+                    click_pos_2(780, 60, cla)
+                    time.sleep(1)
+                    for z in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\quest_out_confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 570, 600, 610, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            confirm_all(cla)
+                            break
+                        time.sleep(0.3)
+                    break
+                else:
+                    clean_screen(cla)
+                time.sleep(1)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
 def dungeon_in_hangsungpagyun(cla, dungeon):
     import numpy as np
     import cv2
@@ -250,13 +291,16 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                     click_pos_2(70, 230, cla)
 
                     for i in range(10):
+
+                        not_available(cla)
+
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\dojun_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
-                        time.sleep(1)
+                        time.sleep(0.7)
             time.sleep(1)
 
         # 밖으로 나가기
@@ -440,13 +484,16 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                     click_pos_2(70, 230, cla)
 
                     for i in range(10):
+
+                        not_available(cla)
+
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\dojun_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
-                        time.sleep(1)
+                        time.sleep(0.7)
             time.sleep(1)
 
         # 밖으로 나가기
@@ -641,13 +688,16 @@ def dungeon_in_raid(cla, dungeon):
                                 click_pos_2(70, 280, cla)
 
                                 for i in range(10):
+
+                                    not_available(cla)
+
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
                                         break
-                                    time.sleep(1)
+                                    time.sleep(0.7)
                         time.sleep(1)
 
     except Exception as e:
@@ -906,13 +956,16 @@ def dungeon_in_moriagiji(cla, dungeon):
                     click_pos_2(70, 330, cla)
 
                     for i in range(10):
+
+                        not_available(cla)
+
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gyungjang_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             break
-                        time.sleep(1)
+                        time.sleep(0.7)
             time.sleep(1)
 
     except Exception as e:
