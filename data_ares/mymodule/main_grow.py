@@ -653,6 +653,9 @@ def grow_explain(cla):
         imgs_ = imgs_set_(70, 850, 170, 890, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_2(20, 870, cla)
+            time.sleep(2)
+            click_pos_2(420, 980, cla)
+            time.sleep(2)
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\emotion\\want_emotion.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
