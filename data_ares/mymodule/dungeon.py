@@ -704,6 +704,186 @@ def dungeon_in_raid(cla, dungeon):
         print(e)
         return 0
 
+def dungeon_in_raid_ex(cla, dungeon):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg, mouse_move_cpp
+    from action_ares import menu_open, loading_ares
+    from schedule import myQuest_play_add
+    try:
+        print("dungeon_in_raid")
+
+        # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\ready_cancle.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 30, 140, 220, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("레이드 대기중")
+
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\jadong_in.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 140, 220, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("레이드 jadong_in")
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\jadong_in_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(470, 570, 610, 610, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        break
+                    time.sleep(1)
+
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\raid_ready.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 30, 140, 220, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("레이드 raid_ready")
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    mouse_move_cpp(500, 500, cla)
+
+                else:
+                    where_dungeon = dungeon.split("_")
+
+                    dun_go_ = False
+                    dun_go_count = 0
+                    while dun_go_ is False:
+                        dun_go_count += 1
+                        if dun_go_count > 7:
+                            dun_go_ = True
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\raid_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("레이드")
+                            # (100, 185/220/255/290/325/360...
+                            y_reg = 769 + (int(where_dungeon[1]) * 59)
+                            # (24/52/80/108, 1015)
+                            x_reg = (int(where_dungeon[2]) * 28) - 5
+
+                            # 자물쇠 있는지 파악
+                            # # 2 = 97, 887
+                            # # 3 = 97, 946
+                            # 59 차이
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\raid_small_lock.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(65, y_reg - 30, 130, y_reg + 30, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("미오픈...완료로 변경")
+                                print(int(where_dungeon[1]), imgs_)
+                                # add 로 완료해버리기
+                                myQuest_play_add(cla, dungeon)
+                                dun_go_ = True
+
+                            else:
+                                print("not mini_lock", int(where_dungeon[1]))
+                                # 자물쇠 없으니 클릭
+                                click_pos_2(100, y_reg, cla)
+
+                                time.sleep(1)
+
+                                # 다시 밑에 자물쇠 확인하기
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\raid_mini_lock.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(x_reg - 20, 990, x_reg + 20, 1040, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("mini_lock", imgs_)
+                                else:
+                                    print("no mini_lock", int(where_dungeon[2]))
+                                    click_pos_2(x_reg, 1010, cla)
+                                    time.sleep(0.5)
+
+                                    # 1. 파티생성
+                                    # click_pos_2(915, 1015, cla)
+                                    # 2. 자동입장...
+                                    click_pos_2(815, 1015, cla)
+
+                                    for i in range(20):
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\ready_cancle.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(0, 30, 140, 220, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            dun_go_ = True
+                                            break
+                                        else:
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\raid_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_2(940, 50, cla)
+                                        time.sleep(1)
+
+
+                            time.sleep(0.1)
+
+
+
+                        else:
+                            # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\raid_big_lock.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(380, 400, 580, 545, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("미오픈...완료로 변경")
+                                    # add...
+                                    myQuest_play_add(cla, dungeon)
+                                    dun_go_ = True
+                                else:
+                                    click_pos_2(480, 500, cla)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\raid_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        time.sleep(1)
+                            else:
+                                menu_open(cla)
+
+                                click_pos_2(70, 280, cla)
+
+                                for i in range(10):
+
+                                    not_available(cla)
+
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    time.sleep(0.7)
+                        time.sleep(1)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
 def moriagiji_start(cla, dungeon):
     from potion_ares import juljun_potion_check
     from jadong import juljun_attack_check
@@ -1188,7 +1368,7 @@ def dark_play(cla):
     import numpy as np
     import cv2
     from action_ares import map_in, clean_screen
-    from function import click_pos_reg, imgs_set_
+    from function import click_pos_reg, imgs_set_, click_pos_2
     try:
         print("dark_play")
 
@@ -1229,7 +1409,33 @@ def dark_play(cla):
                         print("dark_demen_4", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         v_.dark_demen = True
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_join_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 60, 560, 110, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("dark_join_1", imgs_)
+                            x_reg = imgs_.x
+                            y_reg = imgs_.y
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(500, 560, 560, 610, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("dark_confirm", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    v_.dark_demen = True
+                                    break
+                                else:
+                                    click_pos_2(x_reg, y_reg, cla)
+                                    time.sleep(0.5)
+                                time.sleep(1)
         if v_.dark_demen == True:
+
+            v_.dark_demen_count += 1
 
             dark_ = False
             dark_count = 0

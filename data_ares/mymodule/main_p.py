@@ -736,13 +736,13 @@ class FirstTab(QWidget):
         # 콜렉션 온오프(수집 온오프)
         self.onActivated_slelect_collection_toggle_read()
 
-        self.collection_on_off = QGroupBox('수집 On/Off')
-        print("coleection", v_.onCollection)
+        self.collection_on_off = QGroupBox('다크디멘션 On/Off')
+        print("dark_demention", v_.onCollection)
         if v_.onCollection == True:
             tgl_now = "On"
         else:
             tgl_now = "Off"
-        self.now_toggle = QLabel("수집 : "+ tgl_now + "\n")
+        self.now_toggle = QLabel("다크디멘션 : " + tgl_now + "\n")
         # 토글 버튼
         self.tgl = QCheckBox("On / Off")
         self.tgl.adjustSize()
@@ -949,7 +949,7 @@ class FirstTab(QWidget):
         dun_g2_name = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
         # dun_g2_list = ['던전 선택', '다크디멘젼', '레이드', '기간토마키아']
-        dun_g2_list = ['협동 선택', '레이드']
+        dun_g2_list = ['협동 선택', '레이드', '다크디멘젼']
         dun_g2_name.addItems(dun_g2_list)
 
         dun_g2_stair = QComboBox()
@@ -957,7 +957,7 @@ class FirstTab(QWidget):
         dun_g2_stair.addItems(dun_g2_stair_list)
 
         dun_g2_step = QComboBox()
-        dun_g2_step_list = ['lv', '1', '2']
+        dun_g2_step_list = ['lv', '1', '2', '3']
         dun_g2_step.addItems(dun_g2_step_list)
 
         dun_box_2 = QHBoxLayout()
@@ -1412,7 +1412,7 @@ class FirstTab(QWidget):
             tgl_now = "On"
         else:
             tgl_now = "Off"
-        self.now_toggle.setText("수집 : " + str(tgl_now) + "\n")
+        self.now_toggle.setText("다크디멘션 : " + str(tgl_now) + "\n")
         self.tgl.setChecked(v_.onCollection)
         #self.set_rand_int()
 

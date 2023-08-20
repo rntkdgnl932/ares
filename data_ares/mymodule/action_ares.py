@@ -66,6 +66,8 @@ def dead_die(cla, schedule):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+            deaded = True
+
             dead_ = False
             dead_count = 0
             while dead_ is False:
@@ -116,7 +118,7 @@ def dead_die(cla, schedule):
         #     if imgs_ is not None and imgs_ != False:
         #         click_pos_reg(imgs_.x, imgs_.y, cla)
 
-
+        return deaded
     except Exception as e:
         print(e)
         return 0
@@ -553,6 +555,14 @@ def confirm_all(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(500, 560, 585, 615, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # 다크디멘젼
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 560, 560, 610, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 

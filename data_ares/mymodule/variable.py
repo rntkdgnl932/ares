@@ -10,6 +10,7 @@ now_arduino = "none"
 # 아레스 관련
 # 협동 던전 : 다크디멘젼
 dark_demen = False
+dark_demen_count = 0
 # 지역퀘스트 : 전설속 몬스터 페네트라
 # penetra = False
 # gorgon = False
@@ -43,6 +44,7 @@ forcee_not_sub = False
 force_sub_quest = False
 onForceGold = 5000000
 onForceGoldSpot = "none"
+# 수집(아레스에서는 다크디멘션으로 대체)
 onCollection = False
 
 

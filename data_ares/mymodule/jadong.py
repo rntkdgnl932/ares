@@ -8,15 +8,82 @@ import variable as v_
 
 
 def jadong_start(cla, where):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg
     from potion_ares import juljun_potion_check
-    from action_ares import dead_die
+    from action_ares import dead_die, out_check, clean_screen
+    from dungeon import dark_play
     try:
         print("jadong_start")
-        result_attck = juljun_attack_check(cla, where)
-        if result_attck == False:
-            go_spot_in(cla, where)
+
+        jadong_ready = False
+
+        # 아레스에서는 윈도우창에 보이는 v_.onCollection 콜렉션을 다크디멘션으로 대체함
+        if v_.onCollection == True:
+            if v_.dark_demen_count > 2:
+                jadong_ready = True
         else:
-            juljun_potion_check(cla)
+            jadong_ready = True
+
+        if jadong_ready == True:
+            print("자동사냥 모드")
+            result_attck = juljun_attack_check(cla, where)
+            if result_attck == False:
+                go_spot_in(cla, where)
+            else:
+                juljun_potion_check(cla)
+        else:
+            print("다크디멘젼 모드")
+
+
+            time.sleep(1)
+
+            result_attck = juljun_attack_check(cla, where)
+            if result_attck == False:
+                go_spot_in(cla, where)
+            else:
+
+                for i in range(5):
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        break
+                    else:
+                        clean_screen(cla)
+                    time.sleep(1)
+
+                dark_mode = True
+                while dark_mode is True:
+                    print("다크디멘젼 모드 중...", v_.dark_demen_count)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("다크디멘젼 모드 : auto_on", imgs_)
+
+                        result_dead = dead_die(cla, where)
+                        if result_dead == True:
+                            dark_mode = False
+
+                        if v_.dark_demen_count > 1:
+                            dark_mode = False
+                        else:
+                            dark_play(cla)
+
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("auto_off", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+                    time.sleep(60)
+
     except Exception as e:
         print(e)
         return 0
@@ -67,6 +134,8 @@ def go_hangsun_map(cla, where):
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\elia_map_title.PNG"
                     elif where_split[1] == "loona":
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
+                    elif where_split[1] == "jalis":
+                        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
                     full_path = spot_pic
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -136,6 +205,8 @@ def go_spot_in(cla, where):
                 spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\elia_map_title.PNG"
             elif where_split[1] == "loona":
                 spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
+            elif where_split[1] == "jalis":
+                spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
             full_path = spot_pic
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -176,6 +247,11 @@ def go_spot_in(cla, where):
                         # 루나 위치 클릭하기
                         click_pos_2(55, 690, cla)
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
+                    elif where_split[1] == "jalis":
+                        print("jalis")
+                        # 자리스 위치 클릭하기
+                        click_pos_2(10, 320, cla)
+                        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
                     for i in range(20):
                         full_path = spot_pic
                         img_array = np.fromfile(full_path, np.uint8)
@@ -221,6 +297,8 @@ def go_spot_click(cla, where):
             file_path = dir_path + "\\jadong\\ares_elia.txt"
         if where_split[1] == "loona":
             file_path = dir_path + "\\jadong\\ares_loona.txt"
+        if where_split[1] == "jalis":
+            file_path = dir_path + "\\jadong\\ares_jalis.txt"
 
         result_data = "none"
         if os.path.isfile(file_path) == True:
@@ -264,6 +342,9 @@ def go_spot_click(cla, where):
             elif where_split[1] == "loona":
                 print("loona")
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
+            elif where_split[1] == "jalis":
+                print("jalis")
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
 
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -388,7 +469,10 @@ def jadong_arrive(cla, where):
         if isloading == False and moving_ == False:
             # 가까운곳 이동했을 경우...
             # 공격하기
-            click_pos_2(595, 1010, cla)
+
+            auto_on_click(cla)
+
+            # click_pos_2(595, 1010, cla)
             time.sleep(1)
             # 절전모드
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
@@ -452,7 +536,8 @@ def jadong_arrive(cla, where):
 
                         moving_ = False
                         # 공격하기
-                        click_pos_2(595, 1010, cla)
+                        auto_on_click(cla)
+                        # click_pos_2(595, 1010, cla)
                         time.sleep(1)
                         # 절전모드
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
@@ -464,7 +549,7 @@ def jadong_arrive(cla, where):
                     time.sleep(1)
         if walking == True:
             # 공격하기
-            click_pos_2(595, 1010, cla)
+            auto_on_click(cla)
             time.sleep(1)
             # 절전모드
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
@@ -480,7 +565,7 @@ def jadong_arrive(cla, where):
             clean_screen(cla)
             time.sleep(1)
             # 공격하기
-            click_pos_2(595, 1010, cla)
+            auto_on_click(cla)
             time.sleep(1)
             # 절전모드
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
@@ -493,6 +578,31 @@ def jadong_arrive(cla, where):
     except Exception as e:
         print(e)
         return 0
+
+
+def auto_on_click(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg
+    try:
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("auto_on", imgs_)
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("auto_off", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+    except Exception as e:
+        print(e)
+        return 0
+
 
 def juljun_attack_check(cla, where):
     import numpy as np
@@ -548,6 +658,8 @@ def spot_moglog(cla, where):
             file_path = dir_path + "\\jadong\\ares_elia_moglog.txt"
         if where_split[1] == "loona":
             file_path = dir_path + "\\jadong\\ares_loona_moglog.txt"
+        if where_split[1] == "jalis":
+            file_path = dir_path + "\\jadong\\ares_jalis_moglog.txt"
 
         with open(file_path, "r", encoding='utf-8-sig') as file:
             read_data = file.read().splitlines()
