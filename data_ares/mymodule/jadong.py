@@ -70,7 +70,11 @@ def jadong_start(cla, where):
                         if v_.dark_demen_count > 1:
                             dark_mode = False
                         else:
-                            dark_play(cla)
+                            result_dark = dark_play(cla)
+                            print("다크디멘젼 체크 중...", result_dark)
+                            if result_dark == True:
+                                go_spot_in(cla, where)
+
 
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"

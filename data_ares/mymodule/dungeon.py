@@ -1372,6 +1372,7 @@ def dark_play(cla):
     try:
         print("dark_play")
 
+        dark_ = False
         v_.dark_demen = False
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_demen.PNG"
@@ -1437,7 +1438,7 @@ def dark_play(cla):
 
             v_.dark_demen_count += 1
 
-            dark_ = False
+
             dark_count = 0
             while dark_ is False:
                 dark_count += 1
@@ -1477,7 +1478,7 @@ def dark_play(cla):
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 v_.dark_demen = False
-        return v_.dark_demen
+        return dark_
     except Exception as e:
         print(e)
         return 0
