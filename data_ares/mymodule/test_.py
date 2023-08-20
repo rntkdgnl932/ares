@@ -25,7 +25,7 @@ def go_test():
     print("tst")
     cla = "one"
 
-    auction_start(cla)
+    hoilodo(cla)
 
     # boonhae_ready(cla)
 

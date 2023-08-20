@@ -225,7 +225,7 @@ def hoilodo(cla):
     import cv2
 
     from action_ares import menu_open
-    from function import click_pos_2, imgs_set_, click_pos_reg
+    from function import click_pos_2, imgs_set_, click_pos_reg, drag_pos
     from tuto_grow import tuto_grow_skip
     try:
         print("hoilodo")
@@ -265,7 +265,7 @@ def hoilodo(cla):
                         click_pos_reg(imgs_.x - 70, imgs_.y + 7, cla)
                         time.sleep(1)
 
-                        for i in range(20):
+                        for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -273,6 +273,16 @@ def hoilodo(cla):
                             if imgs_ is not None and imgs_ != False:
 
                                 hoilodo_point = False
+
+                                y_position = imgs_.y
+
+                                if 155 < y_position < 190:
+                                    if i < 5:
+                                        drag_pos(280, 480, 680, 480, cla)
+                                        time.sleep(0.5)
+                                    else:
+                                        drag_pos(680, 480, 280, 480, cla)
+                                        time.sleep(0.5)
 
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_3.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -358,6 +368,7 @@ def hoilodo(cla):
                                     click_pos_2(865, 1020, cla)
                                 else:
                                     break
+                                time.sleep(0.1)
                             else:
                                 break
                             time.sleep(0.5)
