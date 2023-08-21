@@ -18,6 +18,9 @@ region_click = 0
 # 가디언 임무 관련
 gardiun_juljun_count = 0
 
+# 메인퀘스트 진행 관련
+main_count = 0
+
 
 # 버젼
 

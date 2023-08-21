@@ -155,6 +155,13 @@ def grow_main(cla, schedule):
                             #
                             #     click_pos_reg(x_reg, y_reg, cla)
                             #     break
+
+        result_ing = grow_quest_ing(cla)
+        if result_ing == False:
+            v_.main_count += 1
+            if v_.main_count > 2:
+                v_.main_count = 0
+                click_pos_2(855, 95, cla)
         if quest_look == False:
             # click_pos_2(945, 100, cla)
             time.sleep(0.5)
