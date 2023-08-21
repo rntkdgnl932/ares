@@ -21,7 +21,7 @@ def jadong_start(cla, where):
 
         # 아레스에서는 윈도우창에 보이는 v_.onCollection 콜렉션을 다크디멘션으로 대체함
         if v_.onCollection == True:
-            if v_.dark_demen_count > 2:
+            if v_.dark_demen_count > 1:
                 jadong_ready = True
         else:
             jadong_ready = True
