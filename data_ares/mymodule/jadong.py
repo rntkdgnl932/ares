@@ -10,7 +10,7 @@ import variable as v_
 def jadong_start(cla, where):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg
+    from function import imgs_set_, click_pos_reg, drag_pos
     from potion_ares import juljun_potion_check
     from action_ares import dead_die, out_check, clean_screen
     from dungeon import dark_play
@@ -84,6 +84,9 @@ def jadong_start(cla, where):
                             result_attck = juljun_attack_check(cla, where)
                             if result_attck == False:
                                 go_spot_in(cla, where)
+                            else:
+                                drag_pos(405, 605, 945, 605, cla)
+
 
                     if v_.dark_demen_count > 1:
                         dark_mode = False
