@@ -15,7 +15,7 @@ def jadong_start(cla, where):
     from action_ares import dead_die, out_check, clean_screen
     from dungeon import dark_play
     try:
-        print("jadong_start")
+        print("jadong_start", v_.dark_demen_count)
 
         jadong_ready = False
 
