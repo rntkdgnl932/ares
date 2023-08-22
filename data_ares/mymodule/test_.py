@@ -17,24 +17,26 @@ def go_test():
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready
-    from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play
+    from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play, dungeon_in_raid
     from potion_ares import maul_potion_get
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
     from gardiun_mission import gardiun_mission_get
-    from auction_ares import auction_start
+    from auction_ares import auction_start, auction_sell
     print("tst")
     cla = "one"
 
-    hoilodo(cla)
+    # hoilodo(cla)
 
-    # boonhae_ready(cla)
+    dungeon_in_raid(cla)
 
-    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"
-    # img_array = np.fromfile(full_path, np.uint8)
-    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(780, 1000, 950, 1030, cla, img, 0.8)
-    # if imgs_ is not None and imgs_ != False:
-    #     print("dnglock_1", imgs_)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(545, 465, 670, 500, cla, img, 0.9)
+    if imgs_ is not None and imgs_ != False:
+        print("10", imgs_)
+    else:
+        print("not 10")
     #
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

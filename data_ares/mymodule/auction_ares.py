@@ -170,7 +170,7 @@ def auction_sell(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\list\\" + auction_list_1[i] + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.8)
+                    imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.93)
                     if imgs_ is not None and imgs_ != False:
                         x_reg = imgs_.x
                         y_reg = imgs_.y
@@ -195,30 +195,41 @@ def auction_sell(cla):
                                 imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     sell_ = True
-                                    last_sell_ = False
-                                    last_sell_count = 0
-                                    while last_sell_ is False:
-                                        last_sell_count += 1
-                                        if last_sell_count > 4:
-                                            last_sell_ = True
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            last_sell_ = True
-                                            click_pos_2(535, 635, cla)
-                                        else:
-                                            click_pos_2(555, 675, cla)
-                                            for z in range(10):
-                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    break
-                                                time.sleep(0.5)
-                                        time.sleep(0.5)
+
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(545, 465, 670, 500, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("10", imgs_)
+                                        click_pos_2(405, 675, cla)
+                                    else:
+                                        print("not 10")
+
+                                        last_sell_ = False
+                                        last_sell_count = 0
+                                        while last_sell_ is False:
+                                            last_sell_count += 1
+                                            if last_sell_count > 4:
+                                                last_sell_ = True
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                last_sell_ = True
+                                                click_pos_2(535, 635, cla)
+                                            else:
+                                                click_pos_2(555, 675, cla)
+                                                for z in range(10):
+                                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        break
+                                                    time.sleep(0.5)
+                                            time.sleep(0.5)
                                 else:
                                     click_pos_reg(x_reg, y_reg, cla)
                                     time.sleep(0.5)
@@ -238,7 +249,7 @@ def auction_sell(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\list\\" + auction_list_2[i] + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.8)
+                    imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.93)
                     if imgs_ is not None and imgs_ != False:
                         x_reg = imgs_.x
                         y_reg = imgs_.y
@@ -264,44 +275,43 @@ def auction_sell(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     sell_ = True
                                     print("무슨물건?", auction_list_2[i])
-                                    re_ = text_check_get(589, 477, 625, 492, cla)
-                                    result_int = int_put_(re_)
-                                    result_num = in_number_check(cla, result_int)
-                                    if result_num == True:
-                                        print("숫자다", re_)
-                                        if int(result_int) > 10:
-                                            last_sell_ = False
-                                            last_sell_count = 0
-                                            while last_sell_ is False:
-                                                last_sell_count += 1
-                                                if last_sell_count > 4:
-                                                    last_sell_ = True
-                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    last_sell_ = True
-                                                    click_pos_2(535, 635, cla)
-                                                else:
-                                                    click_pos_2(555, 675, cla)
-                                                    for z in range(10):
-                                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
-                                                        img_array = np.fromfile(full_path, np.uint8)
-                                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                        imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
-                                                        if imgs_ is not None and imgs_ != False:
-                                                            break
-                                                        time.sleep(0.5)
-                                                time.sleep(0.5)
+                                    # re_ = text_check_get(589, 477, 625, 492, cla)
+                                    # result_int = int_put_(re_)
+                                    # result_num = in_number_check(cla, result_int)
 
-
-
-                                        else:
-                                            click_pos_2(405, 675, cla)
-                                    else:
-                                        print("숫자 아니다", re_)
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(545, 465, 670, 500, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("10", imgs_)
                                         click_pos_2(405, 675, cla)
+                                    else:
+                                        print("not 10")
+                                        last_sell_ = False
+                                        last_sell_count = 0
+                                        while last_sell_ is False:
+                                            last_sell_count += 1
+                                            if last_sell_count > 4:
+                                                last_sell_ = True
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                last_sell_ = True
+                                                click_pos_2(535, 635, cla)
+                                            else:
+                                                click_pos_2(555, 675, cla)
+                                                for z in range(10):
+                                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        break
+                                                    time.sleep(0.5)
+                                            time.sleep(0.5)
                                 else:
                                     click_pos_reg(x_reg, y_reg, cla)
                                     time.sleep(0.5)
@@ -330,71 +340,93 @@ def auction_sell(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\list\\" + auction_list_0[i] + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.8)
+                    imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.93)
                     if imgs_ is not None and imgs_ != False:
-                        x_reg = imgs_.x
-                        y_reg = imgs_.y
-                        click_pos_reg(x_reg, y_reg, cla)
-                        time.sleep(1)
 
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(780, 1000, 950, 1030, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
+                        for z in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\list\\" + auction_list_0[
+                                i] + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(765, 165, 960, 1010, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
 
-                            sell_ = False
-                            sell_count = 0
-                            while sell_ is False:
-                                sell_count += 1
-                                if sell_count > 4:
-                                    sell_ = True
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
+                                x_reg = imgs_.x
+                                y_reg = imgs_.y
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(1)
+
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
+                                imgs_ = imgs_set_(780, 1000, 950, 1030, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    sell_ = True
-                                    last_sell_ = False
-                                    last_sell_count = 0
-                                    while last_sell_ is False:
-                                        last_sell_count += 1
-                                        if last_sell_count > 4:
-                                            last_sell_ = True
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            last_sell_ = True
-                                            click_pos_2(535, 635, cla)
-                                        else:
-                                            click_pos_2(555, 675, cla)
-                                            for z in range(10):
-                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
-                                                img_array = np.fromfile(full_path, np.uint8)
-                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
-                                                if imgs_ is not None and imgs_ != False:
-                                                    break
-                                                time.sleep(0.5)
-                                        time.sleep(0.5)
-                                else:
-                                    click_pos_reg(x_reg, y_reg, cla)
-                                    time.sleep(0.5)
-                                    click_pos_2(905, 1015, cla)
-                                    for z in range(10):
+
+                                    sell_ = False
+                                    sell_count = 0
+                                    while sell_ is False:
+                                        sell_count += 1
+                                        if sell_count > 4:
+                                            sell_ = True
                                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
-                                            break
+                                            sell_ = True
+
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(545, 465, 670, 500, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("10", imgs_)
+                                                click_pos_2(405, 675, cla)
+                                            else:
+                                                print("not 10")
+
+                                                last_sell_ = False
+                                                last_sell_count = 0
+                                                while last_sell_ is False:
+                                                    last_sell_count += 1
+                                                    if last_sell_count > 4:
+                                                        last_sell_ = True
+                                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        last_sell_ = True
+                                                        click_pos_2(535, 635, cla)
+                                                    else:
+                                                        click_pos_2(555, 675, cla)
+                                                        for z in range(10):
+                                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_confirm_title.PNG"
+                                                            img_array = np.fromfile(full_path, np.uint8)
+                                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                            imgs_ = imgs_set_(440, 410, 520, 450, cla, img, 0.8)
+                                                            if imgs_ is not None and imgs_ != False:
+                                                                break
+                                                            time.sleep(0.5)
+                                                    time.sleep(0.5)
+                                        else:
+                                            click_pos_reg(x_reg, y_reg, cla)
+                                            time.sleep(0.5)
+                                            click_pos_2(905, 1015, cla)
+                                            for z in range(10):
+                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(440, 370, 520, 410, cla, img, 0.8)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    break
+                                                time.sleep(0.5)
                                         time.sleep(0.5)
-                                time.sleep(0.5)
 
+                                    time.sleep(1)
+                            else:
+                                break
                             time.sleep(1)
-
 
             else:
 

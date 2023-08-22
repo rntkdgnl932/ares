@@ -56,6 +56,8 @@ from chaejib import chaejib_start
 from gardiun_mission import gardiun_mission_start
 from auction_ares import auction_start
 
+from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis
+
 from stop_event18 import _stop_please
 
 from test_ import go_test
@@ -922,7 +924,7 @@ class FirstTab(QWidget):
         self.dun_group_1 = QGroupBox('도전')
         dun_g1_name = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
-        dun_g1_list = ['도전 선택', '행성파견', '성운돌파']
+        dun_g1_list = ['도전 선택', '행성파견', '성운돌파', '뫼비우스', '어비스']
         dun_g1_name.addItems(dun_g1_list)
 
         dun_g1_stair = QComboBox()
@@ -3240,6 +3242,10 @@ class game_Playing(QThread):
                                     moriagiji_start(v_.now_cla, result_schedule_)
                                 elif '가디언임무' in result_schedule_:
                                     gardiun_mission_start(v_.now_cla, result_schedule_)
+                                elif '뫼비우스' in result_schedule_:
+                                    season_dungeon_in_mobius(v_.now_cla, result_schedule_)
+                                elif '어비스' in result_schedule_:
+                                    season_dungeon_in_ubis(v_.now_cla, result_schedule_)
                                 else:
                                     if '_' in result_schedule_:
                                         data_ = result_schedule_.split("_")

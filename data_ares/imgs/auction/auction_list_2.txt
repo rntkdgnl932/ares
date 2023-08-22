@@ -12,3 +12,12 @@ joomoogi_skill
 bojomoogi_skill
 elia_box
 moria_sand
+taeyub_1
+stone_live
+stone_uhwang
+mi_wonso
+mi_fire
+mi_ice
+mi_elec
+mi_bangsa
+gear
