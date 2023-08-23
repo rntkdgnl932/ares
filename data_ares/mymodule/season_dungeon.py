@@ -142,9 +142,9 @@ def season_dungeon_in_mobius(cla, dungeon):
                             imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 break
-                            time.sleep(0.2)
+                            time.sleep(0.5)
                         break
-                    time.sleep(0.2)
+                    time.sleep(0.5)
 
 
 
@@ -292,9 +292,9 @@ def season_dungeon_in_ubis(cla, dungeon):
                             imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 break
-                            time.sleep(0.2)
+                            time.sleep(0.5)
                         break
-                    time.sleep(0.2)
+                    time.sleep(0.5)
 
 
 
