@@ -125,6 +125,7 @@ def season_dungeon_in_mobius(cla, dungeon):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
+                        sd_in_ = True
                         loading_ares(cla)
                         # ing
                         season_dungeon_in_mobius_ing(cla, dungeon)
@@ -287,6 +288,7 @@ def season_dungeon_in_ubis(cla, dungeon):
                         loading_ares(cla)
                         # ing
                         season_dungeon_in_ubis_ing(cla, dungeon)
+                        sd_in_ = True
                         break
                     time.sleep(0.7)
 
