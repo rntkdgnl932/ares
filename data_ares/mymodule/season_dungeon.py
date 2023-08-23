@@ -18,7 +18,7 @@ def dungeon_start(cla, dungeon):
 def season_dungeon_in_mobius_ing(cla, dungeon):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg
+    from function import imgs_set_, click_pos_reg, click_pos_2
     from schedule import myQuest_play_add
     try:
         print("season_dungeon_in_mobius_ing")
@@ -37,7 +37,7 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                 print("모비우스 던전 중...")
                 time.sleep(2)
             else:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\failed.PNG"
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_fail.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
@@ -49,7 +49,7 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_exit.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.7)
+                        imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             print("뫼비우스 나가기")
                             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -65,6 +65,15 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         ing_ = False
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("season_dungeon_in_mobius_ing : clear", imgs_)
+                            ing_count = 0
+                            click_pos_2(555, 1015, cla)
 
 
 
@@ -155,7 +164,7 @@ def season_dungeon_in_mobius(cla, dungeon):
 def season_dungeon_in_ubis_ing(cla, dungeon):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg
+    from function import imgs_set_, click_pos_reg, click_pos_2
     from schedule import myQuest_play_add
     try:
         print("season_dungeon_in_ubis_ing")
@@ -184,7 +193,7 @@ def season_dungeon_in_ubis_ing(cla, dungeon):
                     time.sleep(2)
                 else:
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\failed.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_fail.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
@@ -214,6 +223,15 @@ def season_dungeon_in_ubis_ing(cla, dungeon):
                             myQuest_play_add(cla, dungeon)
                             ing_ = False
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_clear.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("season_dungeon_in_ubis_ing : clear", imgs_)
+                                click_pos_2(555, 1015, cla)
+                                ing_count = 0
 
 
 
