@@ -103,8 +103,10 @@ def season_dungeon_in_mobius(cla, dungeon):
         sd_in_count = 0
         while sd_in_ is False:
             sd_in_count += 1
-            if sd_in_count > 5:
+            if sd_in_count > 4:
                 sd_in_ = True
+                myQuest_play_add(cla, dungeon)
+                time.sleep(0.2)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -263,8 +265,10 @@ def season_dungeon_in_ubis(cla, dungeon):
         sd_in_count = 0
         while sd_in_ is False:
             sd_in_count += 1
-            if sd_in_count > 5:
+            if sd_in_count > 4:
                 sd_in_ = True
+                myQuest_play_add(cla, dungeon)
+                time.sleep(0.2)
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\ubis_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
