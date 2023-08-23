@@ -1,5 +1,6 @@
 import time
 import sys
+import requests
 
 sys.path.append('C:/my_games/ares/data_ares/mymodule')
 
@@ -43,11 +44,16 @@ def get_event(cla):
     try:
         print("get_event")
 
-        dir_path = "C:\\my_games\\ares"
-        file_path = dir_path + "\\data_ares\\get_items\\get_event.txt"
+        # dir_path = "C:\\my_games\\ares"
+        # file_path = dir_path + "\\data_ares\\get_items\\get_event.txt"
+        #
+        # with open(file_path, "r", encoding='utf-8-sig') as file:
+        #     read_event = file.read().splitlines()
 
-        with open(file_path, "r", encoding='utf-8-sig') as file:
-            read_event = file.read().splitlines()
+        url = "https://raw.githubusercontent.com/rntkdgnl932/ares/master/data_ares/get_items/get_event.txt"
+
+        response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+        read_event = response.text.splitlines()
 
         drag_num = 0
 

@@ -27,16 +27,13 @@ def go_test():
 
     # hoilodo(cla)
 
-    dungeon_in_raid(cla)
+    url = "https://raw.githubusercontent.com/rntkdgnl932/ares/master/data_ares/get_items/get_event.txt"
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(545, 465, 670, 500, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("10", imgs_)
-    else:
-        print("not 10")
+    response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+    # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+    data = response.text.splitlines()
+
+    print("server_get_ares", data)
     #
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
