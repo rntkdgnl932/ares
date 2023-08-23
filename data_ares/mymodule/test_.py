@@ -25,15 +25,22 @@ def go_test():
     print("tst")
     cla = "one"
 
-    # hoilodo(cla)
+    get_event(cla)
 
-    url = "https://raw.githubusercontent.com/rntkdgnl932/ares/master/data_ares/get_items/get_event.txt"
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(270, 380, 310, 700, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("sdg", imgs_)
 
-    response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+    # url = "https://raw.githubusercontent.com/rntkdgnl932/ares/master/data_ares/get_items/get_event.txt"
+    #
     # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
-    data = response.text.splitlines()
-
-    print("server_get_ares", data)
+    # # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+    # data = response.text.splitlines()
+    #
+    # print("server_get_ares", data)
     #
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

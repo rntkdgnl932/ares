@@ -84,6 +84,11 @@ def get_event(cla):
 
                 for z in range(len(read_event)):
 
+                    y_up = 403 + (z * 33) - 13
+                    y_down = 403 + (z * 33) + 13
+
+                    print(z, y_up, y_down)
+
                     is_drag = read_event[z].split(":")
 
                     if is_drag[1] == "drag":
@@ -92,43 +97,48 @@ def get_event(cla):
                         drag_pos(240, 670, 240, 420, cla)
                         drag_num = z
                         time.sleep(1)
-                    elif is_drag[1] == "pass":
-                        y_plus += 40
 
-                    if drag_num == 0:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(270, 380 + y_plus, 310, 700, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("받기 시작")
+
+
+                    # elif is_drag[1] == "pass":
+                    #     y_plus += 40
+
+                    if is_drag[1] != "pass":
+                        if drag_num == 0:
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(270, 380 + y_plus, 310, 700, cla, img, 0.7)
+                            imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
-                                time.sleep(0.5)
-                                aim_reg = "none"
-                                for i in range(len(read_event)):
-                                    y_average = 399
-                                    cal_ = read_event[i].split(":")
-                                    y_reg_1 = y_average - 15 - 33 + (33 * int(cal_[0]))
-                                    y_reg_2 = y_average + 15 - 33 + (33 * int(cal_[0]))
-                                    if y_reg_1 < imgs_.y < y_reg_2:
-                                        print(i, imgs_)
-                                        # 드래그일 경우 다시...
-                                        aim_reg = read_event[i]
-                                        break
-                                if aim_reg != "none":
-                                    print("aim_reg", aim_reg)
-                                    result_aim_reg = aim_reg.split(":")
-                                    # 추려낸 결과 ex => 2:seven
-                                    get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
+                                print("받기 시작", z)
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
                                     time.sleep(0.5)
-                    else:
-                        if is_drag[0] == "11":
-                            get_event_click_drag(240, 670, "seven_six", cla)
+                                    aim_reg = "none"
+                                    for i in range(len(read_event)):
+                                        y_average = 399
+                                        cal_ = read_event[i].split(":")
+                                        y_reg_1 = y_average - 15 - 33 + (33 * int(cal_[0]))
+                                        y_reg_2 = y_average + 15 - 33 + (33 * int(cal_[0]))
+                                        if y_reg_1 < imgs_.y < y_reg_2:
+                                            print(i, imgs_)
+                                            # 드래그일 경우 다시...
+                                            aim_reg = read_event[i]
+                                            break
+                                    if aim_reg != "none":
+                                        print("aim_reg", aim_reg)
+                                        result_aim_reg = aim_reg.split(":")
+                                        # 추려낸 결과 ex => 2:seven
+                                        get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
+                                        time.sleep(0.5)
+                        # else:
+                        #     # 아랫칸 있을때만...
+                        #     if is_drag[0] == "11":
+                        #         get_event_click_drag(240, 670, "seven_six", cla)
 
 
 
@@ -357,9 +367,10 @@ def get_event_click(reg_x, reg_y, how, cla):
             print("수동으로 받자")
 
         time.sleep(0.3)
-        for i in range(random_int()):
-            click_pos_2(reg_x, reg_y, cla)
-            time.sleep(0.1)
+        if how != "pass":
+            for i in range(random_int()):
+                click_pos_2(reg_x, reg_y, cla)
+                time.sleep(0.1)
 
 
     except Exception as e:
