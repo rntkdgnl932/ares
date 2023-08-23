@@ -134,7 +134,13 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                 # (100, 185/220/255/290/325/360...
                 y_reg = 153 + (int(where_dungeon[1]) * 34)
                 # (24/52/80/108, 1015)
-                x_reg = (int(where_dungeon[2]) * 28) - 5
+
+                if int(where_dungeon[2]) > 3:
+                    x_data = 4
+                else:
+                    x_data = int(where_dungeon[2])
+
+                x_reg = (x_data * 28) - 5
 
                 # 자물쇠 있는지 파악
                 # y_reg = 153 + (층 * 34)
@@ -269,14 +275,14 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\lock.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(260, 410, 470, 555, cla, img, 0.7)
+                    imgs_ = imgs_set_(190, 410, 390, 555, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("미오픈...완료로 변경")
                         # add...
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(365, 500, cla)
+                        click_pos_2(280, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hangsungpagyun_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -362,9 +368,9 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
 
 
                 # 1. 순차진행
-                # click_pos_2(915, 1015, cla)
-                # 2. 도전
                 # click_pos_2(815, 1015, cla)
+                # 2. 도전
+                # click_pos_2(915, 1015, cla)
 
                 click_pos_2(815, 1015, cla)
 
@@ -470,14 +476,14 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\lock.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(480, 410, 710, 555, cla, img, 0.7)
+                    imgs_ = imgs_set_(380, 410, 580, 555, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("미오픈...완료로 변경")
                         # add...
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(600, 500, cla)
+                        click_pos_2(480, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\sungwoon_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -531,6 +537,221 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
     except Exception as e:
         print(e)
         return 0
+
+
+def dungeon_in_goldrush(cla, dungeon):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import menu_open, loading_ares
+    from schedule import myQuest_play_add
+    try:
+        print("dungeon_in_goldrush")
+
+        # 골드러쉬_2_5
+
+        where_dungeon = dungeon.split("_")
+
+        dun_go_ = False
+        dun_go_count = 0
+        while dun_go_ is False:
+            dun_go_count += 1
+            if dun_go_count > 7:
+                dun_go_ = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\goldrush_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("골드러쉬")
+
+                if int(where_dungeon[1]) > 1:
+                    y_data = 2
+                else:
+                    y_data = int(where_dungeon[1])
+
+                y_reg = 830 + (y_data * 60)
+                x_reg = (int(where_dungeon[2]) * 29) - 5
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\small_lock2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(70, y_reg - 20, 120, y_reg + 20, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print(int(where_dungeon[1]), imgs_)
+                    # add 로 완료해버리기
+                    myQuest_play_add(cla, dungeon)
+                    dun_go_ = True
+
+                else:
+                    print("not small_lock2", int(where_dungeon[1]))
+                    # 자물쇠 없으니 클릭
+                    click_pos_2(100, y_reg, cla)
+
+                    time.sleep(1)
+
+                    click_pos_2(x_reg, 1010, cla)
+                    time.sleep(0.5)
+
+                    # 1. 입장 누르면 그냥 들어가지고 자동동으로 싸움
+                    # click_pos_2(915, 1015, cla)
+                    # 2. 반복시...
+                    # click_pos_2(815, 1015, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\hangsungpagyun_plus.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(575, 485, 615, 525, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            for k in range(5):
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(1)
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\hangsungpagyun_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                break
+                        else:
+                            click_pos_2(815, 1015, cla)
+
+                            time.sleep(1)
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\lack_ticket.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(380, 90, 510, 140, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("던전 입장권 부족")
+                                myQuest_play_add(cla, dungeon)
+                                dun_go_ = True
+                                break
+                            else:
+
+                                for z in range(10):
+                                    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\dojun_confirm.PNG"
+                                    # img_array = np.fromfile(full_path, np.uint8)
+                                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    # imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.7)
+                                    # if imgs_ is not None and imgs_ != False:
+                                    #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    #     time.sleep(0.5)
+
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\hangsungpagyun_plus.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(575, 485, 615, 525, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    time.sleep(0.5)
+                        time.sleep(0.5)
+                    # 로딩화면 및 다시 타이틀 화면...
+                    for i in range(20):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            loading_ares(cla)
+                            break
+                        time.sleep(1)
+
+                    ing_ = True
+                    ing_count = 0
+                    while ing_ is True:
+                        ing_count += 1
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\goldrush_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            ing_ = False
+                            dun_go_ = True
+                            print("골드러쉬 끝")
+                            myQuest_play_add(cla, dungeon)
+                        else:
+                            timing = ing_count * 5
+                            print("골드러쉬 : " + str(timing) + "초 지남")
+                        time.sleep(5)
+                time.sleep(0.1)
+
+
+
+            else:
+                # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\dojun_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\lock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(580, 410, 760, 555, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("미오픈...완료로 변경")
+                        # add...
+                        myQuest_play_add(cla, dungeon)
+                        dun_go_ = True
+                    else:
+                        click_pos_2(670, 500, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\goldrush_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(1)
+                else:
+                    menu_open(cla)
+
+                    click_pos_2(70, 230, cla)
+
+                    for i in range(10):
+
+                        not_available(cla)
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\dojun_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.7)
+            time.sleep(1)
+
+        # 밖으로 나가기
+        for i in range(10):
+            exit_ = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\dojun_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(940, 50, cla)
+                time.sleep(1)
+                exit_ = False
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\goldrush_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(940, 50, cla)
+                time.sleep(1)
+                exit_ = False
+            if exit_ == True:
+                break
+            time.sleep(1)
+
+    except Exception as e:
+        print(e)
+        return 0
+
 
 def dungeon_in_raid_ing(cla, dungeon):
     import numpy as np

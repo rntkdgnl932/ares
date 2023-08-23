@@ -25,8 +25,14 @@ def go_test():
     print("tst")
     cla = "one"
 
-    get_event(cla)
+    # get_event(cla)
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\small_lock2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(70, 920, 120, 970, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("sdg", imgs_)
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

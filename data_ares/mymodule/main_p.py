@@ -50,7 +50,7 @@ from main_grow import main_grow_start
 from jadong import jadong_start
 from dungeon import dungeon_start
 from get_items import get_item_start
-from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start, dark_play
+from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start, dark_play, dungeon_in_goldrush
 from region_quest import region_quest_start
 from chaejib import chaejib_start
 from gardiun_mission import gardiun_mission_start
@@ -924,7 +924,7 @@ class FirstTab(QWidget):
         self.dun_group_1 = QGroupBox('도전')
         dun_g1_name = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
-        dun_g1_list = ['도전 선택', '행성파견', '성운돌파', '뫼비우스', '어비스']
+        dun_g1_list = ['도전 선택', '행성파견', '성운돌파', '골드러쉬', '뫼비우스', '어비스']
         dun_g1_name.addItems(dun_g1_list)
 
         dun_g1_stair = QComboBox()
@@ -932,7 +932,7 @@ class FirstTab(QWidget):
         dun_g1_stair.addItems(dun_g1_stair_list)
 
         dun_g1_step = QComboBox()
-        dun_g1_step_list = ['lv', '1', '2', '3', '4']
+        dun_g1_step_list = ['lv', '1', '2', '3', '4', '5']
         dun_g1_step.addItems(dun_g1_step_list)
 
         dun_box_1 = QHBoxLayout()
@@ -3235,6 +3235,8 @@ class game_Playing(QThread):
                                     dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
                                 elif '성운돌파' in result_schedule_:
                                     dungeon_in_sungwoondolpa(v_.now_cla, result_schedule_)
+                                elif '골드러쉬' in result_schedule_:
+                                    dungeon_in_goldrush(v_.now_cla, result_schedule_)
                                 elif '레이드' in result_schedule_:
                                     dungeon_in_raid(v_.now_cla, result_schedule_)
                                     dark_play(v_.now_cla)
