@@ -1407,7 +1407,26 @@ def dungeon_in_moriagiji(cla, dungeon):
 
                     if dun_go_ == True:
 
-                        time.sleep(10)
+                        time.sleep(5)
+                        for i in range(30):
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                break
+                            else:
+                                print("이동대기")
+                            time.sleep(1)
+                        # 여기에 이동 넣기
+                        for i in range(30):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_moving.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("이동중")
+                            else:
+                                break
+                            time.sleep(1)
+
 
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
