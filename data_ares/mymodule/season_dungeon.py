@@ -52,7 +52,7 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                         imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             print("뫼비우스 나가기")
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            click_pos_2(555, 1015, cla)
                             break
                         time.sleep(0.2)
                 else:
@@ -209,7 +209,7 @@ def season_dungeon_in_ubis_ing(cla, dungeon):
                             imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print("어비스 나가기")
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                click_pos_2(555, 1015, cla)
                                 break
                             time.sleep(0.2)
 
