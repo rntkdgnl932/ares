@@ -445,6 +445,11 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(470, 990, 630, 1030, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
+                                    ing_ = False
+                                    dun_go_ = True
+                                    print("성운돌파 끝")
+                                    #myQuest_play_add(cla, dungeon)
+                                    time.sleep(0.3)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                     print("성운돌파 실패")
                                     break
