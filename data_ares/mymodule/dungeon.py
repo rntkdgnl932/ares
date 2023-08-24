@@ -1327,7 +1327,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(235, y_reg, cla)
                             time.sleep(1)
-                            
+
                         click_pos_2(815, 1015, cla)
                         time.sleep(1)
 

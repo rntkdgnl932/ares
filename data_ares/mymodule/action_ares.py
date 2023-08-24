@@ -59,15 +59,26 @@ def dead_die(cla, schedule):
                 line_to_me(cla, why)
                 myQuest_play_add(cla, schedule)
 
+        deaded2 = False
+
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
-
             deaded = True
+            deaded2 = True
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            deaded = True
+            deaded2 = True
 
+        if deaded2 == True:
             dead_ = False
             dead_count = 0
             while dead_ is False:
