@@ -449,7 +449,7 @@ def jadong_arrive(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen
+    from action_ares import clean_screen, dead_die
     try:
         print("jadong_arrive")
 
@@ -501,6 +501,8 @@ def jadong_arrive(cla, where):
                                 walking = True
                                 break
             time.sleep(0.5)
+
+        dead_die(cla, where)
 
         if isloading == False and moving_ == False:
             # 가까운곳 이동했을 경우...
