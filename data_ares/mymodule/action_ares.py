@@ -90,16 +90,27 @@ def dead_die(cla, schedule):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(420, 380, 530, 430, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(475, 655, cla)
-                    time.sleep(1)
+                    dead_ = True
+                    for i in range(20):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(420, 380, 530, 430, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_confirm.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(500, 560, 585, 615, cla, img, 0.75)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        dead_ = True
+                            click_pos_2(475, 655, cla)
+                            time.sleep(0.7)
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(500, 560, 585, 615, cla, img, 0.75)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            break
+                        time.sleep(1)
+
 
                 else:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before.PNG"
@@ -108,6 +119,13 @@ def dead_die(cla, schedule):
                     imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(1)
 
         # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_1.PNG"
