@@ -10,7 +10,7 @@ import variable as v_
 def jadong_start(cla, where):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, drag_pos
+    from function import imgs_set_, click_pos_reg, drag_pos, click_pos_2
     from potion_ares import juljun_potion_check
     from action_ares import dead_die, out_check, clean_screen
     from dungeon import dark_play
@@ -57,47 +57,68 @@ def jadong_start(cla, where):
                 while dark_mode is True:
                     print("다크디멘젼 모드 중...", v_.dark_demen_count)
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gigantomakia_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        print("다크디멘젼 모드 : auto_on", imgs_)
+                        dark_mode = False
+
+                        for i in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gigantomakia_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(940, 50, cla)
+                            else:
+                                break
+                            time.sleep(0.5)
 
                     else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("auto_off", imgs_)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            print("다크디멘젼 모드 : auto_on", imgs_)
 
-                    result_dead = dead_die(cla, where)
-                    if result_dead == True:
-                        dark_mode = False
-                    else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            result_attck = juljun_attack_check(cla, where)
-                            if result_attck == False:
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("auto_off", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        result_dead = dead_die(cla, where)
+                        if result_dead == True:
+                            dark_mode = False
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                result_attck = juljun_attack_check(cla, where)
+                                if result_attck == False:
+                                    go_spot_in(cla, where)
+                                else:
+                                    drag_pos(405, 605, 945, 605, cla)
+
+
+                        if v_.dark_demen_count > 1:
+                            dark_mode = False
+                        else:
+                            result_dark = dark_play(cla)
+                            print("다크디멘젼 체크 중...", result_dark)
+                            if result_dark == True:
                                 go_spot_in(cla, where)
-                            else:
-                                drag_pos(405, 605, 945, 605, cla)
 
-
-                    if v_.dark_demen_count > 1:
-                        dark_mode = False
-                    else:
-                        result_dark = dark_play(cla)
-                        print("다크디멘젼 체크 중...", result_dark)
-                        if result_dark == True:
-                            go_spot_in(cla, where)
-
-                    time.sleep(60)
+                        time.sleep(60)
+                    time.sleep(10)
 
     except Exception as e:
         print(e)
