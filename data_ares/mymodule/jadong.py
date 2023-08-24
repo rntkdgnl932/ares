@@ -502,11 +502,15 @@ def jadong_arrive(cla, where):
                                 break
             time.sleep(0.5)
 
-        dead_die(cla, where)
+
 
         if isloading == False and moving_ == False:
             # 가까운곳 이동했을 경우...
             # 공격하기
+
+            dead_die(cla, where)
+
+            time.sleep(1)
 
             auto_on_click(cla)
 
@@ -573,8 +577,14 @@ def jadong_arrive(cla, where):
                             time.sleep(20)
 
                         moving_ = False
+
+                        dead_die(cla, where)
+
+                        time.sleep(1)
+
                         # 공격하기
                         auto_on_click(cla)
+
                         # click_pos_2(595, 1010, cla)
                         time.sleep(1)
                         # 절전모드
@@ -587,7 +597,13 @@ def jadong_arrive(cla, where):
                     time.sleep(1)
         if walking == True:
             # 공격하기
+
+            dead_die(cla, where)
+
+            time.sleep(1)
+
             auto_on_click(cla)
+
             time.sleep(1)
             # 절전모드
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
@@ -602,8 +618,14 @@ def jadong_arrive(cla, where):
         if result_attack == False:
             clean_screen(cla)
             time.sleep(1)
+
+            dead_die(cla, where)
+
+            time.sleep(1)
+
             # 공격하기
             auto_on_click(cla)
+
             time.sleep(1)
             # 절전모드
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
