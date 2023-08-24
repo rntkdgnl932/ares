@@ -1,3 +1,4 @@
+gangchul
 joomoogi_up
 bojomoogi_up
 alpa_up
@@ -21,3 +22,4 @@ mi_ice
 mi_elec
 mi_bangsa
 gear
+energy_alpha
