@@ -28,6 +28,7 @@ def jadong_start(cla, where):
 
         if jadong_ready == True:
             print("자동사냥 모드")
+            dead_die(cla, where)
             result_attck = juljun_attack_check(cla, where)
             if result_attck == False:
                 go_spot_in(cla, where)
