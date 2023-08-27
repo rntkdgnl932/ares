@@ -22,10 +22,11 @@ def go_test():
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
     from gardiun_mission import gardiun_mission_get
     from auction_ares import auction_start, auction_sell
+    from guild_ares import guild_attendance
     print("tst")
     cla = "one"
 
-    boonhae_start(cla)
+    guild_attendance(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

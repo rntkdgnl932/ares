@@ -10,7 +10,7 @@ import variable as v_
 def get_item_start(cla):
     from action_ares import maul_go
     from potion_ares import maul_potion_get
-
+    from guild_ares import guild_attendance
     try:
         print("get_item_start")
         get_event(cla)
@@ -22,6 +22,8 @@ def get_item_start(cla):
         get_gardiun_rank(cla)
         time.sleep(0.1)
         get_mission_bosang(cla)
+        time.sleep(0.1)
+        guild_attendance(cla)
         time.sleep(0.1)
         bag_item_open(cla)
         time.sleep(0.3)
