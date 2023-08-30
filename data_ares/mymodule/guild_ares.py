@@ -29,11 +29,16 @@ def guild_attendance(cla):
             if imgs_ is not None and imgs_ != False:
                 time.sleep(0.2)
 
+                # 길드 정보
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_information.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 75, 80, 120, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
+
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+
                     attendance = True
                     # 길드 출석
                     for i in range(5):
@@ -97,6 +102,21 @@ def guild_attendance(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.7)
+
+                    # 길드 멤버
+                    for t in range(2):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_member.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(80, 75, 160, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+                        click_pos_2(825, 1015, cla)
+                        time.sleep(0.5)
+                        click_pos_2(925, 1015, cla)
+                        time.sleep(0.5)
+
                 else:
                     attendance = True
 

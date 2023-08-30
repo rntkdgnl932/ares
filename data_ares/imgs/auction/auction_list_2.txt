@@ -1,5 +1,7 @@
 gangchul
+goori
 joomoogi_up
+beta_up
 bojomoogi_up
 alpa_up
 gama_up
@@ -12,6 +14,7 @@ igis_low
 joomoogi_skill
 bojomoogi_skill
 elia_box
+module_up
 moria_sand
 taeyub_1
 stone_live

@@ -12,7 +12,7 @@ def go_test():
     import cv2
     import pyautogui
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
-    from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang
+    from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang, get_sangjum_sohwan
     from action_ares import out_check, clean_screen, maul_go, dead_die
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
@@ -26,15 +26,17 @@ def go_test():
     print("tst")
     cla = "one"
 
-    guild_attendance(cla)
+    get_sangjum_sohwan(cla)
 
-    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(80, 80, 120, 125, cla, img, 0.8)
+    # imgs_ = imgs_set_(430, 240, 540, 280, cla, img, 0.8)
     # if imgs_ is not None and imgs_ != False:
-    #     print("clicked", imgs_)
+    #     print("buy_complete", imgs_)
     #
+    # else:
+    #     print("sdg", imgs_)
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
