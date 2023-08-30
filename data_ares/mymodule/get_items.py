@@ -137,10 +137,10 @@ def get_event(cla):
                                         # 추려낸 결과 ex => 2:seven
                                         get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
                                         time.sleep(0.5)
-                        # else:
-                        #     # 아랫칸 있을때만...
-                        #     if is_drag[0] == "11":
-                        #         get_event_click_drag(240, 670, "seven_six", cla)
+                        else:
+                            # 아랫칸 있을때만...
+                            if is_drag[0] == "11":
+                                get_event_click_drag(240, 670, "seven_six", cla)
 
 
 
