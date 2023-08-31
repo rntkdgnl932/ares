@@ -13,7 +13,7 @@ def go_test():
     import pyautogui
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang, get_sangjum_sohwan
-    from action_ares import out_check, clean_screen, maul_go, dead_die
+    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready
@@ -24,9 +24,9 @@ def go_test():
     from auction_ares import auction_start, auction_sell
     from guild_ares import guild_attendance
     print("tst")
-    cla = "one"
+    cla = "four"
 
-    get_sangjum_sohwan(cla)
+    menu_open(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

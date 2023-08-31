@@ -15,6 +15,8 @@ def get_item_start(cla):
         print("get_item_start")
         get_event(cla)
         time.sleep(0.1)
+        get_sangjum_sohwan(cla)
+        time.sleep(0.1)
         get_post(cla)
         time.sleep(0.1)
         get_gardiun_pass(cla)
