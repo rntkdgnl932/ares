@@ -229,6 +229,14 @@ def clean_screen(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                # 적대 길드 닫기
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\oppose_guild.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 430, 530, 480, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(540, 600, cla)
+
                 # 각종 활성화 되어 있는 title 닫기
                 for z in range(3):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_2.PNG"
