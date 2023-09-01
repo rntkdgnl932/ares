@@ -18,7 +18,7 @@ def go_test():
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready
     from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play, dungeon_in_raid
-    from potion_ares import maul_potion_get
+    from potion_ares import maul_potion_get, maul_potion_get_full
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
     from gardiun_mission import gardiun_mission_get
     from auction_ares import auction_start, auction_sell
@@ -26,12 +26,7 @@ def go_test():
     print("tst")
     cla = "one"
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("season_dungeon_in_mobius_ing : mobius_title", imgs_)
+    maul_potion_get_full(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

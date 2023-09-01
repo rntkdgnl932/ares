@@ -55,6 +55,7 @@ from region_quest import region_quest_start
 from chaejib import chaejib_start
 from gardiun_mission import gardiun_mission_start
 from auction_ares import auction_start
+from potion_ares import maul_potion_get_full
 
 from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis
 
@@ -909,7 +910,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '튜토육성', '채집', '메인퀘스트', '가디언임무', '각종템받기', '거래소등록', '지역퀘스트_1', '지역퀘스트_2', '지역퀘스트_3', '지역퀘스트_4', '지역퀘스트_5', '지역퀘스트_6', '지역퀘스트_7', '지역퀘스트_8']
+        list6 = ['스케쥴 선택', '물약채우기', '튜토육성', '채집', '메인퀘스트', '가디언임무', '각종템받기', '거래소등록', '지역퀘스트_1', '지역퀘스트_2', '지역퀘스트_3', '지역퀘스트_4', '지역퀘스트_5', '지역퀘스트_6', '지역퀘스트_7', '지역퀘스트_8']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3216,6 +3217,10 @@ class game_Playing(QThread):
                                     jadong_spl_ = result_schedule_.split("/")
                                     if jadong_spl_[0] == "사냥":
                                         jadong_start(v_.now_cla, result_schedule_)
+                                elif result_schedule_ == "물약채우기":
+                                    maul_potion_get_full(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
+                                    time.sleep(0.2)
 
                                 elif result_schedule_ == "각종템받기":
                                     get_item_start(v_.now_cla)

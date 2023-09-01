@@ -40,7 +40,7 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_fail.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+                imgs_ = imgs_set_(430, 270, 540, 360, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("season_dungeon_in_mobius_ing : failed", imgs_)
                     myQuest_play_add(cla, dungeon)
@@ -69,7 +69,7 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\season\\clear.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+                        imgs_ = imgs_set_(430, 270, 540, 360, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             print("season_dungeon_in_mobius_ing : clear", imgs_)
                             ing_count = 0
@@ -99,64 +99,72 @@ def season_dungeon_in_mobius(cla, dungeon):
 
         where_dungeon = dungeon.split("_")
 
-        sd_in_ = False
-        sd_in_count = 0
-        while sd_in_ is False:
-            sd_in_count += 1
-            if sd_in_count > 4:
-                sd_in_ = True
-                myQuest_play_add(cla, dungeon)
-                time.sleep(0.2)
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_2(820, 1015, cla)
-                # 로딩
-                for i in range(20):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(450, 450, 500, 500, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(535, 585, cla)
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_ing.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(780, 70, 835, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            season_dungeon_in_mobius_ing(cla, dungeon)
+        else:
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        sd_in_ = True
-                        loading_ares(cla)
-                        # ing
-                        season_dungeon_in_mobius_ing(cla, dungeon)
-                        break
-                    time.sleep(0.7)
+            sd_in_ = False
+            sd_in_count = 0
+            while sd_in_ is False:
+                sd_in_count += 1
+                if sd_in_count > 4:
+                    sd_in_ = True
+                    myQuest_play_add(cla, dungeon)
+                    time.sleep(0.2)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(820, 1015, cla)
+                    # 로딩
+                    for i in range(20):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 500, 500, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(535, 585, cla)
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            sd_in_ = True
+                            loading_ares(cla)
+                            # ing
+                            season_dungeon_in_mobius_ing(cla, dungeon)
+                            break
+                        time.sleep(0.7)
 
 
 
 
-            else:
-                menu_open(cla)
-                click_pos_2(80, 160, cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\hondon_title.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(310, 190, cla)
-                        for z in range(10):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                break
-                            time.sleep(0.5)
-                        break
-                    time.sleep(0.5)
+                else:
+                    menu_open(cla)
+                    click_pos_2(80, 160, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\hondon_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(310, 190, cla)
+                            for z in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.5)
+                            break
+                        time.sleep(0.5)
 
 
 
@@ -199,7 +207,7 @@ def season_dungeon_in_ubis_ing(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_fail.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+                    imgs_ = imgs_set_(430, 270, 540, 360, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("season_dungeon_in_ubis_ing : failed", imgs_)
                         myQuest_play_add(cla, dungeon)
@@ -230,7 +238,7 @@ def season_dungeon_in_ubis_ing(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_clear.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
+                            imgs_ = imgs_set_(430, 270, 540, 360, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print("season_dungeon_in_ubis_ing : clear", imgs_)
                                 click_pos_2(555, 1015, cla)
@@ -261,64 +269,72 @@ def season_dungeon_in_ubis(cla, dungeon):
 
         where_dungeon = dungeon.split("_")
 
-        sd_in_ = False
-        sd_in_count = 0
-        while sd_in_ is False:
-            sd_in_count += 1
-            if sd_in_count > 4:
-                sd_in_ = True
-                myQuest_play_add(cla, dungeon)
-                time.sleep(0.2)
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\ubis_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_2(820, 1015, cla)
-                # 로딩
-                for i in range(20):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(450, 450, 500, 500, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(535, 585, cla)
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\ubis_ing.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(780, 70, 835, 100, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            season_dungeon_in_ubis_ing(cla, dungeon)
+        else:
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        loading_ares(cla)
-                        # ing
-                        season_dungeon_in_ubis_ing(cla, dungeon)
-                        sd_in_ = True
-                        break
-                    time.sleep(0.7)
+            sd_in_ = False
+            sd_in_count = 0
+            while sd_in_ is False:
+                sd_in_count += 1
+                if sd_in_count > 4:
+                    sd_in_ = True
+                    myQuest_play_add(cla, dungeon)
+                    time.sleep(0.2)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\ubis_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(820, 1015, cla)
+                    # 로딩
+                    for i in range(20):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 500, 500, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(535, 585, cla)
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            loading_ares(cla)
+                            # ing
+                            season_dungeon_in_ubis_ing(cla, dungeon)
+                            sd_in_ = True
+                            break
+                        time.sleep(0.7)
 
 
 
 
-            else:
-                menu_open(cla)
-                click_pos_2(80, 160, cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\hondon_title.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(620, 190, cla)
-                        for z in range(10):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\ubis_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                break
-                            time.sleep(0.5)
-                        break
-                    time.sleep(0.5)
+                else:
+                    menu_open(cla)
+                    click_pos_2(80, 160, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\hondon_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(620, 190, cla)
+                            for z in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\ubis_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.5)
+                            break
+                        time.sleep(0.5)
 
 
 

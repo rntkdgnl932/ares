@@ -449,7 +449,7 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_fail.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(430, 280, 530, 330, cla, img, 0.7)
+                            imgs_ = imgs_set_(430, 270, 530, 360, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
 
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_exit.PNG"
