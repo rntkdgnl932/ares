@@ -24,9 +24,9 @@ def go_test():
     from auction_ares import auction_start, auction_sell
     from guild_ares import guild_attendance
     print("tst")
-    cla = "four"
+    cla = "one"
 
-    menu_open(cla)
+    get_sangjum_sohwan(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
