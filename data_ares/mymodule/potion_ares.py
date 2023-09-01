@@ -156,7 +156,7 @@ def maul_potion_get_full(cla):
     from powerup_ares import power_up_start
     from soojib_boonhae import soojib_boonhae_start
     try:
-        print("maul_potion_get")
+        print("maul_potion_get_full")
 
         for i in range(3):
             result_out = out_check(cla)
@@ -189,6 +189,8 @@ def maul_potion_get_full(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     potion_go = True
+
+                    # 버프들 사까?
 
             else:
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\jabhwa_title.PNG"

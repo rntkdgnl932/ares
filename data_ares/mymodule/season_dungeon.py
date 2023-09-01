@@ -66,7 +66,7 @@ def season_dungeon_in_mobius_ing(cla, dungeon):
                         ing_ = False
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                     else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_clear.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\season\\clear.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
@@ -112,7 +112,7 @@ def season_dungeon_in_mobius(cla, dungeon):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(905, 1015, cla)
+                click_pos_2(820, 1015, cla)
                 # 로딩
                 for i in range(20):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"
@@ -274,7 +274,7 @@ def season_dungeon_in_ubis(cla, dungeon):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(905, 1015, cla)
+                click_pos_2(820, 1015, cla)
                 # 로딩
                 for i in range(20):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"

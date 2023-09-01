@@ -26,7 +26,12 @@ def go_test():
     print("tst")
     cla = "one"
 
-    get_sangjum_sohwan(cla)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\mobius_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("season_dungeon_in_mobius_ing : mobius_title", imgs_)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
