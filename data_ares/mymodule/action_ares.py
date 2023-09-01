@@ -221,6 +221,7 @@ def clean_screen(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
+
                 # event 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
