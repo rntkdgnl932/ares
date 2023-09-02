@@ -42,7 +42,7 @@ def maul_potion_get(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check, confirm_all
+    from action_ares import clean_screen, out_check, confirm_all, maul_go
     from powerup_ares import power_up_start
     from soojib_boonhae import soojib_boonhae_start
     try:
