@@ -1,5 +1,6 @@
 barrier_shield
 blast_lord
+oversear
 p20
 storm_suji
 chacra_staff
