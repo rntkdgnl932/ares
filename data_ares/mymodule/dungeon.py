@@ -1030,7 +1030,7 @@ def dungeon_in_raid(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\raid_big_lock.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -1063,7 +1063,7 @@ def dungeon_in_raid(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 break
                             time.sleep(0.7)
@@ -1209,7 +1209,7 @@ def dungeon_in_raid_ex(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\raid_big_lock.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -1242,7 +1242,7 @@ def dungeon_in_raid_ex(cla, dungeon):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         break
                                     time.sleep(0.7)
