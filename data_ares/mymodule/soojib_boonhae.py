@@ -292,6 +292,16 @@ def soojib_start(cla):
             if collection_start_count > 50:
                 collection_start_ = True
 
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\no_again_look.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(430, 600, 550, 650, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+                confirm_all(cla)
+                time.sleep(0.5)
+
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_setting_confirm.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
