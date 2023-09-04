@@ -283,7 +283,7 @@ def soojib_start(cla):
     from function import click_pos_2, imgs_set_, click_pos_reg
     from action_ares import confirm_all
     try:
-        print("soojib_start")
+        print("soojib_start..")
 
         collection_start_ = False
         collection_start_count = 0
