@@ -319,7 +319,7 @@ def soojib_start(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(600, 120, 770, 770, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
                     click_ready = True
                 else:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_click_point2.PNG"
@@ -327,7 +327,7 @@ def soojib_start(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(600, 120, 770, 770, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
                         click_ready = True
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\soojib\\soojib_click_point.PNG"
@@ -335,7 +335,7 @@ def soojib_start(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(600, 120, 770, 770, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
                             click_ready = True
                 time.sleep(0.2)
                 if click_ready == True:
