@@ -196,8 +196,8 @@ def maul_potion_get_full(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         potion_go = True
 
-                        # 버프들 사까?
-                        maul_potion_get_full_2(cla)
+                    # 버프들 사까?
+                    maul_potion_get_full_2(cla)
 
                 else:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\jabhwa_title.PNG"
