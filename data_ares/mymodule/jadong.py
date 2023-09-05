@@ -172,6 +172,8 @@ def go_hangsun_map(cla, where):
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
                     elif where_split[1] == "jalis":
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
+                    elif where_split[1] == "ocooloos":
+                        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
                     full_path = spot_pic
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -243,6 +245,8 @@ def go_spot_in(cla, where):
                 spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loona_map_title.PNG"
             elif where_split[1] == "jalis":
                 spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
+            elif where_split[1] == "ocooloos":
+                spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
             full_path = spot_pic
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -288,6 +292,11 @@ def go_spot_in(cla, where):
                         # 자리스 위치 클릭하기
                         click_pos_2(10, 320, cla)
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
+                    elif where_split[1] == "ocooloos":
+                        print("ocooloos")
+                        # 오쿨루스 위치 클릭하기
+                        click_pos_2(10, 240, cla)
+                        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
                     for i in range(20):
                         full_path = spot_pic
                         img_array = np.fromfile(full_path, np.uint8)
@@ -295,7 +304,7 @@ def go_spot_in(cla, where):
                         imgs_ = imgs_set_(10, 10, 200, 100, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             break
-                        time.sleep(1)
+                        time.sleep(0.3)
                 time.sleep(1)
 
             # where_split[0] => 몬스터레벨 등 = > "_"로 분류
@@ -335,6 +344,8 @@ def go_spot_click(cla, where):
             file_path = dir_path + "\\jadong\\ares_loona.txt"
         if where_split[1] == "jalis":
             file_path = dir_path + "\\jadong\\ares_jalis.txt"
+        if where_split[1] == "ocooloos":
+            file_path = dir_path + "\\jadong\\ares_ocooloos.txt"
 
         result_data = "none"
         if os.path.isfile(file_path) == True:
@@ -381,6 +392,9 @@ def go_spot_click(cla, where):
             elif where_split[1] == "jalis":
                 print("jalis")
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
+            elif where_split[1] == "ocooloos":
+                print("ocooloos")
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
 
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -398,34 +412,45 @@ def go_spot_click(cla, where):
                         spot_in = True
                         jadong_arrive(cla, where)
                         break
-                    else:
 
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_point_1.PNG"
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(int(map_data[0]), int(map_data[1]), int(map_data[2]), int(map_data[3]), cla, img, 0.7)
+                        imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            spot_in = True
+                            jadong_arrive(cla, where)
+                            break
+
                         else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_point_2.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(int(map_data[0]), int(map_data[1]), int(map_data[2]), int(map_data[3]), cla,
-                                              img, 0.7)
+                            imgs_ = imgs_set_(int(map_data[0]), int(map_data[1]), int(map_data[2]), int(map_data[3]), cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_point_3.PNG"
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(int(map_data[0]), int(map_data[1]), int(map_data[2]),
-                                                  int(map_data[3]), cla,
+                                imgs_ = imgs_set_(int(map_data[0]), int(map_data[1]), int(map_data[2]), int(map_data[3]), cla,
                                                   img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 else:
-                                    print("사냥터가 무언가에 가려져이싸.")
-                                    spot_moglog(cla, where)
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_point_3.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(int(map_data[0]), int(map_data[1]), int(map_data[2]),
+                                                      int(map_data[3]), cla,
+                                                      img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        print("사냥터가 무언가에 가려져이싸.")
+                                        spot_moglog(cla, where)
                     time.sleep(1)
 
             time.sleep(1)
@@ -723,6 +748,8 @@ def spot_moglog(cla, where):
             file_path = dir_path + "\\jadong\\ares_loona_moglog.txt"
         if where_split[1] == "jalis":
             file_path = dir_path + "\\jadong\\ares_jalis_moglog.txt"
+        if where_split[1] == "ocooloos":
+            file_path = dir_path + "\\jadong\\ares_ocooloos_moglog.txt"
 
         with open(file_path, "r", encoding='utf-8-sig') as file:
             read_data = file.read().splitlines()

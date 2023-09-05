@@ -91,6 +91,7 @@ onDunjeon_3_step = 0
 onHunt = "none"
 onHunt2 = "none"
 onHunt3 = "none"
+onHunt4 = "none"
 onMaul = "none"
 
 
@@ -1002,6 +1003,7 @@ class FirstTab(QWidget):
         file_path1 = dir_path + "\\jadong\\ares_elia.txt"
         file_path2 = dir_path + "\\jadong\\ares_loona.txt"
         file_path3 = dir_path + "\\jadong\\ares_jalis.txt"
+        file_path4 = dir_path + "\\jadong\\ares_ocooloos.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
@@ -1031,6 +1033,15 @@ class FirstTab(QWidget):
                     list555.append(read_2_result)
                 list555.insert(0, "< 자리스 >")
 
+            with open(file_path4, "r", encoding='utf-8-sig') as file:
+                read_ocooloos = file.read().splitlines()
+                list5555 = []
+                for i in range(len(read_ocooloos)):
+                    read_2_ready = read_ocooloos[i].split("/")
+                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
+                    list5555.append(read_2_result)
+                list5555.insert(0, "< 오쿨루스 >")
+
             # with open(file_path3, "r", encoding='utf-8-sig') as file:
             #     read_1 = file.read()
             #     read_1 = read_1.split(":")
@@ -1059,6 +1070,12 @@ class FirstTab(QWidget):
         jadong3 = QPushButton('자리스 추가')
         jadong3.clicked.connect(self.onActivated_hunt_add_3)
 
+        cb5555 = QComboBox()
+        # list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
+        cb5555.addItems(list5555)
+        jadong4 = QPushButton('오쿨루스 추가')
+        jadong4.clicked.connect(self.onActivated_hunt_add_4)
+
 
         vbox5_1 = QHBoxLayout()
         vbox5_1.addWidget(cb5)
@@ -1072,10 +1089,15 @@ class FirstTab(QWidget):
         vbox5_3.addWidget(cb555)
         vbox5_3.addWidget(jadong3)
 
+        vbox5_4 = QHBoxLayout()
+        vbox5_4.addWidget(cb5555)
+        vbox5_4.addWidget(jadong4)
+
         lastbox = QVBoxLayout()
         lastbox.addLayout(vbox5_1)
         lastbox.addLayout(vbox5_2)
         lastbox.addLayout(vbox5_3)
+        lastbox.addLayout(vbox5_4)
 
 
         self.com_group5.setLayout(lastbox)
@@ -1103,6 +1125,7 @@ class FirstTab(QWidget):
         cb5.activated[str].connect(self.onActivated_hunt)  # 요건 함수
         cb55.activated[str].connect(self.onActivated_hunt2)  # 요건 함수
         cb555.activated[str].connect(self.onActivated_hunt3)  # 요건 함수
+        cb5555.activated[str].connect(self.onActivated_hunt4)  # 요건 함수
         cb6.activated[str].connect(self.onActivated_maul)  # 요건 함수
 
         # self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -1580,12 +1603,22 @@ class FirstTab(QWidget):
             print("자동 사냥터를 선택해 주세요.")
     def onActivated_hunt3(self, text):
         global onHunt3
-        if text != 0 and text != '< 첼라노 >':
+        if text != 0 and text != '< 자리스 >':
             onHunt3 = text
             print('onHunt3', onHunt3)
         else:
             onHunt3 = 'none'
-            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='첼라노')
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='자리스')
+            print("자동 사냥터를 선택해 주세요.")
+
+    def onActivated_hunt4(self, text):
+        global onHunt4
+        if text != 0 and text != '< 오쿨루스 >':
+            onHunt4 = text
+            print('onHunt4', onHunt4)
+        else:
+            onHunt4 = 'none'
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='오쿨루스')
             print("자동 사냥터를 선택해 주세요.")
 
     def onActivated_maul(self, text):
@@ -1761,7 +1794,28 @@ class FirstTab(QWidget):
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
         elif onHunt3 == '< 자리스 >' or onHunt3 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt != '< 자리스 >':
+        elif onCharacter != 0 and onHunt3 != '< 자리스 >':
+            print('char_', char_)
+            print('dun_', hun_)
+
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
+
+
+            print(data)
+            self.onActivated_hunt_add2(data)
+
+    def onActivated_hunt_add_4(self):
+        global onCharacter, onHunt4
+        char_ = onCharacter
+        hun_ = "사냥/ocooloos/" + onHunt4
+        if onCharacter == 0:
+            pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
+        elif onHunt4 == '< 오쿨루스 >' or onHunt4 == 'none':
+            pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
+        elif onCharacter != 0 and onHunt4 != '< 오쿨루스 >':
             print('char_', char_)
             print('dun_', hun_)
 

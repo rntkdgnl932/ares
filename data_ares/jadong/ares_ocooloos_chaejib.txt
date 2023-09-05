@@ -1,0 +1,12 @@
+57_cy_no_cu_no/480,570,550,650/탐사대집결지/ocooloos
+56_ba_gi_me_pk2/430,480,490,550/교화의장/ocooloos
+55_me_gi_je_no/300,520,380,600/굴종의계곡/ocooloos
+51_ba_no_cu_pk2/250,410,310,480/나락섬/ocooloos
+50_cy_soo_cu_no/210,550,280,615/유성들판/ocooloos
+51_ba_no_mi_no/250,650,320,720/메데이안초소/ocooloos
+51_me_je_mi_no/140,770,200,840/탈주병수용소/ocooloos
+52_cy_no_mi_no/300,760,360,830/위성추락지/ocooloos
+53_ba_no_cu_no/390,830,450,900/메데이안주둔/ocooloos
+54_me_no_no_no/420,900,485,975/별무리언덕/ocooloos
+59_me_no_mi_pk2/480,750,550,830/집행자의절벽/ocooloos
+60_no_no_no_pk1/720,720,790,790/심판의탑/ocooloos

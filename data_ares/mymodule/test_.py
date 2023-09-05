@@ -11,6 +11,7 @@ def go_test():
     import numpy as np
     import cv2
     import pyautogui
+    import random
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang, get_sangjum_sohwan
     from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open
@@ -24,14 +25,85 @@ def go_test():
     from auction_ares import auction_start, auction_sell
     from guild_ares import guild_attendance
     print("tst")
-    cla = "one"
+    cla = "three"
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hyubdong_title.PNG"
+    plus = 0
+
+    if cla == "two":
+        plus = 960
+    if cla == "three":
+        plus = 960 * 2
+    if cla == "four":
+        plus = 960 * 3
+
+
+
+    for i in range(10):
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(100, 85, 170, 135, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            break
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 85, 60, 300, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
+        time.sleep(0.5)
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_spot_2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
+    imgs_ = imgs_set_(30, 170, 100, 800, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("hi")
+        moria_spot = full_path
+    else:
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_spot_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(30, 170, 100, 800, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            moria_spot = full_path
+
+
+    last_i = 0
+
+    full_path = moria_spot
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    for i in pyautogui.locateAllOnScreen(img, region=(30 + plus, 170, 70, 600), confidence=0.8):
+        last_i += 1
+
+    print("last_i", last_i)
+    result_i = random.randint(0, int(last_i))
+
+    last_i = 0
+
+    full_path = moria_spot
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    for i in pyautogui.locateAllOnScreen(img, region=(30 + plus, 170, 70, 600), confidence=0.8):
+
+        last_i += 1
+
+        if last_i == result_i:
+            last_x = i.left
+            if cla == "two":
+                last_x = last_x - 960
+            if cla == "three":
+                last_x = last_x - 960 - 960
+            if cla == "four":
+                last_x = last_x - 960 - 960 - 960
+            last_y = i.top
+
+            print("check point!!!!!!!!!!!!!", i, last_x, last_y)
+            click_pos_2(last_x, last_y, cla)
+
+        time.sleep(0.3)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

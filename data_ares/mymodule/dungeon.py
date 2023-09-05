@@ -1267,10 +1267,11 @@ def moriagiji_start(cla, dungeon):
         elif result_attck == "moria_ready":
             print("맵 이동 후 공격 하면 됨")
             moriagiji_move(cla)
-            moriagiji_attack(cla)
+            # moriagiji_attack(cla)
         elif result_attck == "moria_arrive":
             print("공격 상태로 만들면 됨.")
-            moriagiji_attack(cla)
+            moriagiji_move(cla)
+            # moriagiji_attack(cla)
         else:
             juljun_potion_check(cla)
     except Exception as e:
@@ -1281,6 +1282,8 @@ def moriagiji_start(cla, dungeon):
 def dungeon_in_moriagiji(cla, dungeon):
     import numpy as np
     import cv2
+    import random
+    import pyautogui
     from function import click_pos_2, imgs_set_, click_pos_reg
     from action_ares import menu_open, loading_ares, out_check, clean_screen
     from schedule import myQuest_play_add
@@ -1383,14 +1386,26 @@ def dungeon_in_moriagiji(cla, dungeon):
                             break
                     time.sleep(0.5)
                 if dun_go_ == False:
-                    for i in range(10):
+                    for x in range(10):
+                        move_ = False
+
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                        imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(2)
+                            move_ = True
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                move_ = True
+
+                        if move_ == True:
 
                             for z in range(10):
                                 result_out = out_check(cla)
@@ -1401,9 +1416,16 @@ def dungeon_in_moriagiji(cla, dungeon):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                                    imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(1)
                             break
                         else:
@@ -1412,19 +1434,86 @@ def dungeon_in_moriagiji(cla, dungeon):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\spot_2.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                else:
-                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\spot_1.PNG"
+                                # 랜덤 이동하도록 설정하기
+
+                                plus = 0
+
+                                if cla == "two":
+                                    plus = 960
+                                if cla == "three":
+                                    plus = 960 * 2
+                                if cla == "four":
+                                    plus = 960 * 3
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                                    imgs_ = imgs_set_(100, 85, 170, 135, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_click.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(0, 85, 60, 300, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            time.sleep(0.5)
+                                    time.sleep(0.5)
+
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_spot_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(30, 170, 100, 800, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    moria_spot = full_path
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_spot_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 170, 100, 800, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        moria_spot = full_path
+
+                                last_i = 0
+
+                                full_path = moria_spot
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                for i in pyautogui.locateAllOnScreen(img, region=(30 + plus, 170, 70, 600),
+                                                                     confidence=0.8):
+                                    last_i += 1
+
+                                print("last_i", last_i)
+                                result_i = random.randint(0, int(last_i))
+
+                                last_i = 0
+
+                                full_path = moria_spot
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                for i in pyautogui.locateAllOnScreen(img, region=(30 + plus, 170, 70, 600),
+                                                                     confidence=0.8):
+
+                                    last_i += 1
+
+                                    if last_i == result_i:
+                                        last_x = i.left
+                                        if cla == "two":
+                                            last_x = last_x - 960
+                                        if cla == "three":
+                                            last_x = last_x - 960 - 960
+                                        if cla == "four":
+                                            last_x = last_x - 960 - 960 - 960
+                                        last_y = i.top
+
+                                        print("check point!!!!!!!!!!!!!", i, last_x, last_y)
+                                        click_pos_2(last_x, last_y, cla)
+
+                                    time.sleep(0.3)
+
+                                #
                             else:
                                 result_out = out_check(cla)
                                 if result_out == True:
@@ -1567,6 +1656,8 @@ def dungeon_in_moriagiji(cla, dungeon):
 def moriagiji_move(cla):
     import numpy as np
     import cv2
+    import random
+    import pyautogui
     from function import imgs_set_, click_pos_reg, click_pos_2
     from action_ares import clean_screen, out_check
     try:
@@ -1578,14 +1669,25 @@ def moriagiji_move(cla):
             if map_move_count > 5:
                 map_move_ = True
 
+            move_ = False
+
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(2)
+                move_ = True
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    move_ = True
 
+            if move_ == True:
                 for z in range(10):
                     result_out = out_check(cla)
                     if result_out == True:
@@ -1595,9 +1697,16 @@ def moriagiji_move(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                        imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(1)
             else:
 
@@ -1606,19 +1715,99 @@ def moriagiji_move(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\spot_2.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                    else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\spot_1.PNG"
+                    # 랜덤 이동하도록 설정하기
+
+                    plus = 0
+
+                    if cla == "two":
+                        plus = 960
+                    if cla == "three":
+                        plus = 960 * 2
+                    if cla == "four":
+                        plus = 960 * 3
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                        imgs_ = imgs_set_(100, 85, 170, 135, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 85, 60, 300, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                        time.sleep(0.5)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_spot_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 170, 100, 800, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        moria_spot = full_path
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_spot_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(30, 170, 100, 800, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            moria_spot = full_path
+
+                    last_i = 0
+
+                    full_path = moria_spot
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    for i in pyautogui.locateAllOnScreen(img, region=(30 + plus, 170, 70, 600), confidence=0.8):
+                        last_i += 1
+
+                    print("last_i", last_i)
+                    result_i = random.randint(0, int(last_i))
+
+                    last_i = 0
+
+                    full_path = moria_spot
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    for i in pyautogui.locateAllOnScreen(img, region=(30 + plus, 170, 70, 600), confidence=0.8):
+
+                        last_i += 1
+
+                        if last_i == result_i:
+                            last_x = i.left
+                            if cla == "two":
+                                last_x = last_x - 960
+                            if cla == "three":
+                                last_x = last_x - 960 - 960
+                            if cla == "four":
+                                last_x = last_x - 960 - 960 - 960
+                            last_y = i.top
+
+                            print("check point!!!!!!!!!!!!!", i, last_x, last_y)
+                            click_pos_2(last_x, last_y, cla)
+
+                        time.sleep(0.3)
+
+                    #
+
+
+                    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\spot_2.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    # else:
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\spot_1.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
                     result_out = out_check(cla)
                     if result_out == True:
@@ -1629,6 +1818,54 @@ def moriagiji_move(cla):
                     else:
                         clean_screen(cla)
             time.sleep(1)
+
+        if map_move_ == True:
+            time.sleep(5)
+            for i in range(30):
+                result_out = out_check(cla)
+                if result_out == True:
+                    break
+                else:
+                    print("이동대기")
+                time.sleep(1)
+            # 여기에 이동 넣기
+            for i in range(30):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_moving.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("이동중")
+                else:
+                    break
+                time.sleep(1)
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("auto_on", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("auto_off", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(1)
+            # 절전모드
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
     except Exception as e:
         print(e)
         return 0
@@ -1721,43 +1958,52 @@ def juljun_attack_check_moriagiji(cla, where):
             if imgs_ is not None and imgs_ != False:
                 check_ready = True
                 # 먼저 모리아기지인지 파악
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1.PNG"
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     # 이건 이동 못한 상태
-                    print("모리아 기지에서 이동 못한 상태")
+                    print("모리아 기지에서 이동 못한 상태1")
                     go_ = "moria_ready"
                 else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         # 이건 이동 못한 상태
-                        print("모리아 기지인 상태")
-                        go_ = "moria_arrive"
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                        print("모리아 기지에서 이동 못한 상태2")
+                        go_ = "moria_ready"
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                        imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            print("자동사냥중")
-                            go_ = "moria_attack"
+                            # 이건 이동 못한 상태
+                            print("모리아 기지인 상태")
+                            go_ = "moria_arrive"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("자동사냥중")
+                                go_ = "moria_attack"
+                            else:
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("자동사냥중")
+                                        go_ = "moria_attack"
+                                        break
+                                    time.sleep(1)
                         else:
-                            for i in range(10):
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("자동사냥중")
-                                    go_ = "moria_attack"
-                                    break
-                                time.sleep(1)
-                    else:
-                        print("완전 다른 곳인 상태")
+                            print("완전 다른 곳인 상태")
 
             else:
                 print("절전모드 아니다?")
