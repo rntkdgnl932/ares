@@ -133,6 +133,7 @@ def chaejib_maps():
         file_path2 = dir_path + "\\jadong\\ares_elia_chaejib.txt"
         file_path3 = dir_path + "\\jadong\\ares_loona_chaejib.txt"
         file_path4 = dir_path + "\\jadong\\ares_jalis_chaejib.txt"
+        file_path5 = dir_path + "\\jadong\\ares_ocooloos_chaejib.txt"
 
         result_chaejib_maps = []
 
@@ -158,6 +159,13 @@ def chaejib_maps():
                 if read_ready1 != "no" or read_ready2 !="no":
                     result_chaejib_maps.append(read_data[i])
         with open(file_path4, "r", encoding='utf-8-sig') as file:
+            read_data = file.read().splitlines()
+            for i in range(len(read_data)):
+                read_ready1 = read_data[i].split("/")[0].split("_")[2]
+                read_ready2 = read_data[i].split("/")[0].split("_")[3]
+                if read_ready1 != "no" or read_ready2 !="no":
+                    result_chaejib_maps.append(read_data[i])
+        with open(file_path5, "r", encoding='utf-8-sig') as file:
             read_data = file.read().splitlines()
             for i in range(len(read_data)):
                 read_ready1 = read_data[i].split("/")[0].split("_")[2]
@@ -207,13 +215,13 @@ def chaejib_setting(cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\3_5.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(480, 420, 645, 465, cla, img, 0.7)
+                imgs_ = imgs_set_(480, 420, 720, 465, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("3_5", imgs_)
-                    click_pos_2(600, 445, cla)
+                    click_pos_2(670, 445, cla)
                 else:
                     print("not 3_5")
-                    click_pos_2(530, 445, cla)
+                    click_pos_2(600, 445, cla)
 
                 time.sleep(0.5)
 
@@ -330,37 +338,31 @@ def chaejib_go(cla):
             imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
 
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(890, 130, 930, 165, cla, img, 0.7)
+                imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(850, 150, cla)
-                    time.sleep(0.3)
-                else:
-
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\bomool_box.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(785, 80, 940, 110, cla, img, 0.7)
+                    imgs_ = imgs_set_(890, 105, 930, 135, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(890, 105, 930, 135, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_2(850, 120, cla)
-                            time.sleep(0.3)
-                        else:
-                            chaejib_ready = True
+                        click_pos_2(850, 120, cla)
                     else:
+                        chaejib_ready = True
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
                         click_pos_2(850, 95, cla)
 
-                        time.sleep(0.3)
 
-                mouse_move_cpp(545, 445, cla)
+                mouse_move_cpp(700, 95, cla)
 
-                for i in range(160):
+                for i in range(200):
                     if i % 20 == 0:
                         se_ = i / 10
                         data = "채집하는 중 : " + str(se_) + "초"
@@ -379,7 +381,7 @@ def chaejib_go(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("채집중 2")
                         break
-                    time.sleep(0.1)
+                    time.sleep(0.05)
                 time.sleep(3.5)
 
             else:
