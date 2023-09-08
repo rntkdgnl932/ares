@@ -172,9 +172,9 @@ def character_change(cla, character_id):
                 else:
                     menu_open(cla)
                     time.sleep(0.1)
-                    print("ㅇ너기인가")
-                    click_pos_2(990, 370, cla)
-                    print("눌렀나")
+
+                    click_pos_2(900, 370, cla)
+
                     wait_y = False
                     wait_y_count = 0
                     while wait_y is False:
