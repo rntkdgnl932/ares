@@ -348,8 +348,10 @@ def chaejib_go(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(890, 105, 930, 135, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
+                        print("채집 : click_pos_2(850, 120, cla)")
                         click_pos_2(850, 120, cla)
                     else:
+                        print("채집 : chaejib_ready = True")
                         chaejib_ready = True
                 else:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\search_1.PNG"
@@ -357,9 +359,11 @@ def chaejib_go(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
+                        print("채집 : click_pos_2(850, 95, cla)")
                         click_pos_2(850, 95, cla)
                     else:
-                        click_pos_2(850, 95, cla)
+                        print("채집 : click_pos_2(850, 96, cla)")
+                        click_pos_2(850, 96, cla)
 
 
 
