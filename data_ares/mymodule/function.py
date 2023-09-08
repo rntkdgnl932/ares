@@ -547,6 +547,8 @@ def mouse_move_cpp(pos_1, pos_2, cla):
         if cla == 'four':
             coordinate = 960 + 960 + 960
 
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+
         if v_.now_arduino == "on":
 
             ser = serial.Serial(arduino_port, baudrate)
@@ -609,7 +611,7 @@ def mouse_move_cpp(pos_1, pos_2, cla):
 
             ser.close()
         else:
-            pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int(), 0.5)
+            pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int(), 0.1)
 
     except Exception as e:
         print("error:", e)
