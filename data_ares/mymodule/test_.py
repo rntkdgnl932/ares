@@ -37,7 +37,7 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    clean_screen(cla)
+    menu_open(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
