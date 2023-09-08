@@ -366,7 +366,7 @@ def chaejib_go(cla):
                         click_pos_2(850, 96, cla)
 
 
-
+                time.sleep(0.01)
                 mouse_move_cpp(700, 95, cla)
 
                 for i in range(200):
@@ -707,9 +707,20 @@ def go_spot_click(cla, where):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
                         spot_in = True
-                        jadong_arrive(cla, where)
+
+                        for k in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                jadong_arrive(cla, where)
+                                break
+                            time.sleep(0.5)
                         break
                     else:
 
