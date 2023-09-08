@@ -358,6 +358,9 @@ def chaejib_go(cla):
                     imgs_ = imgs_set_(890, 70, 930, 110, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(850, 95, cla)
+                    else:
+                        click_pos_2(850, 95, cla)
+
 
 
                 mouse_move_cpp(700, 95, cla)

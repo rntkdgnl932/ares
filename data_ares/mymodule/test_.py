@@ -24,6 +24,7 @@ def go_test():
     from gardiun_mission import gardiun_mission_get
     from auction_ares import auction_start, auction_sell
     from guild_ares import guild_attendance
+    from log_ares import character_change
     print("tst")
     cla = "one"
 
@@ -36,7 +37,7 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    chaejib_go(cla)
+    clean_screen(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

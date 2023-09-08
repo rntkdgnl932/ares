@@ -56,6 +56,7 @@ from chaejib import chaejib_start
 from gardiun_mission import gardiun_mission_start
 from auction_ares import auction_start
 from potion_ares import maul_potion_get_full
+from log_ares import character_change
 
 from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis
 
@@ -911,7 +912,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '물약채우기', '튜토육성', '채집', '메인퀘스트', '가디언임무', '각종템받기', '거래소등록', '지역퀘스트_1', '지역퀘스트_2', '지역퀘스트_3', '지역퀘스트_4', '지역퀘스트_5', '지역퀘스트_6', '지역퀘스트_7', '지역퀘스트_8']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '물약채우기', '튜토육성', '채집', '메인퀘스트', '가디언임무', '각종템받기', '거래소등록', '지역퀘스트_1', '지역퀘스트_2', '지역퀘스트_3', '지역퀘스트_4', '지역퀘스트_5', '지역퀘스트_6', '지역퀘스트_7', '지역퀘스트_8']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3262,57 +3263,93 @@ class game_Playing(QThread):
                                 result_schedule_ = result_schedule[0][2]
 
                                 # 캐릭 번ㅅ번호 다르다면 체인지
-                                # character_change(v_.now_cla, character_id)
-
-                                # 스케쥴 시작
-
-
-                                if '/' in result_schedule_:
-                                    jadong_spl_ = result_schedule_.split("/")
-                                    if jadong_spl_[0] == "사냥":
-                                        jadong_start(v_.now_cla, result_schedule_)
-                                elif result_schedule_ == "물약채우기":
-                                    maul_potion_get_full(v_.now_cla)
+                                # 먼저 캐릭터 변환할 것인지 물어보기
+                                if result_schedule_ == "캐릭터바꾸기":
+                                    character_change(v_.now_cla, character_id)
                                     myQuest_play_add(v_.now_cla, result_schedule_)
-                                    time.sleep(0.2)
-
-                                elif result_schedule_ == "각종템받기":
-                                    get_item_start(v_.now_cla)
-                                    myQuest_play_add(v_.now_cla, result_schedule_)
-                                    time.sleep(0.2)
-                                elif result_schedule_ == "튜토육성":
-                                    tuto_grow_start(v_.now_cla, result_schedule_)
-                                elif result_schedule_ == "메인퀘스트":
-                                    main_grow_start(v_.now_cla, result_schedule_)
-                                elif result_schedule_ == "거래소등록":
-                                    auction_start(v_.now_cla)
-                                    time.sleep(0.5)
-                                    myQuest_play_add(v_.now_cla, result_schedule_)
-                                elif '채집' in result_schedule_:
-                                    chaejib_start(v_.now_cla)
-                                elif '행성파견' in result_schedule_:
-                                    dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
-                                elif '성운돌파' in result_schedule_:
-                                    dungeon_in_sungwoondolpa(v_.now_cla, result_schedule_)
-                                elif '골드러쉬' in result_schedule_:
-                                    dungeon_in_goldrush(v_.now_cla, result_schedule_)
-                                elif '레이드' in result_schedule_:
-                                    dungeon_in_raid(v_.now_cla, result_schedule_)
-                                    dark_play(v_.now_cla)
-                                elif '모리아기지' in result_schedule_:
-                                    moriagiji_start(v_.now_cla, result_schedule_)
-                                elif '가디언임무' in result_schedule_:
-                                    gardiun_mission_start(v_.now_cla, result_schedule_)
-                                elif '뫼비우스' in result_schedule_:
-                                    season_dungeon_in_mobius(v_.now_cla, result_schedule_)
-                                elif '어비스' in result_schedule_:
-                                    season_dungeon_in_ubis(v_.now_cla, result_schedule_)
                                 else:
-                                    if '_' in result_schedule_:
-                                        data_ = result_schedule_.split("_")
-                                        if data_[0] == "지역퀘스트":
-                                            region_quest_start(v_.now_cla, data_[1])
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\character_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(10, 10, 110, 80, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        character_change(v_.now_cla, character_id)
+                                        time.sleep(0.2)
+                                    else:
+
+                                        # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
+                                        dir_path = "C:\\my_games\\ares"
+                                        if v_.now_cla == 'one':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+                                        if v_.now_cla == 'two':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+                                        if v_.now_cla == 'three':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+                                        if v_.now_cla == 'four':
+                                            file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
+
+                                        if os.path.isfile(file_path) == True:
+
+                                            with open(file_path, "r", encoding='utf-8-sig') as file:
+                                                read_id = file.read()
+
+                                            if str(character_id) != str(read_id):
+                                                character_change(v_.now_cla, character_id)
+                                        else:
+                                            character_change(v_.now_cla, character_id)
+
+                                        print("start")
+                                        # 스케쥴
+                                        # 시작
+
+                                        if '/' in result_schedule_:
+                                            jadong_spl_ = result_schedule_.split("/")
+                                            if jadong_spl_[0] == "사냥":
+                                                jadong_start(v_.now_cla, result_schedule_)
+                                        elif result_schedule_ == "물약채우기":
+                                            maul_potion_get_full(v_.now_cla)
+                                            myQuest_play_add(v_.now_cla, result_schedule_)
+                                            time.sleep(0.2)
+
+                                        elif result_schedule_ == "각종템받기":
+                                            get_item_start(v_.now_cla)
+                                            myQuest_play_add(v_.now_cla, result_schedule_)
+                                            time.sleep(0.2)
+                                        elif result_schedule_ == "튜토육성":
+                                            tuto_grow_start(v_.now_cla, result_schedule_)
+                                        elif result_schedule_ == "메인퀘스트":
+                                            main_grow_start(v_.now_cla, result_schedule_)
+                                        elif result_schedule_ == "거래소등록":
+                                            auction_start(v_.now_cla)
+                                            time.sleep(0.5)
+                                            myQuest_play_add(v_.now_cla, result_schedule_)
+                                        elif '채집' in result_schedule_:
+                                            chaejib_start(v_.now_cla)
+                                        elif '행성파견' in result_schedule_:
+                                            dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
+                                        elif '성운돌파' in result_schedule_:
+                                            dungeon_in_sungwoondolpa(v_.now_cla, result_schedule_)
+                                        elif '골드러쉬' in result_schedule_:
+                                            dungeon_in_goldrush(v_.now_cla, result_schedule_)
+                                        elif '레이드' in result_schedule_:
+                                            dungeon_in_raid(v_.now_cla, result_schedule_)
                                             dark_play(v_.now_cla)
+                                        elif '모리아기지' in result_schedule_:
+                                            moriagiji_start(v_.now_cla, result_schedule_)
+                                        elif '가디언임무' in result_schedule_:
+                                            gardiun_mission_start(v_.now_cla, result_schedule_)
+                                        elif '뫼비우스' in result_schedule_:
+                                            season_dungeon_in_mobius(v_.now_cla, result_schedule_)
+                                        elif '어비스' in result_schedule_:
+                                            season_dungeon_in_ubis(v_.now_cla, result_schedule_)
+                                        else:
+                                            if '_' in result_schedule_:
+                                                data_ = result_schedule_.split("_")
+                                                if data_[0] == "지역퀘스트":
+                                                    region_quest_start(v_.now_cla, data_[1])
+                                                    dark_play(v_.now_cla)
+
+
                                 time.sleep(0.5)
 
                         else:
