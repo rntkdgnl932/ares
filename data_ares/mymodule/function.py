@@ -341,6 +341,8 @@ def click_pos_2(pos_1, pos_2, cla):
         import serial
         import pyautogui
 
+
+
         coordinate = 0
         if cla == 'one':
             coordinate = 0
@@ -350,6 +352,8 @@ def click_pos_2(pos_1, pos_2, cla):
             coordinate = 960 + 960
         if cla == 'four':
             coordinate = 960 + 960 + 960
+
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
@@ -365,7 +369,7 @@ def click_pos_2(pos_1, pos_2, cla):
             move_count = 0
             while move_ is False:
                 move_count += 1
-                if move_count > 500:
+                if move_count > 300:
                     print("move_count", move_count)
                     move_ = True
 
@@ -428,7 +432,7 @@ def click_pos_2(pos_1, pos_2, cla):
             ser.close()
         else:
 
-            pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
+            # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
             # time.sleep(0.2)
             pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
             time.sleep(0.5)
@@ -452,6 +456,8 @@ def click_pos_reg(pos_1, pos_2, cla):
         if cla == 'four':
             coordinate = 0
 
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
             baudrate = v_.speed_
@@ -466,7 +472,7 @@ def click_pos_reg(pos_1, pos_2, cla):
             move_count = 0
             while move_ is False:
                 move_count += 1
-                if move_count > 500:
+                if move_count > 300:
                     move_ = True
 
                 # 이동 시킬 포인트 계산
@@ -514,7 +520,7 @@ def click_pos_reg(pos_1, pos_2, cla):
             ser.close()
         else:
 
-            pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
+            # pyautogui.moveTo(pos_1 + random_int() + coordinate, pos_2 + random_int())
 
             pyautogui.click(pos_1 + random_int() + coordinate, pos_2 + random_int())
             time.sleep(0.5)
