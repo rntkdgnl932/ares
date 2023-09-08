@@ -365,7 +365,7 @@ def click_pos_2(pos_1, pos_2, cla):
             move_count = 0
             while move_ is False:
                 move_count += 1
-                if move_count > 300:
+                if move_count > 500:
                     print("move_count", move_count)
                     move_ = True
 
@@ -466,7 +466,7 @@ def click_pos_reg(pos_1, pos_2, cla):
             move_count = 0
             while move_ is False:
                 move_count += 1
-                if move_count > 300:
+                if move_count > 500:
                     move_ = True
 
                 # 이동 시킬 포인트 계산
