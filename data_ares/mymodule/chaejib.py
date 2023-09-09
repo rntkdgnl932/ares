@@ -382,7 +382,7 @@ def chaejib_go(cla):
                 for i in range(200):
                     if i % 20 == 0:
                         se_ = i / 10
-                        if se > 18:
+                        if se_ > 18:
                             click_pos_2(850, 145, cla)
                             time.sleep(0.1)
                         else:
