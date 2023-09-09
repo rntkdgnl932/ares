@@ -382,8 +382,13 @@ def chaejib_go(cla):
                 for i in range(200):
                     if i % 20 == 0:
                         se_ = i / 10
-                        data = "채집하는 중 : " + str(se_) + "초"
-                        print(data)
+                        if se > 18:
+                            click_pos_2(850, 145, cla)
+                            time.sleep(0.1)
+                        else:
+
+                            data = "채집하는 중 : " + str(se_) + "초"
+                            print(data)
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\chaejib_ing_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
