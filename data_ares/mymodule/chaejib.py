@@ -364,6 +364,7 @@ def chaejib_go(cla):
                     else:
                         print("채집 : click_pos_2(850, 96, cla)")
                         click_pos_2(850, 96, cla)
+                    time.sleep(0.1)
 
 
                 time.sleep(0.01)
