@@ -53,12 +53,21 @@ def guild_attendance(cla):
                             time.sleep(0.5)
                             break
                         else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\attendance_check.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\now_complete.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 980, 200, 1040, cla, img, 0.8)
+                            imgs_ = imgs_set_(520, 580, 610, 650, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                click_pos_2(55, 100, cla)
+                                time.sleep(0.2)
+                                break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\attendance_check.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 980, 200, 1040, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.7)
 
                     # 길드 기부
@@ -92,6 +101,20 @@ def guild_attendance(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.7)
                                 break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_donation_complete.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(390, 650, 570, 700, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_donation_complete_x.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(580, 350, 640, 410, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+
 
                         else:
 
@@ -104,17 +127,42 @@ def guild_attendance(cla):
                         time.sleep(0.7)
 
                     # 길드 멤버
-                    for t in range(2):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_member.PNG"
+                    for t in range(5):
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_members.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(80, 75, 160, 120, cla, img, 0.8)
+                        imgs_ = imgs_set_(0, 990, 80, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
-                        click_pos_2(825, 1015, cla)
-                        time.sleep(0.5)
-                        click_pos_2(925, 1015, cla)
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_member.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(80, 75, 160, 120, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                                click_pos_2(925, 1015, cla)
+                                time.sleep(0.5)
+                                click_pos_2(825, 1015, cla)
+                                time.sleep(0.5)
+                                break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_member.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(80, 75, 160, 120, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                                for f in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\guild\\guild_members.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 990, 80, 1030, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    time.sleep(0.3)
                         time.sleep(0.5)
 
                 else:

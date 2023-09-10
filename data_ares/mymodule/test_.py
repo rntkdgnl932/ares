@@ -37,12 +37,7 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    pyautogui.moveTo(100, 200)
-    time.sleep(0.3)
-    pyautogui.moveTo(333, 555)
-    time.sleep(0.3)
-    pyautogui.moveTo(555, 777)
-    time.sleep(0.3)
+    guild_attendance(cla)
 
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
