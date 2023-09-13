@@ -65,7 +65,7 @@ def chaejib_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(945, 100, cla)
                     else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
@@ -111,7 +111,7 @@ def scan_check(cla):
             imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 go_ = True
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
@@ -403,6 +403,22 @@ def chaejib_go(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("채집중 2")
                         break
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("채집대상 없음 1")
+                        break
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\chaejib\\anymore_no_look_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(790, 100, 900, 160, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("채집대상 없음 2")
+                        break
+
                     time.sleep(0.05)
                 time.sleep(3.5)
 

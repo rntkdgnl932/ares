@@ -69,7 +69,7 @@ def dead_die(cla, schedule):
             click_pos_reg(imgs_.x, imgs_.y, cla)
             deaded = True
             deaded2 = True
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before.PNG"
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
@@ -201,6 +201,17 @@ def clean_screen(cla):
                 imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(935, 50, cla)
+
+                # 죽었을때
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(270, 800, 600, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    result_schedule = myQuest_play_check(cla, "check")
+                    print("clean_screen => dead_die : result_schedule", result_schedule)
+
+                    dead_die(cla, result_schedule)
 
                 # 도전 등 시간 표시일때 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time.PNG"
