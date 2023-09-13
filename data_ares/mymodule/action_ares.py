@@ -351,7 +351,13 @@ def out_check(cla):
         imgs_ = imgs_set_(0, 970, 40, 1015, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             go_ = True
-
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
         return go_
     except Exception as e:
         print(e)
