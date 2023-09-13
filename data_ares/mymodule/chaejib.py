@@ -732,6 +732,22 @@ def go_spot_click(cla, where):
                             imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                                for c in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(10, 10, 570, 610, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_confirm2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(490, 560, 570, 610, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            break
+                                    else:
+                                        break
+                                    time.sleep(0.3)
                             else:
                                 jadong_arrive(cla, where)
                                 break

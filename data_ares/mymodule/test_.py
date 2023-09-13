@@ -37,8 +37,12 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    boonhae_start(cla)
-
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(10, 10, 570, 610, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("map_title", imgs_)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
