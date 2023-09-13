@@ -101,7 +101,7 @@ def region_skip(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import out_check, clean_screen
+    from action_ares import out_check, clean_screen, confirm_all
     from gardiun_mission import gardiun_mission_get
 
     try:
@@ -112,6 +112,9 @@ def region_skip(cla):
         imgs_ = imgs_set_(340, 380, 440, 450, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y - 100, cla)
+            time.sleep(2)
+            confirm_all(cla)
+
 
 
     except Exception as e:
