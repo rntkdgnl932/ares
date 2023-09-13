@@ -160,6 +160,7 @@ def clean_screen(cla):
     from main_grow import grow_skip, grow_complete
     from log_ares import character_change
     from schedule import myQuest_play_check
+    from stop_event18 import _stop_please
 
     try:
         print("clean_screen")
@@ -193,6 +194,9 @@ def clean_screen(cla):
 
                     character_change(v_.now_cla, character_id)
                     time.sleep(0.2)
+
+                # 팝업창 끄기
+                _stop_please(cla)
 
                 # 메뉴 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"

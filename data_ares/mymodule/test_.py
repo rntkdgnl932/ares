@@ -25,6 +25,7 @@ def go_test():
     from auction_ares import auction_start, auction_sell
     from guild_ares import guild_attendance
     from log_ares import character_change
+
     print("tst")
     cla = "one"
 
