@@ -83,6 +83,9 @@ def maul_potion_get(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         potion_go = True
 
+                    # 버프들 사까?
+                    maul_potion_get_zero(cla)
+
                 else:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\jabhwa_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -105,6 +108,9 @@ def maul_potion_get(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("물약 더 못삼")
                                 potion_go = True
+
+                                # 버프들 사까?
+                                maul_potion_get_zero(cla)
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\jabhwa.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -221,6 +227,8 @@ def maul_potion_get_full(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("물약 더 못삼")
                                 potion_go = True
+
+                                maul_potion_get_full_2(cla)
                     else:
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\jabhwa.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -271,9 +279,7 @@ def maul_potion_get_full_2(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check, confirm_all
-    from powerup_ares import power_up_start
-    from soojib_boonhae import soojib_boonhae_start
+    from action_ares import clean_screen, confirm_all
     try:
         print("maul_potion_get_full_2")
 
@@ -299,38 +305,38 @@ def maul_potion_get_full_2(cla):
                 confirm_all(cla)
                 clean_screen(cla)
 
+            else:
+                y_reg = 200 + (potion_go_count * 45)
 
-            y_reg = 200 + (potion_go_count * 45)
+                click_pos_2(100, y_reg, cla)
 
-            click_pos_2(100, y_reg, cla)
+                time.sleep(0.5)
 
-            time.sleep(0.5)
+                click_pos_2(865, 1015, cla)
 
-            click_pos_2(865, 1015, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\max.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 540, 580, 580, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.2)
 
-            for i in range(10):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\max.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(500, 540, 580, 580, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    break
-                time.sleep(0.2)
-
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\max.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(500, 540, 580, 580, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\potion_confirm.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(480, 600, 570, 660, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                    potion_go_count += 1
+                    time.sleep(0.5)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\potion_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(480, 600, 570, 660, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        potion_go_count += 1
             time.sleep(0.3)
 
 
@@ -338,6 +344,92 @@ def maul_potion_get_full_2(cla):
     except Exception as e:
         print(e)
         return 0
+
+def maul_potion_get_zero(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import clean_screen, confirm_all
+    try:
+        print("maul_potion_get_zero")
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\max.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(500, 540, 580, 580, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(0.5)
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\potion_confirm.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(480, 600, 570, 660, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        potion_go = False
+        potion_go_count = 0
+        while potion_go is False:
+            if potion_go_count > 3:
+                potion_go = True
+                confirm_all(cla)
+                clean_screen(cla)
+
+            else:
+                y_reg = 200 + (potion_go_count * 45)
+
+                click_pos_2(100, y_reg, cla)
+
+                time.sleep(0.5)
+
+                click_pos_2(865, 1015, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\max.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 540, 580, 580, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.2)
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 200, 960, 300, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\max.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 540, 580, 580, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\potion_confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(480, 600, 570, 660, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            potion_go_count += 1
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\cancle.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(410, 620, 460, 660, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        potion_go_count += 1
+            time.sleep(0.3)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
 
 def maul_potion_gardiun(cla):
     import numpy as np
