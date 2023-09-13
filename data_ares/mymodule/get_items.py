@@ -809,6 +809,135 @@ def get_gardiun_rank(cla):
         print(e)
         return 0
 
+
+def get_season(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import menu_open
+
+    try:
+        print("get_season")
+        season_ready = False
+        season_ready_count = 0
+        while season_ready is False:
+            season_ready_count += 1
+            if season_ready_count > 5:
+                season_ready = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hondon_title2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("hondon_title2 창 열렸다.")
+                season_ready = True
+
+                # 패스 받기
+
+                for i in range(3):
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\season_get\\season_pass_point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(130, 980, 240, 1040, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(700, 1020, cla)
+                        time.sleep(0.2)
+                        click_pos_2(800, 1020, cla)
+                        time.sleep(0.2)
+                        break
+                    else:
+                        click_pos_2(115, 100, cla)
+                        time.sleep(0.2)
+                        for k in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\season_get\\season_pass_point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(130, 980, 240, 1040, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
+
+                # 시즌 수집 등록하기
+
+
+
+                for i in range(4):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\season_get\\soojib_hyogwa_information.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(810, 110, 910, 150, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+
+                        point_count = 0
+                        for k in range(20):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\season_get\\season_soojib_point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(560, 140, 800, 970, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+                                time.sleep(0.3)
+                                click_pos_2(915, 1020, cla)
+                                time.sleep(0.3)
+                            else:
+                                point_count += 1
+                                if point_count > 2:
+                                    print("수집포인트", point_count)
+                                    break
+                            time.sleep(0.3)
+
+                        break
+
+                    else:
+
+                        for k in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\season_get\\soojib_hyogwa_information.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(810, 110, 910, 150, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                click_pos_2(185, 100, cla)
+                                time.sleep(0.1)
+                            time.sleep(0.5)
+                    time.sleep(0.5)
+
+                # 이벤트 창 닫기
+                for i in range(5):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hondon_title2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(940, 50, cla)
+                    else:
+                        break
+                    time.sleep(0.2)
+                time.sleep(0.1)
+            else:
+                menu_open(cla)
+                click_pos_2(60, 160, cla)
+                time.sleep(0.1)
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hondon_title2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+            time.sleep(1)
+
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
 def bag_item_open(cla):
     import numpy as np
     import cv2

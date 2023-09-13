@@ -426,6 +426,20 @@ def boonhae_start(cla):
                     time.sleep(0.5)
 
                 boonhae_sungmool(cla)
+                time.sleep(0.5)
+                # 모듈 분해
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(80, 185, 120, 235, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(50, 205, cla)
+                    time.sleep(0.5)
+
+                boonhae_sungmool(cla)
 
 
             else:
@@ -497,42 +511,88 @@ def boonhae_ready(cla):
                         break
                     time.sleep(0.5)
 
-                # 첫번째 슈트
-                click_pos_2(40, 180, cla)
-                time.sleep(0.5)
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(690, 630, 760, 690, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-
-                # 두번째 슈트
-                click_pos_2(95, 180, cla)
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(690, 630, 760, 690, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-
-                # 세번째 슈트
-                click_pos_2(150, 180, cla)
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(690, 630, 760, 690, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\suit_room_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
+
+                    # 첫번째 슈트
+                    click_pos_2(40, 180, cla)
+                    time.sleep(0.5)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(690, 630, 760, 690, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+
+                    # 두번째 슈트
+                    click_pos_2(95, 180, cla)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(690, 630, 760, 690, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+
+                    # 세번째 슈트
+                    click_pos_2(150, 180, cla)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\suitroom_jadongjangchak.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(690, 630, 760, 690, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\suit_room_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        mouse_move_cpp(420, 675, cla)
+                        time.sleep(0.2)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
+
+                # 모듈
+                click_pos_2(55, 205, cla)
+                time.sleep(0.1)
+                click_pos_2(55, 205, cla)
+                time.sleep(0.1)
+                click_pos_2(915, 1015, cla)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\module_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\module_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+
+                    click_pos_2(515, 545, cla)
+                    time.sleep(0.1)
+                    click_pos_2(515, 545, cla)
+                    time.sleep(0.5)
+
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.2)
                     mouse_move_cpp(420, 675, cla)
@@ -546,7 +606,6 @@ def boonhae_ready(cla):
                             boonhae_complete = True
                             break
                         time.sleep(0.5)
-
 
 
 
@@ -901,6 +960,117 @@ def boonhae_sungmool(cla):
         print(e)
         return 0
 
+def boonhae_module(cla):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import menu_open
+    try:
+        print("boonhae_module")
+        boonhae_complete = False
+        boonhae_complete_count = 0
+        while boonhae_complete is False:
+            boonhae_complete_count += 1
+            print("boonhae_complete_count", boonhae_complete_count)
+            if boonhae_complete_count > 4:
+                boonhae_complete = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("invenroty_title : 진입완료")
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_click_on.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 990, 930, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("분해 진행")
+                    # 마무리하기
+
+                    for z in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 570, 570, 610, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            boonhae_complete = True
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 390, 510, 430, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_confirm2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(500, 640, 570, 670, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                click_pos_2(865, 1015, cla)
+                                time.sleep(0.5)
+                            time.sleep(0.5)
+                        time.sleep(0.5)
+
+
+                else:
+                    print("일괄분해 누른 후 셋팅하기")
+                    boonhae_setting_c(cla)
+                    time.sleep(1)
+
+                    is_on = False
+
+                    for i in range(6):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_last_click_on.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(800, 990, 930, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            is_on = True
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\no_select_item.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 520, 930, 570, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                is_on = True
+                                boonhae_complete = True
+                                break
+                        time.sleep(0.5)
+                    if is_on == False:
+                        boonhae_complete_count += 2
+                    time.sleep(1)
+
+
+            else:
+
+                menu_open(cla)
+
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(900, 50, cla)
+                    time.sleep(1)
+
+            time.sleep(1)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
 def boonhae_setting_c(cla):
     import numpy as np
     import cv2
@@ -927,43 +1097,28 @@ def boonhae_setting_c(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(300, 480, 370, 540, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_setting_b_on.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(350, 480, 420, 540, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
+                    last_set = True
+                    for i in range(5):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\checked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(350, 490, 630, 540, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("checked", imgs_)
+                            last_set = False
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            print("not checked")
+                            break
+                        time.sleep(0.5)
 
-
-                        last_set = True
-                        for i in range(5):
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\checked.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(410, 490, 630, 540, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                print("checked", imgs_)
-                                last_set = False
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                print("not checked")
-                                break
-                            time.sleep(0.5)
-
-                        if last_set == True:
-                            boonhae_set_complete = True
+                    if last_set == True:
+                        boonhae_set_complete = True
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_setting_c_off.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(300, 480, 370, 540, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.5)
-
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\boonhae_setting_b_off.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(350, 480, 420, 540, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.5)
