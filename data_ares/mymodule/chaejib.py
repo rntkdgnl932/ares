@@ -379,7 +379,7 @@ def chaejib_go(cla):
                 time.sleep(0.01)
                 mouse_move_cpp(700, 95, cla)
 
-                for i in range(120):
+                for i in range(80):
                     if i % 20 == 0:
                         se_ = i / 10
                         if se_ > 18:
