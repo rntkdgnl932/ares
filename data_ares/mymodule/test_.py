@@ -38,7 +38,14 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    maul_potion_get(cla)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\zero.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(890, 200, 960, 300, cla, img, 0.9)
+    if imgs_ is not None and imgs_ != False:
+        print("zerozerozerozerozero", imgs_)
+    else:
+        print("notnotnotnotnotnotnot")
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
