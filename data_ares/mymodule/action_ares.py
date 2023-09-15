@@ -215,6 +215,27 @@ def clean_screen(cla):
                 imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(935, 50, cla)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_dojun.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(935, 50, cla)
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\mmenu_hyubdong.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(935, 50, cla)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_gyungjang.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(935, 50, cla)
 
                 # 죽었을때
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
