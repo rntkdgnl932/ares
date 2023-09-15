@@ -474,7 +474,7 @@ def jadong_arrive(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, dead_die
+    from action_ares import clean_screen, dead_die, maul_go
     try:
         print("jadong_arrive")
 
@@ -593,6 +593,9 @@ def jadong_arrive(cla, where):
                     imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("사냥터이동중", moving_count)
+                        if moving_count > 300:
+                            moving_ = False
+                            maul_go(cla)
                     else:
 
                         where_split = where.split("/")

@@ -922,6 +922,9 @@ def jadong_arrive(cla, where):
                     imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("사냥터이동중", moving_count)
+                        if moving_count > 100:
+                            moving_ = False
+                            chaejib_go(cla)
                     else:
 
                         where_split = where.split("/")
