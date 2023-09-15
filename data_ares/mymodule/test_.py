@@ -38,14 +38,12 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\zero.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(890, 200, 960, 300, cla, img, 0.9)
+    imgs_ = imgs_set_(810, 30, 960, 100, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("zerozerozerozerozero", imgs_)
-    else:
-        print("notnotnotnotnotnotnot")
+        click_pos_2(940, 50, cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

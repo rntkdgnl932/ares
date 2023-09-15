@@ -208,6 +208,56 @@ def clean_screen(cla):
                     time.sleep(2)
                     confirm_all(cla)
 
+
+
+                # 죽었을때
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(270, 800, 600, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    result_schedule = myQuest_play_check(cla, "check")
+                    print("clean_screen => dead_die : result_schedule", result_schedule)
+
+                    dead_die(cla, result_schedule)
+
+                # 도전 등 시간 표시일때 닫기
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time_close_ready.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(115, 60, 160, 110, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("바깥화면")
+
+                else:
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(810, 30, 960, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(940, 50, cla)
+
+                        for t in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(480, 555, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+
+                                    loading_ares(cla)
+                                    break
+                            time.sleep(0.5)
+
                 # 메뉴 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -236,44 +286,6 @@ def clean_screen(cla):
                             imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(935, 50, cla)
-
-                # 죽었을때
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(270, 800, 600, 1030, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    result_schedule = myQuest_play_check(cla, "check")
-                    print("clean_screen => dead_die : result_schedule", result_schedule)
-
-                    dead_die(cla, result_schedule)
-
-                # 도전 등 시간 표시일때 닫기
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(810, 30, 960, 100, cla, img, 0.7)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_2(940, 50, cla)
-
-                    for t in range(10):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time_confirm.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(480, 555, 630, 630, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.2)
-                        else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-
-                                loading_ares(cla)
-                                break
-                        time.sleep(0.5)
 
                 # 아이템 소환 후 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan_exit.PNG"
