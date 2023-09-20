@@ -231,7 +231,7 @@ def clean_screen(cla):
                     print("바깥화면")
 
                 else:
-
+                    print("바깥화면 아님...")
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\time.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
