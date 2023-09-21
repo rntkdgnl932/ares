@@ -909,7 +909,7 @@ def boonhae_sungmool(cla):
 
                 else:
                     print("일괄분해 누른 후 셋팅하기")
-                    boonhae_setting_c(cla)
+                    boonhae_setting_bc(cla)
                     time.sleep(1)
 
                     is_on = False
