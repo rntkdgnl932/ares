@@ -588,9 +588,9 @@ def boonhae_ready(cla):
                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
 
-                    click_pos_2(515, 545, cla)
+                    click_pos_2(515, 560, cla)
                     time.sleep(0.1)
-                    click_pos_2(515, 545, cla)
+                    click_pos_2(515, 560, cla)
                     time.sleep(0.5)
 
                     click_pos_reg(imgs_.x, imgs_.y, cla)
