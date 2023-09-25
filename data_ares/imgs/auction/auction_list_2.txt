@@ -19,6 +19,7 @@ moria_sand
 taeyub_1
 stone_live
 stone_uhwang
+titanyoom
 mi_wonso
 mi_fire
 mi_ice
