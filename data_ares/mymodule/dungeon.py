@@ -35,7 +35,7 @@ def dungeon_in_title(cla, dungeon):
         elif where_dungeon[0] == "레이드":
             click_pos_2(70, 280, cla)
             title = "hyubdong_title"
-        elif where_dungeon[0] == "모리아기지":
+        elif where_dungeon[0] == "모리아기지" or where_dungeon[0] == "타루크기지":
             click_pos_2(70, 330, cla)
             title = "gyungjang_title"
 
@@ -294,7 +294,7 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(280, 500, cla)
+                        click_pos_2(280 - 80, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hangsungpagyun_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -495,7 +495,7 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(480, 500, cla)
+                        click_pos_2(480 - 100, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\sungwoon_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -717,7 +717,7 @@ def dungeon_in_goldrush(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(670, 500, cla)
+                        click_pos_2(670 - 100, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\goldrush_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)

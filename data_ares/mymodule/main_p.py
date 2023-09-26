@@ -60,6 +60,8 @@ from log_ares import character_change
 
 from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis
 
+from temporary_event import event_dungeon_start
+
 from stop_event18 import _stop_please
 
 from test_ import go_test
@@ -927,7 +929,7 @@ class FirstTab(QWidget):
         self.dun_group_1 = QGroupBox('도전')
         dun_g1_name = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
-        dun_g1_list = ['도전 선택', '행성파견', '성운돌파', '골드러쉬', '뫼비우스', '어비스']
+        dun_g1_list = ['도전 선택', '행성파견', '성운돌파', '골드러쉬', '뫼비우스', '어비스', '이벤트']
         dun_g1_name.addItems(dun_g1_list)
 
         dun_g1_stair = QComboBox()
@@ -3325,6 +3327,10 @@ class game_Playing(QThread):
                                             myQuest_play_add(v_.now_cla, result_schedule_)
                                         elif '채집' in result_schedule_:
                                             chaejib_start(v_.now_cla)
+
+                                        elif '이벤트' in result_schedule_:
+                                            event_dungeon_start(v_.now_cla, result_schedule_)
+
                                         elif '행성파견' in result_schedule_:
                                             dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
                                         elif '성운돌파' in result_schedule_:
