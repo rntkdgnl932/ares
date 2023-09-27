@@ -207,7 +207,7 @@ def dungeon_in_event(cla, dungeon):
                             imgs_ = imgs_set_(370, 80, 625, 150, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 print("이미 event dungeon에 있다.", dungeon)
-                                dun_go_ = True
+                                # dun_go_ = True
                                 for z in range(3):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -250,7 +250,7 @@ def dungeon_in_event(cla, dungeon):
                                 loading_ares(cla)
                                 break
                         time.sleep(0.5)
-                    #입방완료 파악하기
+                    #입장완료 파악하기
                     print('event 입징완료')
                     if dun_go_ == False:
                         for x in range(10):
