@@ -26,7 +26,7 @@ def event_dungeon_start(cla, dungeon):
             if imgs_ is not None and imgs_ != False:
                 # 먼저 event  dungeon 파악
                 for k in range(3):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_" + str(i) + ".PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_" + str(k) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.8)
