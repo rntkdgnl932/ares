@@ -503,37 +503,28 @@ def jadong_arrive(cla, where):
                     moving_ = True
                     break
                 else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\move_walking.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        print("걸어서 이동중")
-                        moving_ = True
-                        break
-                    else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.85)
+                        imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_confirm.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(480, 570, 610, 610, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                        else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\attack_ready.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                walking_count += 1
-                                print("loading before walking_count", walking_count)
-                                if walking_count > 20:
-                                    walking = True
-                                    break
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\attack_ready.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            walking_count += 1
+                            print("loading before walking_count", walking_count)
+                            if walking_count > 20:
+                                walking = True
+                                break
             time.sleep(0.5)
 
 
@@ -580,25 +571,16 @@ def jadong_arrive(cla, where):
                             moving_ = True
                             isloading = False
                         else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\move_walking.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\attack_ready.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("걸어서 이동중")
-                                moving_ = True
-                                isloading = False
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\attack_ready.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
-                                if imgs_ is not None and imgs_ != False:
-                                    walking_count += 1
-                                    print("loading after walking_count", walking_count)
-                                    if walking_count > 20:
-                                        walking = True
-                                        isloading = False
+                                walking_count += 1
+                                print("loading after walking_count", walking_count)
+                                if walking_count > 20:
+                                    walking = True
+                                    isloading = False
                     time.sleep(1)
 
             if moving_ == True:
@@ -616,42 +598,31 @@ def jadong_arrive(cla, where):
                             maul_go(cla)
                     else:
 
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\move_walking.PNG"
+
+                        where_split = where.split("/")
+                        where_in_data = where_split[3].split("_")
+
+                        if where_in_data[4] == ("pk1" or "pk2"):
+                            time.sleep(20)
+
+                        moving_ = False
+
+                        dead_die(cla, where)
+
+                        time.sleep(1)
+
+                        # 공격하기
+                        auto_on_click(cla)
+
+                        # click_pos_2(595, 1010, cla)
+                        time.sleep(1)
+                        # 절전모드
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                        imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("걸어서 이동중")
-                            if moving_count > 300:
-                                moving_ = False
-                                maul_go(cla)
-                        else:
-
-
-                            where_split = where.split("/")
-                            where_in_data = where_split[3].split("_")
-
-                            if where_in_data[4] == ("pk1" or "pk2"):
-                                time.sleep(20)
-
-                            moving_ = False
-
-                            dead_die(cla, where)
-
-                            time.sleep(1)
-
-                            # 공격하기
-                            auto_on_click(cla)
-
-                            # click_pos_2(595, 1010, cla)
-                            time.sleep(1)
-                            # 절전모드
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(1)
         if walking == True:
             # 공격하기
