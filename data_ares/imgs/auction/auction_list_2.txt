@@ -27,3 +27,6 @@ mi_elec
 mi_bangsa
 gear
 energy_alpha
+jamsic_heart
+jamsik_nosim
+jaeang_lamp
