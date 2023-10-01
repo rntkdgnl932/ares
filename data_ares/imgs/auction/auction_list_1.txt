@@ -6,3 +6,5 @@ gyulsadae_hyulsu
 joomoogi_skill_core
 suit_skill_core
 blood_of_drago
+emosion_thunderbooster
+adoom_gnwon
