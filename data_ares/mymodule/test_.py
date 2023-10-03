@@ -38,15 +38,12 @@ def go_test():
     if cla == "four":
         plus = 960 * 3
 
-    for i in range(3):
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_" + str(i) + ".PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            dun_in = True
-            print(i)
-            break
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_select.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(735, 955, 815, 1025, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("gardiun_select", imgs_)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
