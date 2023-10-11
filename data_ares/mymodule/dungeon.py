@@ -271,6 +271,8 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                             else:
                                 timing = ing_count * 5
                                 print("행성파견 : " + str(timing) + "초 지남")
+                                if timing > 1800:
+                                    ing_ = False
                             time.sleep(5)
                 time.sleep(0.1)
 
