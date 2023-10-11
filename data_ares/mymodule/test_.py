@@ -29,21 +29,50 @@ def go_test():
     print("tst")
     cla = "one"
 
-    plus = 0
-
-    if cla == "two":
+    if cla == "one":
+        plus = 0
+    elif cla == "two":
         plus = 960
-    if cla == "three":
+    elif cla == "three":
         plus = 960 * 2
-    if cla == "four":
+    elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_select.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(735, 955, 815, 1025, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("gardiun_select", imgs_)
+    # 0
+    # 390
+    # 416
+    # 1
+    # 423
+    # 449
+    # 2
+    # 456
+    # 482
+    # 3
+    # 489
+    # 515
+    # 4
+    # 522
+    # 548
+    # 5
+    # 555
+    # 581
+    # 6
+    # 588
+    # 614
+
+    # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(270, 456, 310, 482, cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("받기 시작", imgs_)
+
+    print("get_item_test")
+    get_event(cla)
+    time.sleep(0.1)
+
+    # print("soohosuk")
+    # soohosuk(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

@@ -102,7 +102,7 @@ def get_event(cla):
                         drag_num = z
                         time.sleep(1)
 
-
+                    print(z, is_drag[1])
 
                     # elif is_drag[1] == "pass":
                     #     y_plus += 40
@@ -114,7 +114,7 @@ def get_event(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("받기 시작", z)
+                                print(z, "받기 시작")
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -139,10 +139,26 @@ def get_event(cla):
                                         # 추려낸 결과 ex => 2:seven
                                         get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
                                         time.sleep(0.5)
+                            else:
+                                print(z, "포인트가 안보여")
                         else:
                             # 아랫칸 있을때만...
                             if is_drag[0] == "11":
-                                get_event_click_drag(240, 670, "seven_six", cla)
+                                get_event_click_drag(240, 540, "fourteen", cla)
+
+                            elif is_drag[0] == "12":
+                                get_event_click_drag(240, 575, "fourteen", cla)
+
+                            elif is_drag[0] == "13":
+                                get_event_click_drag(240, 610, "seven_six", cla)
+
+                            elif is_drag[0] == "14":
+                                get_event_click_drag(240, 640, "four", cla)
+
+                            elif is_drag[0] == "15":
+                                get_event_click_drag(240, 675, "seven_six", cla)
+
+
 
 
 
