@@ -73,10 +73,12 @@ def go_test():
     # read_event = response.text.splitlines()
 
     # print("get_item_test", read_event)
-    # get_event(cla)
-    time.sleep(0.1)
+    get_event(cla)
+    # time.sleep(0.1)
+    #
+    # drag_pos(240, 670, 240, 420, cla)
 
-    drag_pos(240, 670, 240, 420, cla)
+
 
     # print("soohosuk")
     # soohosuk(cla)

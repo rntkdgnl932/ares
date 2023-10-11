@@ -91,30 +91,41 @@ def get_event(cla):
                     y_up = 403 + (z * 33) - 13
                     y_down = 403 + (z * 33) + 13
 
-                    print(z, y_up, y_down)
+
 
                     is_drag = read_event[z].split(":")
 
                     if is_drag[1] == "drag":
-                        drag_pos(240, 670, 240, 420, cla)
-                        time.sleep(0.5)
-                        drag_pos(240, 670, 240, 420, cla)
-                        drag_num = z
-                        time.sleep(1)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\get_items\\drag_img\\last_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(190, 660, 310, 690, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                drag_num = z
+                                break
+                            else:
+                                drag_pos(240, 670, 240, 420, cla)
+                                time.sleep(0.5)
+                                drag_pos(240, 670, 240, 420, cla)
 
-                    print(z, is_drag[1])
+                            time.sleep(1)
+
+                    print(z + 1, is_drag[1])
 
                     # elif is_drag[1] == "pass":
                     #     y_plus += 40
 
                     if is_drag[1] != "pass":
                         if drag_num == 0:
+                            # 현재 이벤트 번호 및 파악할 포인트
+                            print(z + 1, y_up, y_down)
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print(z, "받기 시작")
+                                print(z + 1, "받기 시작")
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -140,23 +151,66 @@ def get_event(cla):
                                         get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
                                         time.sleep(0.5)
                             else:
-                                print(z, "포인트가 안보여")
+                                print(z + 1, "포인트가 안보여")
                         else:
                             # 아랫칸 있을때만...
-                            if is_drag[0] == "11":
-                                get_event_click_drag(240, 540, "fourteen", cla)
+                            # 업데이트때마다 now_x + (z * 33) - 13 여기서 now_x 숫자 변경해줘야함
+                            # z 는 0 부터 시작함에 주의...
+                            now_x = 203
+                            y_up = now_x + (z * 33) - 13
+                            y_down = now_x + (z * 33) + 13
 
-                            elif is_drag[0] == "12":
-                                get_event_click_drag(240, 575, "fourteen", cla)
+                            # 현재 이벤트 번호 및 파악할 포인트
+                            print(z + 1, y_up, y_down)
 
-                            elif is_drag[0] == "13":
-                                get_event_click_drag(240, 610, "seven_six", cla)
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print(z + 1, "받기 시작")
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
+                                    time.sleep(0.5)
+                                    aim_reg = "none"
+                                    for i in range(len(read_event)):
+                                        y_average = 399
+                                        cal_ = read_event[i].split(":")
+                                        y_reg_1 = y_average - 15 - 33 + (33 * int(cal_[0]))
+                                        y_reg_2 = y_average + 15 - 33 + (33 * int(cal_[0]))
+                                        if y_reg_1 < imgs_.y < y_reg_2:
+                                            print("aim_reg", i, imgs_)
+                                            # 드래그일 경우 다시...
+                                            aim_reg = read_event[i]
+                                            break
+                                    if aim_reg != "none":
+                                        print("aim_reg", aim_reg)
+                                        result_aim_reg = aim_reg.split(":")
+                                        # 추려낸 결과 ex => 2:seven
+                                        get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
+                                        time.sleep(0.5)
+                            else:
+                                print(z + 1, "포인트가 안보여")
 
-                            elif is_drag[0] == "14":
-                                get_event_click_drag(240, 640, "four", cla)
 
-                            elif is_drag[0] == "15":
-                                get_event_click_drag(240, 675, "seven_six", cla)
+                            # if is_drag[0] == "11":
+                            #     get_event_click_drag(240, 540, "fourteen", cla)
+                            #
+                            # elif is_drag[0] == "12":
+                            #     get_event_click_drag(240, 575, "fourteen", cla)
+                            #
+                            # elif is_drag[0] == "13":
+                            #     get_event_click_drag(240, 610, "seven_six", cla)
+                            #
+                            # elif is_drag[0] == "14":
+                            #     get_event_click_drag(240, 640, "four", cla)
+                            #
+                            # elif is_drag[0] == "15":
+                            #     get_event_click_drag(240, 675, "seven_six", cla)
 
 
 
