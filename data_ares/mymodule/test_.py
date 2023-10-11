@@ -73,15 +73,15 @@ def go_test():
     # read_event = response.text.splitlines()
 
     # print("get_item_test", read_event)
-    get_event(cla)
+    # get_event(cla)
     # time.sleep(0.1)
     #
     # drag_pos(240, 670, 240, 420, cla)
 
 
 
-    # print("soohosuk")
-    # soohosuk(cla)
+    print("soohosuk")
+    soohosuk(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
