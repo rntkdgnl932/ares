@@ -67,9 +67,16 @@ def go_test():
     # if imgs_ is not None and imgs_ != False:
     #     print("받기 시작", imgs_)
 
-    print("get_item_test")
-    get_event(cla)
+    # url = "https://raw.githubusercontent.com/rntkdgnl932/ares/master/data_ares/get_items/get_event.txt"
+    #
+    # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+    # read_event = response.text.splitlines()
+
+    # print("get_item_test", read_event)
+    # get_event(cla)
     time.sleep(0.1)
+
+    drag_pos(240, 670, 240, 420, cla)
 
     # print("soohosuk")
     # soohosuk(cla)
