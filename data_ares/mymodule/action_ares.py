@@ -266,26 +266,33 @@ def clean_screen(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(935, 50, cla)
                 else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_dojun.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
+                    imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(935, 50, cla)
                     else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_hyubdong.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_dojun.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(935, 50, cla)
                         else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_gyungjang.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_hyubdong.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(935, 50, cla)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\menu_gyungjang.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 200, 100, 360, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(935, 50, cla)
 
                 # 아이템 소환 후 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan_exit.PNG"
@@ -442,12 +449,19 @@ def menu_open(cla):
             if imgs_ is not None and imgs_ != False:
                 menu_look = True
             else:
-                result_out = out_check(cla)
-
-                if result_out == True:
-                    click_pos_2(935, 40, cla)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    menu_look = True
                 else:
-                    clean_screen(cla)
+                    result_out = out_check(cla)
+
+                    if result_out == True:
+                        click_pos_2(935, 40, cla)
+                    else:
+                        clean_screen(cla)
             time.sleep(1)
 
     except Exception as e:
@@ -913,3 +927,113 @@ def map_in(cla):
         print(e)
         return 0
 
+def mine_check(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2, text_check_get, in_number_check, int_put_
+    from schedule import myQuest_play_add
+
+    try:
+        print("mine_check")
+
+        gold_ = 0
+        dia_ = 0
+
+        monster_in = False
+        monster_in_count = 0
+        while monster_in is False:
+            monster_in_count += 1
+            if monster_in_count > 7:
+                monster_in = True
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\auction_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                monster_in = True
+                print("거래소 오픈")
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\gold.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("gold", imgs_)
+                    # 749
+                    x_reg_1 = imgs_.x
+                    read_gold = text_check_get(x_reg_1 + 10, 35, 825, 55, cla)
+                    print("read_gold", read_gold)
+
+                    digit_ready = in_number_check(cla, read_gold)
+                    print("digit_ready", digit_ready)
+                    if digit_ready == True:
+                        read_data_int = int(int_put_(read_gold))
+                        print("read_data_int", read_data_int)
+                        gold_ = read_data_int
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("dia", imgs_)
+                    x_reg_2 = imgs_.x
+                    # 675
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia_end.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(650, 30, 870, 70, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("dia_end", imgs_)
+                        x_reg_2_2 = imgs_.x
+                        # 726
+
+                    read_dia = text_check_get(x_reg_2 + 10, 35, x_reg_2_2 - 5, 55, cla)
+                    print("read_dia", read_dia)
+
+                    digit_ready = in_number_check(cla, read_dia)
+                    print("digit_ready", digit_ready)
+                    if digit_ready == True:
+                        read_data_int = int(int_put_(read_dia))
+                        print("read_data_int", read_data_int)
+                        dia_ = read_data_int
+
+
+            else:
+                menu_open(cla)
+
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\auction_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(810, 240, cla)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(810, 240, cla)
+
+                    time.sleep(1)
+
+
+
+
+
+
+        return gold_, dia_
+
+    except Exception as e:
+        print(e)
+        return 0

@@ -88,6 +88,9 @@ def auction_ready(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
+
+
+
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\auction_etc.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -130,6 +133,7 @@ def auction_sell(cla):
     import os
     from function import imgs_set_, click_pos_reg, mouse_move_cpp, click_pos_2, int_put_, in_number_check, text_check_get
     from action_ares import menu_open
+    from property_ares import my_property_upload
     try:
         print("auction_sell")
         auc_complete = False
@@ -146,6 +150,8 @@ def auction_sell(cla):
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 auc_complete = True
+
+
 
                 click_pos_2(580, 1015, cla)
                 time.sleep(0.5)
@@ -171,6 +177,9 @@ def auction_sell(cla):
                         click_pos_2(660, 1015, cla)
                         time.sleep(0.5)
                     time.sleep(0.5)
+
+                # 시작 전에 거래소 재화 서버 업로드
+                my_property_upload(cla)
 
                 # 시작
                 file_path_0 = "C:\\my_games\\ares\\data_ares\\imgs\\auction\\auction_list_0.txt"
@@ -463,7 +472,7 @@ def auction_sell(cla):
                         break
                     else:
                         click_pos_2(810, 240, cla)
-                    time.sleep(1)
+                    time.sleep(0.5)
 
             time.sleep(1)
 

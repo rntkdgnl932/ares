@@ -14,7 +14,7 @@ def go_test():
     import random
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang, get_sangjum_sohwan, get_season
-    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares
+    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c
@@ -25,6 +25,7 @@ def go_test():
     from auction_ares import auction_start, auction_sell
     from guild_ares import guild_attendance
     from log_ares import character_change
+    from property_ares import my_property_upload
 
     print("tst")
     cla = "one"
@@ -38,6 +39,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
+    my_property_upload(cla)
     # 0
     # 390
     # 416
@@ -79,9 +81,6 @@ def go_test():
     # drag_pos(240, 670, 240, 420, cla)
 
 
-
-    print("soohosuk")
-    soohosuk(cla)
 
     # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
