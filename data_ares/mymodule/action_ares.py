@@ -266,7 +266,7 @@ def clean_screen(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(935, 50, cla)
                 else:
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
@@ -1018,7 +1018,7 @@ def mine_check(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(810, 240, cla)
                         else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
