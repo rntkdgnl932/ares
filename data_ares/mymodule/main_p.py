@@ -295,6 +295,7 @@ class ThirdTab(QWidget):
         game_server_ = self.game_server_in.text()
         print(own_)
         print(computer_)
+        print(game_server_)
 
         self.own.setText("       현재 소유자 : " + own_ + "\n\n")
         self.computer.setText("       현재 컴퓨터 : " + computer_ + " 컴퓨터\n\n")
