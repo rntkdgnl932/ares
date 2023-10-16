@@ -273,6 +273,7 @@ class ThirdTab(QWidget):
         Mobox1.addStretch(1)
         Mobox1.addLayout(mo1_1)
         Mobox1.addLayout(mo1_2)
+        Mobox1.addLayout(mo1_5)
         Mobox1.addLayout(mo1_mouse)
         Mobox1.addLayout(mo1_3)
         Mobox1.addStretch(3)
