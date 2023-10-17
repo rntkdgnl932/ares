@@ -947,6 +947,9 @@ def mine_check(cla):
 
         gold_ = 0
         dia_ = 0
+        gold_check = False
+        dia_check1 = False
+        dia_check2 = False
 
         monster_in = False
         monster_in_count = 0
@@ -968,11 +971,24 @@ def mine_check(cla):
                 imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("gold", imgs_)
+                    gold_check = True
                     # 749
                     x_reg_1 = imgs_.x - plus
                     read_gold = text_check_get(x_reg_1 + 10, 35, 825, 55, cla)
                     print("read_gold", read_gold)
-
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\gold2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("gold2", imgs_)
+                        gold_check = True
+                        # 749
+                        x_reg_1 = imgs_.x - plus
+                        read_gold = text_check_get(x_reg_1 + 10, 35, 825, 55, cla)
+                        print("read_gold", read_gold)
+                if gold_check == True:
                     digit_ready = in_number_check(cla, read_gold)
                     print("digit_ready", digit_ready)
                     if digit_ready == True:
@@ -986,18 +1002,40 @@ def mine_check(cla):
                 imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("dia", imgs_)
+                    dia_check1 = True
                     x_reg_2 = imgs_.x - plus
                     # 675
-
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("dia2", imgs_)
+                        dia_check1 = True
+                        x_reg_2 = imgs_.x - plus
+                        # 675
+                if dia_check1 == True:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia_end.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(650, 30, 870, 70, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("dia_end", imgs_)
+                        dia_check2 = True
                         x_reg_2_2 = imgs_.x - plus
                         # 726
-
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia_end2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(650, 30, 870, 70, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("dia_end2", imgs_)
+                            dia_check2 = True
+                            x_reg_2_2 = imgs_.x - plus
+                            # 726
+                if dia_check2 == True:
                     read_dia = text_check_get(x_reg_2 + 10, 35, x_reg_2_2 - 5, 55, cla)
                     print("read_dia", read_dia)
 
