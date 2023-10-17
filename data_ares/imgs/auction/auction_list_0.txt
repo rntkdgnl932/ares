@@ -11,3 +11,5 @@ moogi_majestylord
 moogi_spakelord
 moogi_novalord
 moogi_ranumthamer
+bangpae_caruface
+moogi_firefly
