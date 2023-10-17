@@ -8,3 +8,5 @@ moogi_scabinger
 moogi_silverboolit
 moogi_woolfpack
 moogi_majestylord
+moogi_spakelord
+moogi_novalord
