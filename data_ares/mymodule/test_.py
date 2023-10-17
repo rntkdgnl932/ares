@@ -39,6 +39,33 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\gold.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("gold", imgs_)
+    else:
+        print("gold 안 보여")
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("dia", imgs_)
+    else:
+        print("dia 안 보여")
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia_end.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(650, 30, 870, 70, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("dia_end", imgs_)
+    else:
+        print("dia_end 안 보여")
+
     mine_check(cla)
     # my_property_upload(cla)
     # 0
