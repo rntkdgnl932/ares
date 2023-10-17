@@ -4,6 +4,7 @@ oversear
 p20
 storm_suji
 chacra_staff
+moogi_benom
 moogi_scabinger
 moogi_silverboolit
 moogi_woolfpack
@@ -13,3 +14,4 @@ moogi_novalord
 moogi_ranumthamer
 bangpae_caruface
 moogi_firefly
+module_doyak
