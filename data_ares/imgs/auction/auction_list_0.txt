@@ -4,3 +4,7 @@ oversear
 p20
 storm_suji
 chacra_staff
+moogi_scabinger
+moogi_silverboolit
+moogi_woolfpack
+moogi_majestylord
