@@ -10,3 +10,4 @@ moogi_woolfpack
 moogi_majestylord
 moogi_spakelord
 moogi_novalord
+moogi_ranumthamer
