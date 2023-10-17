@@ -8,3 +8,9 @@ suit_skill_core
 blood_of_drago
 emosion_thunderbooster
 adoom_gnwon
+sungmool_mangse
+sungmool_gonoi
+sungmool_gaho
+sungmool_boho
+sungmool_gwooaneng
+sungmool_yongmang
