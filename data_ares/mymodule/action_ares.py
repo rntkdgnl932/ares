@@ -936,6 +936,15 @@ def mine_check(cla):
     try:
         print("mine_check")
 
+        if cla == "one":
+            plus = 0
+        elif cla == "two":
+            plus = 960
+        elif cla == "three":
+            plus = 960 * 2
+        elif cla == "four":
+            plus = 960 * 3
+
         gold_ = 0
         dia_ = 0
 
@@ -960,7 +969,7 @@ def mine_check(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("gold", imgs_)
                     # 749
-                    x_reg_1 = imgs_.x
+                    x_reg_1 = imgs_.x - plus
                     read_gold = text_check_get(x_reg_1 + 10, 35, 825, 55, cla)
                     print("read_gold", read_gold)
 
@@ -977,7 +986,7 @@ def mine_check(cla):
                 imgs_ = imgs_set_(650, 30, 800, 70, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("dia", imgs_)
-                    x_reg_2 = imgs_.x
+                    x_reg_2 = imgs_.x - plus
                     # 675
 
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\property\\dia_end.PNG"
@@ -986,7 +995,7 @@ def mine_check(cla):
                     imgs_ = imgs_set_(650, 30, 870, 70, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("dia_end", imgs_)
-                        x_reg_2_2 = imgs_.x
+                        x_reg_2_2 = imgs_.x - plus
                         # 726
 
                     read_dia = text_check_get(x_reg_2 + 10, 35, x_reg_2_2 - 5, 55, cla)

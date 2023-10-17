@@ -39,7 +39,8 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    my_property_upload(cla)
+    mine_check(cla)
+    # my_property_upload(cla)
     # 0
     # 390
     # 416
