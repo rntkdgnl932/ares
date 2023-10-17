@@ -13,5 +13,6 @@ moogi_spakelord
 moogi_novalord
 moogi_ranumthamer
 bangpae_caruface
+bangpae_ember
 moogi_firefly
 module_doyak
