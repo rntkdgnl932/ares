@@ -21,6 +21,9 @@ gardiun_juljun_count = 0
 # 메인퀘스트 진행 관련
 main_count = 0
 
+# screen_error
+screen_error = 0
+
 
 # 버젼
 

@@ -404,6 +404,7 @@ def out_check(cla):
     import numpy as np
     import cv2
     from function import imgs_set_
+    from massenger import line_to_me
 
     try:
         print("out_check")
@@ -416,6 +417,7 @@ def out_check(cla):
         imgs_ = imgs_set_(0, 970, 40, 1015, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             go_ = True
+            v_.screen_error = 0
         else:
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -423,6 +425,15 @@ def out_check(cla):
             imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 go_ = True
+                v_.screen_error = 0
+            else:
+                v_.screen_error += 1
+                print("v_.screen_error 200 이상일 때 메세지", v_.screen_error)
+                if v_.screen_error > 200:
+                    why = "화면에 버튼 사라지는 에러"
+                    line_to_me(cla, why)
+                    v_.screen_error = 0
+
         return go_
     except Exception as e:
         print(e)
