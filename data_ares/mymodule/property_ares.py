@@ -71,20 +71,20 @@ def my_property_upload(cla):
         # result_mine[1] => 다이아
 
         # # 파악한 곳 나가기
-        for i in range(10):
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\auction_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_2(940, 45, cla)
-            else:
-                result_out = out_check(cla)
-                if result_out == True:
-                    break
-                else:
-                    clean_screen(cla)
-            time.sleep(0.5)
+        # for i in range(10):
+        #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\auction_title.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_2(940, 45, cla)
+        #     else:
+        #         result_out = out_check(cla)
+        #         if result_out == True:
+        #             break
+        #         else:
+        #             clean_screen(cla)
+        #     time.sleep(0.5)
 
         # 다이아가 0이 아닐때 아래 진행
 

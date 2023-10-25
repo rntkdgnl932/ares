@@ -17,7 +17,7 @@ def go_test():
     from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
-    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c
+    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c, soojib_boonhae_start
     from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play, dungeon_in_raid
     from potion_ares import maul_potion_get, maul_potion_get_full
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
@@ -39,7 +39,8 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    boonhae_start(cla)
+    auction_start(cla)
+
     # my_property_upload(cla)
     # 0
     # 390

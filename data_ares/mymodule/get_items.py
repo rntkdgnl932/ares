@@ -156,9 +156,10 @@ def get_event(cla):
                             # 아랫칸 있을때만...
                             # 업데이트때마다 now_x + (z * 33) - 13 여기서 now_x 숫자 변경해줘야함
                             # z 는 0 부터 시작함에 주의...
-                            now_x = 203
-                            y_up = now_x + (z * 33) - 13
-                            y_down = now_x + (z * 33) + 13
+                            # now_y = 현재y값 - (z * 33)
+                            now_y = 330
+                            y_up = now_y + (z * 33) - 13
+                            y_down = now_y + (z * 33) + 13
 
                             # 현재 이벤트 번호 및 파악할 포인트
                             print(z + 1, y_up, y_down)

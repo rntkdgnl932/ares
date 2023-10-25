@@ -1003,7 +1003,7 @@ def mine_check(cla):
                         # 749
                         x_reg_1 = imgs_.x - plus
                         for i in range(4):
-                            read_gold = text_check_get(x_reg_1 + 10 + i, 35, 825, 55, cla)
+                            read_gold = text_check_get(x_reg_1 + 10 + i, 40, 825, 55, cla)
                             if read_gold == "":
                                 print("골드 못 읽음")
                             else:
@@ -1058,7 +1058,7 @@ def mine_check(cla):
                             # 726
                 if dia_check2 == True:
                     for i in range(4):
-                        read_dia = text_check_get(x_reg_2 + 10 + i, 35, x_reg_2_2 - 5, 55, cla)
+                        read_dia = text_check_get(x_reg_2 + 10 + i, 40, x_reg_2_2 - 5, 55, cla)
                         if read_dia == "":
                             print("다이아 못 읽음")
                         else:

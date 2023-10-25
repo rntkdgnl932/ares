@@ -194,7 +194,7 @@ def auction_sell(cla):
 
                 # 기타 재료 등등
 
-                # click_pos_2(900, 163, cla)
+                # click_pos_2(800, 125, cla)
                 time.sleep(1)
 
                 for i in range(len(auction_list_1)):
@@ -206,7 +206,14 @@ def auction_sell(cla):
                         x_reg = imgs_.x
                         y_reg = imgs_.y
                         click_pos_reg(x_reg, y_reg, cla)
-                        time.sleep(1)
+                        for c in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(780, 1000, 950, 1030, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.1)
 
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\dnglock_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -361,8 +368,6 @@ def auction_sell(cla):
                 print("무기")
                 # 무기
 
-                click_pos_2(845, 143, cla)
-                time.sleep(0.2)
                 mouse_move_cpp(500, 300, cla)
                 time.sleep(1)
 
