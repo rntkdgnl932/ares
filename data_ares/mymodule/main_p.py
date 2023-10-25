@@ -49,7 +49,7 @@ from tuto_grow import tuto_grow_start
 from main_grow import main_grow_start
 from jadong import jadong_start
 from dungeon import dungeon_start
-from get_items import get_item_start
+from get_items import get_item_start, get_event
 from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start, dark_play, dungeon_in_goldrush
 from region_quest import region_quest_start
 from chaejib import chaejib_start
@@ -3336,7 +3336,15 @@ class game_Playing(QThread):
 
                                         print("start")
                                         # 스케쥴
-                                        # 시작
+                                        # 시작 전 이벤트 팝업창 확인
+
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(440, 350, 515, 400, v_.now_cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("event 창 열려 있다.")
+                                            get_event(v_.now_cla)
 
                                         if '/' in result_schedule_:
                                             jadong_spl_ = result_schedule_.split("/")

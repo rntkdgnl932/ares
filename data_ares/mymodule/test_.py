@@ -39,7 +39,8 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    auction_start(cla)
+    get_event(cla)
+
 
     # my_property_upload(cla)
     # 0
