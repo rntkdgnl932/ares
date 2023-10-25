@@ -449,7 +449,7 @@ def auction_sell(cla):
                                             click_pos_reg(x_reg, y_reg, cla)
                                             time.sleep(0.5)
                                             click_pos_2(905, 1015, cla)
-                                            for z in range(10):
+                                            for c in range(10):
                                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
