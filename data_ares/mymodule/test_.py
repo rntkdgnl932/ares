@@ -17,7 +17,7 @@ def go_test():
     from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
-    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c, soojib_boonhae_start
+    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c, soojib_boonhae_start, boonhae_bangugoo
     from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play, dungeon_in_raid
     from potion_ares import maul_potion_get, maul_potion_get_full
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
@@ -39,7 +39,20 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_event(cla)
+    # 방어구 분해
+    for i in range(10):
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(80, 115, 120, 165, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            break
+        else:
+            click_pos_2(50, 140, cla)
+        time.sleep(0.5)
+
+    boonhae_bangugoo(cla)
+    time.sleep(0.5)
 
 
     # my_property_upload(cla)
