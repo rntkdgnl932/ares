@@ -50,7 +50,7 @@ from main_grow import main_grow_start
 from jadong import jadong_start
 from dungeon import dungeon_start
 from get_items import get_item_start, get_event
-from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start, dark_play, dungeon_in_goldrush
+from dungeon import dungeon_in_hangsungpagyun, dungeon_in_sungwoondolpa, dungeon_in_raid, moriagiji_start, dark_play, dungeon_in_goldrush, talook_start
 from region_quest import region_quest_start
 from chaejib import chaejib_start
 from gardiun_mission import gardiun_mission_start
@@ -1017,7 +1017,7 @@ class FirstTab(QWidget):
         dun_g3_name = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
         # dun_g3_list = ['데이모스전장', '모리아기지', 'coming soon']
-        dun_g3_list = ['경쟁 선택', '모리아기지']
+        dun_g3_list = ['경쟁 선택', '모리아기지', '타루크기지']
         dun_g3_name.addItems(dun_g3_list)
 
         dun_g3_stair = QComboBox()
@@ -3385,6 +3385,8 @@ class game_Playing(QThread):
                                             dark_play(v_.now_cla)
                                         elif '모리아기지' in result_schedule_:
                                             moriagiji_start(v_.now_cla, result_schedule_)
+                                        elif '타루크기지' in result_schedule_:
+                                            talook_start(v_.now_cla, result_schedule_)
                                         elif '가디언임무' in result_schedule_:
                                             gardiun_mission_start(v_.now_cla, result_schedule_)
                                         elif '뫼비우스' in result_schedule_:

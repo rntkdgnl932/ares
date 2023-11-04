@@ -744,6 +744,14 @@ def confirm_all(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # 던전 투력 부족 승인하기
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\dun_in_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 560, 600, 610, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
     except Exception as e:
         print(e)
         return 0

@@ -39,20 +39,19 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    # 방어구 분해
-    for i in range(10):
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(80, 115, 120, 165, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            break
-        else:
-            click_pos_2(50, 140, cla)
-        time.sleep(0.5)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_common_monster.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(830, 745, 960, 775, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("moria_common_monster 시작", imgs_)
 
-    boonhae_bangugoo(cla)
-    time.sleep(0.5)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_special_monster.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(775, 745, 890, 775, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("moria_special_monster 시작", imgs_)
 
 
     # my_property_upload(cla)

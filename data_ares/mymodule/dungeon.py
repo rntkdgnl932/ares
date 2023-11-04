@@ -1341,7 +1341,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_common_monster.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(830, 745, 890, 775, cla, img, 0.7)
+                        imgs_ = imgs_set_(830, 745, 960, 775, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(200, y_reg, cla)
                             time.sleep(1)
@@ -2062,6 +2062,835 @@ def juljun_attack_check_moriagiji(cla, where):
         print(e)
         return 0
 
+#################타루크 기지########
+
+def talook_start(cla, dungeon):
+    from potion_ares import juljun_potion_check
+    from jadong import juljun_attack_check
+    from action_ares import map_in, clean_screen
+    try:
+        print("talook_start")
+
+        result_attck = juljun_attack_check_talook(cla, dungeon)
+        if result_attck == "none":
+            print("처음부터 타루크 시작")
+            dungeon_in_talook(cla, dungeon)
+        elif result_attck == "talook_ready":
+            print("맵 이동 후 공격 하면 됨")
+            talook_move(cla, dungeon)
+        elif result_attck == "talook_arrive":
+            print("공격 상태로 만들면 됨.")
+            talook_move(cla, dungeon)
+        else:
+            juljun_potion_check(cla)
+    except Exception as e:
+        print(e)
+        return 0
+
+def dungeon_in_talook(cla, dungeon):
+    import numpy as np
+    import cv2
+    import random
+    import pyautogui
+    from function import click_pos_2, imgs_set_, click_pos_reg
+    from action_ares import menu_open, loading_ares, out_check, clean_screen
+    from schedule import myQuest_play_add
+    try:
+        print("dungeon_in_talook")
+
+        # 타루크기지_1...
+
+        where_dungeon = dungeon.split("_")
+
+        dun_go_ = False
+        dun_go_count = 0
+        while dun_go_ is False:
+            dun_go_count += 1
+            if dun_go_count > 7:
+                dun_go_ = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+
+                print("타루크기지")
+                y_reg = 830 + (int(where_dungeon[1]) * 35)
+
+
+
+                for i in range(10):
+
+
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(100, y_reg, cla)
+                        time.sleep(1)
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_common_monster.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(830, 745, 960, 775, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(100, y_reg, cla)
+                            time.sleep(1)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_special_monster.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(775, 745, 890, 775, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(100, y_reg, cla)
+                                time.sleep(1)
+
+                        click_pos_2(815, 1015, cla)
+                        time.sleep(1)
+
+                        for c in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\already_moria.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(370, 80, 625, 150, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("이미 타루크 기지에 있다.", dungeon)
+                                dun_go_ = True
+                                for z in range(3):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(940, 50, cla)
+                                    else:
+                                        break
+                                    time.sleep(0.5)
+                                break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_lack_time.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(450, 80, 550, 140, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("타루크 기지 끝", dungeon)
+                                    dun_go_ = True
+                                    myQuest_play_add(cla, dungeon)
+                                    time.sleep(0.5)
+                                    for z in range(3):
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(940, 50, cla)
+                                        else:
+                                            break
+                                        time.sleep(0.5)
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\dun_in_confirm.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(480, 560, 600, 610, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            loading_ares(cla)
+                                        else:
+                                            print("이도 저도 아니다.")
+                            time.sleep(0.5)
+
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            loading_ares(cla)
+                            break
+                    time.sleep(0.5)
+
+                for i in range(10):
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        break
+                    else:
+                        time.sleep(0.5)
+
+                if dun_go_ == False:
+                    for x in range(10):
+                        move_ = False
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            move_ = True
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                move_ = True
+
+                        if move_ == True:
+
+                            for z in range(10):
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    dun_go_ = True
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(1)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                # 랜덤 이동하도록 설정하기
+
+                                plus = 0
+
+                                if cla == "two":
+                                    plus = 960
+                                if cla == "three":
+                                    plus = 960 * 2
+                                if cla == "four":
+                                    plus = 960 * 3
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(100, 85, 170, 135, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_click.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(0, 85, 60, 300, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            time.sleep(0.5)
+                                    time.sleep(0.5)
+
+                                y_target = 350
+
+                                if where_dungeon[1] == "1":
+                                    print("1")
+                                    result_i = random.randint(1, 2)
+                                    # y_target = 350, 630
+                                    # y_target = 280, 455, 525
+                                    # y_target = 385, 595, 665
+                                    # y_target = 315, 420, 490, 560, 700
+                                    if result_i == 1:
+                                        y_target = 350
+                                    else:
+                                        y_target = 630
+                                elif where_dungeon[1] == "2":
+                                    print("2")
+                                    result_i = random.randint(1, 3)
+                                    # y_target = 350, 630
+                                    # y_target = 280, 455, 525
+                                    # y_target = 385, 595, 665
+                                    # y_target = 315, 420, 490, 560, 700
+                                    if result_i == 1:
+                                        y_target = 280
+                                    elif result_i == 2:
+                                        y_target = 455
+                                    else:
+                                        y_target = 525
+                                elif where_dungeon[1] == "3":
+                                    print("3")
+                                    result_i = random.randint(1, 3)
+                                    # y_target = 350, 630
+                                    # y_target = 280, 455, 525
+                                    # y_target = 385, 595, 665
+                                    # y_target = 315, 420, 490, 560, 700
+                                    if result_i == 1:
+                                        y_target = 385
+                                    elif result_i == 2:
+                                        y_target = 595
+                                    else:
+                                        y_target = 665
+                                elif where_dungeon[1] == "4":
+                                    print("4")
+                                    result_i = random.randint(1, 5)
+                                    # y_target = 350, 630
+                                    # y_target = 280, 455, 525
+                                    # y_target = 385, 595, 665
+                                    # y_target = 315, 420, 490, 560, 700
+                                    if result_i == 1:
+                                        y_target = 315
+                                    elif result_i == 2:
+                                        y_target = 420
+                                    elif result_i == 3:
+                                        y_target = 490
+                                    elif result_i == 4:
+                                        y_target = 560
+                                    else:
+                                        y_target = 700
+
+                                click_pos_2(100, y_target, cla)
+
+                                #
+                            else:
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    click_pos_2(25, 50, cla)
+                                    time.sleep(0.5)
+                                    click_pos_2(65, 115, cla)
+                                    time.sleep(0.5)
+                                else:
+                                    clean_screen(cla)
+                        time.sleep(1)
+
+                    if dun_go_ == True:
+
+                        time.sleep(5)
+                        for i in range(30):
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                break
+                            else:
+                                print("이동대기")
+                            time.sleep(1)
+                        # 여기에 이동 넣기
+                        for i in range(30):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_moving.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("이동중")
+                            else:
+                                break
+                            time.sleep(1)
+
+                        for j in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("auto_on", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("auto_off", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1)
+                        # 절전모드
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    for i in range(10):
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("auto_on", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("auto_off", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1)
+                            # 절전모드
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+                        time.sleep(1)
+            else:
+                # 타루크기지_1
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\contest_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\gyungjang_big_lock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(570, 400, 760, 545, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("미오픈...완료로 변경")
+                        # add...
+                        myQuest_play_add(cla, dungeon)
+                        dun_go_ = True
+                    else:
+                        click_pos_2(670, 500, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(1)
+                else:
+                    menu_open(cla)
+
+                    click_pos_2(70, 330, cla)
+
+                    for i in range(10):
+
+                        not_available(cla)
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gyungjang_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.7)
+            time.sleep(1)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def talook_move(cla, dungeon):
+    import numpy as np
+    import cv2
+    import random
+    import pyautogui
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import clean_screen, out_check
+    try:
+        print("talook_move")
+
+        where_dungeon = dungeon.split("_")
+
+        map_move_ = False
+        map_move_count = 0
+        while map_move_ is False:
+            map_move_count += 1
+            if map_move_count > 5:
+                map_move_ = True
+
+            move_ = False
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                move_ = True
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(470, 370, 900, 800, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    move_ = True
+
+            if move_ == True:
+                for z in range(10):
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        map_move_ = True
+                        break
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_jadong_move2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 900, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(1)
+            else:
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    # 랜덤 이동하도록 설정하기
+
+                    plus = 0
+
+                    if cla == "two":
+                        plus = 960
+                    if cla == "three":
+                        plus = 960 * 2
+                    if cla == "four":
+                        plus = 960 * 3
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(100, 85, 170, 135, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moglog_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 85, 60, 300, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                        time.sleep(0.5)
+
+                    y_target = 350
+
+                    if where_dungeon[1] == "1":
+                        print("1")
+                        result_i = random.randint(1, 2)
+                        # y_target = 350, 630
+                        # y_target = 280, 455, 525
+                        # y_target = 385, 595, 665
+                        # y_target = 315, 420, 490, 560, 700
+                        if result_i == 1:
+                            y_target = 350
+                        else:
+                            y_target = 630
+                    elif where_dungeon[1] == "2":
+                        print("2")
+                        result_i = random.randint(1, 3)
+                        # y_target = 350, 630
+                        # y_target = 280, 455, 525
+                        # y_target = 385, 595, 665
+                        # y_target = 315, 420, 490, 560, 700
+                        if result_i == 1:
+                            y_target = 280
+                        elif result_i == 2:
+                            y_target = 455
+                        else:
+                            y_target = 525
+                    elif where_dungeon[1] == "3":
+                        print("3")
+                        result_i = random.randint(1, 3)
+                        # y_target = 350, 630
+                        # y_target = 280, 455, 525
+                        # y_target = 385, 595, 665
+                        # y_target = 315, 420, 490, 560, 700
+                        if result_i == 1:
+                            y_target = 385
+                        elif result_i == 2:
+                            y_target = 595
+                        else:
+                            y_target = 665
+                    elif where_dungeon[1] == "4":
+                        print("4")
+                        result_i = random.randint(1, 5)
+                        # y_target = 350, 630
+                        # y_target = 280, 455, 525
+                        # y_target = 385, 595, 665
+                        # y_target = 315, 420, 490, 560, 700
+                        if result_i == 1:
+                            y_target = 315
+                        elif result_i == 2:
+                            y_target = 420
+                        elif result_i == 3:
+                            y_target = 490
+                        elif result_i == 4:
+                            y_target = 560
+                        else:
+                            y_target = 700
+
+                    click_pos_2(100, y_target, cla)
+                else:
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        click_pos_2(25, 50, cla)
+                        time.sleep(0.5)
+                        click_pos_2(65, 115, cla)
+                        time.sleep(0.5)
+                    else:
+                        clean_screen(cla)
+            time.sleep(1)
+
+        if map_move_ == True:
+            time.sleep(5)
+            for i in range(30):
+                result_out = out_check(cla)
+                if result_out == True:
+                    break
+                else:
+                    print("이동대기")
+                time.sleep(1)
+            # 여기에 이동 넣기
+            for i in range(30):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_moving.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(815, 935, 915, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("이동중")
+                else:
+                    break
+                time.sleep(1)
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("auto_on", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("auto_off", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(1)
+            # 절전모드
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def talook_attack(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2, drag_pos
+    from action_ares import clean_screen, out_check
+    try:
+        print("talook_attack")
+
+        for i in range(3):
+            result_out = out_check(cla)
+            if result_out == True:
+                break
+            else:
+                clean_screen(cla)
+            time.sleep(0.5)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            drag_pos(405, 605, 945, 605, cla)
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("auto_on", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("auto_off", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+            time.sleep(1)
+
+
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                for z in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+    except Exception as e:
+        print(e)
+        return 0
+
+def juljun_attack_check_talook(cla, where):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import clean_screen, out_check
+    try:
+        print("juljun_attack_check_talook")
+        go_ = "none"
+
+        check_ready = False
+        check_ready_count = 0
+        while check_ready is False:
+            check_ready_count += 1
+            if check_ready_count > 5:
+                check_ready = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                check_ready = True
+                # 먼저 모리아기지인지 파악
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\talook_juljun_map_title_1_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    # 이건 이동 못한 상태
+                    print("타루크 기지에서 이동 못한 상태1")
+                    go_ = "talook_ready"
+                else:
+
+                    talook_in = False
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\talook_juljun_map_title_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 50, 60, 90, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("타루크 기지인 상태 1")
+                        talook_in = True
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\talook_juljun_map_title_2_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 50, 90, 90, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("타루크 기지인 상태 2")
+                        talook_in = True
+
+
+                    if talook_in == True:
+                        go_ = "talook_arrive"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("자동사냥중")
+                            go_ = "moria_attack"
+                        else:
+                            for i in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("자동사냥중")
+                                    go_ = "moria_attack"
+                                    break
+                                time.sleep(1)
+                    else:
+                        print("완전 다른 곳인 상태")
+
+
+            else:
+                print("절전모드 아니다?")
+                for i in range(10):
+                    result_out = out_check(cla)
+                    if result_out == True:
+
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            for z in range(10):
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.5)
+                        break
+                    else:
+                        clean_screen(cla)
+                    time.sleep(1)
+
+        print("juljun_attack_check_moriagiji", go_)
+
+        return go_
+    except Exception as e:
+        print(e)
+        return 0
+###########################
 
 def dark_play(cla):
     import numpy as np
@@ -2239,7 +3068,7 @@ def dungeon_in_tarukgiji(cla, dungeon):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_common_monster.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(830, 745, 890, 775, cla, img, 0.7)
+                        imgs_ = imgs_set_(830, 745, 960, 775, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(200, y_reg, cla)
                             time.sleep(1)
@@ -2468,25 +3297,26 @@ def dungeon_in_tarukgiji(cla, dungeon):
                                 break
                             time.sleep(1)
 
-
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("auto_on", imgs_)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.1)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                        else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                        for j in range(5):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("auto_off", imgs_)
+                                print("auto_on", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(1)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("auto_off", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1)
                         # 절전모드
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
