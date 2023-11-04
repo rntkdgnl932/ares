@@ -17,6 +17,8 @@ dark_demen_count = 0
 region_click = 0
 # 가디언 임무 관련
 gardiun_juljun_count = 0
+# 타루크기지 관련
+talook_dead = 0
 
 # 메인퀘스트 진행 관련
 main_count = 0

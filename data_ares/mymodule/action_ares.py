@@ -147,6 +147,14 @@ def dead_die(cla, schedule):
         #     if imgs_ is not None and imgs_ != False:
         #         click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        if deaded == True or deaded2 == True:
+            if '타루크기지' in schedule:
+                v_.talook_dead += 1
+                print("타루크기지 카운트", v_.talook_dead)
+                if v_.talook_dead > 3:
+                    myQuest_play_add(cla, schedule)
+                    time.sleep(0.1)
+
         return deaded
     except Exception as e:
         print(e)

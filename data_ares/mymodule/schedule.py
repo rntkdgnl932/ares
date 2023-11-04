@@ -180,6 +180,7 @@ def myQuest_play_check(cla, data):
                 v_.dark_demen_count = 0
                 # v_.penetra = False
                 # v_.gorgon = False
+                v_.talook_dead = 0
 
 
         else:
@@ -630,6 +631,7 @@ def myQuest_play_add(cla, data):
             v_.dark_demen_count = 0
             # v_.penetra = False
             # v_.gorgon = False
+            v_.talook_dead = 0
 
 
         add_result = 'check'
