@@ -1323,7 +1323,7 @@ def dungeon_in_moriagiji(cla, dungeon):
             if imgs_ is not None and imgs_ != False:
 
                 print("모리아기지")
-                y_reg = 830 + (int(where_dungeon[1]) * 35)
+                y_reg = 795 + (int(where_dungeon[1]) * 35)
 
 
 
