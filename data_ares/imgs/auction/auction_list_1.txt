@@ -1,5 +1,6 @@
 igis_low
 kestos_low
+kestos_middle
 jamsic_heart
 gardiun_wisdom
 gardiun_gagin
