@@ -39,8 +39,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    monster_dogam(cla)
-
+    get_event(cla)
 
     # my_property_upload(cla)
     # 0
