@@ -1281,7 +1281,7 @@ def moriagiji_start(cla, dungeon):
             dungeon_in_moriagiji(cla, dungeon)
         elif result_attck == "moria_ready":
             print("맵 이동 후 공격 하면 됨")
-            moriagiji_move(cla)
+            moriagiji_move(cla, dungeon)
             # moriagiji_attack(cla)
         elif result_attck == "moria_arrive":
             print("공격 상태로 만들면 됨.")
