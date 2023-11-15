@@ -1457,6 +1457,8 @@ def dungeon_in_moriagiji(cla, dungeon):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_1.PNG"
                             elif where_dungeon[1] == "2":
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_2.PNG"
+                            elif where_dungeon[1] == "3":
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_3.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(10, 10, 170, 100, cla, img, 0.7)
@@ -1846,7 +1848,7 @@ def moriagiji_move(cla, dungeon):
                     #     if imgs_ is not None and imgs_ != False:
                     #         click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
-                    print("지도열기(where_dungeon[1])", where_dungeon[1])
+                    
                     result_out = out_check(cla)
                     if result_out == True:
                         click_pos_2(25, 50, cla)
