@@ -1744,6 +1744,8 @@ def moriagiji_move(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_1.PNG"
                 elif where_dungeon[1] == "2":
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_2.PNG"
+                elif where_dungeon[1] == "3":
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_map_3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 10, 170, 100, cla, img, 0.7)
@@ -2011,34 +2013,44 @@ def juljun_attack_check_moriagiji(cla, where):
                         print("모리아 기지에서 이동 못한 상태2")
                         go_ = "moria_ready"
                     else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1_3.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             # 이건 이동 못한 상태
-                            print("모리아 기지인 상태")
-                            go_ = "moria_arrive"
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                            print("모리아 기지에서 이동 못한 상태2")
+                            go_ = "moria_ready"
+
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                            imgs_ = imgs_set_(10, 50, 90, 90, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("자동사냥중")
-                                go_ = "moria_attack"
+                                # 이건 이동 못한 상태
+                                print("모리아 기지인 상태")
+                                go_ = "moria_arrive"
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("자동사냥중")
+                                    go_ = "moria_attack"
+                                else:
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("자동사냥중")
+                                            go_ = "moria_attack"
+                                            break
+                                        time.sleep(1)
                             else:
-                                for i in range(10):
-                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("자동사냥중")
-                                        go_ = "moria_attack"
-                                        break
-                                    time.sleep(1)
-                        else:
-                            print("완전 다른 곳인 상태")
+                                print("완전 다른 곳인 상태")
 
             else:
                 print("절전모드 아니다?")
