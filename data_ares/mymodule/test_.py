@@ -39,7 +39,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_event(cla)
+    get_gardiun_rank(cla)
 
     # my_property_upload(cla)
     # 0

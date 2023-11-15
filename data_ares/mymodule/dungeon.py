@@ -1848,7 +1848,7 @@ def moriagiji_move(cla, dungeon):
                     #     if imgs_ is not None and imgs_ != False:
                     #         click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
-                    
+
                     result_out = out_check(cla)
                     if result_out == True:
                         click_pos_2(25, 50, cla)
