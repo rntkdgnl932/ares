@@ -1649,7 +1649,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(480, 500, cla)
+                        click_pos_2(380, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -2484,7 +2484,7 @@ def dungeon_in_talook(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        click_pos_2(670, 500, cla)
+                        click_pos_2(570, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)

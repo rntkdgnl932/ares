@@ -184,19 +184,19 @@ def soohosuk(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(830, 150, 865, 180, cla, img, 0.8)
+                            imgs_ = imgs_set_(800, 150, 830, 180, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 ispoint = True
                             else:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(830, 150, 865, 180, cla, img, 0.8)
+                                imgs_ = imgs_set_(800, 150, 830, 180, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     ispoint = True
 
                             if ispoint == True:
-                                click_pos_2(840, 180, cla)
+                                click_pos_2(810, 180, cla)
                             else:
                                 sooho_up = True
                                 break
@@ -409,19 +409,19 @@ def hoilodo(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(930, 150, 960, 180, cla, img, 0.8)
+                            imgs_ = imgs_set_(895, 150, 935, 180, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 ispoint = True
                             else:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(930, 150, 960, 180, cla, img, 0.8)
+                                imgs_ = imgs_set_(895, 150, 935, 180, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     ispoint = True
 
                             if ispoint == True:
-                                click_pos_2(935, 175, cla)
+                                click_pos_2(905, 175, cla)
                             else:
                                 hoilodo_up = True
                                 break

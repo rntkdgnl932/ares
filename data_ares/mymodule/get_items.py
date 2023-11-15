@@ -12,7 +12,7 @@ def get_item_start(cla):
     from potion_ares import maul_potion_get
     from guild_ares import guild_attendance
     try:
-        print("get_item_start")
+        print("get_item_start..")
         get_event(cla)
         time.sleep(0.1)
         get_sangjum_sohwan(cla)
@@ -20,6 +20,8 @@ def get_item_start(cla):
         get_post(cla)
         time.sleep(0.1)
         get_gardiun_pass(cla)
+        time.sleep(0.1)
+        get_season_pass(cla)
         time.sleep(0.1)
         get_gardiun_rank(cla)
         time.sleep(0.1)
@@ -807,6 +809,73 @@ def get_gardiun_pass(cla):
         print(e)
         return 0
 
+def get_season_pass(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import menu_open
+
+    try:
+        print("get_season_pass")
+        gardiun_ready = False
+        gardiun_ready_count = 0
+        while gardiun_ready is False:
+            gardiun_ready_count += 1
+            if gardiun_ready_count > 5:
+                gardiun_ready = True
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hondon_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("hondon_title 창 열렸다.")
+                gardiun_ready = True
+
+
+                for i in range(2):
+                    click_pos_2(110, 100, cla)
+                    time.sleep(1)
+                    click_pos_2(695, 1015, cla)
+                    time.sleep(0.2)
+                    click_pos_2(795, 1015, cla)
+                    time.sleep(0.2)
+
+
+
+                # 이벤트 창 닫기
+                for i in range(5):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hondon_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(940, 50, cla)
+                    else:
+                        break
+                    time.sleep(0.2)
+                time.sleep(0.1)
+            else:
+                menu_open(cla)
+                click_pos_2(65, 165, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hondon_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.3)
+
+            time.sleep(1)
+
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
 def get_gardiun_rank(cla):
     import numpy as np
     import cv2
@@ -897,7 +966,7 @@ def get_gardiun_rank(cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_post_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(805, 155, 830, 175, cla, img, 0.7)
+                imgs_ = imgs_set_(930, 85, 960, 120, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
                 else:
@@ -1064,7 +1133,7 @@ def bag_item_open(cla):
                 print("bag 창 열렸다.")
                 bag_item_open_ready = True
 
-                click_pos_2(50, 240, cla)
+                click_pos_2(50, 270, cla)
                 time.sleep(1)
 
                 dir_path = "C:\\my_games\\ares"
@@ -1180,9 +1249,9 @@ def bag_item_open(cla):
                             break
                     time.sleep(1)
 
-                click_pos_2(50, 240, cla)
+                click_pos_2(50, 270, cla)
                 time.sleep(0.1)
-                click_pos_2(50, 240, cla)
+                click_pos_2(50, 270, cla)
                 time.sleep(1)
 
                 dir_path = "C:\\my_games\\ares"
@@ -1231,7 +1300,7 @@ def bag_item_open(cla):
                         time.sleep(0.3)
                     if is_box == True:
                         for y in range(3):
-                            click_pos_2(50, 240, cla)
+                            click_pos_2(50, 270, cla)
                             time.sleep(0.3)
 
 
