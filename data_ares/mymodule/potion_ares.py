@@ -42,7 +42,7 @@ def maul_potion_get(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check, confirm_all, maul_go
+    from action_ares import clean_screen, out_check, confirm_all, maul_go, dead_die
     from powerup_ares import power_up_start
     from soojib_boonhae import soojib_boonhae_start
     try:
@@ -58,6 +58,8 @@ def maul_potion_get(cla):
 
         result_maul = maul_go(cla)
         if result_maul == True:
+
+            dead_die(cla, "check")
 
             potion_go = False
             potion_go_count = 0
@@ -161,7 +163,7 @@ def maul_potion_get_full(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check, confirm_all, maul_go
+    from action_ares import clean_screen, out_check, confirm_all, maul_go, dead_die
     from powerup_ares import power_up_start
     from soojib_boonhae import soojib_boonhae_start
     try:
@@ -177,6 +179,8 @@ def maul_potion_get_full(cla):
 
         result_maul = maul_go(cla)
         if result_maul == True:
+
+            dead_die(cla, "check")
 
             potion_go = False
             potion_go_count = 0
