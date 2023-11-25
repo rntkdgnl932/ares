@@ -79,6 +79,16 @@ def dead_die(cla, schedule):
             deaded2 = True
 
         if deaded2 == True:
+
+            for i in range(10):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 380, 530, 430, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                time.sleep(0.3)
+
             dead_ = False
             dead_count = 0
             while dead_ is False:
