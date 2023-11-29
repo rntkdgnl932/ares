@@ -172,6 +172,7 @@ def season_dungeon_in_mobius(cla, dungeon):
         print(e)
         return 0
 
+# 어비스
 def season_dungeon_in_ubis_ing(cla, dungeon):
     import numpy as np
     import cv2
@@ -335,6 +336,142 @@ def season_dungeon_in_ubis(cla, dungeon):
                                 time.sleep(0.5)
                             break
                         time.sleep(0.5)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+# 배틀 시뮬레이션
+def season_dungeon_in_battle_ing(cla, dungeon):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from schedule import myQuest_play_add
+    try:
+        print("season_dungeon_in_battle_ing")
+        ing_ = True
+        while ing_ is True:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_fail.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(430, 270, 540, 360, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("season_dungeon_in_battle_ing : failed", imgs_)
+                myQuest_play_add(cla, dungeon)
+                ing_ = False
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_exit.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(300, 1000, 800, 1040, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("battle 나가기")
+                        click_pos_2(555, 1015, cla)
+                        break
+                    time.sleep(0.2)
+
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\battle_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("season_dungeon_in_battle_ing : battle_title", imgs_)
+                    myQuest_play_add(cla, dungeon)
+                    ing_ = False
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\sungwoon_clear.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(430, 270, 540, 360, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("season_dungeon_in_battle_ing : clear", imgs_)
+                        click_pos_2(555, 1015, cla)
+
+            print("battle 체크 카운터 10... => ")
+            time.sleep(1)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def season_dungeon_in_battle(cla, dungeon):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_, click_pos_reg, mouse_move_cpp
+    from action_ares import menu_open, loading_ares
+    from schedule import myQuest_play_add
+    try:
+        print("season_dungeon_in_battle")
+
+        where_dungeon = dungeon.split("_")
+
+        sd_in_ = False
+        sd_in_count = 0
+        while sd_in_ is False:
+            sd_in_count += 1
+            if sd_in_count > 4:
+                sd_in_ = True
+                myQuest_play_add(cla, dungeon)
+                time.sleep(0.2)
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\battle_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(820, 1015, cla)
+                # 로딩
+                for i in range(20):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\alrim.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 450, 500, 500, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(535, 585, cla)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 400, 700, 700, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        loading_ares(cla)
+                        # ing
+                        season_dungeon_in_battle_ing(cla, dungeon)
+                        sd_in_ = True
+                        break
+                    time.sleep(0.7)
+
+
+
+
+            else:
+                menu_open(cla)
+                click_pos_2(80, 160, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\hondon_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(620, 190, cla)
+                        for z in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\season_dungeon\\battle_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
+                        break
+                    time.sleep(0.5)
 
 
 

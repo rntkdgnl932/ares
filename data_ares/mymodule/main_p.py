@@ -58,7 +58,7 @@ from auction_ares import auction_start
 from potion_ares import maul_potion_get_full
 from log_ares import character_change
 
-from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis
+from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis, season_dungeon_in_battle
 
 from temporary_event import event_dungeon_start
 
@@ -3392,7 +3392,8 @@ class game_Playing(QThread):
                                         elif '뫼비우스' in result_schedule_:
                                             season_dungeon_in_mobius(v_.now_cla, result_schedule_)
                                         elif '어비스' in result_schedule_:
-                                            season_dungeon_in_ubis(v_.now_cla, result_schedule_)
+                                            # season_dungeon_in_ubis(v_.now_cla, result_schedule_)
+                                            season_dungeon_in_battle(v_.now_cla, result_schedule_)
                                         else:
                                             if '_' in result_schedule_:
                                                 data_ = result_schedule_.split("_")

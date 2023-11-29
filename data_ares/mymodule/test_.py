@@ -26,6 +26,7 @@ def go_test():
     from guild_ares import guild_attendance
     from log_ares import character_change
     from property_ares import my_property_upload
+    from season_dungeon import season_dungeon_in_battle
 
     print("tst")
     cla = "one"
@@ -39,7 +40,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_gardiun_rank(cla)
+    season_dungeon_in_battle(cla, "dungeon")
 
     # my_property_upload(cla)
     # 0
