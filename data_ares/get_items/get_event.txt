@@ -1,9 +1,9 @@
-1:seven
-2:six
-3:seven_six
-4:seven
-5:pass
-6:pass
+1:pass
+2:seven
+3:six
+4:seven_six
+5:seven
+6:six
 7:fourteen
 8:fourteen
 9:four
