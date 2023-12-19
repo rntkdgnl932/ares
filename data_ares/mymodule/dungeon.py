@@ -3012,6 +3012,7 @@ def dark_play(cla):
             dark_count = 0
             while dark_ is False:
                 dark_count += 1
+                print("dark", dark_count)
                 if dark_count > 300:
                     dark_ = True
                     v_.dark_demen = False

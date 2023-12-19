@@ -174,6 +174,8 @@ def go_hangsun_map(cla, where):
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
                     elif where_split[1] == "ocooloos":
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
+                    elif where_split[1] == "galatea":
+                        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\galatea_map_title.PNG"
                     full_path = spot_pic
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -247,6 +249,8 @@ def go_spot_in(cla, where):
                 spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jalis_map_title.PNG"
             elif where_split[1] == "ocooloos":
                 spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
+            elif where_split[1] == "galatea":
+                spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\galatea_map_title.PNG"
             full_path = spot_pic
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -297,6 +301,12 @@ def go_spot_in(cla, where):
                         # 오쿨루스 위치 클릭하기
                         click_pos_2(10, 240, cla)
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
+                    elif where_split[1] == "galatea":
+                        print("galatea")
+                        # 갈라테아 위치 클릭하기
+                        click_pos_2(800, 295, cla)
+                        spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
+
                     for i in range(20):
                         full_path = spot_pic
                         img_array = np.fromfile(full_path, np.uint8)
@@ -338,14 +348,16 @@ def go_spot_click(cla, where):
         dir_path = "C:\\my_games\\ares\\data_ares"
         if where_split[1] == "edan":
             file_path = dir_path + "\\jadong\\ares_edan.txt"
-        if where_split[1] == "elia":
+        elif where_split[1] == "elia":
             file_path = dir_path + "\\jadong\\ares_elia.txt"
-        if where_split[1] == "loona":
+        elif where_split[1] == "loona":
             file_path = dir_path + "\\jadong\\ares_loona.txt"
-        if where_split[1] == "jalis":
+        elif where_split[1] == "jalis":
             file_path = dir_path + "\\jadong\\ares_jalis.txt"
-        if where_split[1] == "ocooloos":
+        elif where_split[1] == "ocooloos":
             file_path = dir_path + "\\jadong\\ares_ocooloos.txt"
+        elif where_split[1] == "galatea":
+            file_path = dir_path + "\\jadong\\ares_galatea.txt"
 
         result_data = "none"
         if os.path.isfile(file_path) == True:
@@ -395,6 +407,9 @@ def go_spot_click(cla, where):
             elif where_split[1] == "ocooloos":
                 print("ocooloos")
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
+            elif where_split[1] == "galatea":
+                print("galatea")
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\galatea_map_title.PNG"
 
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -754,6 +769,8 @@ def spot_moglog(cla, where):
             file_path = dir_path + "\\jadong\\ares_jalis_moglog.txt"
         if where_split[1] == "ocooloos":
             file_path = dir_path + "\\jadong\\ares_ocooloos_moglog.txt"
+        if where_split[1] == "galatea":
+            file_path = dir_path + "\\jadong\\ares_galatea_moglog.txt"
 
         with open(file_path, "r", encoding='utf-8-sig') as file:
             read_data = file.read().splitlines()

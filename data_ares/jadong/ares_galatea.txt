@@ -1,0 +1,17 @@
+60_cy_ba_no_no/525,570,590,650/영혼의안식처/galatea
+61_ba_no_mi_pk2/540,900,600,950/얼어붙은오아시스/galatea
+62_me_no_cu_no/780,910,850,980/찬바람협곡/galatea
+63_me_no_mi_no/850,770,910,830/외로운도착지/galatea
+63_cy_no_mi_pk2/900,630,960,690/에모시온1/galatea
+64_cy_gi_no_no/870,470,935,550/에모시온2/galatea
+64_ba_no_cu_no/850,310,920,380/에모시온본부/galatea
+65_cy_gi_no_no/690,510,750,570/비켄채굴지/galatea
+66_me_no_cu_no/360,570,430,650/고요한점령지/galatea
+66_ba_no_mi_no/300,500,380,580/원혼의부활지/galatea
+66_ba_gi_no_no/610,450,680,520/비켄채굴캠프/galatea
+67_ba_gi_no_pk2/200,870,260,940/타이탄생산소/galatea
+67_cy_gi_no_no/230,690,300,760/타이탄생산소별관/galatea
+68_me_no_mi_pk2/430,370,500,450/악명의폐허/galatea
+68_me_gi_no_no/130,470,230,580/서리깊은동굴앞/galatea
+69_cy_no_cu_no/140,330,200,400/서리깊은동굴/galatea
+70_no_no_no_pk1/340,200,400,270/침묵하는언덕/galatea

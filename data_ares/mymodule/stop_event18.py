@@ -21,7 +21,7 @@ def _stop_please(cla):
         stop_count = 0
         while stop is True:
             stop_count += 1
-            if stop_count > 10:
+            if stop_count > 5:
                 stop = False
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\18_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -64,6 +64,14 @@ def _stop_please(cla):
             if imgs_ is not None and imgs_ != False:
                 print("season_start")
                 click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\season_start2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 460, 530, 510, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("season_start3")
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sohwan__confirm.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -73,7 +81,7 @@ def _stop_please(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.2)
 
-            time.sleep(0.3)
+            time.sleep(0.2)
 
     except Exception as e:
         print(e)

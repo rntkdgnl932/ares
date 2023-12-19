@@ -53,9 +53,14 @@ def dead_die(cla, schedule):
                 get_item_start(cla)
                 why = "튜토하다 죽었다. 손 좀 보자"
                 line_to_me(cla, why)
-            if schedule == "메인퀘스트":
+            elif schedule == "메인퀘스트":
                 get_item_start(cla)
                 why = "메인퀘하다 죽었다. 손 좀 보자"
+                line_to_me(cla, why)
+                myQuest_play_add(cla, schedule)
+            elif "지역퀘스트" in schedule:
+                get_item_start(cla)
+                why = "지역퀘스트 죽었다. 손 좀 보자"
                 line_to_me(cla, why)
                 myQuest_play_add(cla, schedule)
 
@@ -189,7 +194,10 @@ def clean_screen(cla):
         imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
 
-            for i in range(3):
+            for i in range(2):
+
+                print("클린스크린 순환", i + 1)
+
                 # 절전모드일 경우 풀기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -223,7 +231,7 @@ def clean_screen(cla):
                 imgs_ = imgs_set_(340, 380, 440, 450, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y - 100, cla)
-                    time.sleep(2)
+                    time.sleep(1)
                     confirm_all(cla)
 
 
@@ -264,7 +272,6 @@ def clean_screen(cla):
                             imgs_ = imgs_set_(480, 555, 630, 630, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.2)
                             else:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -274,7 +281,7 @@ def clean_screen(cla):
 
                                     loading_ares(cla)
                                     break
-                            time.sleep(0.5)
+                            time.sleep(0.3)
 
                 # 메뉴 닫기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"

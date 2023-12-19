@@ -155,7 +155,7 @@ class MyApp(QDialog):
         # pyinstaller --hidden-import PyQt5 --hidden-import pyserial --hidden-import requests --hidden-import chardet --add-data="C:\\my_games\\ares\\data_ares;./data_ares" --name ares -i="ares_macro.ico" --add-data="ares_macro.ico;./" --icon="ares_macro.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
 
         # self.setGeometry(1000 + 960 + 960, 300, 900, 600)
-        self.setGeometry(20, 200, 900, 700)
+        self.setGeometry(5, 200, 900, 700)
         self.show()
     def my_title(self):
         self.setWindowTitle("아레스(ver " + version + ")")
@@ -1041,6 +1041,7 @@ class FirstTab(QWidget):
         file_path2 = dir_path + "\\jadong\\ares_loona.txt"
         file_path3 = dir_path + "\\jadong\\ares_jalis.txt"
         file_path4 = dir_path + "\\jadong\\ares_ocooloos.txt"
+        file_path5 = dir_path + "\\jadong\\ares_galatea.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
@@ -1065,28 +1066,28 @@ class FirstTab(QWidget):
                 read_jalis = file.read().splitlines()
                 list555 = []
                 for i in range(len(read_jalis)):
-                    read_2_ready = read_jalis[i].split("/")
-                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
-                    list555.append(read_2_result)
+                    read_3_ready = read_jalis[i].split("/")
+                    read_3_result = read_3_ready[2] + "/" + read_3_ready[0]
+                    list555.append(read_3_result)
                 list555.insert(0, "< 자리스 >")
 
             with open(file_path4, "r", encoding='utf-8-sig') as file:
                 read_ocooloos = file.read().splitlines()
                 list5555 = []
                 for i in range(len(read_ocooloos)):
-                    read_2_ready = read_ocooloos[i].split("/")
-                    read_2_result = read_2_ready[2] + "/" + read_2_ready[0]
-                    list5555.append(read_2_result)
+                    read_4_ready = read_ocooloos[i].split("/")
+                    read_4_result = read_4_ready[2] + "/" + read_4_ready[0]
+                    list5555.append(read_4_result)
                 list5555.insert(0, "< 오쿨루스 >")
 
-            # with open(file_path3, "r", encoding='utf-8-sig') as file:
-            #     read_1 = file.read()
-            #     read_1 = read_1.split(":")
-            #     read_1 = "< 첼라노 >/" + read_1[1]
-            #     read_1 = read_1.split("/")
-            #     list555 = []
-            #     for i in range(len(read_1)):
-            #         list555.append(read_1[i])
+            with open(file_path5, "r", encoding='utf-8-sig') as file:
+                read_galatea = file.read().splitlines()
+                list55555 = []
+                for i in range(len(read_galatea)):
+                    read_5_ready = read_galatea[i].split("/")
+                    read_5_result = read_5_ready[2] + "/" + read_5_ready[0]
+                    list55555.append(read_5_result)
+                list55555.insert(0, "< 갈라테아 >")
 
         self.com_group5 = QGroupBox('자동사냥터')
         cb5 = QComboBox()
@@ -1113,6 +1114,12 @@ class FirstTab(QWidget):
         jadong4 = QPushButton('오쿨루스 추가')
         jadong4.clicked.connect(self.onActivated_hunt_add_4)
 
+        cb55555 = QComboBox()
+        # list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
+        cb55555.addItems(list55555)
+        jadong5 = QPushButton('갈라테아 추가')
+        jadong5.clicked.connect(self.onActivated_hunt_add_5)
+
 
         vbox5_1 = QHBoxLayout()
         vbox5_1.addWidget(cb5)
@@ -1130,11 +1137,16 @@ class FirstTab(QWidget):
         vbox5_4.addWidget(cb5555)
         vbox5_4.addWidget(jadong4)
 
+        vbox5_5 = QHBoxLayout()
+        vbox5_5.addWidget(cb55555)
+        vbox5_5.addWidget(jadong5)
+
         lastbox = QVBoxLayout()
         lastbox.addLayout(vbox5_1)
         lastbox.addLayout(vbox5_2)
         lastbox.addLayout(vbox5_3)
         lastbox.addLayout(vbox5_4)
+        lastbox.addLayout(vbox5_5)
 
 
         self.com_group5.setLayout(lastbox)
@@ -1861,6 +1873,26 @@ class FirstTab(QWidget):
             elif onCla == "Three" or onCla == "Four":
                 data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
 
+
+            print(data)
+            self.onActivated_hunt_add2(data)
+
+    def onActivated_hunt_add_5(self):
+        global onCharacter, onHunt5
+        char_ = onCharacter
+        hun_ = "사냥/galatea/" + onHunt5
+        if onCharacter == 0:
+            pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
+        elif onHunt5 == '< 갈라테아 >' or onHunt5 == 'none':
+            pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
+        elif onCharacter != 0 and onHunt5 != '< 갈라테아 >':
+            print('char_', char_)
+            print('dun_', hun_)
+
+            if onCla == "One" or onCla == "Two":
+                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
+            elif onCla == "Three" or onCla == "Four":
+                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
 
             print(data)
             self.onActivated_hunt_add2(data)
@@ -3446,7 +3478,7 @@ class game_Playing(QThread):
                                 os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-                time.sleep(5)
+                time.sleep(1)
 
 
 
