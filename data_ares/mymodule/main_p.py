@@ -95,6 +95,7 @@ onHunt = "none"
 onHunt2 = "none"
 onHunt3 = "none"
 onHunt4 = "none"
+onHunt5 = "none"
 onMaul = "none"
 
 
@@ -1175,6 +1176,7 @@ class FirstTab(QWidget):
         cb55.activated[str].connect(self.onActivated_hunt2)  # 요건 함수
         cb555.activated[str].connect(self.onActivated_hunt3)  # 요건 함수
         cb5555.activated[str].connect(self.onActivated_hunt4)  # 요건 함수
+        cb55555.activated[str].connect(self.onActivated_hunt5)  # 요건 함수
         cb6.activated[str].connect(self.onActivated_maul)  # 요건 함수
 
         # self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -1668,6 +1670,16 @@ class FirstTab(QWidget):
         else:
             onHunt4 = 'none'
             pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='오쿨루스')
+            print("자동 사냥터를 선택해 주세요.")
+
+    def onActivated_hunt5(self, text):
+        global onHunt5
+        if text != 0 and text != '< 갈라테아 >':
+            onHunt5 = text
+            print('onHunt5', onHunt5)
+        else:
+            onHunt5 = 'none'
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='갈라테아')
             print("자동 사냥터를 선택해 주세요.")
 
     def onActivated_maul(self, text):
