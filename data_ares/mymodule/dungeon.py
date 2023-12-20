@@ -296,7 +296,7 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        event = 0
+                        event = 80
                         click_pos_2(280 - event, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hangsungpagyun_title.PNG"
@@ -498,7 +498,7 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        event = 0
+                        event = 80
                         click_pos_2(480 - event, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\sungwoon_title.PNG"
@@ -721,7 +721,7 @@ def dungeon_in_goldrush(cla, dungeon):
                         myQuest_play_add(cla, dungeon)
                         dun_go_ = True
                     else:
-                        event = 0
+                        event = 80
                         click_pos_2(670 - event, 500, cla)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\goldrush_title.PNG"
