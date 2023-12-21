@@ -40,7 +40,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    season_dungeon_in_battle(cla, "dungeon")
+    confirm_all(cla)
 
     # my_property_upload(cla)
     # 0

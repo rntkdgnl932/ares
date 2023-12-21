@@ -2937,7 +2937,7 @@ def juljun_attack_check_talook(cla, where):
 def dark_play(cla):
     import numpy as np
     import cv2
-    from action_ares import map_in, clean_screen
+    from action_ares import map_in, clean_screen, confirm_all
     from function import click_pos_reg, imgs_set_, click_pos_2
     try:
         print("dark_play")
@@ -3005,6 +3005,10 @@ def dark_play(cla):
                                     time.sleep(0.5)
                                 time.sleep(1)
         if v_.dark_demen == True:
+
+            time.sleep(2)
+            confirm_all(cla)
+
 
             v_.dark_demen_count += 1
 
