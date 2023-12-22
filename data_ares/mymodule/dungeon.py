@@ -1269,14 +1269,44 @@ def dungeon_in_raid_ex(cla, dungeon):
 
 
 def moriagiji_start(cla, dungeon):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, drag_pos
     from potion_ares import juljun_potion_check
     from jadong import juljun_attack_check
-    from action_ares import map_in, clean_screen
+    from action_ares import map_in, clean_screen, dead_die
     try:
         print("moriagiji_start")
 
         result_attck = juljun_attack_check_moriagiji(cla, dungeon)
-        if result_attck == "none":
+        if result_attck == "none" and result_attck == "dead":
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                drag_pos(405, 605, 945, 605, cla)
+                time.sleep(0.5)
+                for i in range(10):
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(270, 800, 600, 1030, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        dead_die(cla, dungeon)
+                        break
+                    else:
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+                            dead_die(cla, dungeon)
+                            break
+
+                    time.sleep(0.1)
+
+
             print("처음부터 모리아 시작")
             dungeon_in_moriagiji(cla, dungeon)
         elif result_attck == "moria_ready":
@@ -1999,6 +2029,18 @@ def juljun_attack_check_moriagiji(cla, where):
         print("juljun_attack_check_moriagiji")
         go_ = "none"
 
+        # 행성파견_1_1, 성운돌파_1_1, 레이드_1_1, 모리아기지_1
+
+        where_dungeon = where.split("_")
+
+        # if where_dungeon[0] == "행성파견" or where_dungeon[0] == "성운돌파":
+        #     title = "dojun_title"
+        # elif where_dungeon[0] == "레이드":
+        #     title = "hyubdong_title"
+        # elif where_dungeon[0] == "모리아기지" or where_dungeon[0] == "타루크기지":
+        #     title = "gyungjang_title"
+
+
         check_ready = False
         check_ready_count = 0
         while check_ready is False:
@@ -2066,6 +2108,15 @@ def juljun_attack_check_moriagiji(cla, where):
                                             print("자동사냥중")
                                             go_ = "moria_attack"
                                             break
+                                        else:
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\dead.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("죽었음", imgs_)
+                                                go_ = "dead"
+                                                break
                                         time.sleep(1)
                             else:
                                 print("완전 다른 곳인 상태")
