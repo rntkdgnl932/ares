@@ -956,7 +956,9 @@ def loading_ares(cla):
 
 
 def map_in(cla):
-    from function import click_pos_2
+    import numpy as np
+    import cv2
+    from function import click_pos_2, imgs_set_
     try:
         print("map_in")
         clean_screen(cla)
@@ -981,7 +983,7 @@ def map_in(cla):
                 break
             time.sleep(0.1)
 
-        if quest_ing == True
+        if quest_ing == True:
             for i in range(10):
                 result_out = out_check(cla)
                 if result_out == True:
