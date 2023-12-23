@@ -129,7 +129,7 @@ def go_hangsun_map(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import out_check, clean_screen
+    from action_ares import out_check, clean_screen, map_in
     try:
         print("go_hangsun_map")
 
@@ -204,9 +204,7 @@ def go_hangsun_map(cla, where):
 
                 else:
                     # 지도 클릭
-                    click_pos_2(25, 50, cla)
-                    time.sleep(0.5)
-                    click_pos_2(65, 115, cla)
+                    map_in(cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)

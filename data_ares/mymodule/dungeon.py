@@ -1330,7 +1330,7 @@ def dungeon_in_moriagiji(cla, dungeon):
     import random
     import pyautogui
     from function import click_pos_2, imgs_set_, click_pos_reg
-    from action_ares import menu_open, loading_ares, out_check, clean_screen
+    from action_ares import menu_open, loading_ares, out_check, clean_screen, map_in
     from schedule import myQuest_play_add
     try:
         print("dungeon_in_moriagiji")
@@ -1576,10 +1576,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                             else:
                                 result_out = out_check(cla)
                                 if result_out == True:
-                                    click_pos_2(25, 50, cla)
-                                    time.sleep(0.5)
-                                    click_pos_2(65, 115, cla)
-                                    time.sleep(0.5)
+                                    map_in(cla)
                                 else:
                                     clean_screen(cla)
                         time.sleep(1)
@@ -1718,7 +1715,7 @@ def moriagiji_move(cla, dungeon):
     import random
     import pyautogui
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check
+    from action_ares import clean_screen, out_check, map_in
     try:
         print("moria move")
 
@@ -1881,10 +1878,8 @@ def moriagiji_move(cla, dungeon):
 
                     result_out = out_check(cla)
                     if result_out == True:
-                        click_pos_2(25, 50, cla)
-                        time.sleep(0.5)
-                        click_pos_2(65, 115, cla)
-                        time.sleep(0.5)
+                        map_in(cla)
+
 
                         for i in range(10):
                             if where_dungeon[1] == "1":
@@ -2186,7 +2181,7 @@ def dungeon_in_talook(cla, dungeon):
     import random
     import pyautogui
     from function import click_pos_2, imgs_set_, click_pos_reg
-    from action_ares import menu_open, loading_ares, out_check, clean_screen
+    from action_ares import menu_open, loading_ares, out_check, clean_screen, map_in
     from schedule import myQuest_play_add
     try:
         print("dungeon_in_talook")
@@ -2459,10 +2454,8 @@ def dungeon_in_talook(cla, dungeon):
                             else:
                                 result_out = out_check(cla)
                                 if result_out == True:
-                                    click_pos_2(25, 50, cla)
-                                    time.sleep(0.5)
-                                    click_pos_2(65, 115, cla)
-                                    time.sleep(0.5)
+                                    map_in(cla)
+
                                 else:
                                     clean_screen(cla)
                         time.sleep(1)
@@ -2602,7 +2595,7 @@ def talook_move(cla, dungeon):
     import random
     import pyautogui
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check
+    from action_ares import clean_screen, out_check, map_in
     try:
         print("talook_move")
 
@@ -2750,10 +2743,7 @@ def talook_move(cla, dungeon):
                 else:
                     result_out = out_check(cla)
                     if result_out == True:
-                        click_pos_2(25, 50, cla)
-                        time.sleep(0.5)
-                        click_pos_2(65, 115, cla)
-                        time.sleep(0.5)
+                        map_in(cla)
                     else:
                         clean_screen(cla)
             time.sleep(1)

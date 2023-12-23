@@ -907,11 +907,7 @@ def maul_go(cla):
 
                 else:
                     # 지도 클릭
-                    click_pos_2(25, 50, cla)
-
-                    time.sleep(0.3)
-
-                    click_pos_2(65, 115, cla)
+                    map_in(cla)
                     for i in range(10):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\map_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -967,8 +963,32 @@ def map_in(cla):
         time.sleep(0.5)
 
         click_pos_2(25, 50, cla)
-        time.sleep(0.5)
+        time.sleep(0.1)
         click_pos_2(65, 115, cla)
+
+        quest_ing = False
+
+        for i in range(5):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\map\\not_open_map.png"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 90, 700, 160, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                quest_ing = True
+                click_pos_2(780, 60, cla)
+                time.sleep(0.2)
+                confirm_all(cla)
+                break
+            time.sleep(0.1)
+
+        if quest_ing == True
+            for i in range(10):
+                result_out = out_check(cla)
+                if result_out == True:
+                    click_pos_2(25, 50, cla)
+                    time.sleep(0.1)
+                    click_pos_2(65, 115, cla)
+                time.sleep(0.5)
     except Exception as e:
         print(e)
         return 0
