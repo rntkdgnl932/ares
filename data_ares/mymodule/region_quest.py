@@ -12,7 +12,7 @@ def region_quest_start(cla, region_n):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import confirm_all, dead_die, clean_screen
+    from action_ares import confirm_all, dead_die, clean_screen, out_check
     from main_grow import grow_skip, grow_complete
     from dungeon import dark_play
     from potion_ares import juljun_potion_check
@@ -43,9 +43,11 @@ def region_quest_start(cla, region_n):
 
                 step = "지역퀘스트_" + region_n
                 dead_die(cla, str(step))
+
+                region_quest_camera(cla)
+
                 grow_skip(cla)
                 region_skip(cla)
-                region_quest_camera(cla)
                 grow_complete(cla)
                 confirm_all(cla)
 
@@ -70,7 +72,6 @@ def region_quest_start(cla, region_n):
                     # 지역퀘스트 필드보스
                     region_quest_penetra(cla)
                     region_quest_gorgon(cla)
-
                     result_ing = region_quest_ing(cla)
 
                     if result_ing == False:
@@ -101,6 +102,7 @@ def region_quest_start(cla, region_n):
                 imgs_ = imgs_set_(430, 290, 540, 340, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("region : dark_clear", imgs_)
+                    v_.dark_demen = False
                     time.sleep(1)
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\hyubdong\\dark_exit.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -498,6 +500,8 @@ def region_quest_get(cla, region_n):
 
             else:
                 menu_open(cla)
+
+                time.sleep(0.1)
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\menu_region_quest.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
