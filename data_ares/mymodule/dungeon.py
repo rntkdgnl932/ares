@@ -1279,7 +1279,7 @@ def moriagiji_start(cla, dungeon):
         print("moriagiji_start")
 
         result_attck = juljun_attack_check_moriagiji(cla, dungeon)
-        if result_attck == "none" and result_attck == "dead":
+        if result_attck == "none" or result_attck == "dead":
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1287,24 +1287,24 @@ def moriagiji_start(cla, dungeon):
             if imgs_ is not None and imgs_ != False:
                 drag_pos(405, 605, 945, 605, cla)
                 time.sleep(0.5)
-                for i in range(10):
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
+            for i in range(10):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_potal.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(270, 800, 600, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    dead_die(cla, dungeon)
+                    break
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(270, 800, 600, 1030, cla, img, 0.7)
+                    imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
                     if imgs_ is not None and imgs_ != False:
                         dead_die(cla, dungeon)
                         break
-                    else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dead\\dead_before_2.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(150, 60, 185, 105, cla, img, 0.75)
-                        if imgs_ is not None and imgs_ != False:
-                            dead_die(cla, dungeon)
-                            break
 
-                    time.sleep(0.1)
+                time.sleep(0.1)
 
 
             print("처음부터 모리아 시작")
