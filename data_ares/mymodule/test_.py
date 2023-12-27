@@ -40,21 +40,12 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\season_start.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
+    imgs_ = imgs_set_(320, 340, 440, 400, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("자동사냥중", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\dead.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("죽었음", imgs_)
-
-    menu_open(cla)
+        print("season_start")
 
 # 300, 8001 700 1000
     # my_property_upload(cla)
