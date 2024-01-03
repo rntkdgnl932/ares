@@ -207,13 +207,26 @@ def gardiun_mission_get(cla, schedule):
                                     time.sleep(0.5)
 
                             else:
+
+                                any_more = False
+
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\anymore_no_soolyung_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
+                                    any_more = True
                                     print("더이상 수령할수 없음...미션 시작하기2")
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\anymore_no_soolyung_3.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        any_more = True
+                                        print("더이상 수령할수 없음...미션 시작하기3")
 
+                                if any_more == True:
                                     time.sleep(0.5)
 
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
