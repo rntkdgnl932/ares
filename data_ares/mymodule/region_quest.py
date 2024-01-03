@@ -432,17 +432,17 @@ def region_quest_get(cla, region_n):
 
                 for i in range(5):
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_ing.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\repeat.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(150, 100, 960, 330, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        is_region = True
-                        time.sleep(0.1)
+                        click_pos_2(940, 50, cla)
+                        is_region = False
                         break
+
                     else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_list.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_ing.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(150, 100, 960, 330, cla, img, 0.7)
@@ -451,45 +451,57 @@ def region_quest_get(cla, region_n):
                             is_region = True
                             time.sleep(0.1)
                             break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_2_1_region_quest\\region_quest_list.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(150, 100, 960, 330, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                is_region = True
+                                time.sleep(0.1)
+                                break
                     time.sleep(0.2)
 
-                for i in range(10):
 
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
+                if is_region == True:
+                    for i in range(10):
 
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\anymore_quest.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\region_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(350, 90, 500, 130, cla, img, 0.7)
+                        imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("지역 퀘스트 끝")
-                            is_region = False
-                            break
-                    else:
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\not_moving.png"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(390, 90, 480, 140, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("이동경로 실패...마을로 갔다가 오자")
-                            maul_go(cla)
-                            break
-                    time.sleep(0.4)
 
-                # for i in range(30):
-                #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\not_moving.png"
-                #     img_array = np.fromfile(full_path, np.uint8)
-                #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                #     imgs_ = imgs_set_(390, 90, 480, 140, cla, img, 0.7)
-                #     if imgs_ is not None and imgs_ != False:
-                #         print("이동경로 실패...마을로 갔다가 오자")
-                #         maul_go(cla)
-                #         break
-                #     time.sleep(0.2)
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\anymore_quest.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(350, 90, 500, 130, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("지역 퀘스트 끝")
+                                is_region = False
+                                break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\not_moving.png"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(390, 90, 480, 140, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("이동경로 실패...마을로 갔다가 오자")
+                                maul_go(cla)
+                                break
+                        time.sleep(0.4)
+
+                    # for i in range(30):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\region_quest\\not_moving.png"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(390, 90, 480, 140, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         print("이동경로 실패...마을로 갔다가 오자")
+                    #         maul_go(cla)
+                    #         break
+                    #     time.sleep(0.2)
 
                 if is_region == False:
                     data = "지역퀘스트_" + str(region_n)
