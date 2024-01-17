@@ -47,6 +47,7 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("season_start")
 
+    get_sangjum_sohwan(cla)
 # 300, 8001 700 1000
     # my_property_upload(cla)
     # 0
