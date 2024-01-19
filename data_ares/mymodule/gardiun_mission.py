@@ -283,6 +283,7 @@ def gardiun_mission_get(cla, schedule):
             else:
                 map_in(cla)
                 time.sleep(0.5)
+                print("가디언npc 찾자")
                 for i in range(5):
 
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move.PNG"
