@@ -300,8 +300,10 @@ def gardiun_mission_get(cla, schedule):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("gardiun_title : break", c)
+                                print("gardiun_title : break", c, imgs_)
                                 break
+                            else:
+                                print("gardiun_title : ing", c)
                             time.sleep(2)
                         break
                     else:
