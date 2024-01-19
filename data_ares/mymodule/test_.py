@@ -40,14 +40,13 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\season_start.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_npc.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(320, 340, 440, 400, cla, img, 0.7)
+    imgs_ = imgs_set_(300, 300, 660, 700, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("season_start")
+        print("gardiun_npc")
 
-    get_sangjum_sohwan(cla)
 # 300, 8001 700 1000
     # my_property_upload(cla)
     # 0
