@@ -293,7 +293,8 @@ def gardiun_mission_get(cla, schedule):
                     if imgs_ is not None and imgs_ != False:
                         print("jadong_move : break", i)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
-                        for c in range(10):
+                        for c in range(20):
+                            print("gardiun_title : break", c)
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
