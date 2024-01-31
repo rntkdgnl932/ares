@@ -247,15 +247,30 @@ def hoilodo(cla):
 
                 time.sleep(0.5)
 
+                hoilodo_point_1 = False
+
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(60, 60, 230, 110, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("hoilodo_point_1", imgs_)
+                    hoilodo_point_1 = True
                     click_pos_reg(imgs_.x - 40, imgs_.y + 5, cla)
                     time.sleep(0.5)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_1_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(60, 60, 230, 110, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("hoilodo_point_1_1", imgs_)
+                        hoilodo_point_1 = True
+                        click_pos_reg(imgs_.x - 40, imgs_.y + 5, cla)
+                        time.sleep(0.5)
 
+
+                if hoilodo_point_1 == True:
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -264,6 +279,8 @@ def hoilodo(cla):
                         print("hoilodo_point_2", imgs_)
                         click_pos_reg(imgs_.x - 70, imgs_.y + 7, cla)
                         time.sleep(1)
+
+
 
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"

@@ -1,5 +1,6 @@
 barrier_shield
 blast_lord
+bursuk_hamer
 oversear
 p20
 storm_suji

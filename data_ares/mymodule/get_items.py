@@ -1563,7 +1563,7 @@ def get_sangjum_sohwan(cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_sohwan.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(10, 200, 70, 250, cla, img, 0.8)
+                imgs_ = imgs_set_(10, 165, 70, 215, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("gold_sohwan 열렸다.")
 
@@ -1571,14 +1571,14 @@ def get_sangjum_sohwan(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(90, 200, 115, 250, cla, img, 0.8)
+                        imgs_ = imgs_set_(90, 165, 115, 215, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             break
                         else:
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_sohwan.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(10, 200, 70, 250, cla, img, 0.8)
+                            imgs_ = imgs_set_(10, 165, 70, 215, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
@@ -1891,14 +1891,14 @@ def get_sangjum_sohwan(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_sohwan.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 200, 70, 250, cla, img, 0.8)
+                        imgs_ = imgs_set_(10, 165, 70, 215, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             break
                         else:
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_click.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(200, 55, 270, 120, cla, img, 0.8)
+                            imgs_ = imgs_set_(150, 55, 250, 120, cla, img, 0.75)
                             if imgs_ is not None and imgs_ != False:
                                 print("sohwan_click 열렸다.")
                                 click_pos_reg(imgs_.x, imgs_.y, cla)

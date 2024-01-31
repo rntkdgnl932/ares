@@ -1,5 +1,5 @@
-1:seven
-2:seven_six
+1:fourteen
+2:seven
 3:pass
 4:seven
 5:six
