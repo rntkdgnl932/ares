@@ -1156,7 +1156,7 @@ def bag_item_open(cla):
                 print("bag 창 열렸다.")
                 bag_item_open_ready = True
 
-                click_pos_2(50, 270, cla)
+                click_pos_2(50, 300, cla)
                 time.sleep(1)
 
                 dir_path = "C:\\my_games\\ares"
@@ -1272,9 +1272,9 @@ def bag_item_open(cla):
                             break
                     time.sleep(1)
 
-                click_pos_2(50, 270, cla)
+                click_pos_2(50, 300, cla)
                 time.sleep(0.1)
-                click_pos_2(50, 270, cla)
+                click_pos_2(50, 300, cla)
                 time.sleep(1)
 
                 dir_path = "C:\\my_games\\ares"
@@ -1323,7 +1323,7 @@ def bag_item_open(cla):
                         time.sleep(0.3)
                     if is_box == True:
                         for y in range(3):
-                            click_pos_2(50, 270, cla)
+                            click_pos_2(50, 300, cla)
                             time.sleep(0.3)
 
 
