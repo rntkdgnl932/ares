@@ -161,7 +161,7 @@ def get_event(cla):
                             # now_y = 현재y값 - (z * 33)
                             # 총길이 11일때 330, 12일때 300, 13일때 265, 14일떼 230
 
-                            now_y = 330
+                            now_y = 230
                             y_up = now_y + (z * 33) - 13
                             y_down = now_y + (z * 33) + 13
 
