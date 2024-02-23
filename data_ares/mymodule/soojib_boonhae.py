@@ -404,7 +404,7 @@ def boonhae_start(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 80, 120, 125, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, 80, 120, 130, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
@@ -438,7 +438,7 @@ def boonhae_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 175, cla)
+                        click_pos_2(50, 170, cla)
                     time.sleep(0.5)
 
                 boonhae_sungmool(cla)
@@ -448,11 +448,11 @@ def boonhae_start(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 210, 120, 265, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, 235, 120, 285, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 240, cla)
+                        click_pos_2(50, 260, cla)
                     time.sleep(0.5)
 
                 boonhae_module(cla)
@@ -462,11 +462,11 @@ def boonhae_start(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 275, 120, 330, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, 290, 120, 345, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 305, cla)
+                        click_pos_2(50, 320, cla)
                     time.sleep(0.5)
 
                 boonhae_skillbook(cla)
@@ -599,9 +599,9 @@ def boonhae_ready(cla):
                             time.sleep(0.5)
 
                 # 모듈
-                click_pos_2(55, 240, cla)
+                click_pos_2(55, 260, cla)
                 time.sleep(0.1)
-                click_pos_2(55, 240, cla)
+                click_pos_2(55, 260, cla)
                 time.sleep(0.1)
                 click_pos_2(915, 1015, cla)
 
@@ -620,9 +620,9 @@ def boonhae_ready(cla):
                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
 
-                    click_pos_2(515, 555, cla)
+                    click_pos_2(515, 550, cla)
                     time.sleep(0.1)
-                    click_pos_2(515, 555, cla)
+                    click_pos_2(515, 550, cla)
                     time.sleep(0.5)
 
                     click_pos_reg(imgs_.x, imgs_.y, cla)

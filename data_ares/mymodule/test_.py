@@ -40,6 +40,8 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
+    boonhae_start(cla)
+
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\season_start3.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
