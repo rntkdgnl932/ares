@@ -61,7 +61,7 @@ from log_ares import character_change
 from season_dungeon import season_dungeon_in_mobius, season_dungeon_in_ubis, season_dungeon_in_battle
 
 from temporary_event import event_dungeon_start
-from screeninfo import get_monitors
+# from screeninfo import get_monitors
 
 from stop_event18 import _stop_please
 
@@ -158,17 +158,17 @@ class MyApp(QDialog):
 
         # self.setGeometry(1000 + 960 + 960, 300, 900, 600)
 
-        monitors = get_monitors()
-        last_monitor_number = 0
-        for idx, monitor in enumerate(monitors, start=1):
-            last_monitor_number = idx
+        # monitors = get_monitors()
+        # last_monitor_number = 0
+        # for idx, monitor in enumerate(monitors, start=1):
+        #     last_monitor_number = idx
+        #
+        # if last_monitor_number == 1:
+        #     self.setGeometry(965, 200, 900, 700)
+        # if last_monitor_number == 2:
+        #     self.setGeometry(965 + 960 + 960, 200, 900, 700)
 
-        if last_monitor_number == 1:
-            self.setGeometry(965, 200, 900, 700)
-        if last_monitor_number == 2:
-            self.setGeometry(965 + 960 + 960, 200, 900, 700)
-
-        # self.setGeometry(5, 200, 900, 700)
+        self.setGeometry(965 + 960 + 960, 200, 900, 700)
         self.show()
     def my_title(self):
         self.setWindowTitle("아레스(ver " + version + ")")
