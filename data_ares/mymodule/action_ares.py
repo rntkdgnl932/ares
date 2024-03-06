@@ -186,6 +186,7 @@ def clean_screen(cla):
     from log_ares import character_change
     from schedule import myQuest_play_check
     from stop_event18 import _stop_please
+    import os
 
     try:
         print("clean_screen")
@@ -416,10 +417,18 @@ def clean_screen(cla):
 
                 dir_path = "C:\\my_games\\load\\ares"
                 file_path = dir_path + "\\start.txt"
-
+                # cla.txt
+                cla_data = str(v_.now_cla) + "cla"
+                file_path2 = dir_path + "\\" + cla_data + ".txt"
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     data = 'no'
                     file.write(str(data))
+                    time.sleep(0.2)
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
+                    data = v_.now_cla
+                    file.write(str(data))
+                    time.sleep(0.2)
+                os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 
