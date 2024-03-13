@@ -39,7 +39,7 @@ def gardiun_mission_get(cla, schedule):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import maul_go, map_in, loading_ares
+    from action_ares import maul_go, map_in, loading_ares, confirm_all
     from potion_ares import maul_potion_gardiun
     from schedule import myQuest_play_add
     try:
@@ -238,6 +238,9 @@ def gardiun_mission_get(cla, schedule):
                                         time.sleep(0.5)
                                         click_pos_2(815, 1015, cla)
                                         time.sleep(0.5)
+
+                                        # confirm
+                                        confirm_all(cla)
                                     else:
 
 

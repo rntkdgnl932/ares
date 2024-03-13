@@ -1,4 +1,12 @@
+sute_1
 sute_11
+sute_1111
 operater_1
+operater_11
+operater_1111
 talgut_1
+talgut_11
+talgut_1111
 monsters_11
+deco_11
+deco_1111
