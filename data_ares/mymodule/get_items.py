@@ -494,6 +494,127 @@ def get_event_click(reg_x, reg_y, how, cla):
                 else:
                     break
                 time.sleep(0.1)
+
+        elif how == "gyohwan":
+
+            for i in range(15):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(270, 610, 310, 650, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    # 여기 받기 부분이 how에 따라 달라짐.
+
+                    for c in range(5):
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gyohwan_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 400, 550, 650, cla, img, 0.77)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gyohwan_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(470, 600, 620, 680, cla, img, 0.77)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                for g in range(5):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gyohwan_success.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(380, 600, 600, 680, cla, img, 0.77)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.3)
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gyohwan_cancle.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(330, 600, 490, 680, cla, img, 0.77)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gyohwan_in_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(660, 660, 780, 700, cla, img, 0.77)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(1)
+
+                            clicked = False
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(510, 510, 550, 650, cla, img, 0.77)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                time.sleep(0.1)
+                                clicked = True
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(730, 510, 780, 650, cla, img, 0.77)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                    time.sleep(0.1)
+                                    clicked = True
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(510, 510, 550, 650, cla, img, 0.77)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                        time.sleep(0.1)
+                                        clicked = True
+                                    else:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(730, 510, 780, 650, cla, img, 0.77)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                            time.sleep(0.1)
+                                            clicked = True
+                                        else:
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(510, 510, 550, 650, cla, img, 0.77)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                                time.sleep(0.1)
+                                                clicked = True
+                                            else:
+                                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(730, 510, 780, 650, cla, img, 0.77)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                                    time.sleep(0.1)
+                                                    clicked = True
+                            if clicked == True:
+                                for t in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\gyohwan_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 400, 550, 650, cla, img, 0.77)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    time.sleep(0.3)
+
+                        time.sleep(0.3)
+                else:
+                    break
+                time.sleep(0.1)
+
         elif how == "pass":
             print("수동으로 받자")
 
