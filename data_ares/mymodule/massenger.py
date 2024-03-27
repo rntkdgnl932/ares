@@ -219,6 +219,7 @@ def line_monitor(game, cla):
                 if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("one", ms_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\monitor\\closewithoutsending.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -227,6 +228,7 @@ def line_monitor(game, cla):
                 if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("one", ms_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\monitor\\unreal_error_2.png"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -235,6 +237,7 @@ def line_monitor(game, cla):
                 if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("two", ms_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\monitor\\sendandrestart.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -243,6 +246,7 @@ def line_monitor(game, cla):
                 if imgs_ is not None and imgs_ != False:
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("two", ms_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 # 화면
                 # full_path = "c:\\my_games\\ares\\data_ares\\imgs\\monitor\\ares_title.PNG"
