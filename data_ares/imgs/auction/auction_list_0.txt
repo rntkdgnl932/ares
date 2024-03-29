@@ -6,6 +6,7 @@ p20
 storm_suji
 chacra_staff
 moogi_benom
+moogi_cracent
 moogi_scabinger
 moogi_silverboolit
 moogi_woolfpack
@@ -17,3 +18,5 @@ bangpae_caruface
 bangpae_ember
 moogi_firefly
 module_doyak
+ragion_blade
+hellfire_hamer

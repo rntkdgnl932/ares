@@ -283,6 +283,10 @@ def auction_sell(cla):
                                 time.sleep(0.5)
 
                             time.sleep(1)
+                # 전체 클릭
+                click_pos_2(790, 120, cla)
+                time.sleep(1)
+
                 for i in range(len(auction_list_2)):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\list\\" + auction_list_2[i] + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
