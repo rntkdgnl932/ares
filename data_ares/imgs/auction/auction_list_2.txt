@@ -10,6 +10,7 @@ skillbook_1
 skillbook_2
 skillbook_3
 skillbook_4
+skillbook_5
 igis_low
 joomoogi_skill
 bojomoogi_skill
