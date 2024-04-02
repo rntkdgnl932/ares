@@ -3284,7 +3284,6 @@ class game_Playing(QThread):
                         if imgs_ is not None and imgs_ != False:
                             game_title = True
 
-                        print()
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
