@@ -84,7 +84,7 @@ def soohosuk(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\soohosuk_point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(20, 80, 170, 130, cla, img, 0.7)
+                    imgs_ = imgs_set_(20, 80, 200, 130, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("soohosuk_point", imgs_)
                         click_pos_reg(imgs_.x - 14, imgs_.y + 10, cla)
@@ -111,7 +111,7 @@ def soohosuk(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\sooho_skip_off.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(690, 990, 790, 1030, cla, img, 0.8)
+                        imgs_ = imgs_set_(680, 990, 790, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("sooho_skip_off", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -120,7 +120,7 @@ def soohosuk(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\sooho_skip_on.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(690, 990, 790, 1030, cla, img, 0.8)
+                        imgs_ = imgs_set_(680, 990, 790, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("sooho_skip_on", imgs_)
                             for i in range(5):
@@ -184,19 +184,19 @@ def soohosuk(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(800, 150, 830, 180, cla, img, 0.8)
+                            imgs_ = imgs_set_(800, 140, 830, 180, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 ispoint = True
                             else:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(800, 150, 830, 180, cla, img, 0.8)
+                                imgs_ = imgs_set_(800, 140, 830, 180, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     ispoint = True
 
                             if ispoint == True:
-                                click_pos_2(810, 180, cla)
+                                click_pos_2(810, 170, cla)
                             else:
                                 sooho_up = True
                                 break
@@ -274,7 +274,7 @@ def hoilodo(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(120, 120, 170, 330, cla, img, 0.7)
+                    imgs_ = imgs_set_(120, 120, 170, 400, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         print("hoilodo_point_2", imgs_)
                         click_pos_reg(imgs_.x - 70, imgs_.y + 7, cla)
@@ -286,7 +286,7 @@ def hoilodo(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(120, 120, 170, 330, cla, img, 0.8)
+                            imgs_ = imgs_set_(120, 120, 170, 400, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
 
                                 hoilodo_point = False
@@ -394,6 +394,7 @@ def hoilodo(cla):
                                 if hoilodo_point == True:
                                     click_pos_2(865, 1020, cla)
                                 else:
+                                    click_pos_2(865, 1020, cla)
                                     break
                                 time.sleep(0.1)
                             else:
@@ -426,19 +427,19 @@ def hoilodo(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(895, 150, 935, 180, cla, img, 0.8)
+                            imgs_ = imgs_set_(895, 140, 935, 180, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 ispoint = True
                             else:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(895, 150, 935, 180, cla, img, 0.8)
+                                imgs_ = imgs_set_(895, 140, 935, 180, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     ispoint = True
 
                             if ispoint == True:
-                                click_pos_2(905, 175, cla)
+                                click_pos_2(905, 165, cla)
                             else:
                                 hoilodo_up = True
                                 break
@@ -552,7 +553,7 @@ def monster_dogam(cla):
                                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(70, 120, 120, 280, cla, img, 0.8)
+                                            imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                                 # click_pos_2(55, 155, cla)
@@ -573,7 +574,7 @@ def monster_dogam(cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(70, 120, 120, 280, cla, img, 0.8)
+                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                         # click_pos_2(55, 155, cla)
@@ -654,7 +655,7 @@ def monster_dogam(cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(70, 120, 120, 280, cla, img, 0.8)
+                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                         # click_pos_2(55, 155, cla)
@@ -697,19 +698,19 @@ def monster_dogam(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(860, 210, 900, 240, cla, img, 0.8)
+                            imgs_ = imgs_set_(860, 230, 900, 255, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 ispoint = True
                             else:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(860, 210, 900, 240, cla, img, 0.8)
+                                imgs_ = imgs_set_(860, 230, 900, 255, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     ispoint = True
 
                             if ispoint == True:
-                                click_pos_2(870, 240, cla)
+                                click_pos_2(870, 260, cla)
                             else:
                                 monster_up = True
                                 break

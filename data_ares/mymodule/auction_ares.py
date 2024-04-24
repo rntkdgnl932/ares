@@ -49,7 +49,7 @@ def auction_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(810, 240, cla)
+                        click_pos_2(810, 255, cla)
                     time.sleep(1)
 
             time.sleep(1)
@@ -118,7 +118,7 @@ def auction_ready(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(810, 240, cla)
+                        click_pos_2(810, 255, cla)
                     time.sleep(1)
 
             time.sleep(1)
@@ -480,7 +480,7 @@ def auction_sell(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(810, 240, cla)
+                        click_pos_2(810, 255, cla)
                     time.sleep(0.5)
 
             time.sleep(1)

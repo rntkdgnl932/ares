@@ -452,7 +452,7 @@ def boonhae_start(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 260, cla)
+                        click_pos_2(50, 250, cla)
                     time.sleep(0.5)
 
                 boonhae_module(cla)
@@ -596,12 +596,22 @@ def boonhae_ready(cla):
                             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\suit_room_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.2)
+                                    mouse_move_cpp(420, 675, cla)
+                                    time.sleep(0.2)
                             time.sleep(0.5)
 
                 # 모듈
-                click_pos_2(55, 260, cla)
+                click_pos_2(55, 250, cla)
                 time.sleep(0.1)
-                click_pos_2(55, 260, cla)
+                click_pos_2(55, 250, cla)
                 time.sleep(0.1)
                 click_pos_2(915, 1015, cla)
 
@@ -637,6 +647,16 @@ def boonhae_ready(cla):
                         if imgs_ is not None and imgs_ != False:
                             boonhae_complete = True
                             break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\module_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                mouse_move_cpp(420, 675, cla)
+                                time.sleep(0.2)
                         time.sleep(0.5)
 
 
