@@ -748,7 +748,7 @@ def boonhae_moogi(cla):
 
                     
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 6")
                     boonhae_setting_bc(cla)
                     time.sleep(1)
 
@@ -862,7 +862,7 @@ def boonhae_bangugoo(cla):
 
 
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 7")
                     boonhae_setting_abc(cla)
                     time.sleep(1)
 
@@ -1000,7 +1000,7 @@ def boonhae_setting_bc(cla):
                         time.sleep(0.3)
 
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 1")
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\ilgwal_boonhae.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1119,7 +1119,7 @@ def boonhae_setting_abc(cla):
                         time.sleep(0.3)
 
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 2")
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\ilgwal_boonhae.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1201,7 +1201,7 @@ def boonhae_sungmool(cla):
 
 
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 3")
                     boonhae_setting_bc(cla)
                     time.sleep(1)
 
@@ -1313,7 +1313,7 @@ def boonhae_module(cla):
 
 
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 4")
                     boonhae_setting_bc(cla)
                     time.sleep(1)
 
@@ -1568,7 +1568,7 @@ def boonhae_setting_c(cla):
                         time.sleep(0.3)
 
                 else:
-                    print("일괄분해 누른 후 셋팅하기")
+                    print("일괄분해 누른 후 셋팅하기 5")
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\ilgwal_boonhae.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
