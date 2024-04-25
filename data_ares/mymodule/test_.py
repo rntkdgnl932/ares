@@ -29,7 +29,7 @@ def go_test():
     from season_dungeon import season_dungeon_in_battle
 
     print("tst")
-    cla = "two"
+    cla = "one"
 
     if cla == "one":
         plus = 0
@@ -40,14 +40,14 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    auction_start(cla)
+    # auction_start(cla)
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\season_start3.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(320, 330, 440, 410, cla, img, 0.7)
+    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("season_start3")
+        print("monster_grow_point_2", imgs_)
 
 # 300, 8001 700 1000
     # my_property_upload(cla)

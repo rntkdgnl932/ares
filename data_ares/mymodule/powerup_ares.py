@@ -484,6 +484,8 @@ def monster_dogam(cla):
             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("monster_dogam_title : 진입완료료")
+                # 시발 이거 모고?
+
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -558,6 +560,14 @@ def monster_dogam(cla):
                                                 click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                                 # click_pos_2(55, 155, cla)
                                                 time.sleep(0.5)
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
+                                                # click_pos_2(55, 155, cla)
+                                                time.sleep(0.5)
 
                                     else:
                                         for k in range(10):
@@ -572,6 +582,14 @@ def monster_dogam(cla):
 
                                 else:
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
+                                        # click_pos_2(55, 155, cla)
+                                        time.sleep(0.5)
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
@@ -653,6 +671,14 @@ def monster_dogam(cla):
 
                                 else:
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
+                                        # click_pos_2(55, 155, cla)
+                                        time.sleep(0.5)
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
