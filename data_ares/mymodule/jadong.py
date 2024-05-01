@@ -739,6 +739,13 @@ def juljun_attack_check(cla, where):
                         go_ = True
                         break
                     time.sleep(1)
+        else:
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
         return go_
     except Exception as e:
         print(e)
