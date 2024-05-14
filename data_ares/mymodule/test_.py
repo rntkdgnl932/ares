@@ -40,7 +40,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    maul_go(cla)
+    maul_potion_get(cla)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_jejak\\friend.PNG"
     img_array = np.fromfile(full_path, np.uint8)
