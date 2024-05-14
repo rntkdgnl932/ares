@@ -31,12 +31,14 @@ def event_dungeon_start(cla, dungeon):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
+                        where_event = "event_spot_" + str(i)
 
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
+                            print(where_event)
                             dun_in = True
                             break
                 break
@@ -147,9 +149,11 @@ def dungeon_in_event(cla, dungeon):
     from action_ares import menu_open, loading_ares, out_check, clean_screen
     from schedule import myQuest_play_add
     try:
-        print("dungeon_in_goldrush")
+        print("dungeon_in_event")
 
         # 이벤트 던전
+
+        # ex) 이벤트_3_1
 
         where_dungeon = dungeon.split("_")
 
@@ -424,7 +428,12 @@ def dungeon_in_event(cla, dungeon):
                                         if imgs_ is not None and imgs_ != False:
                                             break
                                     else:
-                                        break
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
                                 time.sleep(1)
 
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
