@@ -8,7 +8,6 @@
 8:fourteen
 9:fourteen
 10:drag
-11:six
+11:four
 12:four
-13:four
-14:seven_six
+13:seven_six
