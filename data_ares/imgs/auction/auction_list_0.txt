@@ -6,6 +6,8 @@ p20
 storm_suji
 chacra_staff
 moogi_benom
+moogi_blade_helios
+moogi_guntlet_naiparm
 moogi_cracent
 moogi_scabinger
 moogi_silverboolit

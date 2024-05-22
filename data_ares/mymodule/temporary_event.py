@@ -231,6 +231,7 @@ def dungeon_in_event(cla, dungeon):
                                 if imgs_ is not None and imgs_ != False:
                                     print("eent dungeon 끝", dungeon)
                                     dun_go_ = True
+
                                     myQuest_play_add(cla, dungeon)
                                     time.sleep(0.5)
                                     for z in range(3):
