@@ -913,9 +913,9 @@ def dungeon_in_raid(cla, dungeon):
                         time.sleep(0.5)
 
                     # (100, 185/220/255/290/325/360...
-                    y_reg = 769 + (int(where_dungeon[1]) * 59)
+                    y_reg = 710 + (int(where_dungeon[1]) * 59)
                     # (24/52/80/108, 1015)
-                    x_reg = (int(where_dungeon[2]) * 28) - 5
+                    x_reg = (int(where_dungeon[2]) * 26)
 
                     # 자물쇠 있는지 파악
                     # # 2 = 97, 887
@@ -2242,14 +2242,11 @@ def dungeon_in_talook(cla, dungeon):
             if imgs_ is not None and imgs_ != False:
 
                 print("타루크기지")
-                y_reg = 830 + (int(where_dungeon[1]) * 35)
+                y_reg = 740 + (int(where_dungeon[1]) * 55)
 
 
 
                 for i in range(10):
-
-
-
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\talook_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
