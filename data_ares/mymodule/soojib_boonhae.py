@@ -51,11 +51,11 @@ def soojib(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(90, 320, 115, 380, cla, img, 0.8)
+                    imgs_ = imgs_set_(90, v_.soojib_event - 25, 115, v_.soojib_event + 25, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(65, 350, cla)
+                        click_pos_2(65, v_.soojib_event, cla)
                     time.sleep(0.5)
 
                 soojib_start(cla)
@@ -67,11 +67,11 @@ def soojib(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(90, 105, 115, 155, cla, img, 0.8)
+                    imgs_ = imgs_set_(90, v_.soojib_all - 25, 115, v_.soojib_all + 25, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(65, 130, cla)
+                        click_pos_2(65, v_.soojib_all, cla)
                     time.sleep(0.5)
 
                 time.sleep(0.2)
@@ -404,11 +404,11 @@ def boonhae_start(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 80, 120, 130, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, v_.inven_moogi - 30, 120, v_.inven_moogi + 30, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 110, cla)
+                        click_pos_2(50, v_.inven_moogi, cla)
                     time.sleep(0.5)
 
                 boonhae_moogi(cla)
@@ -419,11 +419,11 @@ def boonhae_start(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 115, 120, 165, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, v_.inven_bangugoo - 30, 120, v_.inven_bangugoo + 30, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 140, cla)
+                        click_pos_2(50, v_.inven_bangugoo, cla)
                     time.sleep(0.5)
 
                 boonhae_bangugoo(cla)
@@ -434,25 +434,26 @@ def boonhae_start(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 145, 120, 195, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, v_.inven_sungmool - 30, 120, v_.inven_sungmool + 30, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 170, cla)
+                        click_pos_2(50, v_.inven_sungmool, cla)
                     time.sleep(0.5)
 
                 boonhae_sungmool(cla)
                 time.sleep(0.5)
+
                 # 모듈 분해
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(80, 235, 120, 285, cla, img, 0.8)
+                    imgs_ = imgs_set_(80, v_.inven_module - 30, 120, v_.inven_module + 30, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 250, cla)
+                        click_pos_2(50, v_.inven_module, cla)
                     time.sleep(0.5)
 
                 boonhae_module(cla)

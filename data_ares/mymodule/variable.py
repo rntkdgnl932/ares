@@ -23,6 +23,17 @@ talook_dead = 0
 # 메인퀘스트 진행 관련
 main_count = 0
 
+# 인벤토리 y 값 관련
+inven_somo = 360
+inven_moogi = 110
+inven_bangugoo = 140
+inven_sungmool = 165
+inven_module = 250
+
+# 수집 y 값 관련
+soojib_all = 130
+soojib_event = 360
+
 # screen_error
 screen_error = 0
 

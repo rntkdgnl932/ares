@@ -1285,11 +1285,11 @@ def bag_item_open(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(90, 290, 115, 350, cla, img, 0.8)
+                    imgs_ = imgs_set_(90, v_.inven_somo - 25, 115, v_.inven_somo + 25, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 335, cla)
+                        click_pos_2(50, v_.inven_somo, cla)
                     time.sleep(0.5)
 
 
@@ -1453,11 +1453,11 @@ def bag_item_open(cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(90, 290, 115, 350, cla, img, 0.8)
+                    imgs_ = imgs_set_(90, v_.inven_somo - 25, 115, v_.inven_somo + 25, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        click_pos_2(50, 335, cla)
+                        click_pos_2(50, v_.inven_somo, cla)
                     time.sleep(0.5)
 
                 dir_path = "C:\\my_games\\ares"
@@ -1509,11 +1509,11 @@ def bag_item_open(cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(90, 290, 115, 350, cla, img, 0.8)
+                            imgs_ = imgs_set_(90, v_.inven_somo - 25, 115, v_.inven_somo + 25, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 break
                             else:
-                                click_pos_2(50, 335, cla)
+                                click_pos_2(50, v_.inven_somo, cla)
                             time.sleep(0.5)
 
 
@@ -1761,7 +1761,7 @@ def get_sangjum_sohwan(cla):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\clicked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(90, 165, 115, 215, cla, img, 0.8)
+                        imgs_ = imgs_set_(90, 160, 115, 215, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             break
                         else:
