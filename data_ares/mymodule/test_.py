@@ -40,28 +40,12 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_post(cla)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\tuto\\explain\\chap_1_7_jejak\\friend.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2_2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 300, 860, 360, cla, img, 0.7)
+    imgs_ = imgs_set_(20, 50, 90, 90, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("friend", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(895, 140, 935, 180, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("menu_point", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\menu_point_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(895, 140, 935, 180, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("menu_point_2", imgs_)
+        print("타루크 기지인 상태 3")
 
 # 300, 8001 700 1000
     # my_property_upload(cla)
