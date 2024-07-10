@@ -168,7 +168,29 @@ class MyApp(QDialog):
         # if last_monitor_number == 2:
         #     self.setGeometry(965 + 960 + 960, 200, 900, 700)
 
-        self.setGeometry(965 + 960 + 960, 200, 900, 700)
+        dir_path = "C:\\my_games"
+        file_path = dir_path + "\\line\\line.txt"
+
+        if os.path.isdir(dir_path) == False:
+            os.makedirs(dir_path)
+        isFile = False
+        while isFile is False:
+            if os.path.isfile(file_path) == True:
+                isFile = True
+                # 파일 읽기
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    line = file.read()
+                    line_ = line.split(":")
+                    print('line', line)
+            else:
+                print('line 파일 없당')
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write("ccocco:메롱")
+
+        if line_[0] == "coob":
+            self.setGeometry(965, 200, 900, 700)
+        else:
+            self.setGeometry(965 + 960 + 960, 200, 900, 700)
         self.show()
     def my_title(self):
         self.setWindowTitle("아레스(ver " + version + ")")
