@@ -187,7 +187,7 @@ class MyApp(QDialog):
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("ccocco:메롱")
 
-        if line_[0] == "coob":
+        if line_[1] == "super_coob":
             self.setGeometry(965, 200, 900, 700)
         else:
             self.setGeometry(965 + 960 + 960, 200, 900, 700)
