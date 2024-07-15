@@ -56,6 +56,8 @@ with open(file_path2, "r", encoding='utf-8-sig') as file:
     print("speed_???", speed_)
 
 this_game = "아레스"
+game_folder = "ares"
+data_folder = "data_ares"
 
 
 # 강제로 돈벌기
