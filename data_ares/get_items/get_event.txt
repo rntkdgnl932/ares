@@ -1,10 +1,10 @@
 1:fourteen
-2:seven
-3:seven_six
-4:pass
+2:seven_six
+3:pass
+4:fourteen
 5:seven
-6:seven
-7:six
+6:seven_six
+7:pass
 8:fourteen
 9:fourteen
 10:drag
