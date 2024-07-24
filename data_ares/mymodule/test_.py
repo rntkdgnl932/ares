@@ -47,6 +47,8 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("타루크 기지인 상태 3")
 
+    auction_start(cla)
+
 # 300, 8001 700 1000
     # my_property_upload(cla)
     # 0

@@ -1090,7 +1090,7 @@ def mine_check(cla):
                                 print("read_gold", read_gold)
                                 break
                 if gold_check == True:
-                    digit_ready = in_number_check(cla, read_gold)
+                    digit_ready = in_number_check(read_gold)
                     print("digit_ready", digit_ready)
                     if digit_ready == True:
                         read_data_int = int(int_put_(read_gold))
@@ -1145,7 +1145,7 @@ def mine_check(cla):
                             print("read_dia", read_dia)
                             break
 
-                    digit_ready = in_number_check(cla, read_dia)
+                    digit_ready = in_number_check(read_dia)
                     print("digit_ready", digit_ready)
                     if digit_ready == True:
                         read_data_int = int(int_put_(read_dia))
