@@ -31,13 +31,13 @@ def dungeon_in_title(cla, dungeon):
         menu_open(cla)
 
         if where_dungeon[0] == "행성파견" or where_dungeon[0] == "성운돌파":
-            click_pos_2(70, 230, cla)
+            click_pos_2(70, 230 + 25, cla)
             title = "dojun_title"
         elif where_dungeon[0] == "레이드":
-            click_pos_2(70, 280, cla)
+            click_pos_2(70, 280 + 25, cla)
             title = "hyubdong_title"
         elif where_dungeon[0] == "모리아기지" or where_dungeon[0] == "타루크기지":
-            click_pos_2(70, 330, cla)
+            click_pos_2(70, 330 + 25, cla)
             title = "gyungjang_title"
 
         for i in range(10):
@@ -308,8 +308,9 @@ def dungeon_in_hangsungpagyun(cla, dungeon):
                             time.sleep(1)
                 else:
                     menu_open(cla)
+                    time.sleep(0.5)
 
-                    click_pos_2(70, 230, cla)
+                    click_pos_2(70, 230 + 25, cla)
 
                     for i in range(10):
 
@@ -510,7 +511,7 @@ def dungeon_in_sungwoondolpa(cla, dungeon):
                 else:
                     menu_open(cla)
 
-                    click_pos_2(70, 230, cla)
+                    click_pos_2(70, 230 + 25, cla)
 
                     for i in range(10):
 
@@ -732,7 +733,7 @@ def dungeon_in_goldrush(cla, dungeon):
                 else:
                     menu_open(cla)
 
-                    click_pos_2(70, 230, cla)
+                    click_pos_2(70, 230 + 25, cla)
 
                     for i in range(10):
 
@@ -1067,7 +1068,7 @@ def dungeon_in_raid(cla, dungeon):
                     else:
                         menu_open(cla)
 
-                        click_pos_2(70, 280, cla)
+                        click_pos_2(70, 280 + 25, cla)
 
                         for i in range(10):
 
@@ -1246,7 +1247,7 @@ def dungeon_in_raid_ex(cla, dungeon):
                             else:
                                 menu_open(cla)
 
-                                click_pos_2(70, 280, cla)
+                                click_pos_2(70, 280 + 25, cla)
 
                                 for i in range(10):
 
@@ -1690,7 +1691,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                 else:
                     menu_open(cla)
 
-                    click_pos_2(70, 330, cla)
+                    click_pos_2(70, 330 + 25, cla)
 
                     for i in range(10):
 
@@ -2605,7 +2606,7 @@ def dungeon_in_talook(cla, dungeon):
                 else:
                     menu_open(cla)
 
-                    click_pos_2(70, 330, cla)
+                    click_pos_2(70, 330 + 25, cla)
 
                     for i in range(10):
 
