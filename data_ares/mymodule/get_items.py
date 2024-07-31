@@ -162,7 +162,7 @@ def get_event(cla):
                             # 총길이 11일때 330, 12일때 300, 13일때 265, 14일떼 230, 15일때 200, 16일때 170, 17일때 133, 18일때 100, 19일때 실제 11 포기하고...100(get_item.txt는 18)
                             # 실제 포인트 - 330 => now_y
 
-                            now_y = 133
+                            now_y = 100
                             y_up = now_y + (z * 33) - 13
                             y_down = now_y + (z * 33) + 13
 
@@ -803,7 +803,7 @@ def get_post(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import menu_open
+    from action_ares import menu_open, menu_open_just
 
     try:
         print("get_post")
@@ -863,17 +863,39 @@ def get_post(cla):
                     time.sleep(0.2)
                 time.sleep(0.1)
             else:
-                menu_open(cla)
-                for i in range(3):
+                menu_open_just(cla)
+
+                is_post = False
+
+                for i in range(7):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_post_point_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(800, 350, 830, 375, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
-                    else:
-                        post_ready = True
+                        is_post = True
                     time.sleep(0.2)
+
+                if is_post == True:
+                    for i in range(7):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_post_point_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(800, 350, 830, 375, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x - 8, imgs_.y + 10, cla)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\post_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+
+                                break
+                        time.sleep(0.5)
+                else:
+                    post_ready = True
+
             time.sleep(1)
 
 

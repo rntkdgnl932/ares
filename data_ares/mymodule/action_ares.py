@@ -479,9 +479,66 @@ def menu_open(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
+    from get_items import get_post
 
     try:
         print("menu_open")
+        menu_look = False
+        menu_look_count = 0
+        while menu_look is False:
+            menu_look_count += 1
+            if menu_look_count > 7:
+                menu_look = True
+
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_post_point_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 350, 830, 375, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    get_post(cla)
+                else:
+                    menu_look = True
+            else:
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_post_point_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 350, 830, 375, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        get_post(cla)
+                    else:
+                        menu_look = True
+                else:
+                    result_out = out_check(cla)
+
+                    if result_out == True:
+                        click_pos_2(935, 40, cla)
+                    else:
+                        clean_screen(cla)
+            time.sleep(1)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def menu_open_just(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+
+    try:
+        print("menu_open_just")
         menu_look = False
         menu_look_count = 0
         while menu_look is False:

@@ -40,15 +40,14 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_2_2.PNG"
+    menu_open(cla)
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\post_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(20, 50, 90, 90, cla, img, 0.8)
+    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("타루크 기지인 상태 3")
-
-    auction_start(cla)
-
+        print("post 창 열렸다.")
 # 300, 8001 700 1000
     # my_property_upload(cla)
     # 0
