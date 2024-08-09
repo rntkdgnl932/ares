@@ -1,7 +1,7 @@
 # * QTabWidget 탭에 다양한 위젯 추가
 import numpy as np
 from PyQt5.QtWidgets import *
-# from PyQt5.QtGui import QIcon, QFont       #아이콘
+from PyQt5.QtGui import QIcon, QFont, QColor       #아이콘
 from PyQt5.QtCore import Qt, QThread
 from PyQt5.QtTest import *
 
