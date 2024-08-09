@@ -3,6 +3,7 @@ import numpy as np
 from PyQt5.QtWidgets import *
 # from PyQt5.QtGui import QIcon, QFont       #아이콘
 from PyQt5.QtCore import Qt, QThread
+from PyQt5.QtTest import *
 
 import sys
 
@@ -1345,6 +1346,12 @@ class FirstTab(QWidget):
 
     def ares_stop_perfect(self):
         try:
+
+            self.perfect_pause.setText("정지 중")
+            self.perfect_pause.setStyleSheet("clolr:black; background:blue")
+            self.perfect_pause.setDisabled(True)
+            QTest.qWait(1000)
+
             print("game_Playing(self): ares_stop")
             dir_path = "C:\\my_games\\load\\ares"
             file_path = dir_path + "\\start.txt"
@@ -1369,6 +1376,11 @@ class FirstTab(QWidget):
     def again_restart_game(self):
         # change_ready_main = False
         # change_ready_step = False
+
+        self.again_restart.setText("업뎃 중")
+        self.again_restart.setStyleSheet("clolr:black; background:blue")
+        self.again_restart.setDisabled(True)
+        QTest.qWait(1000)
 
         print("업데이트 후 재시작")
         # git pull 실행 부분
