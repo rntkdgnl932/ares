@@ -555,7 +555,7 @@ def monster_dogam(cla):
                                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                            imgs_ = imgs_set_(70, 120, 120, 350, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                                 # click_pos_2(55, 155, cla)
@@ -563,7 +563,7 @@ def monster_dogam(cla):
                                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                            imgs_ = imgs_set_(70, 120, 120, 350, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                                 # click_pos_2(55, 155, cla)
@@ -584,7 +584,7 @@ def monster_dogam(cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                    imgs_ = imgs_set_(70, 120, 120, 350, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                         # click_pos_2(55, 155, cla)
@@ -592,7 +592,7 @@ def monster_dogam(cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                    imgs_ = imgs_set_(70, 120, 120, 350, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                         # click_pos_2(55, 155, cla)
@@ -673,7 +673,7 @@ def monster_dogam(cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                    imgs_ = imgs_set_(70, 120, 120, 350, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                         # click_pos_2(55, 155, cla)
@@ -681,7 +681,7 @@ def monster_dogam(cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\monster_grow_point_2_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(70, 120, 120, 300, cla, img, 0.8)
+                                    imgs_ = imgs_set_(70, 120, 120, 350, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 40, imgs_.y + 2, cla)
                                         # click_pos_2(55, 155, cla)
