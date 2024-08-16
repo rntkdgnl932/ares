@@ -318,23 +318,31 @@ def gardiun_mission_get(cla, schedule):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.5)
                         else:
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\ran_npc.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_npc.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(300, 300, 660, 700, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(1)
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move.PNG"
+                                time.sleep(0.5)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\ran_npc.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
+                                imgs_ = imgs_set_(300, 300, 660, 700, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("jadong_move : ing", i)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(1)
-                                    map_in(cla)
-                                    time.sleep(0.5)
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\jadong_move.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1060, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("jadong_move : ing", i)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(1)
+                                        map_in(cla)
+                                        time.sleep(0.5)
                     time.sleep(0.5)
                 # for z in range(10):
                 #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
