@@ -29,7 +29,7 @@ def go_test():
     from season_dungeon import season_dungeon_in_battle
 
     print("tst")
-    cla = "one"
+    cla = "four"
 
     if cla == "one":
         plus = 0
