@@ -352,6 +352,7 @@ def gardiun_mission_get(cla, schedule):
                 #     if imgs_ is not None and imgs_ != False:
                 #         break
                 #     time.sleep(1)
+            time.sleep(0.5)
         time.sleep(1)
         for i in range(5):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
