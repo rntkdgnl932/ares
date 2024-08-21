@@ -40,12 +40,18 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\potion\\jabhwa.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(880, 880, 960, 960, cla, img, 0.75)
+    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("jabhwa", imgs_)
+        print("game_ares_title", imgs_)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("game_ares_title_2", imgs_)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_npc2.PNG"
     img_array = np.fromfile(full_path, np.uint8)
