@@ -37,6 +37,8 @@ soojib_event = 360
 # screen_error
 screen_error = 0
 
+# 시간 관련
+time_count = 0
 
 # 버젼
 
