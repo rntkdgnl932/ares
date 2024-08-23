@@ -447,28 +447,36 @@ def out_check(cla):
 
         go_ = False
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\out\\camera.PNG"
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 970, 40, 1015, cla, img, 0.7)
+        imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            go_ = True
-            v_.screen_error = 0
+            juljun_time_check(cla)
         else:
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+        
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\out\\camera.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+            imgs_ = imgs_set_(0, 970, 40, 1015, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 go_ = True
                 v_.screen_error = 0
             else:
-                v_.screen_error += 1
-                print("v_.screen_error 200 이상일 때 메세지", v_.screen_error)
-                if v_.screen_error > 200:
-                    why = "화면에 버튼 사라지는 에러"
-                    line_to_me(cla, why)
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    go_ = True
                     v_.screen_error = 0
+                else:
+                    v_.screen_error += 1
+                    print("v_.screen_error 200 이상일 때 메세지", v_.screen_error)
+                    if v_.screen_error > 200:
+                        why = "화면에 버튼 사라지는 에러"
+                        line_to_me(cla, why)
+                        v_.screen_error = 0
 
         return go_
     except Exception as e:
