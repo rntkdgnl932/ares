@@ -1284,6 +1284,7 @@ def moriagiji_start(cla, dungeon):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
+                # 시간체크
                 drag_pos(405, 605, 945, 605, cla)
                 time.sleep(0.5)
             for i in range(10):
@@ -1977,6 +1978,7 @@ def moriagiji_attack(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
+            # 시간체크
             drag_pos(405, 605, 945, 605, cla)
         else:
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
@@ -2014,6 +2016,7 @@ def moriagiji_attack(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
+                        # 시간체크
                         break
                     time.sleep(0.5)
     except Exception as e:
@@ -2024,7 +2027,7 @@ def juljun_attack_check_moriagiji(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check
+    from action_ares import clean_screen, out_check, juljun_time_check
     try:
         print("juljun_attack_check_moriagiji")
         go_ = "none"
@@ -2053,6 +2056,10 @@ def juljun_attack_check_moriagiji(cla, where):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
+                # 시간체크
+
+                juljun_time_check(cla)
+
                 check_ready = True
                 # 먼저 모리아기지인지 파악
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_juljun_map_title_1_1.PNG"
@@ -2175,6 +2182,7 @@ def juljun_attack_check_moriagiji(cla, where):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
+                                    # 시간체크
                                     break
                                 time.sleep(0.5)
                         break
@@ -2857,6 +2865,7 @@ def talook_attack(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
+            # 시간체크
             drag_pos(405, 605, 945, 605, cla)
         else:
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
@@ -2894,6 +2903,7 @@ def talook_attack(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
+                        # 시간체크
                         break
                     time.sleep(0.5)
     except Exception as e:
@@ -2904,7 +2914,7 @@ def juljun_attack_check_talook(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_ares import clean_screen, out_check
+    from action_ares import clean_screen, out_check, juljun_time_check
     try:
         print("juljun_attack_check_talook")
         go_ = "none"
@@ -2921,6 +2931,10 @@ def juljun_attack_check_talook(cla, where):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
+                # 시간체크
+
+                juljun_time_check(cla)
+
                 check_ready = True
                 # 먼저 타루크 기지인지 파악
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\talook_juljun_map_title_1_1.PNG"
@@ -3004,7 +3018,8 @@ def juljun_attack_check_talook(cla, where):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    break
+                                    # 시간체크
+                                   break
                                 time.sleep(0.5)
                         break
                     else:

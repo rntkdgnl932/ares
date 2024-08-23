@@ -103,6 +103,7 @@ def jadong_start(cla, where):
                             imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 result_attck = juljun_attack_check(cla, where)
+                                # 시간체크
                                 if result_attck == False:
                                     go_spot_in(cla, where)
                                 else:
@@ -713,6 +714,7 @@ def juljun_attack_check(cla, where):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import juljun_time_check
     try:
         print("juljun_attack_check")
         go_ = False
@@ -721,6 +723,10 @@ def juljun_attack_check(cla, where):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
+            # 시간체크
+
+            juljun_time_check(cla)
+
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_attack.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

@@ -216,12 +216,12 @@ def clean_screen(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 10, 110, 70, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    result_schedule = myQuest_play_check(cla, "check")
                     print("result_schedule", result_schedule)
                     character_id = result_schedule[0][1]
                     result_schedule_ = result_schedule[0][2]
 
-                    character_change(v_.now_cla, character_id)
+                    character_change(cla, character_id)
                     time.sleep(0.2)
 
                 # 팝업창 끄기
@@ -418,14 +418,14 @@ def clean_screen(cla):
                 dir_path = "C:\\my_games\\load\\ares"
                 file_path = dir_path + "\\start.txt"
                 # cla.txt
-                cla_data = str(v_.now_cla) + "cla"
+                cla_data = str(cla) + "cla"
                 file_path2 = dir_path + "\\" + cla_data + ".txt"
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     data = 'no'
                     file.write(str(data))
                     time.sleep(0.2)
                 with open(file_path2, "w", encoding='utf-8-sig') as file:
-                    data = v_.now_cla
+                    data = cla
                     file.write(str(data))
                     time.sleep(0.2)
                 os.execl(sys.executable, sys.executable, *sys.argv)
@@ -1247,3 +1247,92 @@ def mine_check(cla):
     except Exception as e:
         print(e)
         return 0
+
+
+
+
+
+def juljun_time_check(cla):
+    import numpy as np
+    import cv2
+    import os
+    from function import imgs_set_
+    from datetime import datetime
+    from massenger import line_to_me
+    try:
+        print("juljun_time_check")
+
+        nowTime = int(datetime.today().strftime("%M"))
+
+        print("nowTime", nowTime)
+
+        now_time = ""
+        for i in range(10):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_time\\" + str(i) + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(480, 75, 515, 135, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("10 자리", i)
+                now_time += str(i)
+                break
+        for i in range(10):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun_time\\" + str(i) + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(505, 75, 540, 135, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("1 자리", i)
+                now_time += str(i)
+                break
+
+        if now_time == "":
+            print("값이 없다")
+        else:
+            now_time = int(now_time)
+            print("now_time", now_time)
+
+            if nowTime >= 50 and now_time < 10:
+                now_time += 60
+            elif now_time >= 50 and nowTime < 10:
+                nowTime += 60
+
+            result_cal = abs(nowTime - now_time)
+
+            if result_cal > 19:
+                print("멈춰있는 상태", result_cal)
+
+                why = "아레스 다운되거나 인터넷이 끊긴것이 확실하다"
+                print(why)
+                line_to_me(cla, why)
+
+                dir_path = "C:\\my_games\\load\\ares"
+                file_path = dir_path + "\\start.txt"
+                # cla.txt
+                cla_data = str(cla) + "cla"
+                file_path2 = dir_path + "\\" + cla_data + ".txt"
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    data = 'no'
+                    file.write(str(data))
+                    time.sleep(0.2)
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
+                    data = cla
+                    file.write(str(data))
+                    time.sleep(0.2)
+                os.execl(sys.executable, sys.executable, *sys.argv)
+
+            else:
+                print("정상 작동 중", result_cal)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
+
+
+
+
+
+
+

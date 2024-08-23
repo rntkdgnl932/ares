@@ -14,7 +14,7 @@ def go_test():
     import random
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang, get_sangjum_sohwan, get_season, get_season_pass
-    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check
+    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check, juljun_time_check
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
     from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c, soojib_boonhae_start, boonhae_bangugoo
@@ -28,6 +28,8 @@ def go_test():
     from property_ares import my_property_upload
     from season_dungeon import season_dungeon_in_battle
 
+
+
     print("tst")
     cla = "one"
 
@@ -39,6 +41,8 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
+
+    juljun_time_check(cla)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
