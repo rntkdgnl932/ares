@@ -439,6 +439,8 @@ def clean_screen(cla):
 def out_check(cla):
     import numpy as np
     import cv2
+    import os
+
     from function import imgs_set_
     from massenger import line_to_me
 
@@ -447,36 +449,77 @@ def out_check(cla):
 
         go_ = False
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+        # 응답없음 확인하기
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\no_response.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+        imgs_ = imgs_set_(0, 0, 600, 30, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            juljun_time_check(cla)
-        else:
-
-            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\out\\camera.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 970, 40, 1015, cla, img, 0.7)
-            if imgs_ is not None and imgs_ != False:
-                go_ = True
-                v_.screen_error = 0
-            else:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+            print("no_response", imgs_)
+            no_response = True
+            for i in range(60):
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\no_response.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                imgs_ = imgs_set_(0, 0, 600, 30, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("no_response", imgs_)
+                else:
+                    no_response = False
+                    break
+                time.sleep(2)
+            if no_response == True:
+                why = "응답없음 2분 넘어갔다."
+                print(why)
+                line_to_me(cla, why)
+
+                dir_path = "C:\\my_games\\load\\" + str(v_.game_folder)
+                file_path = dir_path + "\\start.txt"
+                # cla.txt
+                cla_data = str(cla) + "cla"
+                file_path2 = dir_path + "\\" + cla_data + ".txt"
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    data = 'no'
+                    file.write(str(data))
+                    time.sleep(0.2)
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
+                    data = cla
+                    file.write(str(data))
+                    time.sleep(0.2)
+                os.execl(sys.executable, sys.executable, *sys.argv)
+
+        else:
+
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 580, 560, 630, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                juljun_time_check(cla)
+            else:
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\out\\camera.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 970, 40, 1015, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     go_ = True
                     v_.screen_error = 0
                 else:
-                    v_.screen_error += 1
-                    print("v_.screen_error 200 이상일 때 메세지", v_.screen_error)
-                    if v_.screen_error > 200:
-                        why = "화면에 버튼 사라지는 에러"
-                        line_to_me(cla, why)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\juljun_mode_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 780, 50, 930, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        go_ = True
                         v_.screen_error = 0
+                    else:
+                        v_.screen_error += 1
+                        print("v_.screen_error 200 이상일 때 메세지", v_.screen_error)
+                        if v_.screen_error > 200:
+                            why = "화면에 버튼 사라지는 에러"
+                            line_to_me(cla, why)
+                            v_.screen_error = 0
 
         return go_
     except Exception as e:
@@ -1348,7 +1391,7 @@ def juljun_time_check(cla):
                             print(why)
                             line_to_me(cla, why)
 
-                            dir_path = "C:\\my_games\\load\\ares"
+                            dir_path = "C:\\my_games\\load\\" + str(v_.game_folder)
                             file_path = dir_path + "\\start.txt"
                             # cla.txt
                             cla_data = str(cla) + "cla"
