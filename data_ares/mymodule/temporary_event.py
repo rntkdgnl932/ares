@@ -29,7 +29,7 @@ def event_dungeon_start(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_" + str(k) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.8)
+                    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.75)
                     if imgs_ is not None and imgs_ != False:
                         where_event = "event_spot_" + str(i)
 
@@ -38,7 +38,7 @@ def event_dungeon_start(cla, dungeon):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 400, 570, 470, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print(where_event)
+                            print("던전위치", where_event)
                             dun_in = True
                             break
                 break
@@ -57,6 +57,7 @@ def event_dungeon_start(cla, dungeon):
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.5)
+            time.sleep(0.5)
         if dun_in == True:
             juljun_potion_check(cla)
         else:
@@ -205,37 +206,31 @@ def dungeon_in_event(cla, dungeon):
                         imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
 
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\already_moria.PNG"
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(370, 80, 625, 150, cla, img, 0.8)
+                            imgs_ = imgs_set_(430, 450, 520, 520, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("이미 event dungeon에 있다.", dungeon)
-                                # dun_go_ = True
-                                for z in range(3):
-                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_title.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(940, 50, cla)
-                                    else:
-                                        break
-                                    time.sleep(0.5)
-                                break
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_lack_time.PNG"
+                                print("arlim_title", imgs_)
+
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_confirm.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(450, 80, 550, 140, cla, img, 0.8)
+                                imgs_ = imgs_set_(470, 560, 620, 620, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("eent dungeon 끝", dungeon)
-                                    dun_go_ = True
+                                    print("arlim_confirm", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                                    myQuest_play_add(cla, dungeon)
-                                    time.sleep(0.5)
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\already_moria.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(370, 80, 625, 150, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("이미 event dungeon에 있다.", dungeon)
+                                    # dun_go_ = True
                                     for z in range(3):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_title.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
@@ -245,6 +240,28 @@ def dungeon_in_event(cla, dungeon):
                                             break
                                         time.sleep(0.5)
                                     break
+                                else:
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\gyungjang\\moria_lack_time.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(450, 80, 550, 140, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("eent dungeon 끝", dungeon)
+                                        dun_go_ = True
+
+                                        myQuest_play_add(cla, dungeon)
+                                        time.sleep(0.5)
+                                        for z in range(3):
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_2(940, 50, cla)
+                                            else:
+                                                break
+                                            time.sleep(0.5)
+                                        break
 
                         else:
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\loding.PNG"

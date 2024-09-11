@@ -101,6 +101,13 @@ def _stop_please(cla):
                 imgs_ = imgs_set_(420, 640, 530, 680, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\manlyo_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(420, 500, 530, 800, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.2)
 
             time.sleep(0.2)
