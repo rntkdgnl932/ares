@@ -29,7 +29,7 @@ def event_dungeon_start(cla, dungeon):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_" + str(k) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.75)
+                    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         where_event = "event_spot_" + str(i)
 
@@ -82,7 +82,8 @@ def dungeon_in_title(cla, dungeon):
         menu_open(cla)
 
         if where_dungeon[0] == "이벤트":
-            click_pos_2(70, 230, cla)
+            click_pos_2(70, 230 + 25, cla)
+            # click_pos_2(70, 230, cla)
             title = "dojun_title"
 
         for i in range(10):
