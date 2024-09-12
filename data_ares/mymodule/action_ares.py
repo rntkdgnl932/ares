@@ -1,6 +1,6 @@
 import time
 import sys
-from PyQt5.QtTest import *
+# from PyQt5.QtTest import *
 
 sys.path.append('C:/my_games/ares/data_ares/mymodule')
 
@@ -574,10 +574,20 @@ def menu_open(cla):
 
                     if result_out == True:
                         click_pos_2(935, 40, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\menu\\friend.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(810, 290, 870, 350, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("진입 ㅇㅋ")
+                                break
+                            time.sleep(0.5)
+
                     else:
                         clean_screen(cla)
-            # time.sleep(1)
-            QTest.qWait(1000)
+            time.sleep(1)
+            # QTest.qWait(1000)
 
     except Exception as e:
         print(e)
