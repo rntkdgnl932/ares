@@ -1,6 +1,6 @@
 import time
 import sys
-
+from PyQt5.QtTest import *
 
 sys.path.append('C:/my_games/ares/data_ares/mymodule')
 
@@ -576,7 +576,8 @@ def menu_open(cla):
                         click_pos_2(935, 40, cla)
                     else:
                         clean_screen(cla)
-            time.sleep(1)
+            # time.sleep(1)
+            QTest.qWait(1000)
 
     except Exception as e:
         print(e)
