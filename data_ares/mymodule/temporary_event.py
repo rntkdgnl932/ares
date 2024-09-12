@@ -537,7 +537,7 @@ def dungeon_in_event(cla, dungeon):
                 else:
                     menu_open(cla)
 
-                    click_pos_2(70, 230, cla)
+                    click_pos_2(70, 230 + 30, cla)
 
                     for i in range(10):
 
