@@ -16,7 +16,7 @@ def event_dungeon_start(cla, dungeon):
     try:
         print("event dungeon_start")
 
-        dungeon = "이벤트_1_1"
+        data = "이벤트_1_1"
 
         dun_in = False
 
@@ -63,7 +63,7 @@ def event_dungeon_start(cla, dungeon):
         if dun_in == True:
             juljun_potion_check(cla)
         else:
-            dungeon_in_event(cla, dungeon)
+            dungeon_in_event(cla, data, dungeon)
 
 
     except Exception as e:
@@ -71,7 +71,7 @@ def event_dungeon_start(cla, dungeon):
         return  0
 
 
-def dungeon_in_title(cla, dungeon):
+def dungeon_in_title(cla, data, dungeon):
     import numpy as np
     import cv2
     from function import click_pos_2, imgs_set_, click_pos_reg
@@ -79,7 +79,7 @@ def dungeon_in_title(cla, dungeon):
     try:
         print("dungeon_in")
 
-        where_dungeon = dungeon.split("_")
+        where_dungeon = data.split("_")
 
         menu_open(cla)
 
@@ -144,7 +144,7 @@ def not_available(cla):
         return 0
 
 
-def dungeon_in_event(cla, dungeon):
+def dungeon_in_event(cla, data, dungeon):
     import numpy as np
     import cv2
     import pyautogui
@@ -159,7 +159,7 @@ def dungeon_in_event(cla, dungeon):
 
         # ex) 이벤트_3_1
 
-        where_dungeon = dungeon.split("_")
+        where_dungeon = data.split("_")
 
         dun_go_ = False
         dun_go_count = 0
