@@ -16,6 +16,8 @@ def event_dungeon_start(cla, dungeon):
     try:
         print("event dungeon_start")
 
+        dungeon = "이벤트_1_1"
+
         dun_in = False
 
         for i in range(5):
@@ -247,13 +249,13 @@ def dungeon_in_event(cla, dungeon):
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(450, 80, 550, 140, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("eent dungeon 끝", dungeon)
+                                        print("event dungeon 끝", dungeon)
                                         dun_go_ = True
 
                                         myQuest_play_add(cla, dungeon)
                                         time.sleep(0.5)
                                         for z in range(3):
-                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\moria_title.PNG"
+                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_title.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                             imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
