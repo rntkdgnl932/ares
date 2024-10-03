@@ -162,7 +162,7 @@ def get_event(cla):
                             # 총길이 11일때 330, 12일때 300, 13일때 265, 14일떼 230, 15일때 200, 16일때 170, 17일때 133, 18일때 100, 19일때 실제 11 포기하고...100(get_item.txt는 18)
                             # 실제 포인트 - 330 => now_y
 
-                            now_y = 170
+                            now_y = 230
                             y_up = now_y + (z * 33) - 13
                             y_down = now_y + (z * 33) + 13
 
@@ -260,7 +260,7 @@ def get_event_click(reg_x, reg_y, how, cla):
     from function import imgs_set_, click_pos_reg, click_pos_2, random_int
 
     try:
-        print("get_event_click", how)
+        print("get_event_click", how, reg_x, reg_y)
 
         if cla == "one":
             reg_x = reg_x
@@ -353,11 +353,12 @@ def get_event_click(reg_x, reg_y, how, cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(reg_x - 20, reg_y - 20, reg_x + 20, reg_y + 20, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
+                    print("seven", i)
                     # 여기 받기 부분이 how에 따라 달라짐.
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
+                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
@@ -365,7 +366,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
+                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
@@ -373,12 +374,20 @@ def get_event_click(reg_x, reg_y, how, cla):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.77)
+                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                         time.sleep(0.1)
                         break
-                time.sleep(0.1)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_8.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(330, 590, 780, 680, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                        time.sleep(0.1)
+                        break
+                time.sleep(0.2)
         elif how == "fourteen":
             for i in range(15):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
@@ -502,7 +511,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(270, 610, 310, 650, cla, img, 0.7)
+                imgs_ = imgs_set_(270, 555, 310, 585, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     # 여기 받기 부분이 how에 따라 달라짐.
 

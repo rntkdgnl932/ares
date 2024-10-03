@@ -42,7 +42,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    juljun_time_check(cla)
+    get_event(cla)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
