@@ -93,7 +93,7 @@ def get_event(cla):
                     y_up = 403 + (z * 33) - 13
                     y_down = 403 + (z * 33) + 13
 
-
+                    print("drag_num?", drag_num)
 
                     is_drag = read_event[z].split(":")
 
@@ -119,6 +119,7 @@ def get_event(cla):
                     #     y_plus += 40
 
                     if is_drag[1] != "pass":
+                        print("drag_num??", drag_num)
                         if drag_num == 0:
                             # 현재 이벤트 번호 및 파악할 포인트
                             print(z + 1, y_up, y_down)
@@ -182,23 +183,31 @@ def get_event(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
                                     time.sleep(0.5)
-                                    aim_reg = "none"
-                                    for i in range(len(read_event)):
-                                        y_average = 399
-                                        cal_ = read_event[i].split(":")
-                                        y_reg_1 = y_average - 15 - 33 + (33 * int(cal_[0]))
-                                        y_reg_2 = y_average + 15 - 33 + (33 * int(cal_[0]))
-                                        if y_reg_1 < imgs_.y < y_reg_2:
-                                            print("aim_reg", i, imgs_)
-                                            # 드래그일 경우 다시...
-                                            aim_reg = read_event[i]
-                                            break
-                                    if aim_reg != "none":
-                                        print("aim_reg", aim_reg)
-                                        result_aim_reg = aim_reg.split(":")
-                                        # 추려낸 결과 ex => 2:seven
-                                        get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
-                                        time.sleep(0.5)
+
+                                    aim_reg = read_event[z]
+                                    print("aim_reg", aim_reg)
+                                    result_aim_reg = aim_reg.split(":")
+                                    # 추려낸 결과 ex => 2:seven
+                                    get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
+                                    time.sleep(0.5)
+
+                                    # aim_reg = "none"
+                                    # for i in range(len(read_event)):
+                                    #     y_average = 399
+                                    #     cal_ = read_event[i].split(":")
+                                    #     y_reg_1 = y_average - 15 - 33 + (33 * int(cal_[0]))
+                                    #     y_reg_2 = y_average + 15 - 33 + (33 * int(cal_[0]))
+                                    #     if y_reg_1 < imgs_.y < y_reg_2:
+                                    #         print("aim_reg", i, imgs_)
+                                    #         # 드래그일 경우 다시...
+                                    #         aim_reg = read_event[i]
+                                    #         break
+                                    # if aim_reg != "none":
+                                    #     print("aim_reg", aim_reg)
+                                    #     result_aim_reg = aim_reg.split(":")
+                                    #     # 추려낸 결과 ex => 2:seven
+                                    #     get_event_click(imgs_.x, imgs_.y, result_aim_reg[1], cla)
+                                    #     time.sleep(0.5)
                             else:
                                 print(z + 1, "포인트가 안보여")
 
@@ -257,7 +266,7 @@ def get_event(cla):
 def get_event_click(reg_x, reg_y, how, cla):
     import numpy as np
     import cv2
-    from function import imgs_set_, click_pos_reg, click_pos_2, random_int
+    from function import imgs_set_, click_pos_reg, click_pos_2, random_int, drag_pos
 
     try:
         print("get_event_click", how, reg_x, reg_y)
@@ -560,7 +569,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(510, 510, 550, 650, cla, img, 0.77)
+                            imgs_ = imgs_set_(510, 510, 545, 650, cla, img, 0.77)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                                 time.sleep(0.1)
@@ -578,7 +587,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_3.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(510, 510, 550, 650, cla, img, 0.77)
+                                    imgs_ = imgs_set_(510, 510, 545, 650, cla, img, 0.77)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                                         time.sleep(0.1)
@@ -596,7 +605,7 @@ def get_event_click(reg_x, reg_y, how, cla):
                                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_4.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(510, 510, 550, 650, cla, img, 0.77)
+                                            imgs_ = imgs_set_(510, 510, 545, 650, cla, img, 0.77)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
                                                 time.sleep(0.1)
@@ -619,6 +628,9 @@ def get_event_click(reg_x, reg_y, how, cla):
                                     if imgs_ is not None and imgs_ != False:
                                         break
                                     time.sleep(0.3)
+                            else:
+                                drag_pos(450, 630, 450, 530, cla)
+                                time.sleep(1)
 
                         time.sleep(0.3)
                 else:
