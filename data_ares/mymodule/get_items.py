@@ -520,9 +520,11 @@ def get_event_click(reg_x, reg_y, how, cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(270, 555, 310, 585, cla, img, 0.7)
+                imgs_ = imgs_set_(270, 585, 310, 615, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
-                    # 여기 받기 부분이 how에 따라 달라짐.
+                    # 여기 받기 부분이 how에 따라 x,y 값 달라짐.
+
+                    print("gyohwan")
 
                     for c in range(5):
 
