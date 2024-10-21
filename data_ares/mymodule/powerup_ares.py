@@ -390,6 +390,16 @@ def hoilodo(cla):
                                                                     click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
                                                                     hoilodo_point = True
                                                                     time.sleep(0.5)
+                                                                else:
+                                                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\powerup\\hoilodo_point_12.PNG"
+                                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                                    imgs_ = imgs_set_(150, 310, 800, 880, cla, img, 0.8)
+                                                                    if imgs_ is not None and imgs_ != False:
+                                                                        print("hoilodo_point_11", imgs_)
+                                                                        click_pos_reg(imgs_.x - 10, imgs_.y + 7, cla)
+                                                                        hoilodo_point = True
+                                                                        time.sleep(0.5)
 
                                 if hoilodo_point == True:
                                     click_pos_2(865, 1020, cla)
