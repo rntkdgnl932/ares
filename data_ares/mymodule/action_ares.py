@@ -375,6 +375,22 @@ def clean_screen(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(540, 600, cla)
 
+                # 모노리스 배치일 경우
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\monoris_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(15, 30, 100, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\boonhae\\monoris_drag.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(350, 250, 500, 300, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(820, 1020, cla)
+                        time.sleep(0.5)
+                        click_pos_2(600, 1020, cla)
+                        time.sleep(0.5)
+
                 # 각종 활성화 되어 있는 title 닫기
                 for z in range(3):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\clean_screen\\x_2.PNG"
