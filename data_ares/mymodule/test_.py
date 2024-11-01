@@ -14,10 +14,10 @@ def go_test():
     import random
     from function import imgs_set_, mouse_move_cpp, drag_pos_Press, drag_pos_Release, click_pos_2, click_pos_reg, how_many_pic, drag_pos, text_check_get, int_put_, in_number_check
     from get_items import get_event, get_post, get_gardiun_pass, get_gardiun_rank, bag_item_open, get_item_start, get_mission_bosang, get_sangjum_sohwan, get_season, get_season_pass
-    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check, juljun_time_check
+    from action_ares import out_check, clean_screen, maul_go, dead_die, menu_open, loading_ares, mine_check, juljun_time_check, confirm_all
     from jadong import go_hangsun_map
     from powerup_ares import soohosuk, hoilodo, monster_dogam
-    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c, soojib_boonhae_start, boonhae_bangugoo
+    from soojib_boonhae import soojib, soojib_setting, boonhae_start, boonhae_ready, boonhae_setting_bc, boonhae_setting_c, soojib_boonhae_start, boonhae_bangugoo, boonhae_module
     from dungeon import dungeon_in_hangsungpagyun, dungeon_in_moriagiji, dark_play, dungeon_in_raid
     from potion_ares import maul_potion_get, maul_potion_get_full
     from chaejib import chaejib_start, chaejib_setting, chaejib_go, chaejib_maps
@@ -42,27 +42,11 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_event(cla)
+    boonhae_module(cla)
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("game_ares_title", imgs_)
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\game_ares_title_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("game_ares_title_2", imgs_)
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_npc2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(300, 300, 660, 700, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("gardiun_npc2", imgs_)
+
+
 # 300, 8001 700 1000
     # my_property_upload(cla)
     # 0
