@@ -35,7 +35,6 @@ import tkinter
 import webbrowser
 import colorthief
 
-from screeninfo import get_monitors
 
 # 나의 모듈
 # from function import imgs_set, imgs_set_, click_pos_2, random_int, text_check_get_3, int_put_, text_check_get, \
@@ -190,19 +189,19 @@ class MyApp(QDialog):
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("ccocco:메롱")
 
-        monitors = get_monitors()
-        last_monitor_number = 0
-        for idx, monitor in enumerate(monitors, start=1):
-            last_monitor_number = idx
+        # monitors = get_monitors()
+        # last_monitor_number = 0
+        # for idx, monitor in enumerate(monitors, start=1):
+        #     last_monitor_number = idx
+        #
+        # if last_monitor_number == 1 or line_[0] == "ccocco":
+        #     x_reg = 0
+        # elif last_monitor_number == 2:
+        #     x_reg = 960 * 3
+        # elif last_monitor_number == 3:
+        #     x_reg = 960 * 3
 
-        if last_monitor_number == 1 or line_[0] == "ccocco":
-            x_reg = 0
-        elif last_monitor_number == 2:
-            x_reg = 960 * 3
-        elif last_monitor_number == 3:
-            x_reg = 960 * 3
-
-        self.setGeometry(10 + x_reg, 120, 900, 820)
+        self.setGeometry(965 + 960 + 960, 200, 900, 700)
 
         # if line_[1] == "super_coob":
         #     self.setGeometry(10, 200, 900, 700)
