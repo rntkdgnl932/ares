@@ -1,10 +1,10 @@
 1:seven
-2:fourteen
-3:seven_six
-4:pass
+2:seven
+3:ssix
+4:seven_six
 5:seven
-6:seven
-7:six
+6:fourteen
+7:pass
 8:seven_six
 9:gyohwan
 10:drag
@@ -13,4 +13,5 @@
 13:four
 14:four
 15:four
+16:four
 16:seven_six

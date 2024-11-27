@@ -1609,7 +1609,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                        imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             print("auto_on", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1619,7 +1619,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print("auto_off", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1638,7 +1638,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print("auto_on", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1648,7 +1648,7 @@ def dungeon_in_moriagiji(cla, dungeon):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     print("auto_off", imgs_)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1929,7 +1929,7 @@ def moriagiji_move(cla, dungeon):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("auto_on", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1939,7 +1939,7 @@ def moriagiji_move(cla, dungeon):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("auto_off", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1984,7 +1984,7 @@ def moriagiji_attack(cla):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("auto_on", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1994,7 +1994,7 @@ def moriagiji_attack(cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("auto_off", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2530,7 +2530,7 @@ def dungeon_in_talook(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print("auto_on", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2541,7 +2541,7 @@ def dungeon_in_talook(cla, dungeon):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     print("auto_off", imgs_)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2560,7 +2560,7 @@ def dungeon_in_talook(cla, dungeon):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print("auto_on", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2570,7 +2570,7 @@ def dungeon_in_talook(cla, dungeon):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     print("auto_off", imgs_)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2816,7 +2816,7 @@ def talook_move(cla, dungeon):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("auto_on", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2826,7 +2826,7 @@ def talook_move(cla, dungeon):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("auto_off", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2871,7 +2871,7 @@ def talook_attack(cla):
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+            imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 print("auto_on", imgs_)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -2881,7 +2881,7 @@ def talook_attack(cla):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(570, 980, 615, 1030, cla, img, 0.7)
+                imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("auto_off", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
