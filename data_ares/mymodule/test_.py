@@ -41,9 +41,7 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
-
-    auction_sell_folder_jangbi(cla)
-    auction_sell_folder_etc_item(cla)
+        
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -69,6 +67,13 @@ def go_test():
     imgs_ = imgs_set_(430, 450, 520, 520, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
         print("arlim_title", imgs_)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\download.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 560, 620, 800, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("download", imgs_)
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_confirm.PNG"
         img_array = np.fromfile(full_path, np.uint8)

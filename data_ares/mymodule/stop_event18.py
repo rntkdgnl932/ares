@@ -17,6 +17,14 @@ def _stop_please(cla):
     try:
         print("_stop_please")
 
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(430, 450, 520, 520, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("arlim_title", imgs_)
+
+
         stop = True
         stop_count = 0
         while stop is True:
