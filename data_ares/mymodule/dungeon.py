@@ -5,8 +5,8 @@ sys.path.append('C:/my_games/ares/data_ares/mymodule')
 
 import variable as v_
 
-event_x = 0
-# event_x = 80
+# event_x = 0
+event_x = 80
 
 def dungeon_start(cla, dungeon):
     try:

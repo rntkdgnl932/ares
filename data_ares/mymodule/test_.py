@@ -27,7 +27,7 @@ def go_test():
     from log_ares import character_change
     from property_ares import my_property_upload
     from season_dungeon import season_dungeon_in_battle
-
+    from auction_ares import auction_start, auction_ready, auction_sell_folder_jangbi, auction_sell_folder_etc_item
 
 
     print("tst")
@@ -42,12 +42,40 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
+    auction_sell_folder_jangbi(cla)
+    auction_sell_folder_etc_item(cla)
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("event_spot_1")
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("event_spot_2")
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\18_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
     imgs_ = imgs_set_(70, 670, 300, 770, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
         print("18_1")
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(430, 450, 520, 520, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("arlim_title", imgs_)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(470, 560, 620, 620, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("arlim_confirm", imgs_)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
     img_array = np.fromfile(full_path, np.uint8)
