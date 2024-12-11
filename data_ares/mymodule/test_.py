@@ -74,6 +74,28 @@ def go_test():
         imgs_ = imgs_set_(400, 500, 620, 600, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("download", imgs_)
+            click_pos_2(480, 590, cla)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\downloading.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 1000, 100, 1030, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("downloading", imgs_)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\resource_loading.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(370, 880, 540, 930, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("resource_loading", imgs_)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\screen_touch.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(370, 880, 540, 930, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("screen_touch", imgs_)
 
         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_confirm.PNG"
         img_array = np.fromfile(full_path, np.uint8)
