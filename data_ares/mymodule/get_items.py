@@ -123,12 +123,26 @@ def get_event(cla):
                         if drag_num == 0:
                             # 현재 이벤트 번호 및 파악할 포인트
                             print(z + 1, y_up, y_down)
+
+                            is_point = False
+
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
                                 print(z + 1, "받기 시작")
+                                is_point = True
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(270, y_up, 310, y_down, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    print(z + 1, "받기 시작")
+                                    is_point = True
+
+                            if is_point == True:
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\get_event_point_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -177,8 +191,10 @@ def get_event(cla):
                                 now_y = 170
                             elif len(read_event) == 17:
                                 now_y = 133
-                            else:
+                            elif len(read_event) == 18:
                                 now_y = 100
+                            else:
+                                now_y = 70
 
 
 

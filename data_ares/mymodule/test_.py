@@ -28,6 +28,7 @@ def go_test():
     from property_ares import my_property_upload
     from season_dungeon import season_dungeon_in_battle
     from auction_ares import auction_start, auction_ready, auction_sell_folder_jangbi, auction_sell_folder_etc_item
+    from stop_event18 import _stop_please
 
 
     print("tst")
@@ -41,6 +42,8 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
+
+    _stop_please(cla)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
