@@ -1845,6 +1845,24 @@ def get_sangjum_sohwan(cla):
                 imgs_ = imgs_set_(0, 165, 90, 215, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("welcome_gold_sohwan")
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    for i in range(5):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\100_gold_bottom.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(130, 680, 880, 740, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("100_gold_bottom", imgs_)
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\welcome_gold_sohwan.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 165, 90, 215, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("welcome_gold_sohwan")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(1)
 
                     # 150 ~ 220, 300 ~ 370, 450 ~ 520, 600 ~ 670, 750 ~ 820
 
