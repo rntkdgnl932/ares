@@ -43,7 +43,7 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    _stop_please(cla)
+    get_sangjum_sohwan(cla)
 
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)

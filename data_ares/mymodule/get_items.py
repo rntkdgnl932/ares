@@ -1827,7 +1827,7 @@ def get_sangjum_sohwan(cla):
         sohwan_ready_count = 0
         while sohwan_ready is False:
             sohwan_ready_count += 1
-            if sohwan_ready_count > 5:
+            if sohwan_ready_count > 15:
                 sohwan_ready = True
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\sangjum_title.PNG"
@@ -1837,7 +1837,45 @@ def get_sangjum_sohwan(cla):
             if imgs_ is not None and imgs_ != False:
                 print("sangjum_title 열렸다.")
 
+                # 웰컴 골드 상점 있다면 다 사버리깅(event)
 
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\welcome_gold_sohwan.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 165, 90, 215, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("welcome_gold_sohwan")
+
+                    # 150 ~ 220, 300 ~ 370, 450 ~ 520, 600 ~ 670, 750 ~ 820
+
+                    for i in range(5):
+
+                        x_1 = 150 + (i * 150)
+                        x_2 = x_1 + 70
+
+                        for click in range(10):
+
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\buy_complete.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(x_1, 160, x_2, 215, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("buy_complete", imgs_)
+                                break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\100_gold.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 640, 530, 680, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("100_gold", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    click_pos_2(x_1 + 35, 350, cla)
+                            time.sleep(1)
+
+
+                # 골드소환 부분
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_sohwan.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
