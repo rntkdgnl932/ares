@@ -3475,8 +3475,8 @@ class game_Playing(QThread):
                                             chaejib_start(v_.now_cla)
 
                                         elif '이벤트' in result_schedule_:
-                                            event_dungeon_start(v_.now_cla, result_schedule_)
-                                            # myQuest_play_add(v_.now_cla, result_schedule_)
+                                            # event_dungeon_start(v_.now_cla, result_schedule_)
+                                            myQuest_play_add(v_.now_cla, result_schedule_)
 
                                         elif '행성파견' in result_schedule_:
                                             dungeon_in_hangsungpagyun(v_.now_cla, result_schedule_)
