@@ -1866,31 +1866,26 @@ def get_sangjum_sohwan(cla):
 
                     # 150 ~ 220, 300 ~ 370, 450 ~ 520, 600 ~ 670, 750 ~ 820
 
-                    for i in range(5):
+                    for click in range(20):
 
-                        x_1 = 150 + (i * 150)
-                        x_2 = x_1 + 70
-
-                        for click in range(10):
-
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\buy_complete.PNG"
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\buy_complete.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(150, 160, 220, 215, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("buy_complete", imgs_)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\100_gold.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(x_1, 160, x_2, 215, cla, img, 0.8)
+                            imgs_ = imgs_set_(440, 640, 530, 680, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("buy_complete", imgs_)
-                                break
+                                print("100_gold", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\event\\100_gold.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 640, 530, 680, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("100_gold", imgs_)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                else:
-                                    click_pos_2(x_1 + 35, 350, cla)
-                            time.sleep(1)
+                                click_pos_2(185, 350, cla)
+                        time.sleep(1)
 
 
                 # 골드소환 부분
