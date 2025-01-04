@@ -43,8 +43,12 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    get_sangjum_sohwan(cla)
-
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(5, 110, 60, 600, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("r_grade", imgs_)
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

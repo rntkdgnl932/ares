@@ -235,7 +235,7 @@ def hoilodo(cla):
         while hoilodo_up is False:
             hoilodo_up_count += 1
             print("hoilodo_up_count", hoilodo_up_count)
-            if hoilodo_up_count > 15:
+            if hoilodo_up_count > 5:
                 hoilodo_up = True
 
             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\hoilodo_title.PNG"
