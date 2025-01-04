@@ -50,6 +50,20 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("r_grade", imgs_)
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(10, 10, 70, 100, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("gardiun_title", imgs_)
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_select.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(735, 955, 815, 1025, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("gardiun_select", imgs_)
+
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
