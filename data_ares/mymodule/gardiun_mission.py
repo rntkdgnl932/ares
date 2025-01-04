@@ -49,9 +49,16 @@ def gardiun_mission_get(cla, schedule):
     try:
         print("gardiun_mission_get")
 
-        maul_go(cla)
-        maul_potion_gardiun(cla)
-        # map_in(cla)
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(10, 10, 70, 100, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("가디언 미션 진입 ㅇㅋ")
+        else:
+            maul_go(cla)
+            maul_potion_gardiun(cla)
+            # map_in(cla)
 
 
         mission_get_ = False
@@ -79,7 +86,7 @@ def gardiun_mission_get(cla, schedule):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\complete_point_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(175, 110, 200, 600, cla, img, 0.8)
+                imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     for get in range(20):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
@@ -90,7 +97,7 @@ def gardiun_mission_get(cla, schedule):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\complete_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(175, 110, 200, 600, cla, img, 0.8)
+                            imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x - 100, imgs_.y + 15, cla)
                                 time.sleep(0.5)
