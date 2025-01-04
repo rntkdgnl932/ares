@@ -88,6 +88,7 @@ def gardiun_mission_get(cla, schedule):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
+                    print("complete_point_2")
                     for get in range(20):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -119,6 +120,7 @@ def gardiun_mission_get(cla, schedule):
                             time.sleep(0.5)
                 else:
                     # 모두 수락하기
+                    print("모두 수락하기")
                     for i in range(10):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -163,7 +165,7 @@ def gardiun_mission_get(cla, schedule):
                         else:
 
                             # r 등급 취소하기
-                            print("r 등급 취소하기")
+                            print("r 등급 취소하기r 등급 취소하기r 등급 취소하기")
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -219,7 +221,7 @@ def gardiun_mission_get(cla, schedule):
                                         break
                                     time.sleep(1)
                             # 수락하기 버튼
-                            print("수락하기 버튼")
+                            print("수락하기 버튼수락하기 버튼수락하기 버튼")
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_soolock.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
