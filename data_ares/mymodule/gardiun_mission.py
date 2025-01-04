@@ -163,6 +163,7 @@ def gardiun_mission_get(cla, schedule):
                         else:
 
                             # r 등급 취소하기
+                            print("r 등급 취소하기")
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -199,7 +200,7 @@ def gardiun_mission_get(cla, schedule):
                                         break
                                     time.sleep(1)
 
-
+                                print("리프레시")
                                 for r in range(10):
                                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -218,6 +219,7 @@ def gardiun_mission_get(cla, schedule):
                                         break
                                     time.sleep(1)
                             # 수락하기 버튼
+                            print("수락하기 버튼")
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_soolock.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -421,6 +423,7 @@ def gardiun_mission_get(cla, schedule):
             imgs_ = imgs_set_(10, 10, 70, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 # r 등급 취소하기
+                print("r 취소리")
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

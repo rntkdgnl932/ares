@@ -64,6 +64,13 @@ def go_test():
     if imgs_ is not None and imgs_ != False:
         print("gardiun_select", imgs_)
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\give_up_confirm.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(480, 560, 600, 610, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("give_up_confirm", imgs_)
+
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
