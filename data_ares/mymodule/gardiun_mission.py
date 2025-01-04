@@ -86,9 +86,9 @@ def gardiun_mission_get(cla, schedule):
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\complete_point_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.8)
+                imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
-                    print("complete_point_2")
+                    print("complete_point_2", imgs_)
                     for get in range(20):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -98,7 +98,7 @@ def gardiun_mission_get(cla, schedule):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\complete_point_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.8)
+                            imgs_ = imgs_set_(175, 110, 200, 1040, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x - 100, imgs_.y + 15, cla)
                                 time.sleep(0.5)
