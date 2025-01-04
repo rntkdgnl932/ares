@@ -115,6 +115,7 @@ def gardiun_mission_get(cla, schedule):
 
                             time.sleep(0.5)
                 else:
+                    # 모두 수락하기
                     for i in range(10):
                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -158,7 +159,39 @@ def gardiun_mission_get(cla, schedule):
                             break
                         else:
 
+                            # r 등급 취소하기
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(5, 110, 60, 600, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(1)
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\give_up_btn.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(860, 990, 960, 1040, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(1)
 
+                                for r in range(10):
+                                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(5, 110, 60, 600, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\mission_refresh_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(430, 460, 510, 500, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(480, 590, cla)
+                                        else:
+                                            click_pos_2(90, 1015, cla)
+                                    else:
+                                        break
+                                    time.sleep(1)
                             # 수락하기 버튼
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_soolock.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -283,6 +316,8 @@ def gardiun_mission_get(cla, schedule):
                                         #         time.sleep(0.5)
 
                         time.sleep(1)
+
+                    # R 등급 빼기
             else:
                 map_in(cla)
                 time.sleep(0.5)
@@ -360,30 +395,65 @@ def gardiun_mission_get(cla, schedule):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 70, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
+                # r 등급 취소하기
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(150, 240, 200, 550, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.5)
-                    click_pos_2(815, 1015, cla)
-                    time.sleep(0.5)
-                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_soolock.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(800, 990, 900, 1040, cla, img, 0.8)
+                imgs_ = imgs_set_(5, 110, 60, 600, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(1)
-
-                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\anymore_no_soolyung_2.PNG"
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\give_up_btn.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
+                    imgs_ = imgs_set_(860, 990, 960, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("더이상 수령할수 없음...나가기")
-                        click_pos_2(940, 50, cla)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(1)
+
+                    for r in range(10):
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(5, 110, 60, 600, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\mission_refresh_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(430, 460, 510, 500, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(480, 590, cla)
+                            else:
+                                click_pos_2(90, 1015, cla)
+                        else:
+                            break
+                        time.sleep(1)
+
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_start_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(150, 240, 200, 550, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                        click_pos_2(815, 1015, cla)
+                        time.sleep(0.5)
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_soolock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 990, 900, 1040, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(1)
+
+                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\anymore_no_soolyung_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 80, 700, 140, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("더이상 수령할수 없음...나가기")
+                            click_pos_2(940, 50, cla)
 
             else:
                 break
