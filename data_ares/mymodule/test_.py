@@ -43,6 +43,27 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(440, 360, 520, 410, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("sell_title", imgs_)
+
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(545, 460, 670, 500, cla, img, 0.97)
+        if imgs_ is not None and imgs_ != False:
+            print("10", imgs_)
+
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\etc_item\\studyed.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(750, 130, 950, 1000, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("studyed...", imgs_)
+
     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
