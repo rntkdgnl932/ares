@@ -325,6 +325,7 @@ def auction_sell_folder_jangbi(cla):
                                         imgs_ = imgs_set_(340, 95, 505, 135, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             full_sell = True
+                                            sell_ = True
                                             break
                                     time.sleep(0.5)
                             time.sleep(0.5)
@@ -472,6 +473,7 @@ def auction_sell_folder_etc_item(cla):
                                         imgs_ = imgs_set_(340, 95, 505, 135, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             full_sell = True
+                                            sell_ = True
                                             break
                                     time.sleep(0.5)
                             time.sleep(0.5)
@@ -609,6 +611,7 @@ def auction_sell_folder_skillbook(cla):
                                         imgs_ = imgs_set_(340, 95, 505, 135, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             full_sell = True
+                                            sell_ = True
                                             break
                                     time.sleep(0.5)
                             time.sleep(0.5)
