@@ -207,7 +207,7 @@ def gardiun_mission_get(cla, schedule):
                                         click_pos_2(90, 1015, cla)
                                     time.sleep(1)
                             # 수락하기 버튼
-                            for i in range(3):
+                            for s in range(3):
                                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\s_grade.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
