@@ -28,6 +28,8 @@ def gardiun_mission_start(cla, schedule):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(1)
                 gardiun_mission_get(cla, schedule)
+            else:
+                gardiun_mission_get(cla, schedule)
         else:
             result_quest = juljun_quest_check(cla)
             if result_quest == False:
