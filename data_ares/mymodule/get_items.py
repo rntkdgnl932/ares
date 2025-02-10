@@ -98,7 +98,7 @@ def get_event(cla):
                     is_drag = read_event[z].split(":")
 
                     if is_drag[1] == "drag":
-                        for i in range(10):
+                        for i in range(3):
                             full_path = "c:\\my_games\\ares\\data_ares\\get_items\\drag_img\\last_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
