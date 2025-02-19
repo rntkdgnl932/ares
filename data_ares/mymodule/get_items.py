@@ -1914,304 +1914,378 @@ def get_sangjum_sohwan(cla):
 
                     sohwan_ready = True
 
-                    # 슈트
-                    print("슈트")
-                    for i in range(10):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(150, 240, 220, 280, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            break
 
-                        else:
+                    # # 무기데코 소환
+                    # print("무기데코")
+                    # for i in range(10):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(150, 240, 250, 280, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         break
+                    #
+                    #     else:
+                    #
+                    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #         img_array = np.fromfile(full_path, np.uint8)
+                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #         imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #         if imgs_ is not None and imgs_ != False:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(425, 630, 560, 690, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #         else:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #             else:
+                    #                 click_pos_2(200, 260, cla)
+                    #                 for k in range(10):
+                    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #                     img_array = np.fromfile(full_path, np.uint8)
+                    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                     imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #                     if imgs_ is not None and imgs_ != False:
+                    #                         break
+                    #                     else:
+                    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                    #                         img_array = np.fromfile(full_path, np.uint8)
+                    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                         imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                    #                         if imgs_ is not None and imgs_ != False:
+                    #                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                             break
+                    #                     time.sleep(0.1)
+                    #         time.sleep(0.5)
+                    #
+                    # # 슈트
+                    # print("슈트")
+                    # for i in range(10):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(290, 240, 400, 280, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         break
+                    #
+                    #     else:
+                    #
+                    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #         img_array = np.fromfile(full_path, np.uint8)
+                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #         imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #         if imgs_ is not None and imgs_ != False:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #         else:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #             else:
+                    #                 click_pos_2(340, 260, cla)
+                    #                 for k in range(10):
+                    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #                     img_array = np.fromfile(full_path, np.uint8)
+                    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                     imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #                     if imgs_ is not None and imgs_ != False:
+                    #                         break
+                    #                     else:
+                    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                    #                         img_array = np.fromfile(full_path, np.uint8)
+                    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                         imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                    #                         if imgs_ is not None and imgs_ != False:
+                    #                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                             break
+                    #                     time.sleep(0.1)
+                    #         time.sleep(0.5)
+                    #
+                    # # 오퍼레이터
+                    # print("오퍼레이터")
+                    # for i in range(10):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(440, 240, 550, 280, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         break
+                    #
+                    #     else:
+                    #
+                    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #         img_array = np.fromfile(full_path, np.uint8)
+                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #         imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #         if imgs_ is not None and imgs_ != False:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #         else:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #             else:
+                    #                 click_pos_2(495, 260, cla)
+                    #                 for k in range(10):
+                    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #                     img_array = np.fromfile(full_path, np.uint8)
+                    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                     imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #                     if imgs_ is not None and imgs_ != False:
+                    #                         break
+                    #                     else:
+                    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                    #                         img_array = np.fromfile(full_path, np.uint8)
+                    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                         imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                    #                         if imgs_ is not None and imgs_ != False:
+                    #                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                             break
+                    #                     time.sleep(0.1)
+                    #         time.sleep(0.5)
+                    #
+                    # # 탈것 소환
+                    # print("탈것")
+                    # for i in range(10):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(600, 240, 700, 280, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         break
+                    #
+                    #     else:
+                    #
+                    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #         img_array = np.fromfile(full_path, np.uint8)
+                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #         imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #         if imgs_ is not None and imgs_ != False:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #         else:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #             else:
+                    #                 click_pos_2(650, 260, cla)
+                    #                 for k in range(10):
+                    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #                     img_array = np.fromfile(full_path, np.uint8)
+                    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                     imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #                     if imgs_ is not None and imgs_ != False:
+                    #                         break
+                    #                     else:
+                    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                    #                         img_array = np.fromfile(full_path, np.uint8)
+                    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                         imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                    #                         if imgs_ is not None and imgs_ != False:
+                    #                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                             break
+                    #                     time.sleep(0.1)
+                    #         time.sleep(0.5)
+                    # # 데코 소환
+                    # print("데코")
+                    # for i in range(10):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(750, 240, 850, 280, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         break
+                    #
+                    #     else:
+                    #
+                    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #         img_array = np.fromfile(full_path, np.uint8)
+                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #         imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #         if imgs_ is not None and imgs_ != False:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #         else:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #             else:
+                    #                 click_pos_2(800, 260, cla)
+                    #                 for k in range(10):
+                    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #                     img_array = np.fromfile(full_path, np.uint8)
+                    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                     imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #                     if imgs_ is not None and imgs_ != False:
+                    #                         break
+                    #                     else:
+                    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                    #                         img_array = np.fromfile(full_path, np.uint8)
+                    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                         imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                    #                         if imgs_ is not None and imgs_ != False:
+                    #                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                             break
+                    #                     time.sleep(0.1)
+                    #         time.sleep(0.5)
+                    #
+                    # # 몬스터코어 소환
+                    # print("몬스터코어")
+                    # for i in range(10):
+                    #     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(910, 240, 960, 280, cla, img, 0.7)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         break
+                    #
+                    #     else:
+                    #
+                    #         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #         img_array = np.fromfile(full_path, np.uint8)
+                    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #         imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #         if imgs_ is not None and imgs_ != False:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(425, 630, 560, 690, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #         else:
+                    #             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.5)
+                    #             else:
+                    #                 click_pos_2(920, 260, cla)
+                    #                 for k in range(10):
+                    #                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                    #                     img_array = np.fromfile(full_path, np.uint8)
+                    #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                     imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                    #                     if imgs_ is not None and imgs_ != False:
+                    #                         break
+                    #                     else:
+                    #                         full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                    #                         img_array = np.fromfile(full_path, np.uint8)
+                    #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                         imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                    #                         if imgs_ is not None and imgs_ != False:
+                    #                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                             break
+                    #                     time.sleep(0.1)
+                    #         time.sleep(0.5)
 
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
+                    sowhan_start(cla, "moogi", "1")
+                    sowhan_start(cla, "sute", "1")
+                    sowhan_start(cla, "operater", "1")
+                    sowhan_start(cla, "talgut", "1")
+                    sowhan_start(cla, "deco", "1")
+                    sowhan_start(cla, "monster", "1")
 
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                                else:
-                                    click_pos_2(200, 260, cla)
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            break
-                                        else:
-                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                break
-                                        time.sleep(0.1)
-                            time.sleep(0.5)
-
-                    # 오퍼레이터
-                    print("오퍼레이터")
-                    for i in range(10):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(290, 240, 400, 280, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-
-                        else:
-
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                                else:
-                                    click_pos_2(350, 260, cla)
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            break
-                                        else:
-                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                break
-                                        time.sleep(0.1)
-                            time.sleep(0.5)
-
-                    # 탈것 소환
-                    print("탈것")
-                    for i in range(10):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(430, 240, 540, 280, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-
-                        else:
-
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                                else:
-                                    click_pos_2(500, 260, cla)
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            break
-                                        else:
-                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                break
-                                        time.sleep(0.1)
-                            time.sleep(0.5)
-                    # 데코 소환
-                    print("데코")
-                    for i in range(10):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(600, 240, 680, 280, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-
-                        else:
-
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(500, 630, 560, 690, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                                else:
-                                    click_pos_2(650, 260, cla)
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            break
-                                        else:
-                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                break
-                                        time.sleep(0.1)
-                            time.sleep(0.5)
-
-                    # 몬스터코어 소환
-                    print("몬스터코어")
-                    for i in range(10):
-                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(740, 240, 840, 280, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-
-                        else:
-
-                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(425, 630, 560, 690, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                            else:
-                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.5)
-                                else:
-                                    click_pos_2(790, 260, cla)
-                                    for k in range(10):
-                                        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            break
-                                        else:
-                                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                break
-                                        time.sleep(0.1)
-                            time.sleep(0.5)
+                    sowhan_start(cla, "moogi", "2")
+                    sowhan_start(cla, "sute", "2")
+                    sowhan_start(cla, "operater", "2")
+                    sowhan_start(cla, "talgut", "2")
+                    sowhan_start(cla, "deco", "2")
 
 
                 else:
@@ -2270,6 +2344,127 @@ def get_sangjum_sohwan(cla):
 
 
 
+    except Exception as e:
+        print(e)
+        return 0
+
+
+def sowhan_start(cla, data, is_num):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_ares import menu_open
+    try:
+
+        #####
+        # sowhan_start(cla, "moogi", "1")
+        # sowhan_start(cla, "sute", "1")
+        # sowhan_start(cla, "operater", "1")
+        # sowhan_start(cla, "talgut", "1")
+        # sowhan_start(cla, "deco", "1")
+        # sowhan_start(cla, "monster", "1")
+
+        if data == "moogi":
+            print("무기데코")
+            reg_x_1 = 150
+            reg_x_2 = 250
+            click_x = 190
+        elif data == "sute":
+            print("슈트")
+            reg_x_1 = 290
+            reg_x_2 = 400
+            click_x = 340
+        elif data == "operater":
+            print("오퍼레이터")
+            reg_x_1 = 440
+            reg_x_2 = 550
+            click_x = 500
+        elif data == "talgut":
+            print("탈것")
+            reg_x_1 = 600
+            reg_x_2 = 700
+            click_x = 640
+        elif data == "deco":
+            print("데코")
+            reg_x_1 = 750
+            reg_x_2 = 850
+            click_x = 800
+        elif data == "monster":
+            print("몬스터코어")
+            reg_x_1 = 910
+            reg_x_2 = 960
+            click_x = 920
+
+        if is_num == "1":
+            print("윗줄")
+            reg_y_1 = 240
+            reg_y_2 = 280
+            click_y = 260
+        elif is_num == "2":
+            print("아랫줄")
+            reg_y_1 = 540
+            reg_y_2 = 600
+            click_y = 570
+
+
+        # 소환
+        for i in range(10):
+            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\buy_complete.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(reg_x_1, reg_y_1, reg_x_2, reg_y_2, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                break
+
+            else:
+
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\max.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(470, 540, 530, 590, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\gold_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(425, 630, 560, 690, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                else:
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\exit.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(370, 970, 545, 1035, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                    else:
+                        click_pos_2(click_x, click_y, cla)
+                        for k in range(10):
+                            full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\sohwan_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(470, 390, 600, 420, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\get_items\\sangjum_sohwan\\soolyung.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(430, 390, 520, 450, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    break
+                            time.sleep(0.1)
+                time.sleep(0.5)
     except Exception as e:
         print(e)
         return 0
