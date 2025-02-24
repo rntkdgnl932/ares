@@ -130,7 +130,8 @@ def soojib(cla):
                                     ispoint = True
 
                             if ispoint == True:
-                                click_pos_2(905, 110, cla)
+                                # click_pos_2(905, 110, cla)
+                                click_pos_2(875, 210, cla)
                             else:
                                 collection_ = True
                                 break
@@ -535,6 +536,7 @@ def boonhae_ready(cla):
                 # 슈트룸
                 click_pos_2(905, 50, cla)
 
+
                 for i in range(10):
                     full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\suit_room_title.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -590,8 +592,6 @@ def boonhae_ready(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
-                        mouse_move_cpp(420, 675, cla)
-                        time.sleep(0.2)
                         for i in range(10):
                             full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\invenroty_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -606,8 +606,6 @@ def boonhae_ready(cla):
                                 imgs_ = imgs_set_(10, 10, 120, 100, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.2)
-                                    mouse_move_cpp(420, 675, cla)
                                     time.sleep(0.2)
                             time.sleep(0.5)
 
