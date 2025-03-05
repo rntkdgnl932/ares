@@ -201,6 +201,22 @@ def clean_screen(cla):
 
                 print("클린스크린 순환", i + 1)
 
+                # 유효기간 만료
+                full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\clean_screen\\expiration_date_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 380, 550, 450, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    print("expiration_date_title", imgs_)
+
+                    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\confirm\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 560, 610, 700, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("confirm_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
                 # 절전모드일 경우 풀기
                 full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\juljun.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

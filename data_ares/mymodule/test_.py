@@ -43,129 +43,20 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\sell_title.PNG"
+    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\clean_screen\\expiration_date_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(440, 360, 520, 410, cla, img, 0.8)
+    imgs_ = imgs_set_(400, 380, 550, 450, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("sell_title", imgs_)
+        print("expiration_date_title", imgs_)
 
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\10.PNG"
+        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\action\\confirm\\confirm_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(545, 460, 670, 500, cla, img, 0.97)
+        imgs_ = imgs_set_(400, 560, 610, 700, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            print("10", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\auction\\etc_item\\studyed.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(750, 130, 950, 1000, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("studyed...", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\r_grade.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(5, 110, 60, 1040, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("r_grade", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\title\\gardiun_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(10, 10, 70, 100, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("gardiun_title", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\gardiun_select.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(735, 955, 815, 1025, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("gardiun_select", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\gardiun_mission\\give_up_confirm.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(480, 560, 600, 610, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("give_up_confirm", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("event_spot_1")
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\event_spot_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(10, 50, 100, 90, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("event_spot_2")
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\18_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(70, 670, 300, 770, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("18_1")
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(430, 450, 520, 520, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("arlim_title", imgs_)
-
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\download.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 500, 620, 600, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("download", imgs_)
-            click_pos_2(480, 590, cla)
-
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\downloading.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 1000, 100, 1030, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("downloading", imgs_)
-
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\resource_loading.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(370, 880, 540, 930, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("resource_loading", imgs_)
-
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\18\\screen_touch.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(370, 880, 540, 930, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("screen_touch", imgs_)
-
-        full_path = "c:\\my_games\\ares\\data_ares\\imgs\\dungeon\\dojun\\event\\arlim_confirm.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(470, 560, 620, 620, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("arlim_confirm", imgs_)
-
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_on.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("auto_on", imgs_)
-    full_path = "c:\\my_games\\ares\\data_ares\\imgs\\check\\auto_off.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(530, 980, 615, 1030, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("auto_off", imgs_)
+            print("confirm_1", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
 
