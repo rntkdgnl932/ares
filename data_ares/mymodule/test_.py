@@ -58,6 +58,8 @@ def go_test():
             print("confirm_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+    _stop_please(cla)
+
 
 
 
