@@ -303,7 +303,7 @@ def go_spot_in(cla, where):
                     elif where_split[1] == "galatea":
                         print("galatea")
                         # 갈라테아 위치 클릭하기
-                        click_pos_2(800, 295, cla)
+                        click_pos_2(720, 280, cla)
                         spot_pic = "c:\\my_games\\ares\\data_ares\\imgs\\jadong\\ocooloos_map_title.PNG"
 
                     for i in range(20):
