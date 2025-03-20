@@ -201,12 +201,11 @@ class MyApp(QDialog):
         # elif last_monitor_number == 3:
         #     x_reg = 960 * 3
 
-        self.setGeometry(965 + 960 + 960, 200, 900, 700)
 
-        # if line_[1] == "super_coob":
-        #     self.setGeometry(10, 200, 900, 700)
-        # else:
-        #     self.setGeometry(965 + 960 + 960, 200, 900, 700)
+        if line_[1] == "super_coob":
+            self.setGeometry(965 + 5, 200, 900, 700)
+        else:
+            self.setGeometry(5, 200, 900, 700)
         self.show()
     def my_title(self):
         self.setWindowTitle("아레스(ver " + version + ")")
